@@ -4,7 +4,7 @@ Donate link: http://premiumwp.hu/
 Tags: +1, Facebook, facebook like, facebook like box, floating sharebar, google +1 button, google plus one, social share, twitter button, twitter facebook share, twitter share, admin, button, google, google plus, Like, plugin, plus 1, plus one, Post, posts, Share, sharing, sociable, social, tweet, twitter, widget
 Requires at least: 3.1
 Tested up to: 3.3
-Stable tag: 20120420
+Stable tag: 0.4
 
 Közösségi oldalak integrációja könnyedén magyar nyelvű WordPress oldalakhoz.
 
