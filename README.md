@@ -3,7 +3,7 @@ premiumwp
 
 Prémium WordPress Plugin
 
-~Current Version:0.1~
+~Current Version:0.2~
 
 Changelog
 ===========

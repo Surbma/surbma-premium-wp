@@ -4,7 +4,7 @@
 Plugin Name: Prémium WordPress
 Plugin URI: http://premiumwp.hu/wordpress-bovitmenyek/
 Description: Prémium WordPress bővítmények
-Version: 120614
+Version: 0.2
 Author: Surbma
 Author URI: http://surbma.hu/
 License: GPL2
