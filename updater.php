@@ -49,7 +49,7 @@ class WPGitHubUpdater {
 			'proper_folder_name' => dirname( plugin_basename(__FILE__) ),
 			'api_url' => 'https://api.github.com/repos/Surbma/premiumwp',
 			'raw_url' => 'https://raw.github.com/Surbma/premiumwp/master',
-			'github_url' => 'https://github.com/Surbma/premiumwp',
+			'github_url' => 'https://github.com/Surbma/premiumwp.git',
 			'zip_url' => 'https://github.com/Surbma/premiumwp/zipball/master',
 			'sslverify' => true,
 			'requires' => $wp_version,

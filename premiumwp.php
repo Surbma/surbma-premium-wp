@@ -74,7 +74,7 @@ function pwp_github_plugin_updater_init() {
 			'proper_folder_name' => 'premiumwp',
 			'api_url' => 'https://api.github.com/repos/Surbma/premiumwp',
 			'raw_url' => 'https://raw.github.com/Surbma/premiumwp/master',
-			'github_url' => 'https://github.com/Surbma/premiumwp',
+			'github_url' => 'https://github.com/Surbma/premiumwp.git',
 			'zip_url' => 'https://github.com/Surbma/premiumwp/zipball/master',
 			'sslverify' => true,
 			'requires' => '3.0',
