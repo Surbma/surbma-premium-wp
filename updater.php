@@ -47,10 +47,10 @@ class WPGitHubUpdater {
 		$defaults = array(
 			'slug' => plugin_basename(__FILE__),
 			'proper_folder_name' => dirname( plugin_basename(__FILE__) ),
-			'api_url' => 'https://api.github.com/repos/jkudish/WordPress-GitHub-Plugin-Updater',
-			'raw_url' => 'https://raw.github.com/jkudish/WordPress-GitHub-Plugin-Updater/master',
-			'github_url' => 'https://github.com/jkudish/WordPress-GitHub-Plugin-Updater',
-			'zip_url' => 'https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/zipball/master',
+			'api_url' => 'https://api.github.com/repos/Surbma/premiumwp',
+			'raw_url' => 'https://raw.github.com/Surbma/premiumwp/master',
+			'github_url' => 'https://github.com/Surbma/premiumwp',
+			'zip_url' => 'https://github.com/Surbma/premiumwp/zipball/master',
 			'sslverify' => true,
 			'requires' => $wp_version,
 			'tested' => $wp_version

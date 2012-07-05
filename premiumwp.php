@@ -4,7 +4,7 @@
 Plugin Name: Prémium WordPress
 Plugin URI: http://premiumwp.hu/wordpress-bovitmenyek/
 Description: Prémium WordPress bővítmények
-Version: 0.4
+Version: 0.5
 Author: Surbma
 Author URI: http://surbma.hu/
 License: GPL2
@@ -74,7 +74,7 @@ function pwp_github_plugin_updater_init() {
 			'proper_folder_name' => 'premiumwp',
 			'api_url' => 'https://api.github.com/repos/Surbma/premiumwp',
 			'raw_url' => 'https://raw.github.com/Surbma/premiumwp/master',
-			'github_url' => 'https://github.com/Surbma/premiumwp.git',
+			'github_url' => 'https://github.com/Surbma/premiumwp',
 			'zip_url' => 'https://github.com/Surbma/premiumwp/zipball/master',
 			'sslverify' => true,
 			'requires' => '3.0',
