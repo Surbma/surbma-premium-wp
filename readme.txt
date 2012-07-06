@@ -4,7 +4,7 @@ Contributors: Surbma
 Donate link: http://premiumwp.hu/
 Tags: +1, Facebook, facebook like, facebook like box, floating sharebar, google +1 button, google plus one, social share, twitter button, twitter facebook share, twitter share, admin, button, google, google plus, Like, plugin, plus 1, plus one, Post, posts, Share, sharing, sociable, social, tweet, twitter, widget
 Requires at least: 3.0
-Tested up to: 3.4
+Tested up to: 3.4.1
 Stable tag: 120706
 
 ~Current Version:120706~
