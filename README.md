@@ -6,7 +6,7 @@ Prémium WordPress Plugin
 Changelog
 ===========
 
-### 1.0
+### 120706
 * Initial Public Release
 
 Credits

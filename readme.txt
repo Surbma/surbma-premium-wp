@@ -1,13 +1,13 @@
-=== PWP Social: Közösségi oldalak integrálása ===
+=== Prémium WordPress bővítmények ===
 
 Contributors: Surbma
 Donate link: http://premiumwp.hu/
 Tags: +1, Facebook, facebook like, facebook like box, floating sharebar, google +1 button, google plus one, social share, twitter button, twitter facebook share, twitter share, admin, button, google, google plus, Like, plugin, plus 1, plus one, Post, posts, Share, sharing, sociable, social, tweet, twitter, widget
-Requires at least: 3.1
-Tested up to: 3.3
-Stable tag: 0.5
+Requires at least: 3.0
+Tested up to: 3.4
+Stable tag: 120706
 
-~Current Version:0.5~
+~Current Version:120706~
 
 Közösségi oldalak integrációja könnyedén magyar nyelvű WordPress oldalakhoz.
 
@@ -25,9 +25,9 @@ For more info, check out the following articles:
 
 == Installation ==
 
-1. Upload the `wordress-seo` folder to the `/wp-content/plugins/` directory
-1. Activate the WordPress SEO plugin through the 'Plugins' menu in WordPress
-1. Configure the plugin by going to the `SEO` menu that appears in your admin menu
+1. Upload the `premiumwp` folder to the `/wp-content/plugins/` directory
+1. Activate the Prémium WordPress plugin through the 'Plugins' menu in WordPress
+1. Configure the plugin by going to the `Prémium WordPress` menu that appears in your admin menu
 
 == Frequently Asked Questions ==
 
