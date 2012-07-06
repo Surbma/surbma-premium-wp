@@ -36,3 +36,22 @@ function pwp_admin_print_styles() {
 }
 add_action( 'admin_print_styles', 'pwp_admin_print_styles' );
 
+function pwp_github_plugin_updater_init() {
+	include_once('updater.php');
+	define( 'WP_GITHUB_FORCE_UPDATE', true );
+    $config = array(
+    	'slug' => plugin_basename(__FILE__),
+    	'proper_folder_name' => 'premiumwp',
+    	'api_url' => 'https://api.github.com/repos/Surbma/premiumwp',
+    	'raw_url' => 'https://raw.github.com/Surbma/premiumwp/master',
+    	'github_url' => 'https://github.com/Surbma/premiumwp.git',
+    	'zip_url' => 'https://github.com/Surbma/premiumwp/zipball/master',
+    	'sslverify' => true,
+    	'requires' => '3.0',
+    	'tested' => '3.4',
+    	'readme' => 'readme.txt'
+    );
+	new WPGitHubUpdater( $config );
+}
+add_action( 'init', 'pwp_github_plugin_updater_init' );
+
