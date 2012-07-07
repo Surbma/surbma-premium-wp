@@ -161,3 +161,15 @@ function pwp_login_form() {
 }
 add_shortcode( 'belepes', 'pwp_login_form' );
 
+function pwp_pricing_box( $atts, $content = null ) {
+	extract( shortcode_atts( array(
+		"id" => '',
+		"class" => '',
+		"cim" => '',
+		"ar" => '',
+		"leiras" => ''
+	), $atts ) );
+	return '<div id="'.$id.'" class="pwp-pricing-box '.$class.'"><h3>'.$title.'</h3><div class="pwp-price">'.$price.'</div><div class="pwp-description">'.$fee.'</div>'.do_shortcode( $content ).'</div>';
+}
+add_shortcode('doboz', 'pwp_pricing_box');
+
