@@ -112,5 +112,5 @@ function pwp_load_scripts() {
 	  wp_enqueue_style( 'bootstrap-styles', PWP_CSS_URL . '/bootstrap.min.css', false, '2.0.3' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'pwp_load_scripts' );
+/* add_action( 'wp_enqueue_scripts', 'pwp_load_scripts' ); */
 
