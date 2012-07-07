@@ -169,7 +169,7 @@ function pwp_pricing_box( $atts, $content = null ) {
 		"ar" => '',
 		"leiras" => ''
 	), $atts ) );
-	return '<div id="'.$id.'" class="pwp-pricing-box '.$class.'"><h3>'.$cim.'</h3><div class="pwp-price">'.$ar.'</div><div class="pwp-description">'.$leiras.'</div>'.do_shortcode( $content ).'</div>';
+	return '<div id="'.$id.'" class="pwp-pricing-box '.$class.'"><h3 class="pwp-pricing-box-title">'.$cim.'</h3><div class="pwp-pricing-box-price">'.$ar.'</div><div class="pwp-pricing-box-description">'.$leiras.'</div>'.do_shortcode( $content ).'</div>';
 }
 add_shortcode('doboz', 'pwp_pricing_box');
 
