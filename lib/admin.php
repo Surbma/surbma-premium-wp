@@ -53,5 +53,5 @@ function pwp_github_plugin_updater_init() {
     );
 	new WPGitHubUpdater( $config );
 }
-add_action( 'init', 'pwp_github_plugin_updater_init' );
+/* add_action( 'init', 'pwp_github_plugin_updater_init' ); */
 
