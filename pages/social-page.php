@@ -1,9 +1,9 @@
 <?php
 
-function pwp_social_extra_fields_init() {
+function pwp_social_fields_init() {
 	register_setting( 'pwp_social_options', 'pwp_social_fields', 'pwp_social_fields_validate' );
 }
-add_action( 'admin_init', 'pwp_social_extra_fields_init' );
+add_action( 'admin_init', 'pwp_social_fields_init' );
 
 /**
  * Create arrays for our select and radio options
