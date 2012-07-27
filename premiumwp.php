@@ -23,32 +23,17 @@ if ( get_option( PWP_VERSION_KEY ) != $pwp_version ) {
 	update_option( PWP_VERSION_KEY, $pwp_version );
 }
 
-if ( !defined( 'WP_CONTENT_URL' ) )
-	define( 'WP_CONTENT_URL', get_option( 'siteurl' ) . '/wp-content' );
-if ( !defined( 'WP_CONTENT_DIR' ) )
-	define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' );
-if ( !defined( 'WP_PLUGIN_URL' ) )
-	define( 'WP_PLUGIN_URL', plugins_url() );
-if ( !defined( 'WP_PLUGIN_DIR' ) )
-	define( 'WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins' );
-
 define( 'PWP_PLUGIN_NAME', 'premiumwp' );
-define( 'PWP_PLUGIN_DIR', WP_PLUGIN_DIR . '/' . PWP_PLUGIN_NAME );
-define( 'PWP_PLUGIN_URL', WP_PLUGIN_URL . '/' . PWP_PLUGIN_NAME );
+define( 'PWP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'PWP_PLUGIN_URL', plugins_url( '', __FILE__ ) );
 define( 'PWP_LIB_DIR', PWP_PLUGIN_DIR . '/lib' );
 define( 'PWP_PAGES_DIR', PWP_PLUGIN_DIR . '/pages' );
-define( 'PWP_CSS_URL', PWP_PLUGIN_URL . '/css' );
-define( 'PWP_CSS_DIR', PWP_PLUGIN_DIR . '/css' );
 define( 'PWP_JS_URL', PWP_PLUGIN_URL . '/js' );
 define( 'PWP_JS_DIR', PWP_PLUGIN_DIR . '/js' );
-define( 'PWP_IMAGES_URL', PWP_PLUGIN_URL . '/images' );
-define( 'PWP_ICON_SMALL', PWP_IMAGES_URL . '/star16.png' );
-define( 'PWP_ICON', PWP_IMAGES_URL . '/star32.png' );
-define( 'PWP_LOGO', PWP_IMAGES_URL . '/pwp-logo.png' );
-define( 'PWP_LOGO_ADMIN', PWP_IMAGES_URL . '/pwp-logo.png' );
-define( 'PWP_SOCIAL_ICON', PWP_IMAGES_URL . '/social32.png' );
-define( 'PWP_EXTRA_FIELDS_ICON', PWP_IMAGES_URL . '/extrafields32.png' );
-define( 'PWP_SHORTCODES_ICON', PWP_IMAGES_URL . '/shortcodes32.png' );
+define( 'PWP_ICON_SMALL', PWP_PLUGIN_URL . '/images/star16.png' );
+define( 'PWP_ICON', PWP_PLUGIN_URL . '/images/star32.png' );
+define( 'PWP_LOGO', PWP_PLUGIN_URL . '/images/pwp-logo.png' );
+define( 'PWP_LOGO_ADMIN', PWP_PLUGIN_URL . '/images/pwp-logo.png' );
 
 /* Include files */
 if ( is_admin() ) {

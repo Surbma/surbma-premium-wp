@@ -20,9 +20,6 @@ $sharebuttonsplace_options = array(
 );
 
 function pwp_social_page() {
-	if ( !current_user_can( 'manage_options' ) ) {
-		wp_die( PWP_NO_PERMISSION_TEXT );
-	}
 
 	global $sharebuttonsplace_options;
 
@@ -32,7 +29,7 @@ function pwp_social_page() {
 	?>
 	<div class="wrap">
 
-		<img class="icon" alt="icon" src="<?php echo PWP_SOCIAL_ICON; ?>" />
+		<img class="icon" alt="icon" src="<?php echo PWP_PLUGIN_URL . '/images/social32.png'; ?>" />
 		<h2>Prémium WordPress bővítmény: Közösségi oldalak integrálása</h2>
 
 		<p>Az oldalon bármelyik "Módosítások mentése" gombra lehet kattintani, az az összes módosítást menti.</p>

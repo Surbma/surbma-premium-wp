@@ -108,8 +108,8 @@ function pwp_load_scripts() {
 	/* Twitter Bootstrap */
 	$options = get_option( 'pwp_twitter_bootstrap' );
 	if ( $options['activate_bootstrap'] == '1' ) {
-		wp_enqueue_script( 'bootstrap-scripts', PWP_JS_URL . '/bootstrap.min.js', array('jquery'), '2.0.3', true );
-	  wp_enqueue_style( 'bootstrap-styles', PWP_CSS_URL . '/bootstrap.min.css', false, '2.0.3' );
+		wp_enqueue_script( 'bootstrap-scripts', PWP_PLUGIN_URL . '/js/bootstrap.min.js', array( 'jquery' ), '2.0.3', true );
+	  wp_enqueue_style( 'bootstrap-styles', PWP_PLUGIN_URL . '/css/bootstrap.min.css', false, '2.0.3' );
 	}
 }
 /* add_action( 'wp_enqueue_scripts', 'pwp_load_scripts' ); */

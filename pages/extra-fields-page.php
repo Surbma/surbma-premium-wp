@@ -6,9 +6,6 @@ function pwp_extra_fields_init() {
 add_action( 'admin_init', 'pwp_extra_fields_init', 50 );
 
 function pwp_extra_fields_page() {
-	if (!current_user_can( 'manage_options' )) {
-		wp_die( PWP_NO_PERMISSION_TEXT );
-	}
 
 	global $sharebuttonsplace_options;
 	
@@ -18,7 +15,7 @@ function pwp_extra_fields_page() {
 	?>
 	<div class="wrap">
 
-		<img class="icon" alt="icon" src="<?php echo PWP_EXTRA_FIELDS_ICON; ?>" />
+		<img class="icon" alt="icon" src="<?php echo PWP_PLUGIN_URL . '/images/extrafields32.png'; ?>" />
   	<h2>Prémium WordPress bővítmény: Extra tartalmak megjelenítése</h2>
   
 		<p>Ezen az oldalon megadhatók olyan adatok, amelyek felhasználhatók a weboldal könnyebb kezeléséhez.</p>

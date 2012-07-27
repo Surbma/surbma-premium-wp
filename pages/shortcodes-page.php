@@ -1,13 +1,9 @@
 <?php
 
-function pwp_shortcodes_page() {
-	if ( !current_user_can( 'publish_posts' ) )
-		wp_die( PWP_NO_PERMISSION_TEXT );
-
-	?>
+function pwp_shortcodes_page() { ?>
 	<div class="wrap">
 	
-		<img class="icon" alt="icon" src="<?php echo PWP_SHORTCODES_ICON; ?>" />
+		<img class="icon" alt="icon" src="<?php echo PWP_PLUGIN_URL . '/images/shortcodes32.png'; ?>" />
 	  <h2>Prémium WordPress bővítmény: Extra rövidkódok</h2>
 	  
 	  <h3>Rövidkódok használata</h3>
