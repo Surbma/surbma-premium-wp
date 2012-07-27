@@ -1,10 +1,10 @@
 <?php
 
-include_once( PWP_PAGES_DIR . '/start-page.php' );
-include_once( PWP_PAGES_DIR . '/social-page.php');
-include_once( PWP_PAGES_DIR . '/extra-fields-page.php' );
-/* include_once( PWP_PAGES_DIR . '/twitter-bootstrap-page.php' ); */
-include_once( PWP_PAGES_DIR . '/shortcodes-page.php' );
+include_once( PWP_PLUGIN_DIR . '/pages/start-page.php' );
+include_once( PWP_PLUGIN_DIR . '/pages/social-page.php');
+include_once( PWP_PLUGIN_DIR . '/pages/extra-fields-page.php' );
+/* include_once( PWP_PLUGIN_DIR . '/pages/twitter-bootstrap-page.php' ); */
+include_once( PWP_PLUGIN_DIR . '/pages/shortcodes-page.php' );
 
 /* Admin options menu */
 function pwp_add_menus() {
@@ -27,8 +27,8 @@ add_action( 'admin_menu', 'pwp_add_menus', 99 );
 /* Custom style for admin */
 function pwp_admin_print_styles() {
 	$handle = 'pwp-admin';
-  $StyleUrl = PWP_CSS_URL . '/admin.css';
-  $StyleDir = PWP_CSS_DIR . '/admin.css';
+  $StyleUrl = PWP_PLUGIN_URL . '/css/admin.css';
+  $StyleDir = PWP_PLUGIN_DIR . '/css/admin.css';
   if ( file_exists( $StyleDir ) ) {
   	wp_register_style( $handle, $StyleUrl );
   	wp_enqueue_style( $handle );
@@ -40,7 +40,7 @@ function pwp_github_plugin_updater_init() {
 	include_once('updater.php');
 	define( 'WP_GITHUB_FORCE_UPDATE', true );
     $config = array(
-    	'slug' => plugin_basename(__FILE__),
+    	'slug' => plugin_basename( __FILE__ ),
     	'proper_folder_name' => 'premiumwp',
     	'api_url' => 'https://api.github.com/repos/Surbma/premiumwp',
     	'raw_url' => 'https://raw.github.com/Surbma/premiumwp/master',
