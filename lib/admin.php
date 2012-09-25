@@ -25,16 +25,18 @@ function pwp_add_menus() {
 add_action( 'admin_menu', 'pwp_add_menus', 99 );
 
 /* Custom style for admin */
-function pwp_admin_print_styles() {
-	$handle = 'pwp-admin';
-  $StyleUrl = PWP_PLUGIN_URL . '/css/admin.css';
-  $StyleDir = PWP_PLUGIN_DIR . '/css/admin.css';
-  if ( file_exists( $StyleDir ) ) {
-  	wp_register_style( $handle, $StyleUrl );
-  	wp_enqueue_style( $handle );
-	}
+function pwp_add_admin_styles() {
+?>
+	<style type="text/css">
+		/* Options page */
+		.clearline {border-bottom: 2px solid #fff;border-top: 1px solid #e6e6e6;clear: both;margin: 10px 0;}
+		.section-block {background: #f6f6f6;padding: 20px;border: 1px solid #e6e6e6;-webkit-border-radius: 6px;-moz-border-radius: 6px;border-radius: 6px;}
+		.section-block h3 {margin: 0 0 20px;}
+		.icon {float: left;margin: 7px 7px 0 0;}
+	</style>
+<?php
 }
-add_action( 'admin_print_styles', 'pwp_admin_print_styles' );
+add_action( 'admin_head', 'pwp_add_admin_styles' );
 
 function pwp_github_plugin_updater_init() {
 	include_once('updater.php');
