@@ -78,10 +78,24 @@ function pwp_extra_fields_page() {
 					</td>
 				</tr>
 	
+				<tr valign="top"><th scope="row"><label class="description" for="pwp_extra_fields[mobilephone]">Mobiltelefon</label></th>
+					<td>
+						<input id="pwp_extra_fields[mobilephone]" class="regular-text" type="text" name="pwp_extra_fields[mobilephone]" value="<?php esc_attr_e( $options['mobilephone'] ); ?>" />
+						<span class="description">Rövidkód:</span> <code>[mobiltelefon]</code>
+					</td>
+				</tr>
+	
 				<tr valign="top"><th scope="row"><label class="description" for="pwp_extra_fields[phone]">Telefonszám</label></th>
 					<td>
 						<input id="pwp_extra_fields[phone]" class="regular-text" type="text" name="pwp_extra_fields[phone]" value="<?php esc_attr_e( $options['phone'] ); ?>" />
 						<span class="description">Rövidkód:</span> <code>[telefon]</code>
+					</td>
+				</tr>
+	
+				<tr valign="top"><th scope="row"><label class="description" for="pwp_extra_fields[fax]">Fax</label></th>
+					<td>
+						<input id="pwp_extra_fields[fax]" class="regular-text" type="text" name="pwp_extra_fields[fax]" value="<?php esc_attr_e( $options['fax'] ); ?>" />
+						<span class="description">Rövidkód:</span> <code>[fax]</code>
 					</td>
 				</tr>
 	
@@ -144,7 +158,9 @@ function pwp_extra_fields_validate( $input ) {
 	$input['vat'] = wp_filter_nohtml_kses( $input['vat'] );
 	$input['companyid'] = wp_filter_nohtml_kses( $input['companyid'] );
 	$input['bankid'] = wp_filter_nohtml_kses( $input['bankid'] );
+	$input['mobilephone'] = wp_filter_nohtml_kses( $input['mobilephone'] );
 	$input['phone'] = wp_filter_nohtml_kses( $input['phone'] );
+	$input['fax'] = wp_filter_nohtml_kses( $input['fax'] );
 	$input['email'] = wp_filter_nohtml_kses( $input['email'] );
 	$input['skype'] = wp_filter_nohtml_kses( $input['skype'] );
 
