@@ -49,7 +49,7 @@ function pwp_shortcodes_page() { ?>
 		<div class="clearline"></div>
 		
 	  	<div class="section-block">
-	  		<h2>Rövidkód: [nev], [ceg], [cim], [adoszam], [cegjegyzekszam], [bankszamlaszam], [telefon], [email], [skype], [ceginfo]</h2>
+	  		<h2>Rövidkód: [nev], [ceg], [cim], [adoszam], [cegjegyzekszam], [bankszamlaszam], [mobiltelefon], [telefon], [fax], [email], [skype], [ceginfo]</h2>
 	  		<p>Ezekkel a rövidkódokkal tudjuk megjeleníteni az alapadatoknál megadott értékeket.</p>
 	  		<h4>Használata:</h4>
 	  		<ul>
@@ -59,7 +59,9 @@ function pwp_shortcodes_page() { ?>
 	  			<li><code>[adoszam]</code> - megjeleníti az adószámot</li>
 	  			<li><code>[cegjegyzekszam]</code> - megjeleníti a cégjegyzékszámot</li>
 	  			<li><code>[bankszamlaszam]</code> - megjeleníti a bankszámlaszámot</li>
+	  			<li><code>[mobiltelefon]</code> - megjeleníti a mobiltelefonszámot</li>
 	  			<li><code>[telefon]</code> - megjeleníti a telefonszámot</li>
+	  			<li><code>[fax]</code> - megjeleníti a faxszámot</li>
 	  			<li><code>[email]</code> - megjeleníti az email címet (a robotok számára titkosítottan jelenink meg a html kódban)</li>
 	  			<li><code>[skype]</code> - megjeleníti a skype címet</li>
 	  			<li><code>[ceginfo]</code> - megjeleníti a cég rövid leírását</li>
