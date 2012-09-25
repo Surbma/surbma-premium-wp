@@ -129,9 +129,17 @@ function pwp_email_function() {
 	$mailto = '[mailto]'.$email.'[/mailto]';
 	return do_shortcode( $mailto );
 	}
+function pwp_mobilephone_function() {
+	$options = get_option( 'pwp_extra_fields' );
+	return $options['mobilephone'];
+	}
 function pwp_phone_function() {
 	$options = get_option( 'pwp_extra_fields' );
 	return $options['phone'];
+	}
+function pwp_fax_function() {
+	$options = get_option( 'pwp_extra_fields' );
+	return $options['fax'];
 	}
 function pwp_skype_function() {
 	$options = get_option( 'pwp_extra_fields' );
@@ -149,14 +157,15 @@ add_shortcode( 'adoszam', 'pwp_vat_function' );
 add_shortcode( 'cegjegyzekszam', 'pwp_companyid_function' );
 add_shortcode( 'bankszamlaszam', 'pwp_bankid_function' );
 add_shortcode( 'email', 'pwp_email_function' );
+add_shortcode( 'mobiltelefon', 'pwp_mobilephone_function' );
 add_shortcode( 'telefon', 'pwp_phone_function' );
+add_shortcode( 'fax', 'pwp_fax_function' );
 add_shortcode( 'skype', 'pwp_skype_function' );
 add_shortcode( 'ceginfo', 'pwp_companyinfo_function' );
 
 function pwp_login_form() {
 	if ( is_user_logged_in() )
 		return '';
-
 	return wp_login_form( array( 'echo' => false ) );
 }
 add_shortcode( 'belepes', 'pwp_login_form' );
@@ -172,4 +181,11 @@ function pwp_pricing_box( $atts, $content = null ) {
 	return '<div id="'.$id.'" class="pwp-pricing-box '.$class.'"><h3 class="pwp-pricing-box-title">'.$cim.'</h3><div class="pwp-pricing-box-price">'.$ar.'</div><div class="pwp-pricing-box-description">'.$leiras.'</div>'.do_shortcode( $content ).'</div>';
 }
 add_shortcode('doboz', 'pwp_pricing_box');
+
+function surbma_nyomtatas_shortcode($atts) {
+	if ( function_exists( 'pf_show_link' ) )
+		return pf_show_link();
+	return 'A nyomtatás funkció használatához aktiváld a Print Friendly and PDF bővítményt!';
+}
+add_shortcode('nyomtatas','surbma_nyomtatas_shortcode');
 
