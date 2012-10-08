@@ -1,16 +1,16 @@
 <?php
 
 /*
-Plugin Name: Prémium WordPress
-Plugin URI: http://premiumwp.hu/wordpress-bovitmenyek/
+Plugin Name: Surbma - Prémium WordPress
+Plugin URI: http://surbma.hu/wordpress-bovitmenyek/
 Description: Prémium WordPress bővítmények
-Version: 120925
+Version: 121006
 Author: Surbma
 Author URI: http://surbma.hu/
 License: GPL2
 */
 
-$pwp_version = '120925';
+$pwp_version = '121006';
 define( 'PWP_VERSION_KEY', 'pwp_version' );
 define( 'PWP_VERSION_NUM', $pwp_version );
 
@@ -23,7 +23,6 @@ if ( get_option( PWP_VERSION_KEY ) != $pwp_version ) {
 	update_option( PWP_VERSION_KEY, $pwp_version );
 }
 
-define( 'PWP_PLUGIN_NAME', 'premiumwp' );
 define( 'PWP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'PWP_PLUGIN_URL', plugins_url( '', __FILE__ ) );
 define( 'PWP_ICON_SMALL', PWP_PLUGIN_URL . '/images/star16.png' );
