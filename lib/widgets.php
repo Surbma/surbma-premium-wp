@@ -119,7 +119,7 @@ class pwp_social_fb_like_box extends WP_Widget {
 
 		if ( !empty( $title ) ) { echo $before_title . $title . $after_title; };
 
-		echo '<div style="background:'.$fb_page_background_color.';width:'.$fb_page_width.'px;margin:1em 0;"><div class="fb-like-box" data-href="'.$fbpageurl.'" data-width="'.$fb_page_width.'" data-height="'.$fb_page_height.'" data-colorscheme="'.$fb_page_theme.'" data-show-faces="'.$fb_page_show_faces.'" data-border-color="'.$fb_page_border_color.'" data-stream="'.$fb_page_show_stream.'" data-header="'.$fb_page_show_header.'"></div></div>';
+		echo '<div style="background:'.$fb_page_background_color.';width:'.$fb_page_width.'px;height:'.$fb_page_height.'px;margin:1em 0;"><div class="fb-like-box" data-href="'.$fbpageurl.'" data-width="'.$fb_page_width.'" data-height="'.$fb_page_height.'" data-colorscheme="'.$fb_page_theme.'" data-show-faces="'.$fb_page_show_faces.'" data-border-color="'.$fb_page_border_color.'" data-stream="'.$fb_page_show_stream.'" data-header="'.$fb_page_show_header.'"></div></div>';
 
 		echo $after_widget;
 	}
