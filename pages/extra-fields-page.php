@@ -13,7 +13,7 @@ function pwp_extra_fields_page() {
 		$_REQUEST['settings-updated'] = false;
 	
 	?>
-	<div class="wrap">
+	<div class="pwp wrap">
 
 		<img class="icon" alt="icon" src="<?php echo PWP_PLUGIN_URL . '/images/extrafields32.png'; ?>" />
   	<h2>Prémium WordPress bővítmény: Extra tartalmak megjelenítése</h2>

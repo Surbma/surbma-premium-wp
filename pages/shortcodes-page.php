@@ -1,7 +1,7 @@
 <?php
 
 function pwp_shortcodes_page() { ?>
-	<div class="wrap">
+	<div class="pwp wrap">
 	
 		<img class="icon" alt="icon" src="<?php echo PWP_PLUGIN_URL . '/images/shortcodes32.png'; ?>" />
 	  <h2>Prémium WordPress bővítmény: Extra rövidkódok</h2>

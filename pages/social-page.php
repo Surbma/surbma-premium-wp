@@ -27,7 +27,7 @@ function pwp_social_page() {
 		$_REQUEST['settings-updated'] = false;
 
 	?>
-	<div class="wrap">
+	<div class="pwp wrap">
 
 		<img class="icon" alt="icon" src="<?php echo PWP_PLUGIN_URL . '/images/social32.png'; ?>" />
 		<h2>Prémium WordPress bővítmény: Közösségi oldalak integrálása</h2>

@@ -4,13 +4,13 @@
 Plugin Name: Surbma - Prémium WordPress
 Plugin URI: http://surbma.hu/wordpress-bovitmenyek/
 Description: Prémium WordPress bővítmények
-Version: 121006
+Version: 1.0.0
 Author: Surbma
 Author URI: http://surbma.hu/
 License: GPL2
 */
 
-$pwp_version = '121006';
+$pwp_version = '1.0.0';
 define( 'PWP_VERSION_KEY', 'pwp_version' );
 define( 'PWP_VERSION_NUM', $pwp_version );
 
@@ -25,10 +25,6 @@ if ( get_option( PWP_VERSION_KEY ) != $pwp_version ) {
 
 define( 'PWP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'PWP_PLUGIN_URL', plugins_url( '', __FILE__ ) );
-define( 'PWP_ICON_SMALL', PWP_PLUGIN_URL . '/images/star16.png' );
-define( 'PWP_ICON', PWP_PLUGIN_URL . '/images/star32.png' );
-define( 'PWP_LOGO', PWP_PLUGIN_URL . '/images/pwp-logo.png' );
-define( 'PWP_LOGO_ADMIN', PWP_PLUGIN_URL . '/images/pwp-logo.png' );
 
 /* Include files */
 if ( is_admin() ) {

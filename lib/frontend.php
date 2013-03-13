@@ -2,6 +2,7 @@
 
 /* Social Share Buttons for Posts */
 function pwp_social_add_share_buttons( $content ) {
+	global $post;
 	$options = get_option( 'pwp_social_fields' );
 
 	$url = urlencode( get_permalink( $post->ID ) );
@@ -64,12 +65,12 @@ function pwp_social_scripts_in_footer() {
 
 	/* Google+ badge script */
 	if ( $options['plusone_id'] != '' ) {
-		?><script type="text/javascript">window.___gcfg = {lang: 'hu'};(function(){var po = document.createElement("script");po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(po, s);})();</script><?php
+		?><script type="text/javascript">window.___gcfg = {lang: 'hu'};(function(){var po = document.createElement('script');po.type = 'text/javascript';po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po, s);})();</script><?php
 	}
 
 	/* Google +1 script */
 	if ( $options['plusoneposts'] == '1' ) {
-		?><script type="text/javascript">window.___gcfg = {lang: 'hu', parsetags: 'onload'};(function(){var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po, s);})();</script><?php
+		?><script type="text/javascript">window.___gcfg = {lang: 'hu', parsetags: 'onload'};(function(){var po = document.createElement('script');po.type = 'text/javascript';po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po, s);})();</script><?php
 	}
 
 	/* Twitter script */

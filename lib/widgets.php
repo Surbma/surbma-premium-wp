@@ -202,7 +202,7 @@ class pwp_social_plusone_badge extends WP_Widget {
 
 		if ( !empty( $title ) ) { echo $before_title . $title . $after_title; };
 
-		echo '<div style="margin:1em 0;"><div class="g-plus" data-href="https://plus.google.com/'.$plusone_id.'?rel=publisher" data-width="'.$plusone_badge_width.'" data-height="'.$plusone_badge_height.'" data-theme="'.$plusone_badge_theme.'"></div></div>';
+		echo '<div style="margin:1em 0;"><div class="g-plus" data-href="https://plus.google.com/'.$plusone_id.'" data-rel="publisher" data-width="'.$plusone_badge_width.'" data-height="'.$plusone_badge_height.'" data-theme="'.$plusone_badge_theme.'"></div></div>';
 
 		echo $after_widget;
 	}
