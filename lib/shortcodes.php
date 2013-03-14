@@ -87,17 +87,28 @@ add_shortcode( 'fbvideo', 'pwp_fbvideo' );
 
 function pwp_fblike_button( $atts ) {
 	extract( shortcode_atts( array(
-		"url" => urlencode( get_permalink( $post->ID ) ),
-		"send" => 'false',
-		"layout" => 'standard',
-		"width" => '450',
-		"show_faces" => 'false',
-		"colorscheme" => 'light'
+		"url" => urlencode( get_permalink( $post->ID ) )
 	), $atts ) );
-	return '<div class="fb-like" data-href="'.$url.'" data-send="'.$send.'" data-layout="'.$layout.'" data-width="'.$width.'" data-show-faces="'.$show_faces.'" data-colorscheme="'.$colorscheme.'"></div>';
+	return '<div style="float:left;margin:0 .5em .5em 0;"><div class="fb-like" data-href="'.$url.'" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div></div>';
 }
 add_shortcode( 'facebook-like-gomb', 'pwp_fblike_button' );
 add_shortcode( 'facebook-tetszik-gomb', 'pwp_fblike_button' );
+
+function pwp_plusone_button( $atts ) {
+	extract( shortcode_atts( array(
+		"url" => urlencode( get_permalink( $post->ID ) )
+	), $atts ) );
+	return '<div style="float:left;margin:0 .5em .5em 0;"><div class="g-plusone" data-size="medium" data-href="'.$url.'"></div></div>';
+}
+add_shortcode( 'google-pluszegy-gomb', 'pwp_plusone_button' );
+
+function pwp_linkedin_share_button( $atts ) {
+	extract( shortcode_atts( array(
+		"url" => urlencode( get_permalink( $post->ID ) )
+	), $atts ) );
+	return '<div style="float:left;margin:0 .5em .5em 0;"><script type="IN/Share" data-url="'.$url.'" data-counter="right"></script></div>';
+}
+add_shortcode( 'linkedin-megosztas-gomb', 'pwp_linkedin_share_button' );
 
 function pwp_name_function() {
 	$options = get_option( 'pwp_extra_fields' );

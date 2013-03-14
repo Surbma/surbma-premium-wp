@@ -121,6 +121,13 @@ function pwp_social_page() {
 					</td>
 				</tr>
 
+				<tr valign="top"><th scope="row">LinkedIn megosztás gomb</th>
+					<td>
+						<input id="pwp_social_fields[linkedinposts]" name="pwp_social_fields[linkedinposts]" type="checkbox" value="1" <?php checked( '1', $options['linkedinposts'] ); ?> />
+						<label class="description" for="pwp_social_fields[linkedinposts]">Jelenjen meg a LinkedIn megosztás gomb a bejegyzéseknél</label>
+					</td>
+				</tr>
+
 				<tr valign="top"><th scope="row"><label class="description" for="pwp_social_fields[sharebuttonsplace]">Megosztás gombok elhelyezkedése</label></th>
 					<td>
 						<select name="pwp_social_fields[sharebuttonsplace]">
@@ -164,17 +171,45 @@ function pwp_social_page() {
 						<h4>Paraméterek:</h4>
 						<ul>
 							<li><code>url</code> - A gomb linkje, amire "tetszik"-et nyom a látogató. Alapértelmezett érték: mindig az aktuális oldal url-je.</li>
-							<li><code>send</code> - Küldés gomb megjelenítése: true vagy false értéke lehet. Alapértelmezett érték: false</li>
-							<li><code>layout</code> - Gomb kinézete: standard, button_count vagy box_count értéke lehet. Alapértelmezett érték: standard</li>
-							<li><code>width</code> - A block szélessége: bármilyen szám lehet. Alapértelmezett érték: 450</li>
-							<li><code>show_faces</code> - Arcok megjelenítése a gomb mellett: true vagy false értéke lehet. Alapértelmezett érték: false</li>
-							<li><code>colorscheme</code> - Gomb színe: light vagy dark értéke lehet. Alapértelmezett érték: light</li>
 						</ul>
 						<h4>Használata:</h4>
 						<ul>
 							<li><code>[facebook-tetszik-gomb]</code> - Normál megjelenítés az alapértelmezett paraméterekkel</li>
-							<li><code>[facebook-tetszik-gomb url="http://www.sajatdomain.hu"]</code> - Mindig a saját domain url-jére nyomnak "tetszik"-et.</li>
-							<li><code>[facebook-tetszik-gomb url="http://www.sajatdomain.hu" send="true"]</code> - Mindig a saját domain url-jére nyomnak "tetszik"-et, plusz megjelenik a "küldés" gomb is.</li>
+							<li><code>[facebook-tetszik-gomb url="http://www.sajatdomain.hu"]</code> - Mindig a megadott domain url-jére nyomnak "tetszik"-et.</li>
+						</ul>
+					</td>
+				</tr>
+
+				<tr valign="top"><th scope="row">Google +1 gomb<br /><code>[google-pluszegy-gomb]</code></th>
+					<td>
+						<input id="pwp_social_fields[plusone]" name="pwp_social_fields[plusone]" type="checkbox" value="1" <?php checked( '1', $options['plusone'] ); ?> />
+						<label class="description" for="pwp_social_fields[plusone]">Igen, szeretném használni a Google +1 gombot a shortcode használatával</label>
+						<p>Google +1 gomb beillesztése az oldalra. A kód paraméterezhető.</p>
+						<h4>Paraméterek:</h4>
+						<ul>
+							<li><code>url</code> - A gomb linkje, amire plusz egyet nyom a látogató. Alapértelmezett érték: mindig az aktuális oldal url-je.</li>
+						</ul>
+						<h4>Használata:</h4>
+						<ul>
+							<li><code>[google-pluszegy-gomb]</code> - Normál megjelenítés az alapértelmezett paraméterekkel</li>
+							<li><code>[google-pluszegy-gomb url="http://www.sajatdomain.hu"]</code> - Mindig a megadott domain url-jére nyomnak plusz egyet.</li>
+						</ul>
+					</td>
+				</tr>
+
+				<tr valign="top"><th scope="row">LinkedIn megosztás gomb<br /><code>[linkedin-megosztas-gomb]</code></th>
+					<td>
+						<input id="pwp_social_fields[linkedin]" name="pwp_social_fields[linkedin]" type="checkbox" value="1" <?php checked( '1', $options['linkedin'] ); ?> />
+						<label class="description" for="pwp_social_fields[linkedin]">Igen, szeretném használni a LinkedIn megosztás gombot a shortcode használatával</label>
+						<p>LinkedIn megosztás gomb beillesztése az oldalra. A kód paraméterezhető.</p>
+						<h4>Paraméterek:</h4>
+						<ul>
+							<li><code>url</code> - A gomb linkje, amit megoszt a látogató. Alapértelmezett érték: mindig az aktuális oldal url-je.</li>
+						</ul>
+						<h4>Használata:</h4>
+						<ul>
+							<li><code>[linkedin-megosztas-gomb]</code> - Normál megjelenítés az alapértelmezett paraméterekkel</li>
+							<li><code>[linkedin-megosztas-gomb url="http://www.sajatdomain.hu"]</code> - Mindig a megadott domain url-t osztja meg.</li>
 						</ul>
 					</td>
 				</tr>
@@ -221,6 +256,10 @@ function pwp_social_fields_validate( $input ) {
 	if ( ! isset( $input['tweetposts'] ) )
 		$input['tweetposts'] = null;
 	$input['tweetposts'] = ( $input['tweetposts'] == 1 ? 1 : 0 );
+
+	if ( ! isset( $input['linkedinposts'] ) )
+		$input['linkedinposts'] = null;
+	$input['linkedinposts'] = ( $input['linkedinposts'] == 1 ? 1 : 0 );
 
 	// Our checkbox value is either true or false
 	if ( ! isset( $input['fbsendposts'] ) )
