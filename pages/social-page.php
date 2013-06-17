@@ -249,6 +249,10 @@ function pwp_social_fields_validate( $input ) {
 		$input['fblikeposts'] = null;
 	$input['fblikeposts'] = ( $input['fblikeposts'] == 1 ? 1 : 0 );
 
+	if ( ! isset( $input['plusone'] ) )
+		$input['plusone'] = null;
+	$input['plusone'] = ( $input['plusone'] == 1 ? 1 : 0 );
+
 	if ( ! isset( $input['plusoneposts'] ) )
 		$input['plusoneposts'] = null;
 	$input['plusoneposts'] = ( $input['plusoneposts'] == 1 ? 1 : 0 );
@@ -256,6 +260,10 @@ function pwp_social_fields_validate( $input ) {
 	if ( ! isset( $input['tweetposts'] ) )
 		$input['tweetposts'] = null;
 	$input['tweetposts'] = ( $input['tweetposts'] == 1 ? 1 : 0 );
+
+	if ( ! isset( $input['linkedin'] ) )
+		$input['linkedin'] = null;
+	$input['linkedin'] = ( $input['linkedin'] == 1 ? 1 : 0 );
 
 	if ( ! isset( $input['linkedinposts'] ) )
 		$input['linkedinposts'] = null;
