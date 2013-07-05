@@ -93,24 +93,10 @@ function pwp_social_page() {
 					</td>
 				</tr>
 
-				<tr valign="top"><th scope="row">Facebook küldés gomb</th>
-					<td>
-						<input id="pwp_social_fields[fbsendposts]" name="pwp_social_fields[fbsendposts]" type="checkbox" value="true" <?php checked( 'true', $options['fbsendposts'] ); ?> />
-						<label class="description" for="pwp_social_fields[fbsendposts]">Jelenjen meg a Facebook küldés gomb a bejegyzéseknél</label>
-					</td>
-				</tr>
-
 				<tr valign="top"><th scope="row">Google +1 gomb</th>
 					<td>
 						<input id="pwp_social_fields[plusoneposts]" name="pwp_social_fields[plusoneposts]" type="checkbox" value="1" <?php checked( '1', $options['plusoneposts'] ); ?> />
 						<label class="description" for="pwp_social_fields[plusoneposts]">Jelenjen meg a Google +1 gomb a bejegyzéseknél</label>
-					</td>
-				</tr>
-
-				<tr valign="top"><th scope="row">Google+ megosztás gomb</th>
-					<td>
-						<input id="pwp_social_fields[plusoneshareposts]" name="pwp_social_fields[plusoneshareposts]" type="checkbox" value="1" <?php checked( '1', $options['plusoneshareposts'] ); ?> />
-						<label class="description" for="pwp_social_fields[plusoneshareposts]">Jelenjen meg a Google+ megosztás gomb a bejegyzéseknél</label>
 					</td>
 				</tr>
 
@@ -268,11 +254,6 @@ function pwp_social_fields_validate( $input ) {
 	if ( ! isset( $input['linkedinposts'] ) )
 		$input['linkedinposts'] = null;
 	$input['linkedinposts'] = ( $input['linkedinposts'] == 1 ? 1 : 0 );
-
-	// Our checkbox value is either true or false
-	if ( ! isset( $input['fbsendposts'] ) )
-		$input['fbsendposts'] = null;
-	$input['fbsendposts'] = ( $input['fbsendposts'] == 'true' ? 'true' : 'false' );
 
 	// Our value must be numeric
 	if ( ! ctype_digit( $input['plusone_id'] ) )
