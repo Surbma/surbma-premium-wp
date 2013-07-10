@@ -4,13 +4,13 @@
 Plugin Name: Surbma - Prémium WordPress bővítmények
 Plugin URI: http://surbma.hu/wordpress-bovitmenyek/
 Description: Hasznos bővítmények WordPress honlapokhoz.
-Version: 1.4.0
+Version: 1.4.1
 Author: Surbma
 Author URI: http://surbma.hu/
 License: GPL2
 */
 
-$pwp_version = '1.4.0';
+$pwp_version = '1.4.1';
 define( 'PWP_VERSION_KEY', 'pwp_version' );
 define( 'PWP_VERSION_NUM', $pwp_version );
 
