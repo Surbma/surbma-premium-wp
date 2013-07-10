@@ -7,7 +7,7 @@ function pwp_social_add_share_buttons( $content ) {
 
 	$url = urlencode( get_permalink( $post->ID ) );
 
-	$beforesharebuttons = '<div class="pwp-social-share-buttons" style="margin:1em 0 .5em;clear:both;">';
+	$beforesharebuttons = '<div class="pwp-social-share-buttons" style="margin:1em 0;padding:1em 0 .5em;border-top:1px solid #ddd;border-bottom:1px solid #ddd;clear:both;">';
 	$aftersharebuttons = '<div style="clear:both;height:0px;"></div></div>';
 
 	$fblike_button = '';
@@ -81,4 +81,25 @@ function pwp_social_scripts_in_footer() {
 
 }
 add_action( 'wp_footer', 'pwp_social_scripts_in_footer' );
+
+function pwp_google_analytics_display() {
+	$options = get_option( 'pwp_google_analytics_fields' );
+	if ( $options['trackingid'] != '' && !is_user_logged_in() ) {
+?>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', '<?php echo $options['trackingid']; ?>']);
+<?php do_action( 'pwp_google_analytics_before_trackpageview' ); ?>
+	_gaq.push(['_trackPageview']);
+<?php do_action( 'pwp_google_analytics_after_trackpageview' ); ?>
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<?php }
+}
+add_action( 'wp_head', 'pwp_google_analytics_display', 999 );
 
