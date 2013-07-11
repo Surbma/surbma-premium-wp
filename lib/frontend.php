@@ -5,7 +5,7 @@ function pwp_social_add_share_buttons( $content ) {
 	global $post;
 	$options = get_option( 'pwp_social_fields' );
 
-	$url = urlencode( get_permalink( $post->ID ) );
+	$url = get_permalink();
 
 	$beforesharebuttons = '<div class="pwp-social-share-buttons" style="margin:1em 0;padding:1em 0 .5em;border-top:1px solid #ddd;border-bottom:1px solid #ddd;clear:both;">';
 	$aftersharebuttons = '<div style="clear:both;height:0px;"></div></div>';
@@ -16,7 +16,7 @@ function pwp_social_add_share_buttons( $content ) {
 	$linkedin_button = '';
 
 	if ( $options['fblikeposts'] == '1' )
-		$fblike_button = '<div class="pwp-fblike" style="float:left;margin:0 .5em .5em 0;"><div class="fb-like" data-href="'.$url.'" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div></div>';
+		$fblike_button = '<div class="pwp-fblike" style="float:left;margin:0 .5em .5em 0;"><div class="fb-like" data-href="'.get_permalink().'" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div></div>';
 
 	if ( $options['plusoneposts'] == '1' )
 		$plusone_button = '<div class="pwp-plusone" style="float:left;margin:0 .5em .5em 0;"><div class="g-plusone" data-size="medium"></div></div>';
