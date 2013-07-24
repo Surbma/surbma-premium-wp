@@ -1,5 +1,18 @@
 <?php
 
+/* Custom Style for Social Share Buttons */
+function pwp_social_styles() { ?>
+
+<style type="text/css">
+	.pwp-share-buttons{background:#fafafa;margin:1em 0;padding:.5em 1em;border-top:1px solid #ddd;border-bottom:1px solid #ddd;clear:both;}
+	.pwp-share-buttons iframe{margin:0;padding:0;}
+	.pwp-share-text{float:left;padding:7px 20px 7px 0;line-height:20px;font-size:smaller;font-weight:bold;}
+	.pwp-share-button{float:left;padding:7px 10px 0 0;}
+</style>
+<?php
+}
+add_action( 'wp_head', 'pwp_social_styles' );
+
 /* Social Share Buttons for Posts */
 function pwp_social_add_share_buttons( $content ) {
 	global $post;
@@ -7,8 +20,10 @@ function pwp_social_add_share_buttons( $content ) {
 
 	$url = get_permalink();
 
-	$beforesharebuttons = '<div class="pwp-social-share-buttons" style="margin:1em 0;padding:1em 0 .5em;border-top:1px solid #ddd;border-bottom:1px solid #ddd;clear:both;">';
+	$beforesharebuttons = '<div class="pwp-share-buttons">';
 	$aftersharebuttons = '<div style="clear:both;height:0px;"></div></div>';
+
+	$share_text = '<div class="pwp-share-text">' . __( 'Megosztás', 'surbma-premium-wordpress' ) . ':</div>';
 
 	$fblike_button = '';
 	$plusone_button = '';
@@ -16,18 +31,18 @@ function pwp_social_add_share_buttons( $content ) {
 	$linkedin_button = '';
 
 	if ( $options['fblikeposts'] == '1' )
-		$fblike_button = '<div class="pwp-fblike" style="float:left;margin:0 .5em .5em 0;"><div class="fb-like" data-href="'.get_permalink().'" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div></div>';
+		$fblike_button = '<div class="pwp-share-button pwp-fblike"><div class="fb-like" data-href="'.get_permalink().'" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div></div>';
 
 	if ( $options['plusoneposts'] == '1' )
-		$plusone_button = '<div class="pwp-plusone" style="float:left;margin:0 .5em .5em 0;"><div class="g-plusone" data-size="medium"></div></div>';
+		$plusone_button = '<div class="pwp-share-button pwp-plusone"><div class="g-plusone" data-size="medium"></div></div>';
 
 	if ( $options['tweetposts'] == '1' )
-		$tweet_button = '<div class="pwp-tweet" style="float:left;margin:0 .5em .5em 0;"><a href="https://twitter.com/share" class="twitter-share-button" data-lang="hu"></a></div>';
+		$tweet_button = '<div class="pwp-share-button pwp-tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-lang="hu"></a></div>';
 
 	if ( $options['linkedinposts'] == '1' )
-		$linkedin_button = '<div class="pwp-linkedin" style="float:left;margin:0 0 .5em 0;"><script type="IN/Share" data-counter="right"></script></div>';
+		$linkedin_button = '<div class="pwp-share-button pwp-linkedin"><script type="IN/Share" data-counter="right"></script></div>';
 
-	$social_buttons = $beforesharebuttons . $fblike_button . $plusone_button . $tweet_button . $linkedin_button . $aftersharebuttons;
+	$social_buttons = $beforesharebuttons . $share_text . $fblike_button . $plusone_button . $tweet_button . $linkedin_button . $aftersharebuttons;
 
 	if ( $options['sharebuttonsplace'] == 'after' ) {
 		$content = $content . $social_buttons;
