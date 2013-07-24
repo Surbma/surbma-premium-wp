@@ -31,7 +31,7 @@ function pwp_div_function( $atts, $content = null ) {
 		'class' => '',
 		'style' => ''
 	), $atts ) );
-	
+
 	return '<div id="'.$id.'" class="'.$class.'" style="'.$style.'">'.do_shortcode( $content ).'</div>';
 }
 add_shortcode( 'div', 'pwp_div_function' );
@@ -49,7 +49,7 @@ function pwp_link_function( $atts, $content = null ) {
 		'class' => '',
 		'title' => ''
 	), $atts ) );
-    
+
 		$url = get_permalink($id);
 		return '<a class="'.$class.'" href="'.$url.'" title="'.$title.'">'.do_shortcode($content).'</a>';
 }
@@ -87,7 +87,7 @@ add_shortcode( 'fbvideo', 'pwp_fbvideo' );
 
 function pwp_fblike_button( $atts ) {
 	extract( shortcode_atts( array(
-		"url" => urlencode( get_permalink( $post->ID ) )
+		"url" => get_permalink()
 	), $atts ) );
 	return '<div style="float:left;margin:0 .5em .5em 0;"><div class="fb-like" data-href="'.$url.'" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div></div>';
 }
@@ -96,7 +96,7 @@ add_shortcode( 'facebook-tetszik-gomb', 'pwp_fblike_button' );
 
 function pwp_plusone_button( $atts ) {
 	extract( shortcode_atts( array(
-		"url" => urlencode( get_permalink( $post->ID ) )
+		"url" => get_permalink()
 	), $atts ) );
 	return '<div style="float:left;margin:0 .5em .5em 0;"><div class="g-plusone" data-size="medium" data-href="'.$url.'"></div></div>';
 }
@@ -104,7 +104,7 @@ add_shortcode( 'google-pluszegy-gomb', 'pwp_plusone_button' );
 
 function pwp_linkedin_share_button( $atts ) {
 	extract( shortcode_atts( array(
-		"url" => urlencode( get_permalink( $post->ID ) )
+		"url" => get_permalink()
 	), $atts ) );
 	return '<div style="float:left;margin:0 .5em .5em 0;"><script type="IN/Share" data-url="'.$url.'" data-counter="right"></script></div>';
 }
@@ -134,7 +134,7 @@ function pwp_bankid_function() {
 	$options = get_option( 'pwp_extra_fields' );
 	return $options['bankid'];
 	}
-function pwp_email_function() { 
+function pwp_email_function() {
 	$options = get_option( 'pwp_extra_fields' );
 	$email = $options['email'];
 	$mailto = '[mailto]'.$email.'[/mailto]';
