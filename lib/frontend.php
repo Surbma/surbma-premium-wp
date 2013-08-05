@@ -67,11 +67,13 @@ add_action( 'wp_head', 'pwp_social_share_buttons_actions' );
 /* Load scripts when needed */
 function pwp_social_scripts_in_footer() {
 	$options = get_option( 'pwp_social_fields' );
+	$language = get_option( 'WPLANG', 'en_US' );
+	$language = ( $language == '' ? 'en_US' : $language );
 
 	/* Facebook script */
 	if ( $options['fblike'] == '1' || $options['fblikeposts'] == '1' || $options['fbpageurl'] != '' ) {
 		?><div id="fb-root"></div>
-		<script>(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/hu_HU/all.js#xfbml=1";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script><?php
+		<script>(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/<?php echo $language; ?>/all.js#xfbml=1";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script><?php
 	}
 
 	/* Google+ badge script */
