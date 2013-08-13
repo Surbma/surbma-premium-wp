@@ -126,9 +126,16 @@ function pwp_google_analytics_display() {
 	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 	ga('create', '<?php echo $options['universalid']; ?>');
-	ga('send', 'pageview');
+<?php do_action( 'pwp_universal_analytics_objects' ); ?>
 </script>
 <?php }
 }
 add_action( 'wp_head', 'pwp_google_analytics_display', 999 );
+
+function pwp_add_universal_analytics_pageview() {
+?>
+	ga('send', 'pageview');
+<?php
+}
+add_action( 'pwp_universal_analytics_objects', 'pwp_add_universal_analytics_pageview', 5 );
 
