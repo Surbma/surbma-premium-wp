@@ -200,3 +200,14 @@ function surbma_nyomtatas_shortcode($atts) {
 }
 add_shortcode('nyomtatas','surbma_nyomtatas_shortcode');
 
+function surbma_google_calendar_shortcode( $atts ) {
+     extract( shortcode_atts( array(
+          'src' => '',
+          'scrolling' => 'auto',
+          'width' => '400',
+          'height' => '300'
+     ), $atts ) );
+     return '<iframe src="https://www.google.com/calendar/embed?'.$src.'" width="'.$width.'" height="'.$height.'" frameborder="0" scrolling="'.$scrolling.'"></iframe>';
+}
+add_shortcode( 'google-calendar', 'surbma_google_calendar_shortcode' );
+
