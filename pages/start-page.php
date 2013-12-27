@@ -8,7 +8,7 @@ function pwp_plugins_start_page() {
 	?>
 	<div class="pwp wrap">
 
-		<img class="icon" alt="pwp-icon" src="<?php echo PWP_CONTROL_PLUGIN_URL . 'images/star32.png'; ?>" />
+		<img class="icon" alt="pwp-icon" src="<?php echo PWP_CONTROL_PLUGIN_URL . '/images/star32.png'; ?>" />
   	<h2>Prémium WordPress bővítmények</h2>
 
 		<div class="clearline"></div>
