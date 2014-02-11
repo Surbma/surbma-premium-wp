@@ -5,13 +5,13 @@ Plugin Name: Surbma - Prémium WordPress bővítmények
 Plugin URI: http://surbma.hu/wordpress-bovitmenyek/
 GitHub Plugin URI: Surbma/surbma-premium-wordpress
 Description: Hasznos bővítmények WordPress honlapokhoz.
-Version: 1.7.6
+Version: 1.7.7
 Author: Surbma
 Author URI: http://surbma.hu/
 License: GPL2
 */
 
-$pwp_version = '1.7.6';
+$pwp_version = '1.7.7';
 define( 'PWP_VERSION_KEY', 'pwp_version' );
 define( 'PWP_VERSION_NUM', $pwp_version );
 

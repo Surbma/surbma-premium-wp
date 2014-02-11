@@ -57,7 +57,7 @@ function pwp_social_add_share_buttons( $content ) {
 function pwp_social_share_buttons_actions() {
 	$options = get_option( 'pwp_social_fields' );
 
-	if ( is_single() ) {
+	if ( is_singular( 'post' ) ) {
 		if ( $options['fblikeposts'] == '1' || $options['plusoneposts'] == '1' || $options['tweetposts'] == '1' )
 			add_filter( 'the_content', 'pwp_social_add_share_buttons', 20 );
 	}
