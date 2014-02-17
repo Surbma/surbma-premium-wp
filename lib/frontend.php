@@ -4,10 +4,11 @@
 function pwp_social_styles() { ?>
 
 <style type="text/css">
-	.pwp-share-buttons{background:#fafafa;margin:1em 0;padding:.5em 1em;border-top:1px solid #ddd;border-bottom:1px solid #ddd;clear:both;}
+	.pwp-share-buttons{background:rgba(0,0,0,0.05);margin:1em 0 !important;padding:0.5em 1em;border-top:1px solid #ddd;border-bottom:1px solid #ddd;clear:both;}
+	.pwp-share-buttons li{display:inline-block;margin:7px 0 0 10px;}
+	.pwp-share-buttons .fb_iframe_widget span{float:left;}
 	.pwp-share-buttons iframe{margin:0;padding:0;}
-	.pwp-share-text{float:left;padding:7px 20px 7px 0;line-height:20px;font-size:smaller;font-weight:bold;}
-	.pwp-share-button{float:left;padding:7px 10px 0 0;}
+	.pwp-share-buttons li.pwp-share-text{margin:0;padding:0;line-height:34px;font-size:smaller;font-weight:bold;float:left;}
 </style>
 <?php
 }
@@ -20,10 +21,10 @@ function pwp_social_add_share_buttons( $content ) {
 
 	$url = get_permalink();
 
-	$beforesharebuttons = '<div class="pwp-share-buttons">';
-	$aftersharebuttons = '<div style="clear:both;height:0px;"></div></div>';
+	$beforesharebuttons = '<ul class="pwp-share-buttons">';
+	$aftersharebuttons = '</ul>';
 
-	$share_text = '<div class="pwp-share-text">' . __( 'Megosztás', 'surbma-premium-wordpress' ) . ':</div>';
+	$share_text = '<li class="pwp-share-text">' . __( 'Megosztás', 'surbma-premium-wordpress' ) . ':</li>';
 
 	$fblike_button = '';
 	$plusone_button = '';
@@ -31,16 +32,16 @@ function pwp_social_add_share_buttons( $content ) {
 	$linkedin_button = '';
 
 	if ( $options['fblikeposts'] == '1' )
-		$fblike_button = '<div class="pwp-share-button pwp-fblike"><div class="fb-like" data-href="'.get_permalink().'" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div></div>';
+		$fblike_button = '<li class="pwp-fblike"><div class="fb-like" data-href="'.$url.'" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div></li>';
 
 	if ( $options['plusoneposts'] == '1' )
-		$plusone_button = '<div class="pwp-share-button pwp-plusone"><div class="g-plusone" data-size="medium"></div></div>';
+		$plusone_button = '<li class="pwp-plusone"><div class="g-plusone" data-size="medium"></div></li>';
 
 	if ( $options['tweetposts'] == '1' )
-		$tweet_button = '<div class="pwp-share-button pwp-tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-lang="hu"></a></div>';
+		$tweet_button = '<li class="pwp-tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-lang="'.substr( get_locale(), 0, 2 ).'"></a></li>';
 
 	if ( $options['linkedinposts'] == '1' )
-		$linkedin_button = '<div class="pwp-share-button pwp-linkedin"><script type="IN/Share" data-counter="right"></script></div>';
+		$linkedin_button = '<li class="pwp-linkedin"><script type="IN/Share" data-counter="right"></script></li>';
 
 	$social_buttons = $beforesharebuttons . $share_text . $fblike_button . $plusone_button . $tweet_button . $linkedin_button . $aftersharebuttons;
 
@@ -67,8 +68,7 @@ add_action( 'wp_head', 'pwp_social_share_buttons_actions' );
 /* Load scripts when needed */
 function pwp_social_scripts_in_footer() {
 	$options = get_option( 'pwp_social_fields' );
-	$language = get_option( 'WPLANG', 'en_US' );
-	$language = ( $language == '' ? 'en_US' : $language );
+	$language = get_locale();
 
 	/* Facebook script */
 	if ( $options['fblike'] == '1' || $options['fblikeposts'] == '1' || $options['fbpageurl'] != '' ) {
@@ -78,12 +78,12 @@ function pwp_social_scripts_in_footer() {
 
 	/* Google+ badge script */
 	if ( $options['plusone_id'] != '' ) {
-		?><script type="text/javascript">window.___gcfg = {lang:'<?php echo substr( get_bloginfo ( 'language' ), 0, 2 ); ?>'};(function(){var po = document.createElement('script');po.type = 'text/javascript';po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po, s);})();</script><?php
+		?><script type="text/javascript">window.___gcfg = {lang:'<?php echo substr( $language, 0, 2 ); ?>'};(function(){var po = document.createElement('script');po.type = 'text/javascript';po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po, s);})();</script><?php
 	}
 
 	/* Google +1 script */
 	if ( $options['plusone'] == '1' || $options['plusoneposts'] == '1' ) {
-		?><script type="text/javascript">window.___gcfg = {lang: '<?php echo substr( get_bloginfo ( 'language' ), 0, 2 ); ?>', parsetags: 'onload'};(function(){var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po, s);})();</script><?php
+		?><script type="text/javascript">window.___gcfg = {lang: '<?php echo substr( $language, 0, 2 ); ?>', parsetags: 'onload'};(function(){var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po, s);})();</script><?php
 	}
 
 	/* Twitter script */
