@@ -5,7 +5,7 @@ Plugin Name: Surbma - Prémium WordPress bővítmények
 Plugin URI: http://surbma.hu/wordpress-bovitmenyek/
 GitHub Plugin URI: Surbma/surbma-premium-wordpress
 Description: Hasznos bővítmények WordPress honlapokhoz.
-Version: 1.8.0
+Version: 1.8.1
 Author: Surbma
 Author URI: http://surbma.hu/
 License: GPL2
@@ -75,5 +75,5 @@ function pwp_add_universal_analytics_pageview() {
 	ga('send', 'pageview');
 <?php
 }
-add_action( 'pwp_universal_analytics_objects', 'pwp_add_universal_analytics_pageview', 5 );
+add_action( 'pwp_universal_analytics_objects', 'pwp_add_universal_analytics_pageview', 20 );
 
