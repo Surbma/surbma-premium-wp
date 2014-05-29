@@ -71,6 +71,7 @@ function pwp_google_universal_analytics_displayfeatures_string() {
 	$options = get_option('pwp_google_analytics_fields');
 	$html = '<input type="checkbox" id="pwp_google_analytics_fields[displayfeatures]" name="pwp_google_analytics_fields[displayfeatures]" value="1"' . checked( 1, $options['displayfeatures'], false ) . '/>';
     $html .= '<label class="description" for="pwp_google_analytics_fields[displayfeatures]">Vizuális hirdetési szolgáltatások engedélyezése (CSAK Universal Analytics esetén)</label>';
+    $html .= '<p><em>FONTOS: <a href="https://support.google.com/analytics/answer/2700409" target="_blank">A vizuális hirdetésekre vonatkozó irányelvi előírások →</a></em></p>';
     echo $html;
 }
 
