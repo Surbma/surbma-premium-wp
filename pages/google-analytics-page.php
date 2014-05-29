@@ -35,6 +35,7 @@ function pwp_google_analytics_page() {
 			<ol>
 				<li>Ha még nincs Google Analytics fiókod: <a href="http://www.google.hu/analytics" target="_blank">Google Analytics weboldal →</a></li>
 				<li>Ha további segítségre van szükséged: <a href="http://support.google.com/analytics/bin/answer.py?hl=hu&answer=1008015&topic=1727146&ctx=topic" target="_blank">Google Analytics súgó →</a></li>
+				<li>A Universal Analytics bemutatása: <a href='https://support.google.com/analytics/answer/2790010?hl=hu&ref_topic=2790009' target='_blank'>Universal Analytics →</a></li>
 			</ol>
 
 	  </div>
@@ -48,6 +49,7 @@ function pwp_google_analytics_init() {
 	add_settings_section( 'pwp_google_analytics', 'Google Analytics beállítások', 'pwp_google_analytics_section_text', 'pwp-google-analytics' );
 	add_settings_field( 'pwp_google_analytics_trackingid', 'Hagyományos Analytics kód', 'pwp_google_analytics_trackingid_string', 'pwp-google-analytics', 'pwp_google_analytics' );
 	add_settings_field( 'pwp_google_universal_analytics', 'Universal Analytics kód', 'pwp_google_universal_analytics_string', 'pwp-google-analytics', 'pwp_google_analytics' );
+	add_settings_field( 'pwp_google_universal_analytics_displayfeatures', 'Vizuális hirdetési szolgáltatások', 'pwp_google_universal_analytics_displayfeatures_string', 'pwp-google-analytics', 'pwp_google_analytics' );
 }
 add_action( 'admin_init', 'pwp_google_analytics_init', 50 );
 
@@ -62,7 +64,14 @@ function pwp_google_analytics_trackingid_string() {
 
 function pwp_google_universal_analytics_string() {
 	$options = get_option('pwp_google_analytics_fields');
-	echo "<input id='pwp_google_analytics_fields[universalid]' name='pwp_google_analytics_fields[universalid]' type='text' value='{$options['universalid']}' placeholder='UA-XXXXXXXX-YY' maxlength='14' size='14' /> <a href='https://support.google.com/analytics/answer/2790010?hl=hu&ref_topic=2790009' target='_blank'>Mi ez? →</a>";
+	echo "<input id='pwp_google_analytics_fields[universalid]' name='pwp_google_analytics_fields[universalid]' type='text' value='{$options['universalid']}' placeholder='UA-XXXXXXXX-YY' maxlength='14' size='14' />";
+}
+
+function pwp_google_universal_analytics_displayfeatures_string() {
+	$options = get_option('pwp_google_analytics_fields');
+	$html = '<input type="checkbox" id="pwp_google_analytics_fields[displayfeatures]" name="pwp_google_analytics_fields[displayfeatures]" value="1"' . checked( 1, $options['displayfeatures'], false ) . '/>';
+    $html .= '<label class="description" for="pwp_google_analytics_fields[displayfeatures]">Vizuális hirdetési szolgáltatások engedélyezése (CSAK Universal Analytics esetén)</label>';
+    echo $html;
 }
 
 function pwp_google_analytics_validate( $input ) {
