@@ -5,13 +5,13 @@ Plugin Name: Surbma - Prémium WordPress bővítmények
 Plugin URI: http://surbma.hu/wordpress-bovitmenyek/
 GitHub Plugin URI: Surbma/surbma-premium-wordpress
 Description: Hasznos bővítmények WordPress honlapokhoz.
-Version: 1.9.1
+Version: 1.9.2
 Author: Surbma
 Author URI: http://surbma.hu/
 License: GPL2
 */
 
-$pwp_version = '1.9.1';
+$pwp_version = '1.9.2';
 define( 'PWP_VERSION_KEY', 'pwp_version' );
 define( 'PWP_VERSION_NUM', $pwp_version );
 
@@ -39,7 +39,7 @@ include_once( PWP_PLUGIN_DIR . '/lib/widgets.php' );
 
 function pwp_google_analytics_display() {
 	$options = get_option( 'pwp_google_analytics_fields' );
-	if ( $options['trackingid'] != '' ) {
+	if ( isset( $options['trackingid'] ) && $options['trackingid'] != '' ) {
 ?><script type="text/javascript">
 	var _gaq = _gaq || [];
 	_gaq.push(['_setAccount', '<?php echo $options['trackingid']; ?>']);
@@ -54,7 +54,7 @@ function pwp_google_analytics_display() {
 	})();
 </script>
 <?php }
-	if ( $options['universalid'] != '' ) {
+	if ( isset( $options['universalid'] ) && $options['universalid'] != '' ) {
 ?>
 <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -63,7 +63,7 @@ function pwp_google_analytics_display() {
 	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 	ga('create', '<?php echo $options['universalid']; ?>');
-<?php if ( $options['displayfeatures'] == '1' ) { ?>
+<?php if ( isset( $options['displayfeatures'] ) && $options['displayfeatures'] == '1' ) { ?>
 	ga('require', 'displayfeatures');
 <?php }
 	do_action( 'pwp_universal_analytics_objects' ); ?>
