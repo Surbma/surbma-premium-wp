@@ -211,3 +211,16 @@ function surbma_google_calendar_shortcode( $atts ) {
 }
 add_shortcode( 'google-calendar', 'surbma_google_calendar_shortcode' );
 
+function surbma_google_presentation_shortcode( $atts ) {
+     extract( shortcode_atts( array(
+          'src' => '',
+          'start' => false,
+          'loop' => false,
+          'delayms' => 3000,
+          'width' => '960',
+          'height' => '569'
+     ), $atts ) );
+     return '<iframe src="https://docs.google.com/presentation/d/'.$src.'/embed?start='.$start.'&loop='.$loop.'&delayms='.$delayms.'" frameborder="0" width="'.$width.'" height="'.$height.'" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>';
+}
+add_shortcode( 'google-presentation', 'surbma_google_presentation_shortcode' );
+
