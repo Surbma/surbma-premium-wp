@@ -4,7 +4,7 @@
 Plugin Name: Surbma - Prémium WordPress bővítmények
 Plugin URI: http://surbma.hu/wordpress-bovitmenyek/
 Description: Hasznos bővítmények WordPress honlapokhoz.
-Version: 1.11.0
+Version: 1.11.1
 Author: Surbma
 Author URI: http://surbma.hu/
 License: GPL2
@@ -25,6 +25,21 @@ include_once( PWP_PLUGIN_DIR . '/lib/widgets.php' );
 
 function pwp_google_analytics_display() {
 	$options = get_option( 'pwp_google_analytics_fields' );
+	if ( isset( $options['universalid'] ) && $options['universalid'] != '' ) {
+?>
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', '<?php echo $options['universalid']; ?>', 'auto');
+<?php if ( isset( $options['displayfeatures'] ) && $options['displayfeatures'] == '1' ) { ?>
+	ga('require', 'displayfeatures');
+<?php }
+	do_action( 'pwp_universal_analytics_objects' ); ?>
+</script>
+<?php }
 	if ( isset( $options['trackingid'] ) && $options['trackingid'] != '' ) {
 ?><script type="text/javascript">
 	var _gaq = _gaq || [];
@@ -40,24 +55,10 @@ function pwp_google_analytics_display() {
 	})();
 </script>
 <?php }
-	if ( isset( $options['universalid'] ) && $options['universalid'] != '' ) {
-?>
-<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	ga('create', '<?php echo $options['universalid']; ?>');
-<?php if ( isset( $options['displayfeatures'] ) && $options['displayfeatures'] == '1' ) { ?>
-	ga('require', 'displayfeatures');
-<?php }
-	do_action( 'pwp_universal_analytics_objects' ); ?>
-</script>
-<?php }
 }
 add_action( 'wp_head', 'pwp_google_analytics_display', 999 );
 add_action( 'admin_head', 'pwp_google_analytics_display', 999 );
+add_action( 'login_head', 'pwp_google_analytics_display', 999 );
 
 function pwp_add_universal_analytics_pageview() {
 ?>
