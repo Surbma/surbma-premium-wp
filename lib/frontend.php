@@ -4,7 +4,7 @@
 function pwp_social_styles() { ?>
 
 <style type="text/css">
-	.pwp-share-buttons{background:rgba(0,0,0,0.05);margin:1em 0 !important;padding:0.5em 1em;border-top:1px solid #ddd;border-bottom:1px solid #ddd;clear:both;}
+	.pwp-share-buttons{background:rgba(0,0,0,0.05);margin:1em 0 !important;padding:0.5em 1em !important;border-top:1px solid #ddd;border-bottom:1px solid #ddd;clear:both;}
 	.pwp-share-buttons li{display:inline-block;margin:7px 0 0 10px;}
 	.pwp-share-buttons .fb_iframe_widget span{float:left;}
 	.pwp-share-buttons iframe{margin:0;padding:0;}
