@@ -110,9 +110,6 @@ function pwp_google_tag_manager_display() {
 if ( wp_basename( get_bloginfo( 'template_directory' ) ) == 'genesis' ) {
 	add_action( 'genesis_before', 'pwp_google_tag_manager_display', 0 );
 }
-elseif ( has_action( 'surbma_premium_wordpress_hook_before' ) ) {
-	add_action( 'surbma_premium_wordpress_hook_before', 'pwp_google_tag_manager_display', 0 );
-}
 else {
 	add_action( 'wp_footer', 'pwp_google_tag_manager_display', 0 );
 }
