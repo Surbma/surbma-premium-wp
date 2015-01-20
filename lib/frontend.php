@@ -107,10 +107,10 @@ function pwp_google_tag_manager_display() {
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','<?php echo $options['containerid']; ?>');</script>
 <?php }
 }
-if ( wp_basename( get_bloginfo( 'template_directory' ) ) == 'genesis' ) {
+if ( !is_user_logged_in() && wp_basename( get_bloginfo( 'template_directory' ) ) == 'genesis' ) {
 	add_action( 'genesis_before', 'pwp_google_tag_manager_display', 0 );
 }
-else {
+elseif ( !is_user_logged_in() ) {
 	add_action( 'wp_footer', 'pwp_google_tag_manager_display', 0 );
 }
 
