@@ -9,12 +9,9 @@ include_once( PWP_PLUGIN_DIR . '/pages/shortcodes-page.php' );
 
 /* Admin options menu */
 function surbma_add_menus() {
-	$options = get_option( 'pwp_google_analytics_fields' );
 	add_menu_page( 'Prémium WordPress', 'Prémium WP', 'read', 'pwp-plugins', 'pwp_plugins_start_page', PWP_PLUGIN_URL . '/images/star16.png', 998 );
 	add_submenu_page( 'pwp-plugins', 'Prémium WordPress', 'Információk', 'read', 'pwp-plugins', 'pwp_plugins_start_page' );
-	if ( $options['trackingid'] != '' || $options['universalid'] != '' || is_super_admin() ) {
-		add_submenu_page( 'pwp-plugins', 'Google Analytics', 'Google Analytics', 'manage_options', 'pwp-google-analytics', 'pwp_google_analytics_page' );
-	}
+	add_submenu_page( 'pwp-plugins', 'Google Analytics', 'Google Analytics', 'manage_options', 'pwp-google-analytics', 'pwp_google_analytics_page' );
 	add_submenu_page( 'pwp-plugins', 'Google Címkekezelő', 'Google Címkekezelő', 'manage_options', 'pwp-google-tag-manager', 'pwp_google_tag_manager_page' );
 	add_submenu_page( 'pwp-plugins', 'Közösségi integráció', 'Közösségi integráció', 'update_core', 'pwp-social', 'pwp_social_page' );
 	add_submenu_page( 'pwp-plugins', 'Extra tartalmak megjelenítése', 'Extra tartalmak', 'manage_options', 'pwp-extra-fields', 'pwp_extra_fields_page' );
