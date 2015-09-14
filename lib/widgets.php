@@ -1,23 +1,23 @@
 <?php
 
 //register our widget
-function pwp_social_register_widgets() {
-	register_widget( 'pwp_social_fb_like_box' );
-	register_widget( 'pwp_social_plusone_badge' );
-	register_widget( 'pwp_social_twitter_follow' );
+function surbma_premium_wp_social_register_widgets() {
+	register_widget( 'surbma_premium_wp_social_fb_like_box' );
+	register_widget( 'surbma_premium_wp_social_plusone_badge' );
+	register_widget( 'surbma_premium_wp_social_twitter_follow' );
 }
-add_action( 'widgets_init', 'pwp_social_register_widgets' );
+add_action( 'widgets_init', 'surbma_premium_wp_social_register_widgets' );
 
-class pwp_social_fb_like_box extends WP_Widget {
+class surbma_premium_wp_social_fb_like_box extends WP_Widget {
 
 	//process the new widget
-	function pwp_social_fb_like_box() {
+	function surbma_premium_wp_social_fb_like_box() {
 		$widget_ops = array(
-			'classname' => 'pwp_social_fb_like_box',
+			'classname' => 'surbma_premium_wp_social_fb_like_box',
 			'description' => 'Facebook like doboz megjelenítése'
 		);
 
-		$this->WP_Widget( 'pwp_social_fb_like_box', 'PWP Facebook like doboz', $widget_ops );
+		$this->WP_Widget( 'surbma_premium_wp_social_fb_like_box', 'PWP Facebook like doboz', $widget_ops );
 	}
 
 	//build the widget settings form
@@ -42,7 +42,7 @@ class pwp_social_fb_like_box extends WP_Widget {
 		$fb_page_show_stream = $instance['fb_page_show_stream'];
 		$fb_page_show_faces = $instance['fb_page_show_faces'];
 
-		$options = get_option( 'pwp_social_fields' );
+		$options = get_option( 'surbma_premium_wp_social_fields' );
 		if ( $options['fbpageurl'] != '' ) {
 		?>
 		<p><label class="description" for="<?php echo $this->get_field_name( 'title' ); ?>">Cím</label><input class="widefat" id="<?php echo $this->get_field_name( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>"	 type="text" value="<?php echo esc_attr( $title ); ?>" /></p>
@@ -93,7 +93,7 @@ class pwp_social_fb_like_box extends WP_Widget {
 
 	//display the widget
 	function widget($args, $instance) {
-		$options = get_option( 'pwp_social_fields' );
+		$options = get_option( 'surbma_premium_wp_social_fields' );
 		$fbpageurl = $options['fbpageurl'];
 		if ( $fbpageurl == '' )
 			return;
@@ -125,16 +125,16 @@ class pwp_social_fb_like_box extends WP_Widget {
 	}
 }
 
-class pwp_social_plusone_badge extends WP_Widget {
+class surbma_premium_wp_social_plusone_badge extends WP_Widget {
 
 	//process the new widget
-	function pwp_social_plusone_badge() {
+	function surbma_premium_wp_social_plusone_badge() {
 		$widget_ops = array(
-			'classname' => 'pwp_social_plusone_badge',
+			'classname' => 'surbma_premium_wp_social_plusone_badge',
 			'description' => 'Google+ jelvény megjelenítése'
 		);
 
-		$this->WP_Widget( 'pwp_social_plusone_badge', 'PWP - Google+ jelvény', $widget_ops );
+		$this->WP_Widget( 'surbma_premium_wp_social_plusone_badge', 'PWP - Google+ jelvény', $widget_ops );
 	}
 
 	 //build the widget settings form
@@ -155,7 +155,7 @@ class pwp_social_plusone_badge extends WP_Widget {
 		$plusone_badge_coverphoto = $instance['plusone_badge_coverphoto'];
 		$plusone_badge_tagline = $instance['plusone_badge_tagline'];
 
-		$options = get_option( 'pwp_social_fields' );
+		$options = get_option( 'surbma_premium_wp_social_fields' );
 		if ( $options['plusone_id'] != '' ) {
 		?>
 		<p><label class="description" for="<?php echo $this->get_field_name( 'title' ); ?>">Cím</label><input class="widefat" id="<?php echo $this->get_field_name( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>"	 type="text" value="<?php echo esc_attr( $title ); ?>" /></p>
@@ -213,7 +213,7 @@ class pwp_social_plusone_badge extends WP_Widget {
 
 	//display the widget
 	function widget($args, $instance) {
-		$options = get_option( 'pwp_social_fields' );
+		$options = get_option( 'surbma_premium_wp_social_fields' );
 		$plusone_id = $options['plusone_id'];
 		if ( $plusone_id == '' )
 			return;
@@ -243,16 +243,16 @@ class pwp_social_plusone_badge extends WP_Widget {
 	}
 }
 
-class pwp_social_twitter_follow extends WP_Widget {
+class surbma_premium_wp_social_twitter_follow extends WP_Widget {
 
 	//process the new widget
-	function pwp_social_twitter_follow() {
+	function surbma_premium_wp_social_twitter_follow() {
 		$widget_ops = array(
-			'classname' => 'pwp_social_twitter_follow',
+			'classname' => 'surbma_premium_wp_social_twitter_follow',
 			'description' => 'Twitter követés megjelenítése'
 		);
 
-		$this->WP_Widget( 'pwp_social_twitter_follow', 'PWP - Twitter követés', $widget_ops );
+		$this->WP_Widget( 'surbma_premium_wp_social_twitter_follow', 'PWP - Twitter követés', $widget_ops );
 	}
 
 	 //build the widget settings form
@@ -269,7 +269,7 @@ class pwp_social_twitter_follow extends WP_Widget {
 		$twitter_follow_count = $instance['twitter_follow_count'];
 		$twitter_follow_show_name = $instance['twitter_follow_show_name'];
 
-		$options = get_option( 'pwp_social_fields' );
+		$options = get_option( 'surbma_premium_wp_social_fields' );
 		if ( $options['twittername'] != '' ) {
 		?>
 		<p><label class="description" for="<?php echo $this->get_field_name( 'title' ); ?>">Cím</label><input class="widefat" id="<?php echo $this->get_field_name( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></p>
@@ -303,7 +303,7 @@ class pwp_social_twitter_follow extends WP_Widget {
 
 	//display the widget
 	function widget($args, $instance) {
-		$options = get_option( 'pwp_social_fields' );
+		$options = get_option( 'surbma_premium_wp_social_fields' );
 		$twitter_name = $options['twittername'];
 		if ( $twitter_name == '' )
 			return;
@@ -325,4 +325,3 @@ class pwp_social_twitter_follow extends WP_Widget {
 		echo $after_widget;
 	}
 }
-

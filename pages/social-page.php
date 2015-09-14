@@ -1,9 +1,13 @@
 <?php
 
-function pwp_social_fields_init() {
-	register_setting( 'pwp_social_options', 'pwp_social_fields', 'pwp_social_fields_validate' );
+function surbma_premium_wp_social_fields_init() {
+	register_setting(
+		'surbma_premium_wp_social_options',
+		'surbma_premium_wp_social_fields',
+		'surbma_premium_wp_social_fields_validate'
+	);
 }
-add_action( 'admin_init', 'pwp_social_fields_init' );
+add_action( 'admin_init', 'surbma_premium_wp_social_fields_init' );
 
 /**
  * Create arrays for our select and radio options
@@ -19,7 +23,7 @@ $sharebuttonsplace_options = array(
 	)
 );
 
-function pwp_social_page() {
+function surbma_premium_wp_social_page() {
 
 	global $sharebuttonsplace_options;
 
@@ -27,189 +31,184 @@ function pwp_social_page() {
 		$_REQUEST['settings-updated'] = false;
 
 	?>
-	<div class="pwp wrap">
+	<div class="wrap premium-wp uk-grid">
+		<div class="uk-width-9-10">
+			<h2 class="dashicons-before dashicons-share"><?php _e( 'Premium WP', 'surbma-premium-wp' ); ?>: Közösségi oldalak integrálása</h2>
+			<p>Az oldalon bármelyik "Módosítások mentése" gombra lehet kattintani, az az összes módosítást menti.</p>
 
-		<img class="icon" alt="icon" src="<?php echo PWP_PLUGIN_URL . '/images/social32.png'; ?>" />
-		<h2>Prémium WordPress bővítmény: Közösségi oldalak integrálása</h2>
+			<?php if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == true ) { ?>
+				<div class="updated notice is-dismissible"><p><strong><?php _e( 'Settings saved.' ); ?></strong></p></div>
+			<?php } ?>
 
-		<p>Az oldalon bármelyik "Módosítások mentése" gombra lehet kattintani, az az összes módosítást menti.</p>
+			<form method="post" action="options.php">
+				<?php settings_fields( 'surbma_premium_wp_social_options' ); ?>
+				<?php $options = get_option( 'surbma_premium_wp_social_fields' ); ?>
 
-		<?php if ( $_REQUEST['settings-updated'] == true ) : ?>
-		<div class="updated fade"><p><strong>Adatok mentése sikerült</strong></p></div>
-		<?php endif; ?>
+				<div class="uk-panel uk-panel-box">
+					<h3 class="uk-panel-title">Közösségi oldalak adatai</h3>
 
-		<form method="post" action="options.php">
-			<?php settings_fields( 'pwp_social_options' ); ?>
-			<?php $options = get_option( 'pwp_social_fields' ); ?>
+					<table class="form-table">
+						<tr valign="top">
+							<th scope="row">
+								<label class="description" for="surbma_premium_wp_social_fields[fbpageurl]">Facebook oldal url címe</label>
+							</th>
+							<td>
+								<input id="surbma_premium_wp_social_fields[fbpageurl]" class="regular-text" type="text" name="surbma_premium_wp_social_fields[fbpageurl]" value="<?php esc_attr_e( $options['fbpageurl'] ); ?>" />
+								<p>Ahhoz, hogy megjelenjen a Facebook like doboz widget, mindenképpen meg kell adnod előbb a Facebook oldalad url címét.</p>
+							</td>
+						</tr>
+						<tr valign="top">
+							<th scope="row">
+								<label class="description" for="surbma_premium_wp_social_fields[plusone_id]">Google+ oldal azonosítója</label>
+							</th>
+							<td>
+								https://plus.google.com/<input id="surbma_premium_wp_social_fields[plusone_id]" class="regular-text" type="text" name="surbma_premium_wp_social_fields[plusone_id]" value="<?php esc_attr_e( $options['plusone_id'] ); ?>" />
+								<a href="https://developers.google.com/+/plugins/badge/?hl=hu#faq-find-page-id" target="_blank" title="Hol találod a Google+ oldalad azonosítóját?">Google+ oldal azonosító</a>
+								<p>Ahhoz, hogy megjelenjen a Google+ jelvény widget, mindenképpen meg kell adnod előbb a Google+ oldalad azonosítóját.</p>
+							</td>
+						</tr>
+						<tr valign="top">
+							<th scope="row">
+								<label class="description" for="surbma_premium_wp_social_fields[twittername]">Twitter neved</label>
+							</th>
+							<td>
+								<input id="surbma_premium_wp_social_fields[twittername]" class="regular-text" type="text" name="surbma_premium_wp_social_fields[twittername]" value="<?php esc_attr_e( $options['twittername'] ); ?>" />
+								<p>Ahhoz, hogy megjelenjen a Twitter követés widget, mindenképpen meg kell adnod előbb a Twitter neved.</p>
+							</td>
+						</tr>
+					</table>
 
-		<div class="clearline"></div>
+					<p><input type="submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>" /></p>
 
-			<div class="section-block">
+				</div>
+				<div class="uk-panel uk-panel-box">
+					<h3 class="uk-panel-title">Közösségi megosztás eszközök</h3>
 
-			<h2>Közösségi oldalak adatai</h2>
+					<table class="form-table">
+						<tr valign="top">
+							<th scope="row">Facebook tetszik gomb</th>
+							<td>
+								<input id="surbma_premium_wp_social_fields[fblikeposts]" name="surbma_premium_wp_social_fields[fblikeposts]" type="checkbox" value="1" <?php checked( '1', $options['fblikeposts'] ); ?> />
+								<label class="description" for="surbma_premium_wp_social_fields[fblikeposts]">Jelenjen meg a Facebook tetszik gomb a bejegyzéseknél</label>
+							</td>
+						</tr>
+						<tr valign="top">
+							<th scope="row">Google +1 gomb</th>
+							<td>
+								<input id="surbma_premium_wp_social_fields[plusoneposts]" name="surbma_premium_wp_social_fields[plusoneposts]" type="checkbox" value="1" <?php checked( '1', $options['plusoneposts'] ); ?> />
+								<label class="description" for="surbma_premium_wp_social_fields[plusoneposts]">Jelenjen meg a Google +1 gomb a bejegyzéseknél</label>
+							</td>
+						</tr>
+						<tr valign="top">
+							<th scope="row">Twitter megosztás gomb</th>
+							<td>
+								<input id="surbma_premium_wp_social_fields[tweetposts]" name="surbma_premium_wp_social_fields[tweetposts]" type="checkbox" value="1" <?php checked( '1', $options['tweetposts'] ); ?> />
+								<label class="description" for="surbma_premium_wp_social_fields[tweetposts]">Jelenjen meg a Twitter megosztás gomb a bejegyzéseknél</label>
+							</td>
+						</tr>
+						<tr valign="top">
+							<th scope="row">LinkedIn megosztás gomb</th>
+							<td>
+								<input id="surbma_premium_wp_social_fields[linkedinposts]" name="surbma_premium_wp_social_fields[linkedinposts]" type="checkbox" value="1" <?php checked( '1', $options['linkedinposts'] ); ?> />
+								<label class="description" for="surbma_premium_wp_social_fields[linkedinposts]">Jelenjen meg a LinkedIn megosztás gomb a bejegyzéseknél</label>
+							</td>
+						</tr>
+						<tr valign="top">
+							<th scope="row">
+								<label class="description" for="surbma_premium_wp_social_fields[sharebuttonsplace]">Megosztás gombok elhelyezkedése</label>
+							</th>
+							<td>
+								<select name="surbma_premium_wp_social_fields[sharebuttonsplace]">
+									<?php
+										$selected = $options['sharebuttonsplace'];
+										$p = '';
+										$r = '';
 
-			<table class="form-table">
+										foreach ( $sharebuttonsplace_options as $option ) {
+											$label = $option['label'];
+											if ( $selected == $option['value'] ) // Make default first in list
+												$p = "\n\t<option style=\"padding-right: 10px;\" selected='selected' value='" . esc_attr( $option['value'] ) . "'>$label</option>";
+											else
+												$r .= "\n\t<option style=\"padding-right: 10px;\" value='" . esc_attr( $option['value'] ) . "'>$label</option>";
+										}
+										echo $p . $r;
+									?>
+								</select>
+							</td>
+						</tr>
+					</table>
 
-				<tr valign="top"><th scope="row"><label class="description" for="pwp_social_fields[fbpageurl]">Facebook oldal url címe</label></th>
-					<td>
-						<input id="pwp_social_fields[fbpageurl]" class="regular-text" type="text" name="pwp_social_fields[fbpageurl]" value="<?php esc_attr_e( $options['fbpageurl'] ); ?>" />
-						<p>Ahhoz, hogy megjelenjen a Facebook like doboz widget, mindenképpen meg kell adnod előbb a Facebook oldalad url címét.</p>
-					</td>
-				</tr>
+					<p><input type="submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>" /></p>
 
-				<tr valign="top"><th scope="row"><label class="description" for="pwp_social_fields[plusone_id]">Google+ oldal azonosítója</label></th>
-					<td>
-						https://plus.google.com/<input id="pwp_social_fields[plusone_id]" class="regular-text" type="text" name="pwp_social_fields[plusone_id]" value="<?php esc_attr_e( $options['plusone_id'] ); ?>" />
-						<a href="https://developers.google.com/+/plugins/badge/?hl=hu#faq-find-page-id" target="_blank" title="Hol találod a Google+ oldalad azonosítóját?">Google+ oldal azonosító</a>
-						<p>Ahhoz, hogy megjelenjen a Google+ jelvény widget, mindenképpen meg kell adnod előbb a Google+ oldalad azonosítóját.</p>
-					</td>
-				</tr>
+				</div>
+				<div class="uk-panel uk-panel-box">
+					<h3 class="uk-panel-title">Beépített rövidkódok (shortcodes)</h3>
 
-				<tr valign="top"><th scope="row"><label class="description" for="pwp_social_fields[twittername]">Twitter neved</label></th>
-					<td>
-						<input id="pwp_social_fields[twittername]" class="regular-text" type="text" name="pwp_social_fields[twittername]" value="<?php esc_attr_e( $options['twittername'] ); ?>" />
-						<p>Ahhoz, hogy megjelenjen a Twitter követés widget, mindenképpen meg kell adnod előbb a Twitter neved.</p>
-					</td>
-				</tr>
+					<table class="form-table">
+						<tr valign="top">
+							<th scope="row">
+								Facebook like gomb<br /><code>[facebook-tetszik-gomb]</code>
+							</th>
+							<td>
+								<input id="surbma_premium_wp_social_fields[fblike]" name="surbma_premium_wp_social_fields[fblike]" type="checkbox" value="1" <?php checked( '1', $options['fblike'] ); ?> />
+								<label class="description" for="surbma_premium_wp_social_fields[fblike]">Igen, szeretném használni a Facebook like gombot a shortcode használatával</label>
+								<p>Facebook "tetszik" gomb beillesztése az oldalra. A kód paraméterezhető és a "küldés" gomb is engedélyezhető.</p>
+								<h4>Paraméterek:</h4>
+								<ul>
+									<li><code>url</code> - A gomb linkje, amire "tetszik"-et nyom a látogató. Alapértelmezett érték: mindig az aktuális oldal url-je.</li>
+								</ul>
+								<h4>Használata:</h4>
+								<ul>
+									<li><code>[facebook-tetszik-gomb]</code> - Normál megjelenítés az alapértelmezett paraméterekkel</li>
+									<li><code>[facebook-tetszik-gomb url="http://www.sajatdomain.hu"]</code> - Mindig a megadott domain url-jére nyomnak "tetszik"-et.</li>
+								</ul>
+							</td>
+						</tr>
+						<tr valign="top">
+							<th scope="row">
+								Google +1 gomb<br /><code>[google-pluszegy-gomb]</code>
+							</th>
+							<td>
+								<input id="surbma_premium_wp_social_fields[plusone]" name="surbma_premium_wp_social_fields[plusone]" type="checkbox" value="1" <?php checked( '1', $options['plusone'] ); ?> />
+								<label class="description" for="surbma_premium_wp_social_fields[plusone]">Igen, szeretném használni a Google +1 gombot a shortcode használatával</label>
+								<p>Google +1 gomb beillesztése az oldalra. A kód paraméterezhető.</p>
+								<h4>Paraméterek:</h4>
+								<ul>
+									<li><code>url</code> - A gomb linkje, amire plusz egyet nyom a látogató. Alapértelmezett érték: mindig az aktuális oldal url-je.</li>
+								</ul>
+								<h4>Használata:</h4>
+								<ul>
+									<li><code>[google-pluszegy-gomb]</code> - Normál megjelenítés az alapértelmezett paraméterekkel</li>
+									<li><code>[google-pluszegy-gomb url="http://www.sajatdomain.hu"]</code> - Mindig a megadott domain url-jére nyomnak plusz egyet.</li>
+								</ul>
+							</td>
+						</tr>
+						<tr valign="top">
+							<th scope="row">
+								LinkedIn megosztás gomb<br /><code>[linkedin-megosztas-gomb]</code>
+							</th>
+							<td>
+								<input id="surbma_premium_wp_social_fields[linkedin]" name="surbma_premium_wp_social_fields[linkedin]" type="checkbox" value="1" <?php checked( '1', $options['linkedin'] ); ?> />
+								<label class="description" for="surbma_premium_wp_social_fields[linkedin]">Igen, szeretném használni a LinkedIn megosztás gombot a shortcode használatával</label>
+								<p>LinkedIn megosztás gomb beillesztése az oldalra. A kód paraméterezhető.</p>
+								<h4>Paraméterek:</h4>
+								<ul>
+									<li><code>url</code> - A gomb linkje, amit megoszt a látogató. Alapértelmezett érték: mindig az aktuális oldal url-je.</li>
+								</ul>
+								<h4>Használata:</h4>
+								<ul>
+									<li><code>[linkedin-megosztas-gomb]</code> - Normál megjelenítés az alapértelmezett paraméterekkel</li>
+									<li><code>[linkedin-megosztas-gomb url="http://www.sajatdomain.hu"]</code> - Mindig a megadott domain url-t osztja meg.</li>
+								</ul>
+							</td>
+						</tr>
+					</table>
 
-			</table>
+					<p><input type="submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>" /></p>
 
-			<p><input type="submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>" /></p>
-
-			</div>
-
-		<div class="clearline"></div>
-
-			<div class="section-block">
-
-			<h2>Közösségi megosztás eszközök</h2>
-
-			<table class="form-table">
-
-				<tr valign="top"><th scope="row">Facebook tetszik gomb</th>
-					<td>
-						<input id="pwp_social_fields[fblikeposts]" name="pwp_social_fields[fblikeposts]" type="checkbox" value="1" <?php checked( '1', $options['fblikeposts'] ); ?> />
-						<label class="description" for="pwp_social_fields[fblikeposts]">Jelenjen meg a Facebook tetszik gomb a bejegyzéseknél</label>
-					</td>
-				</tr>
-
-				<tr valign="top"><th scope="row">Google +1 gomb</th>
-					<td>
-						<input id="pwp_social_fields[plusoneposts]" name="pwp_social_fields[plusoneposts]" type="checkbox" value="1" <?php checked( '1', $options['plusoneposts'] ); ?> />
-						<label class="description" for="pwp_social_fields[plusoneposts]">Jelenjen meg a Google +1 gomb a bejegyzéseknél</label>
-					</td>
-				</tr>
-
-				<tr valign="top"><th scope="row">Twitter megosztás gomb</th>
-					<td>
-						<input id="pwp_social_fields[tweetposts]" name="pwp_social_fields[tweetposts]" type="checkbox" value="1" <?php checked( '1', $options['tweetposts'] ); ?> />
-						<label class="description" for="pwp_social_fields[tweetposts]">Jelenjen meg a Twitter megosztás gomb a bejegyzéseknél</label>
-					</td>
-				</tr>
-
-				<tr valign="top"><th scope="row">LinkedIn megosztás gomb</th>
-					<td>
-						<input id="pwp_social_fields[linkedinposts]" name="pwp_social_fields[linkedinposts]" type="checkbox" value="1" <?php checked( '1', $options['linkedinposts'] ); ?> />
-						<label class="description" for="pwp_social_fields[linkedinposts]">Jelenjen meg a LinkedIn megosztás gomb a bejegyzéseknél</label>
-					</td>
-				</tr>
-
-				<tr valign="top"><th scope="row"><label class="description" for="pwp_social_fields[sharebuttonsplace]">Megosztás gombok elhelyezkedése</label></th>
-					<td>
-						<select name="pwp_social_fields[sharebuttonsplace]">
-							<?php
-								$selected = $options['sharebuttonsplace'];
-								$p = '';
-								$r = '';
-
-								foreach ( $sharebuttonsplace_options as $option ) {
-									$label = $option['label'];
-									if ( $selected == $option['value'] ) // Make default first in list
-										$p = "\n\t<option style=\"padding-right: 10px;\" selected='selected' value='" . esc_attr( $option['value'] ) . "'>$label</option>";
-									else
-										$r .= "\n\t<option style=\"padding-right: 10px;\" value='" . esc_attr( $option['value'] ) . "'>$label</option>";
-								}
-								echo $p . $r;
-							?>
-						</select>
-					</td>
-				</tr>
-
-			</table>
-
-			<p><input type="submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>" /></p>
-
-			</div>
-
-		<div class="clearline"></div>
-
-			<div class="section-block">
-
-			<h2>Beépített rövidkódok (shortcodes)</h2>
-
-			<table class="form-table">
-
-				<tr valign="top"><th scope="row">Facebook like gomb<br /><code>[facebook-tetszik-gomb]</code></th>
-					<td>
-						<input id="pwp_social_fields[fblike]" name="pwp_social_fields[fblike]" type="checkbox" value="1" <?php checked( '1', $options['fblike'] ); ?> />
-						<label class="description" for="pwp_social_fields[fblike]">Igen, szeretném használni a Facebook like gombot a shortcode használatával</label>
-						<p>Facebook "tetszik" gomb beillesztése az oldalra. A kód paraméterezhető és a "küldés" gomb is engedélyezhető.</p>
-						<h4>Paraméterek:</h4>
-						<ul>
-							<li><code>url</code> - A gomb linkje, amire "tetszik"-et nyom a látogató. Alapértelmezett érték: mindig az aktuális oldal url-je.</li>
-						</ul>
-						<h4>Használata:</h4>
-						<ul>
-							<li><code>[facebook-tetszik-gomb]</code> - Normál megjelenítés az alapértelmezett paraméterekkel</li>
-							<li><code>[facebook-tetszik-gomb url="http://www.sajatdomain.hu"]</code> - Mindig a megadott domain url-jére nyomnak "tetszik"-et.</li>
-						</ul>
-					</td>
-				</tr>
-
-				<tr valign="top"><th scope="row">Google +1 gomb<br /><code>[google-pluszegy-gomb]</code></th>
-					<td>
-						<input id="pwp_social_fields[plusone]" name="pwp_social_fields[plusone]" type="checkbox" value="1" <?php checked( '1', $options['plusone'] ); ?> />
-						<label class="description" for="pwp_social_fields[plusone]">Igen, szeretném használni a Google +1 gombot a shortcode használatával</label>
-						<p>Google +1 gomb beillesztése az oldalra. A kód paraméterezhető.</p>
-						<h4>Paraméterek:</h4>
-						<ul>
-							<li><code>url</code> - A gomb linkje, amire plusz egyet nyom a látogató. Alapértelmezett érték: mindig az aktuális oldal url-je.</li>
-						</ul>
-						<h4>Használata:</h4>
-						<ul>
-							<li><code>[google-pluszegy-gomb]</code> - Normál megjelenítés az alapértelmezett paraméterekkel</li>
-							<li><code>[google-pluszegy-gomb url="http://www.sajatdomain.hu"]</code> - Mindig a megadott domain url-jére nyomnak plusz egyet.</li>
-						</ul>
-					</td>
-				</tr>
-
-				<tr valign="top"><th scope="row">LinkedIn megosztás gomb<br /><code>[linkedin-megosztas-gomb]</code></th>
-					<td>
-						<input id="pwp_social_fields[linkedin]" name="pwp_social_fields[linkedin]" type="checkbox" value="1" <?php checked( '1', $options['linkedin'] ); ?> />
-						<label class="description" for="pwp_social_fields[linkedin]">Igen, szeretném használni a LinkedIn megosztás gombot a shortcode használatával</label>
-						<p>LinkedIn megosztás gomb beillesztése az oldalra. A kód paraméterezhető.</p>
-						<h4>Paraméterek:</h4>
-						<ul>
-							<li><code>url</code> - A gomb linkje, amit megoszt a látogató. Alapértelmezett érték: mindig az aktuális oldal url-je.</li>
-						</ul>
-						<h4>Használata:</h4>
-						<ul>
-							<li><code>[linkedin-megosztas-gomb]</code> - Normál megjelenítés az alapértelmezett paraméterekkel</li>
-							<li><code>[linkedin-megosztas-gomb url="http://www.sajatdomain.hu"]</code> - Mindig a megadott domain url-t osztja meg.</li>
-						</ul>
-					</td>
-				</tr>
-
-			</table>
-
-			<p><input type="submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>" /></p>
-
-			</div>
-
-		<div class="clearline"></div>
-
-		</form>
-
+				</div>
+			</form>
+		</div>
 	</div>
 <?php
 }
@@ -217,7 +216,7 @@ function pwp_social_page() {
 /**
  * Sanitize and validate input. Accepts an array, return a sanitized array.
  */
-function pwp_social_fields_validate( $input ) {
+function surbma_premium_wp_social_fields_validate( $input ) {
 	global $sharebuttonsplace_options;
 
 	// Say our text option must be safe text with no HTML tags
@@ -265,4 +264,3 @@ function pwp_social_fields_validate( $input ) {
 
 	return $input;
 }
-

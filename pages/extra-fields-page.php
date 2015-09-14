@@ -1,146 +1,153 @@
 <?php
 
-function pwp_extra_fields_init() {
-	register_setting( 'pwp_options', 'pwp_extra_fields', 'pwp_extra_fields_validate' );
+function surbma_premium_wp_extra_fields_init() {
+	register_setting( 'surbma_premium_wp_options', 'surbma_premium_wp_extra_fields', 'surbma_premium_wp_extra_fields_validate' );
 }
-add_action( 'admin_init', 'pwp_extra_fields_init', 50 );
+add_action( 'admin_init', 'surbma_premium_wp_extra_fields_init', 50 );
 
-function pwp_extra_fields_page() {
+function surbma_premium_wp_extra_fields_page() {
 
 	global $sharebuttonsplace_options;
-	
+
 	if ( ! isset( $_REQUEST['settings-updated'] ) )
 		$_REQUEST['settings-updated'] = false;
-	
+
 	?>
-	<div class="pwp wrap">
+	<div class="wrap premium-wp uk-grid">
+		<div class="uk-width-9-10">
+  			<h2 class="dashicons-before dashicons-book-alt"><?php _e( 'Premium WP', 'surbma-premium-wp' ); ?>: <?php _e( 'Extra Content', 'surbma-premium-wp' ); ?></h2>
+			<p>Ezen az oldalon megadhatók olyan adatok, amelyek felhasználhatók a weboldal könnyebb kezeléséhez.</p>
 
-		<img class="icon" alt="icon" src="<?php echo PWP_PLUGIN_URL . '/images/extrafields32.png'; ?>" />
-  	<h2>Prémium WordPress bővítmény: Extra tartalmak megjelenítése</h2>
-  
-		<p>Ezen az oldalon megadhatók olyan adatok, amelyek felhasználhatók a weboldal könnyebb kezeléséhez.</p>
-	
-		<?php if ( $_REQUEST['settings-updated'] == true ) : ?>
-			<div class="updated fade"><p><strong>Adatok mentése sikerült</strong></p></div>
-		<?php endif; ?>
-	
-		<form method="post" action="options.php">
-			<?php settings_fields( 'pwp_options' ); ?>
-			<?php $options = get_option( 'pwp_extra_fields' ); ?>
-			
-		<div class="clearline"></div>
-		
-	  	<div class="section-block">
+			<?php if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == true ) { ?>
+				<div class="updated notice is-dismissible"><p><strong><?php _e( 'Settings saved.' ); ?></strong></p></div>
+			<?php } ?>
 
-			<h2>Alapadatok</h2>
-	
-			<table class="form-table">
-	
-				<tr valign="top"><th scope="row"><label class="description" for="pwp_extra_fields[name]">Név</label></th>
-					<td>
-						<input id="pwp_extra_fields[name]" class="regular-text" type="text" name="pwp_extra_fields[name]" value="<?php esc_attr_e( $options['name'] ); ?>" />
-						<span class="description">Rövidkód:</span> <code>[nev]</code>
-					</td>
-				</tr>
-	
-				<tr valign="top"><th scope="row"><label class="description" for="pwp_extra_fields[company]">Cégnév</label></th>
-					<td>
-						<input id="pwp_extra_fields[company]" class="regular-text" type="text" name="pwp_extra_fields[company]" value="<?php esc_attr_e( $options['company'] ); ?>" />
-						<span class="description">Rövidkód:</span> <code>[ceg]</code>
-					</td>
-				</tr>
-	
-				<tr valign="top"><th scope="row"><label class="description" for="pwp_extra_fields[address]">Cím</label></th>
-					<td>
-						<input id="pwp_extra_fields[address]" class="regular-text" type="text" name="pwp_extra_fields[address]" value="<?php esc_attr_e( $options['address'] ); ?>" />
-						<span class="description">Rövidkód:</span> <code>[cim]</code>
-					</td>
-				</tr>
-	
-				<tr valign="top"><th scope="row"><label class="description" for="pwp_extra_fields[vat]">Adószám</label></th>
-					<td>
-						<input id="pwp_extra_fields[vat]" class="regular-text" type="text" name="pwp_extra_fields[vat]" value="<?php esc_attr_e( $options['vat'] ); ?>" />
-						<span class="description">Rövidkód:</span> <code>[adoszam]</code>
-					</td>
-				</tr>
-	
-				<tr valign="top"><th scope="row"><label class="description" for="pwp_extra_fields[companyid]">Cégjegyzékszám</label></th>
-					<td>
-						<input id="pwp_extra_fields[companyid]" class="regular-text" type="text" name="pwp_extra_fields[companyid]" value="<?php esc_attr_e( $options['companyid'] ); ?>" />
-						<span class="description">Rövidkód:</span> <code>[cegjegyzekszam]</code>
-					</td>
-				</tr>
-	
-				<tr valign="top"><th scope="row"><label class="description" for="pwp_extra_fields[bankid]">Bankszámlaszám</label></th>
-					<td>
-						<input id="pwp_extra_fields[bankid]" class="regular-text" type="text" name="pwp_extra_fields[bankid]" value="<?php esc_attr_e( $options['bankid'] ); ?>" />
-						<span class="description">Rövidkód:</span> <code>[bankszamlaszam]</code>
-					</td>
-				</tr>
-	
-				<tr valign="top"><th scope="row"><label class="description" for="pwp_extra_fields[mobilephone]">Mobiltelefon</label></th>
-					<td>
-						<input id="pwp_extra_fields[mobilephone]" class="regular-text" type="text" name="pwp_extra_fields[mobilephone]" value="<?php esc_attr_e( $options['mobilephone'] ); ?>" />
-						<span class="description">Rövidkód:</span> <code>[mobiltelefon]</code>
-					</td>
-				</tr>
-	
-				<tr valign="top"><th scope="row"><label class="description" for="pwp_extra_fields[phone]">Telefonszám</label></th>
-					<td>
-						<input id="pwp_extra_fields[phone]" class="regular-text" type="text" name="pwp_extra_fields[phone]" value="<?php esc_attr_e( $options['phone'] ); ?>" />
-						<span class="description">Rövidkód:</span> <code>[telefon]</code>
-					</td>
-				</tr>
-	
-				<tr valign="top"><th scope="row"><label class="description" for="pwp_extra_fields[fax]">Fax</label></th>
-					<td>
-						<input id="pwp_extra_fields[fax]" class="regular-text" type="text" name="pwp_extra_fields[fax]" value="<?php esc_attr_e( $options['fax'] ); ?>" />
-						<span class="description">Rövidkód:</span> <code>[fax]</code>
-					</td>
-				</tr>
-	
-				<tr valign="top"><th scope="row"><label class="description" for="pwp_extra_fields[email]">Email cím</label></th>
-					<td>
-						<input id="pwp_extra_fields[email]" class="regular-text" type="text" name="pwp_extra_fields[email]" value="<?php esc_attr_e( $options['email'] ); ?>" />
-						<span class="description">Rövidkód:</span> <code>[email]</code>
-					</td>
-				</tr>
-	
-				<tr valign="top"><th scope="row"><label class="description" for="pwp_extra_fields[skype]">Skype cím</label></th>
-					<td>
-						<input id="pwp_extra_fields[skype]" class="regular-text" type="text" name="pwp_extra_fields[skype]" value="<?php esc_attr_e( $options['skype'] ); ?>" />
-						<span class="description">Rövidkód:</span> <code>[skype]</code>
-					</td>
-				</tr>
-	
-				<tr valign="top"><th scope="row"><label class="description" for="pwp_extra_fields[companyinfo]">Cég rövid leírása</label></th>
-					<td>
-						<textarea id="pwp_extra_fields[companyinfo]" class="large-text" cols="50" rows="10" name="pwp_extra_fields[companyinfo]"><?php echo stripslashes( $options['companyinfo'] ); ?></textarea>
-						<span class="description">Rövidkód:</span> <code>[ceginfo]</code>
-						<p>Mutasd be röviden a céged. A következő html kódokat használhatod a formázáshoz:<br /><code><?php echo allowed_tags(); ?></code></p>
-					</td>
-				</tr>
-	
-			</table>
-	
-			<p><input type="submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>" /></p>
-	
-	  	</div>
+			<div class="uk-panel uk-panel-box">
+				<h3 class="uk-panel-title"><?php _e( 'Alapadatok', 'surbma-premium-wp' ); ?></h3>
+				<form method="post" action="options.php">
+					<?php settings_fields( 'surbma_premium_wp_options' ); ?>
+					<?php $options = get_option( 'surbma_premium_wp_extra_fields' ); ?>
 
-		<div class="clearline"></div>
-		
-	  	<div class="section-block">
-
-			<h2>Rövidkódok használata</h2>
-	
-			<p>A fent megadott adatok könnyen megjeleníthetők a weboldalon. Akár oldalba, akár bejegyzésbe, sőt a widgeteknél is beírhatók a mezők után megadott rövidkódok, amik megjelenítik a megadott adatokat. Így, amikor adatváltozás történik, pl. megváltozik a telefonszám, akkor elég csak itt megváltoztatni az adatot és mindenhol az aktuális információ jelenik meg.</p>
-
-			<p>Itt találhatók a rövidkódok leírásai: <a href="/wp-admin/admin.php?page=pwp-shortcodes">Extra rövidkódok »</a></p>
-			
-	  	</div>
-
-		</form>
-
+					<table class="form-table">
+						<tr>
+							<th scope="row">
+								<label class="description" for="surbma_premium_wp_extra_fields[name]">Név</label>
+							</th>
+							<td>
+								<input id="surbma_premium_wp_extra_fields[name]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[name]" value="<?php esc_attr_e( $options['name'] ); ?>" />
+								<span class="description">Rövidkód:</span> <code>[nev]</code>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">
+								<label class="description" for="surbma_premium_wp_extra_fields[company]">Cégnév</label>
+							</th>
+							<td>
+								<input id="surbma_premium_wp_extra_fields[company]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[company]" value="<?php esc_attr_e( $options['company'] ); ?>" />
+								<span class="description">Rövidkód:</span> <code>[ceg]</code>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">
+								<label class="description" for="surbma_premium_wp_extra_fields[address]">Cím</label>
+							</th>
+							<td>
+								<input id="surbma_premium_wp_extra_fields[address]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[address]" value="<?php esc_attr_e( $options['address'] ); ?>" />
+								<span class="description">Rövidkód:</span> <code>[cim]</code>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">
+								<label class="description" for="surbma_premium_wp_extra_fields[vat]">Adószám</label>
+							</th>
+							<td>
+								<input id="surbma_premium_wp_extra_fields[vat]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[vat]" value="<?php esc_attr_e( $options['vat'] ); ?>" />
+								<span class="description">Rövidkód:</span> <code>[adoszam]</code>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">
+								<label class="description" for="surbma_premium_wp_extra_fields[companyid]">Cégjegyzékszám</label>
+							</th>
+							<td>
+								<input id="surbma_premium_wp_extra_fields[companyid]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[companyid]" value="<?php esc_attr_e( $options['companyid'] ); ?>" />
+								<span class="description">Rövidkód:</span> <code>[cegjegyzekszam]</code>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">
+								<label class="description" for="surbma_premium_wp_extra_fields[bankid]">Bankszámlaszám</label>
+							</th>
+							<td>
+								<input id="surbma_premium_wp_extra_fields[bankid]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[bankid]" value="<?php esc_attr_e( $options['bankid'] ); ?>" />
+								<span class="description">Rövidkód:</span> <code>[bankszamlaszam]</code>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">
+								<label class="description" for="surbma_premium_wp_extra_fields[mobilephone]">Mobiltelefon</label>
+							</th>
+							<td>
+								<input id="surbma_premium_wp_extra_fields[mobilephone]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[mobilephone]" value="<?php esc_attr_e( $options['mobilephone'] ); ?>" />
+								<span class="description">Rövidkód:</span> <code>[mobiltelefon]</code>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">
+								<label class="description" for="surbma_premium_wp_extra_fields[phone]">Telefonszám</label>
+							</th>
+							<td>
+								<input id="surbma_premium_wp_extra_fields[phone]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[phone]" value="<?php esc_attr_e( $options['phone'] ); ?>" />
+								<span class="description">Rövidkód:</span> <code>[telefon]</code>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">
+								<label class="description" for="surbma_premium_wp_extra_fields[fax]">Fax</label>
+							</th>
+							<td>
+								<input id="surbma_premium_wp_extra_fields[fax]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[fax]" value="<?php esc_attr_e( $options['fax'] ); ?>" />
+								<span class="description">Rövidkód:</span> <code>[fax]</code>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">
+								<label class="description" for="surbma_premium_wp_extra_fields[email]">Email cím</label>
+							</th>
+							<td>
+								<input id="surbma_premium_wp_extra_fields[email]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[email]" value="<?php esc_attr_e( $options['email'] ); ?>" />
+								<span class="description">Rövidkód:</span> <code>[email]</code>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">
+								<label class="description" for="surbma_premium_wp_extra_fields[skype]">Skype cím</label>
+							</th>
+							<td>
+								<input id="surbma_premium_wp_extra_fields[skype]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[skype]" value="<?php esc_attr_e( $options['skype'] ); ?>" />
+								<span class="description">Rövidkód:</span> <code>[skype]</code>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">
+								<label class="description" for="surbma_premium_wp_extra_fields[companyinfo]">Cég rövid leírása</label>
+							</th>
+							<td>
+								<textarea id="surbma_premium_wp_extra_fields[companyinfo]" class="large-text" cols="50" rows="10" name="surbma_premium_wp_extra_fields[companyinfo]"><?php echo stripslashes( $options['companyinfo'] ); ?></textarea>
+								<span class="description">Rövidkód:</span> <code>[ceginfo]</code>
+								<p>Mutasd be röviden a céged. A következő html kódokat használhatod a formázáshoz:<br /><div class="uk-panel uk-panel-box uk-panel-box-secondary uk-text-small uk-text-muted"><?php echo allowed_tags(); ?></div></p>
+							</td>
+						</tr>
+					</table>
+					<p><input type="submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>" /></p>
+				</form>
+			</div>
+			<div class="uk-panel uk-panel-box">
+				<h3 class="uk-panel-title"><?php _e( 'Rövidkódok használata', 'surbma-premium-wp' ); ?></h3>
+				<p>A fent megadott adatok könnyen megjeleníthetők a weboldalon. Akár oldalba, akár bejegyzésbe, sőt a widgeteknél is beírhatók a mezők után megadott rövidkódok, amik megjelenítik a megadott adatokat. Így, amikor adatváltozás történik, pl. megváltozik a telefonszám, akkor elég csak itt megváltoztatni az adatot és mindenhol az aktuális információ jelenik meg.</p>
+				<p>Itt találhatók a rövidkódok leírásai: <a href="/wp-admin/admin.php?page=pwp-shortcodes">Extra rövidkódok »</a></p>
+			</div>
+		</div>
 	</div>
 <?php
 }
@@ -148,7 +155,7 @@ function pwp_extra_fields_page() {
 /**
  * Sanitize and validate input. Accepts an array, return a sanitized array.
  */
-function pwp_extra_fields_validate( $input ) {
+function surbma_premium_wp_extra_fields_validate( $input ) {
 	global $sharebuttonsplace_options;
 
 	// Say our text option must be safe text with no HTML tags
@@ -169,4 +176,3 @@ function pwp_extra_fields_validate( $input ) {
 
 	return $input;
 }
-
