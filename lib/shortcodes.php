@@ -31,6 +31,26 @@ function surbma_premium_wp_div_function( $atts, $content = null ) {
 }
 add_shortcode( 'div', 'surbma_premium_wp_div_function' );
 
+function surbma_premium_wp_ga_link_function( $atts, $content = null ) {
+	extract( shortcode_atts( array(
+		'href' => '',
+		'class' => '',
+		'id' => '',
+		'style' => '',
+		'title' => '',
+		'target' => '_blank',
+		'eventCategory' => 'outbound',
+		'eventAction' => 'link',
+		'eventLabel' => ''
+	), $atts ) );
+
+	if ( $eventLabel == '' ) $eventLabel = $href;
+	$onClick = "ga( 'send', 'event', '" . $eventCategory . "', '" . $eventAction . "', '" . $eventLabel . "' );";
+
+	return '<a href="'.$href.'" class="'.$class.'" id="'.$id.'" style="'.$style.'" title="'.$title.'" target="'.$target.'" onClick="'.$onClick.'">'.do_shortcode( $content ).'</a>';
+}
+add_shortcode( 'ga-link', 'surbma_premium_wp_ga_link_function' );
+
 function surbma_premium_wp_mailto_function( $atts, $content = null ) {
 	$encodedmail = '';
 	for ( $i = 0; $i <strlen( $content ); $i++ ) $encodedmail .= "&#" . ord( $content[$i] ) . ';';

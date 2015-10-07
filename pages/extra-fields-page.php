@@ -16,7 +16,7 @@ function surbma_premium_wp_extra_fields_page() {
 	<div class="wrap premium-wp uk-grid">
 		<div class="uk-width-9-10">
   			<h2 class="dashicons-before dashicons-book-alt"><?php _e( 'Premium WP', 'surbma-premium-wp' ); ?>: <?php _e( 'Extra Content', 'surbma-premium-wp' ); ?></h2>
-			<p>Ezen az oldalon megadhatók olyan adatok, amelyek felhasználhatók a weboldal könnyebb kezeléséhez.</p>
+			<p><?php _e( 'Extra content shortcodes can be used anywhere on your site and any modifications can be done here. This way you should be doing it only once and every content will update across your website instantly.', 'surbma-premium-wp' ); ?></p>
 
 			<?php if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == true ) { ?>
 				<div class="updated notice is-dismissible"><p><strong><?php _e( 'Settings saved.' ); ?></strong></p></div>
@@ -35,7 +35,7 @@ function surbma_premium_wp_extra_fields_page() {
 							</th>
 							<td>
 								<input id="surbma_premium_wp_extra_fields[name]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[name]" value="<?php esc_attr_e( $options['name'] ); ?>" />
-								<span class="description">Rövidkód:</span> <code>[nev]</code>
+								<span class="description"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[nev]</code>
 							</td>
 						</tr>
 						<tr>
@@ -44,7 +44,7 @@ function surbma_premium_wp_extra_fields_page() {
 							</th>
 							<td>
 								<input id="surbma_premium_wp_extra_fields[company]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[company]" value="<?php esc_attr_e( $options['company'] ); ?>" />
-								<span class="description">Rövidkód:</span> <code>[ceg]</code>
+								<span class="description"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[ceg]</code>
 							</td>
 						</tr>
 						<tr>
@@ -53,7 +53,7 @@ function surbma_premium_wp_extra_fields_page() {
 							</th>
 							<td>
 								<input id="surbma_premium_wp_extra_fields[address]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[address]" value="<?php esc_attr_e( $options['address'] ); ?>" />
-								<span class="description">Rövidkód:</span> <code>[cim]</code>
+								<span class="description"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[cim]</code>
 							</td>
 						</tr>
 						<tr>
@@ -62,7 +62,7 @@ function surbma_premium_wp_extra_fields_page() {
 							</th>
 							<td>
 								<input id="surbma_premium_wp_extra_fields[vat]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[vat]" value="<?php esc_attr_e( $options['vat'] ); ?>" />
-								<span class="description">Rövidkód:</span> <code>[adoszam]</code>
+								<span class="description"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[adoszam]</code>
 							</td>
 						</tr>
 						<tr>
@@ -71,7 +71,7 @@ function surbma_premium_wp_extra_fields_page() {
 							</th>
 							<td>
 								<input id="surbma_premium_wp_extra_fields[companyid]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[companyid]" value="<?php esc_attr_e( $options['companyid'] ); ?>" />
-								<span class="description">Rövidkód:</span> <code>[cegjegyzekszam]</code>
+								<span class="description"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[cegjegyzekszam]</code>
 							</td>
 						</tr>
 						<tr>
@@ -80,7 +80,7 @@ function surbma_premium_wp_extra_fields_page() {
 							</th>
 							<td>
 								<input id="surbma_premium_wp_extra_fields[bankid]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[bankid]" value="<?php esc_attr_e( $options['bankid'] ); ?>" />
-								<span class="description">Rövidkód:</span> <code>[bankszamlaszam]</code>
+								<span class="description"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[bankszamlaszam]</code>
 							</td>
 						</tr>
 						<tr>
@@ -89,7 +89,7 @@ function surbma_premium_wp_extra_fields_page() {
 							</th>
 							<td>
 								<input id="surbma_premium_wp_extra_fields[mobilephone]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[mobilephone]" value="<?php esc_attr_e( $options['mobilephone'] ); ?>" />
-								<span class="description">Rövidkód:</span> <code>[mobiltelefon]</code>
+								<span class="description"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[mobiltelefon]</code>
 							</td>
 						</tr>
 						<tr>
@@ -98,7 +98,7 @@ function surbma_premium_wp_extra_fields_page() {
 							</th>
 							<td>
 								<input id="surbma_premium_wp_extra_fields[phone]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[phone]" value="<?php esc_attr_e( $options['phone'] ); ?>" />
-								<span class="description">Rövidkód:</span> <code>[telefon]</code>
+								<span class="description"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[telefon]</code>
 							</td>
 						</tr>
 						<tr>
@@ -107,7 +107,7 @@ function surbma_premium_wp_extra_fields_page() {
 							</th>
 							<td>
 								<input id="surbma_premium_wp_extra_fields[fax]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[fax]" value="<?php esc_attr_e( $options['fax'] ); ?>" />
-								<span class="description">Rövidkód:</span> <code>[fax]</code>
+								<span class="description"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[fax]</code>
 							</td>
 						</tr>
 						<tr>
@@ -116,7 +116,7 @@ function surbma_premium_wp_extra_fields_page() {
 							</th>
 							<td>
 								<input id="surbma_premium_wp_extra_fields[email]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[email]" value="<?php esc_attr_e( $options['email'] ); ?>" />
-								<span class="description">Rövidkód:</span> <code>[email]</code>
+								<span class="description"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[email]</code>
 							</td>
 						</tr>
 						<tr>
@@ -125,7 +125,7 @@ function surbma_premium_wp_extra_fields_page() {
 							</th>
 							<td>
 								<input id="surbma_premium_wp_extra_fields[skype]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[skype]" value="<?php esc_attr_e( $options['skype'] ); ?>" />
-								<span class="description">Rövidkód:</span> <code>[skype]</code>
+								<span class="description"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[skype]</code>
 							</td>
 						</tr>
 						<tr>
@@ -134,7 +134,7 @@ function surbma_premium_wp_extra_fields_page() {
 							</th>
 							<td>
 								<textarea id="surbma_premium_wp_extra_fields[companyinfo]" class="large-text" cols="50" rows="10" name="surbma_premium_wp_extra_fields[companyinfo]"><?php echo stripslashes( $options['companyinfo'] ); ?></textarea>
-								<span class="description">Rövidkód:</span> <code>[ceginfo]</code>
+								<span class="description"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[ceginfo]</code>
 								<p>Mutasd be röviden a céged. A következő html kódokat használhatod a formázáshoz:<br /><div class="uk-panel uk-panel-box uk-panel-box-secondary uk-text-small uk-text-muted"><?php echo allowed_tags(); ?></div></p>
 							</td>
 						</tr>

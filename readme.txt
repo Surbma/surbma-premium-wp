@@ -2,9 +2,9 @@
 Contributors: Surbma
 Donate link: http://surbma.com/
 Tags: genesis, widget, google analytics, google tag manager, tag manager, analytics, shortcodes
-Requires at least: 3.0
-Tested up to: 4.2
-Stable tag: 2.0.0
+Requires at least: 4.0
+Tested up to: 4.3
+Stable tag: 2.1.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,7 +53,14 @@ It is the reverse version of my last name. ;)
 
 == Changelog ==
 
-= 4.0.0 =
+= 2.1.0 =
+
+- Tested up to WordPress 4.3 version.
+- Code optimization.
+- Some texts are prepared for localization.
+- New shortcode for links, that can be tracked in Google Analytics.
+
+= 2.0.0 =
 
 - First version to prepare for the official WordPress repo.
 - Plugin is renamed.
