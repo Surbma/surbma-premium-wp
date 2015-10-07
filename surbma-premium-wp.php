@@ -1,20 +1,32 @@
 <?php
 
 /*
-Plugin Name: Surbma - Prémium WordPress bővítmények
-Plugin URI: http://surbma.hu/wordpress-bovitmenyek/
-Description: Hasznos bővítmények WordPress honlapokhoz.
-Version: 2.1.0
+Plugin Name: Surbma - Premium WordPress add-ons
+Plugin URI: http://surbma.com/wordpress-plugins/
+Description: Useful add-ons for your WordPress website.
+
+Version: 2.1.1
+
 Author: Surbma
 Author URI: http://surbma.hu/
-License: GPL2
+
+License: GPLv2
+
+Text Domain: surbma-premium-wp
+Domain Path: /languages/
 */
 
 // Prevent direct access to the plugin
-if ( !defined( 'ABSPATH' ) ) die( 'Good try! :)' );
+if ( !defined( 'ABSPATH' ) ) exit( 'Good try! :)' );
 
 define( 'SURBMA_PREMIUM_WP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'SURBMA_PREMIUM_WP_PLUGIN_URL', plugins_url( '', __FILE__ ) );
+
+// Localization
+function surbma_premium_wp_init() {
+	load_plugin_textdomain( 'surbma-premium-wp', false, dirname( plugin_basename( __FILE__ ) . '/languages/' ) );
+}
+add_action( 'init', 'surbma_premium_wp_init' );
 
 /* Include files */
 if ( is_admin() ) {
