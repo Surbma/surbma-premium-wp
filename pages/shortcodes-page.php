@@ -1,20 +1,22 @@
 <?php
 
 function surbma_premium_wp_shortcodes_page() {
+	if ( !isset( $_GET['settings-updated'] ) )
+		$_GET['settings-updated'] = false;
 ?>
-	<div class="wrap premium-wp uk-grid">
+	<div class="wrap premium-wp uk-grid uk-margin-top">
 		<div class="uk-width-9-10">
-			<h2 class="dashicons-before dashicons-editor-code"><?php _e( 'Premium WP', 'surbma-premium-wp' ); ?>: <?php _e( 'Extra Shortcodes', 'surbma-premium-wp' ); ?></h2>
+			<h1 class="dashicons-before dashicons-editor-code"><?php _e( 'Premium WP', 'surbma-premium-wp' ); ?>: <?php _e( 'Extra Shortcodes', 'surbma-premium-wp' ); ?></h1>
 			<p>A rövidkódok egyszerűen beilleszthetők egy oldal vagy bejegyzés szöveg mezőjébe. Ezek előre meghatározott funkciókat látnak el. Vannak rövidkódok, amik paraméterezhetők, ezek is mind megtalálhatók az adott rövidkód leírásában.</p>
 			<p>A paramétereket a következő formában kell a rövidkódhoz megadni: <code>[rovidkod parameter1="ertek1" parameter2="ertek2"]</code></p>
 
-			<div class="uk-panel uk-panel-box">
+			<div class="uk-panel uk-panel-box uk-panel-header">
 				<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [mailto]</h3>
 				<p>Ezzel a rövidkóddal úgy jeleníthető meg az oldalon az Email cím, hogy azt a robotok ne tudják elolvasni. A HTML kódban mindössze értelmetlen karaktereket jelenít meg. Az email cím automatikusan link is lesz, amire kattintva azonnal küldhető email üzenet.</p>
 				<h4>Használata:</h4>
 				<code>[mailto]email@email.hu[/mailto]</code>
 			</div>
-			<div class="uk-panel uk-panel-box">
+			<div class="uk-panel uk-panel-box uk-panel-header">
 				<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [link]</h3>
 				<p>Ezzel a rövidkóddal tudunk megjeleníteni linket az oldalon úgy, hogy az egy adott oldal vagy bejegyzés állandó azonosítójára mutat. Így ha az adott oldal vagy bejegyzés címe megváltozik, a link továbbra is a helyes oldalra fog mutatni.</p>
 				<h4>Paraméterek:</h4>
@@ -26,7 +28,7 @@ function surbma_premium_wp_shortcodes_page() {
 				<h4>Használata:</h4>
 				<code>[link id="1" title="Egér kurzornál megjelenő szöveg"]A link szövege[/link]</code>
 			</div>
-			<div class="uk-panel uk-panel-box">
+			<div class="uk-panel uk-panel-box uk-panel-header">
 				<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [vendeg] és [tag]</h3>
 				<p>Ezekkel a rövidkódokkal meg tudjuk határozni egy adott oldalon/bejegyzésen belül, hogy milyen tartalmat láthatnak a normál látogatók és a regisztrált tagok. Ami tartalom a [vendeg] shortcode-on belül van, azt csak a nem bejelentkezett, ami a [tag] shortcode-on belül van, azt pedig csak a bejelentkezett látogatók látják.</p>
 				<h4>Használata:</h4>
@@ -35,7 +37,7 @@ function surbma_premium_wp_shortcodes_page() {
 					<li><code>[tag]Tartalom...[/tag]</code> - ezt csak a bejelentkezett felhasználók látják</li>
 				</ul>
 			</div>
-			<div class="uk-panel uk-panel-box">
+			<div class="uk-panel uk-panel-box uk-panel-header">
 				<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [nev], [ceg], [cim], [adoszam], [cegjegyzekszam], [bankszamlaszam], [mobiltelefon], [telefon], [fax], [email], [skype], [ceginfo]</h3>
 				<p>Ezekkel a rövidkódokkal tudjuk megjeleníteni az alapadatoknál megadott értékeket.</p>
 				<h4>Használata:</h4>
@@ -54,7 +56,7 @@ function surbma_premium_wp_shortcodes_page() {
 					<li><code>[ceginfo]</code> - megjeleníti a cég rövid leírását</li>
 				</ul>
 			</div>
-			<div class="uk-panel uk-panel-box">
+			<div class="uk-panel uk-panel-box uk-panel-header">
 				<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [div]</h3>
 				<p>Ezzel a rövidkóddal egy div elemet illeszthetünk be. Ez hasznos lehet, amikor sor törésre van szükségünk, de egyéb megoldásokra is jó egy programozó számára.</p>
 				<h4>Paraméterek:</h4>
@@ -66,7 +68,7 @@ function surbma_premium_wp_shortcodes_page() {
 				<h4>Használata:</h4>
 				<code>[div class="black" style="height:0px;"]</code> vagy <code>[div class="black"]Tartalom...[/div]</code>
 			</div>
-			<div class="uk-panel uk-panel-box">
+			<div class="uk-panel uk-panel-box uk-panel-header">
 				<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [google-calendar]</h3>
 				<p>Ezzel a rövidkóddal egy Google Naptárat illeszthetünk be. Először a Google Naptár iframe beágyazó kódját kell lekérni, amiből ki kell másolni a szükséges paramétereket.</p>
 				<h4>Paraméterek:</h4>

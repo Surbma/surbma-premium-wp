@@ -45,11 +45,14 @@ function surbma_premium_wp_social_add_share_buttons( $content ) {
 
 	$social_buttons = $beforesharebuttons . $share_text . $fblike_button . $plusone_button . $tweet_button . $linkedin_button . $aftersharebuttons;
 
-	if ( $options['sharebuttonsplace'] == 'after' ) {
+	if ( $options['sharebuttonsplace'] == 'before' ) {
+		$content = $social_buttons . $content;
+	}
+	elseif ( $options['sharebuttonsplace'] == 'after' ) {
 		$content = $content . $social_buttons;
 	}
 	else {
-		$content = $social_buttons . $content;
+		$content = $social_buttons . $content . $social_buttons;
 	}
 
 	return $content;

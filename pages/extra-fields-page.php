@@ -6,23 +6,21 @@ function surbma_premium_wp_extra_fields_init() {
 add_action( 'admin_init', 'surbma_premium_wp_extra_fields_init', 50 );
 
 function surbma_premium_wp_extra_fields_page() {
-
 	global $sharebuttonsplace_options;
 
-	if ( ! isset( $_REQUEST['settings-updated'] ) )
-		$_REQUEST['settings-updated'] = false;
-
-	?>
-	<div class="wrap premium-wp uk-grid">
+	if ( !isset( $_GET['settings-updated'] ) )
+		$_GET['settings-updated'] = false;
+?>
+	<div class="wrap premium-wp uk-grid uk-margin-top">
 		<div class="uk-width-9-10">
-  			<h2 class="dashicons-before dashicons-book-alt"><?php _e( 'Premium WP', 'surbma-premium-wp' ); ?>: <?php _e( 'Extra Content', 'surbma-premium-wp' ); ?></h2>
+  			<h1 class="dashicons-before dashicons-book-alt"><?php _e( 'Premium WP', 'surbma-premium-wp' ); ?>: <?php _e( 'Extra Content', 'surbma-premium-wp' ); ?></h1>
 			<p><?php _e( 'Extra content shortcodes can be used anywhere on your site and any modifications can be done here. This way you should be doing it only once and every content will update across your website instantly.', 'surbma-premium-wp' ); ?></p>
 
 			<?php if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == true ) { ?>
 				<div class="updated notice is-dismissible"><p><strong><?php _e( 'Settings saved.' ); ?></strong></p></div>
 			<?php } ?>
 
-			<div class="uk-panel uk-panel-box">
+			<div class="uk-panel uk-panel-box uk-panel-header">
 				<h3 class="uk-panel-title"><?php _e( 'Alapadatok', 'surbma-premium-wp' ); ?></h3>
 				<form method="post" action="options.php">
 					<?php settings_fields( 'surbma_premium_wp_options' ); ?>
@@ -142,7 +140,7 @@ function surbma_premium_wp_extra_fields_page() {
 					<p><input type="submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>" /></p>
 				</form>
 			</div>
-			<div class="uk-panel uk-panel-box">
+			<div class="uk-panel uk-panel-box uk-panel-header">
 				<h3 class="uk-panel-title"><?php _e( 'Rövidkódok használata', 'surbma-premium-wp' ); ?></h3>
 				<p>A fent megadott adatok könnyen megjeleníthetők a weboldalon. Akár oldalba, akár bejegyzésbe, sőt a widgeteknél is beírhatók a mezők után megadott rövidkódok, amik megjelenítik a megadott adatokat. Így, amikor adatváltozás történik, pl. megváltozik a telefonszám, akkor elég csak itt megváltoztatni az adatot és mindenhol az aktuális információ jelenik meg.</p>
 				<p>Itt találhatók a rövidkódok leírásai: <a href="/wp-admin/admin.php?page=pwp-shortcodes">Extra rövidkódok »</a></p>

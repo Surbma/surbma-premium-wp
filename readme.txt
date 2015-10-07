@@ -4,7 +4,7 @@ Donate link: http://surbma.com/
 Tags: genesis, widget, google analytics, google tag manager, tag manager, analytics, shortcodes
 Requires at least: 4.0
 Tested up to: 4.3
-Stable tag: 2.1.1
+Stable tag: 2.2.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,14 @@ I am managing hundreds of client websites. I use only the best and mostly premiu
 It is the reverse version of my last name. ;)
 
 == Changelog ==
+
+= 2.2.0 =
+
+- Minor CSS changes.
+- Social Integration menu is activated to all users with the `manage_options` capability.
+- Social share buttons can be displayed both before and after the post content.
+- Code optimization.
+- Some changes in the admin display.
 
 = 2.1.1 =
 

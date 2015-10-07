@@ -46,7 +46,7 @@ function surbma_premium_wp_add_menus() {
 		'surbma-premium-wp-menu',
 		__( 'Social Integration', 'surbma-premium-wp' ),
 		__( 'Social Integration', 'surbma-premium-wp' ),
-		'update_core',
+		'manage_options',
 		'surbma-premium-wp-social',
 		'surbma_premium_wp_social_page'
 	);
