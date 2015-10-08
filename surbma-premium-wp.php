@@ -5,7 +5,7 @@ Plugin Name: Surbma - Premium WordPress add-ons
 Plugin URI: http://surbma.com/wordpress-plugins/
 Description: Useful add-ons for your WordPress website.
 
-Version: 2.2.0
+Version: 2.3.0
 
 Author: Surbma
 Author URI: http://surbma.hu/

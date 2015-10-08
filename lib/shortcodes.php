@@ -72,7 +72,23 @@ function surbma_premium_wp_show_content_for_tag( $atts, $content = null ) {
 }
 add_shortcode( 'tag', 'surbma_premium_wp_show_content_for_tag' );
 
+/* Load scripts when needed */
+function surbma_premium_wp_facebook_script() {
+?>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/<?php echo get_locale(); ?>/sdk.js#xfbml=1&version=v2.5&appId=319762918111486";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<?php
+}
+
 function surbma_premium_wp_fblike_button( $atts ) {
+	if ( function_exists( 'surbma_premium_wp_facebook_script' ) )
+		add_action( 'wp_footer', 'surbma_premium_wp_facebook_script' );
 	extract( shortcode_atts( array(
 		"url" => get_permalink()
 	), $atts ) );

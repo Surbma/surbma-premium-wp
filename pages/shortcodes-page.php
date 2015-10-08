@@ -81,6 +81,19 @@ function surbma_premium_wp_shortcodes_page() {
 				<h4>Használata:</h4>
 				<code>[google-calendar src="ide jön a kérdőjel utáni url részlet"]</code> vagy <code>[google-calendar src="ide jön a kérdőjel utáni url részlet" width="640" height="480"]</code>
 			</div>
+			<div class="uk-panel uk-panel-box uk-panel-header">
+				<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [facebook-tetszik-gomb]</h3>
+				<p>Facebook "tetszik" gomb beillesztése az oldalra. A kód paraméterezhető és a "küldés" gomb is engedélyezhető.</p>
+				<h4>Paraméterek:</h4>
+				<ul>
+					<li><code>url</code> - A gomb linkje, amire "tetszik"-et nyom a látogató. Alapértelmezett érték: mindig az aktuális oldal url-je.</li>
+				</ul>
+				<h4>Használata:</h4>
+				<ul>
+					<li><code>[facebook-tetszik-gomb]</code> - Normál megjelenítés az alapértelmezett paraméterekkel</li>
+					<li><code>[facebook-tetszik-gomb url="http://www.sajatdomain.hu"]</code> - Mindig a megadott domain url-jére nyomnak "tetszik"-et.</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 <?php

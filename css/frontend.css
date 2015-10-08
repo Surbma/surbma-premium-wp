@@ -1,0 +1,10 @@
+.pwp-share-buttons{background:rgba(0,0,0,0.05);margin:1em 0 !important;padding:0 !important;border:1px solid #ddd;clear:both;overflow:hidden;}
+.pwp-share-buttons li{display:inline-block;width:60px;float:right;margin:0 !important;padding:0 !important;text-align:center;}
+.pwp-share-buttons li a{display:block;text-decoration:none;color:#aaa;height:40px;border-left:1px solid #ddd;line-height:40px;}
+.pwp-share-buttons li a:hover{background:#fff;text-decoration:none;color:#000;}
+.pwp-share-buttons li span{font-size:20px;line-height:40px;}
+.pwp-share-buttons li a span:before{}
+.pwp-share-buttons .fb_iframe_widget span{float:left;}
+.pwp-share-buttons iframe{margin:0;padding:0;}
+.pwp-share-buttons .pwp-share{margin:0;padding:0 0 0 1em;float:left;}
+.pwp-share-buttons .pwp-share span{color:#ddd;font-size:40px;}
