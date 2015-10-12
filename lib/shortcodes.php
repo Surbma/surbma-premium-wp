@@ -72,7 +72,6 @@ function surbma_premium_wp_show_content_for_tag( $atts, $content = null ) {
 }
 add_shortcode( 'tag', 'surbma_premium_wp_show_content_for_tag' );
 
-/* Load scripts when needed */
 function surbma_premium_wp_facebook_script() {
 ?>
 <div id="fb-root"></div>
@@ -96,6 +95,24 @@ function surbma_premium_wp_fblike_button( $atts ) {
 }
 add_shortcode( 'facebook-like-gomb', 'surbma_premium_wp_fblike_button' );
 add_shortcode( 'facebook-tetszik-gomb', 'surbma_premium_wp_fblike_button' );
+
+function surbma_premium_wp_facebook_page( $atts ) {
+	if ( function_exists( 'surbma_premium_wp_facebook_script' ) )
+		add_action( 'wp_footer', 'surbma_premium_wp_facebook_script' );
+	extract( shortcode_atts( array(
+		"url" => get_permalink(),
+		"width" => 340,
+		"height" => 500,
+		"small_header" => false,
+		"adapt_container_width" => true,
+		"hide_cover" => false,
+		"show_facepile" => true,
+		"show_posts" => true,
+		"hide_cta" => false
+	), $atts ) );
+	return '<div class="fb-page" data-href="'.$url.'" data-width="'.$width.'" data-height="'.$height.'" data-small-header="'.$small_header.'" data-adapt-container-width="'.$adapt_container_width.'" data-hide-cover="'.$hide_cover.'" data-show-facepile="'.$show_facepile.'" data-show-posts="'.$show_posts.'" data-hide-cta="'.$hide_cta.'"><div class="fb-xfbml-parse-ignore"></div></div>';
+}
+add_shortcode( 'facebook-oldal', 'surbma_premium_wp_facebook_page' );
 
 function surbma_premium_wp_name_function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );

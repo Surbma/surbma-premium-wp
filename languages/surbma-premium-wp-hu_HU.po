@@ -1,0 +1,254 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Surbma - Premium WordPress v2.4.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2015-10-12 12:36:29+0000\n"
+"Last-Translator: surbma <peter@surbma.hu>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Hungarian\n"
+"X-Poedit-Country: HUNGARY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: lib/admin.php:13
+#: lib/admin.php:23
+#@ surbma-premium-wp
+msgid "Premium WordPress"
+msgstr "Prémium WordPress"
+
+#: lib/admin.php:14
+#: lib/admin.php:24
+#: pages/extra-fields-page.php:16
+#: pages/google-analytics-page.php:9
+#: pages/google-tag-manager-page.php:9
+#: pages/shortcodes-page.php:9
+#: pages/social-page.php:40
+#: pages/start-page.php:7
+#@ surbma-premium-wp
+msgid "Premium WP"
+msgstr "Prémium WP"
+
+#: lib/admin.php:31
+#: lib/admin.php:32
+#: pages/google-analytics-page.php:9
+#@ surbma-premium-wp
+msgid "Google Analytics"
+msgstr "Google Analytics"
+
+#: lib/admin.php:39
+#: lib/admin.php:40
+#: pages/google-tag-manager-page.php:9
+#@ surbma-premium-wp
+msgid "Google Tag Manager"
+msgstr "Google Címkekezelő"
+
+#: lib/admin.php:47
+#: lib/admin.php:48
+#@ surbma-premium-wp
+msgid "Social Integration"
+msgstr "Közösségi integráció"
+
+#: lib/admin.php:55
+#: lib/admin.php:56
+#: pages/extra-fields-page.php:16
+#@ surbma-premium-wp
+msgid "Extra Content"
+msgstr "Extra tartalmak"
+
+#: lib/admin.php:63
+#: lib/admin.php:64
+#: pages/shortcodes-page.php:9
+#@ surbma-premium-wp
+msgid "Extra Shortcodes"
+msgstr "Extra kódok"
+
+#: pages/extra-fields-page.php:17
+#@ surbma-premium-wp
+msgid "Extra content shortcodes can be used anywhere on your site and any modifications can be done here. This way you should be doing it only once and every content will update across your website instantly."
+msgstr "Az Extra tartalmakhoz tartozó kódok segítségével az itt megadott adatokat bárhol meg lehet jeleníteni az odlalon. Ha egy adat módosul, elég itt megváltoztatni és mindenhol frissül a tartalom."
+
+#: pages/extra-fields-page.php:20
+#: pages/google-analytics-page.php:13
+#: pages/google-tag-manager-page.php:13
+#: pages/social-page.php:44
+#@ default
+msgid "Settings saved."
+msgstr ""
+
+#: pages/extra-fields-page.php:24
+#@ surbma-premium-wp
+msgid "Alapadatok"
+msgstr ""
+
+#: pages/extra-fields-page.php:35
+#@ default
+msgid "name"
+msgstr ""
+
+#: pages/extra-fields-page.php:36
+#: pages/extra-fields-page.php:45
+#: pages/extra-fields-page.php:54
+#: pages/extra-fields-page.php:63
+#: pages/extra-fields-page.php:72
+#: pages/extra-fields-page.php:81
+#: pages/extra-fields-page.php:90
+#: pages/extra-fields-page.php:99
+#: pages/extra-fields-page.php:108
+#: pages/extra-fields-page.php:117
+#: pages/extra-fields-page.php:126
+#: pages/extra-fields-page.php:135
+#: pages/shortcodes-page.php:14
+#: pages/shortcodes-page.php:20
+#: pages/shortcodes-page.php:29
+#: pages/shortcodes-page.php:48
+#: pages/shortcodes-page.php:86
+#: pages/shortcodes-page.php:130
+#: pages/shortcodes-page.php:159
+#@ surbma-premium-wp
+msgid "Shortcode"
+msgstr ""
+
+#: pages/extra-fields-page.php:44
+#@ default
+msgid "company"
+msgstr ""
+
+#: pages/extra-fields-page.php:53
+#@ default
+msgid "address"
+msgstr ""
+
+#: pages/extra-fields-page.php:62
+#@ default
+msgid "vat"
+msgstr ""
+
+#: pages/extra-fields-page.php:71
+#@ default
+msgid "companyid"
+msgstr ""
+
+#: pages/extra-fields-page.php:80
+#@ default
+msgid "bankid"
+msgstr ""
+
+#: pages/extra-fields-page.php:89
+#@ default
+msgid "mobilephone"
+msgstr ""
+
+#: pages/extra-fields-page.php:98
+#@ default
+msgid "phone"
+msgstr ""
+
+#: pages/extra-fields-page.php:107
+#@ default
+msgid "fax"
+msgstr ""
+
+#: pages/extra-fields-page.php:116
+#@ default
+msgid "email"
+msgstr ""
+
+#: pages/extra-fields-page.php:125
+#@ default
+msgid "skype"
+msgstr ""
+
+#: pages/extra-fields-page.php:140
+#: pages/google-analytics-page.php:23
+#: pages/google-tag-manager-page.php:23
+#: pages/social-page.php:145
+#@ default
+msgid "Save Changes"
+msgstr ""
+
+#: pages/extra-fields-page.php:144
+#@ surbma-premium-wp
+msgid "Rövidkódok használata"
+msgstr ""
+
+#: pages/google-analytics-page.php:17
+#@ surbma-premium-wp
+msgid "Google Analytics Settings"
+msgstr "Google Analytics beállítások"
+
+#: pages/google-tag-manager-page.php:17
+#@ surbma-premium-wp
+msgid "Google Tag Manager Settings"
+msgstr "Google Címkekezelő beállítások"
+
+#: pages/social-page.php:18
+#@ default
+msgid "Bejegyzés szövege előtt"
+msgstr ""
+
+#: pages/social-page.php:22
+#@ default
+msgid "Bejegyzés szövege után"
+msgstr ""
+
+#: pages/social-page.php:26
+#@ default
+msgid "Bejegyzés szövege előtt és után"
+msgstr ""
+
+#: pages/social-page.php:61
+#@ default
+msgid "fbpageurl"
+msgstr ""
+
+#: pages/start-page.php:10
+#@ surbma-premium-wp
+msgid "Prémium WordPress bővítmények bemutatása"
+msgstr ""
+
+#. translators: plugin header field 'Name'
+#: surbma-premium-wp.php:0
+#@ surbma-premium-wp
+msgid "Surbma - Premium WordPress"
+msgstr "Surbma - Prémium WordPress"
+
+#. translators: plugin header field 'PluginURI'
+#: surbma-premium-wp.php:0
+#@ surbma-premium-wp
+msgid "http://surbma.com/wordpress-plugins/"
+msgstr "http://surbma.hu/wordpress/wordpress-bovitmenyek/"
+
+#. translators: plugin header field 'Description'
+#: surbma-premium-wp.php:0
+#@ surbma-premium-wp
+msgid "Useful extensions for your WordPress website."
+msgstr "Hasznos kiegészítők a WordPress honlapokhoz."
+
+#. translators: plugin header field 'Author'
+#: surbma-premium-wp.php:0
+#@ surbma-premium-wp
+msgid "Surbma"
+msgstr "Surbma"
+
+#. translators: plugin header field 'Version'
+#: surbma-premium-wp.php:0
+#@ surbma-premium-wp
+msgid "2.4.0"
+msgstr ""
+
+#. translators: plugin header field 'AuthorURI'
+#: surbma-premium-wp.php:0
+#@ surbma-premium-wp
+msgid "http://surbma.com/"
+msgstr "http://surbma.hu/"
+

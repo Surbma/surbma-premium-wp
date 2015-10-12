@@ -4,7 +4,7 @@ Donate link: http://surbma.com/
 Tags: genesis, widget, google analytics, google tag manager, tag manager, analytics, shortcodes, share, facebook, google, google plus, google+, twitter, pinterest, email, print
 Requires at least: 4.0
 Tested up to: 4.3
-Stable tag: 2.3.0
+Stable tag: 2.4.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,6 +53,12 @@ I am managing hundreds of client websites. I use only the best and mostly premiu
 It is the reverse version of my last name. ;)
 
 == Changelog ==
+
+= 2.4.0 =
+
+- Added Facebook Page Plugin shortcode.
+- Added hungarian localization files.
+- Some changes in the markup of admin pages.
 
 = 2.3.0 =
 

@@ -1,0 +1,126 @@
+# Copyright (C) 2015 Surbma - Premium WordPress add-ons
+# This file is distributed under the same license as the Surbma - Premium WordPress add-ons package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Surbma - Premium WordPress add-ons 2.3.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/surbma-premium-"
+"wp\n"
+"POT-Creation-Date: 2015-10-09 06:52:41+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: lib/admin.php:13 lib/admin.php:23
+msgid "Premium WordPress"
+msgstr ""
+
+#: lib/admin.php:14 lib/admin.php:24 pages/extra-fields-page.php:16
+#: pages/google-analytics-page.php:9 pages/google-tag-manager-page.php:9
+#: pages/shortcodes-page.php:9 pages/social-page.php:40 pages/start-page.php:7
+msgid "Premium WP"
+msgstr ""
+
+#: lib/admin.php:31 lib/admin.php:32 pages/google-analytics-page.php:9
+msgid "Google Analytics"
+msgstr ""
+
+#: lib/admin.php:39 lib/admin.php:40 pages/google-tag-manager-page.php:9
+msgid "Google Tag Manager"
+msgstr ""
+
+#: lib/admin.php:47 lib/admin.php:48
+msgid "Social Integration"
+msgstr ""
+
+#: lib/admin.php:55 lib/admin.php:56 pages/extra-fields-page.php:16
+msgid "Extra Content"
+msgstr ""
+
+#: lib/admin.php:63 lib/admin.php:64 pages/shortcodes-page.php:9
+msgid "Extra Shortcodes"
+msgstr ""
+
+#: pages/extra-fields-page.php:17
+msgid ""
+"Extra content shortcodes can be used anywhere on your site and any "
+"modifications can be done here. This way you should be doing it only once "
+"and every content will update across your website instantly."
+msgstr ""
+
+#: pages/extra-fields-page.php:20 pages/google-analytics-page.php:13
+#: pages/google-tag-manager-page.php:13 pages/social-page.php:44
+msgid "Settings saved."
+msgstr ""
+
+#: pages/extra-fields-page.php:24
+msgid "Alapadatok"
+msgstr ""
+
+#: pages/extra-fields-page.php:36 pages/extra-fields-page.php:45
+#: pages/extra-fields-page.php:54 pages/extra-fields-page.php:63
+#: pages/extra-fields-page.php:72 pages/extra-fields-page.php:81
+#: pages/extra-fields-page.php:90 pages/extra-fields-page.php:99
+#: pages/extra-fields-page.php:108 pages/extra-fields-page.php:117
+#: pages/extra-fields-page.php:126 pages/extra-fields-page.php:135
+#: pages/shortcodes-page.php:14 pages/shortcodes-page.php:20
+#: pages/shortcodes-page.php:32 pages/shortcodes-page.php:41
+#: pages/shortcodes-page.php:60 pages/shortcodes-page.php:72
+#: pages/shortcodes-page.php:85
+msgid "Shortcode"
+msgstr ""
+
+#: pages/extra-fields-page.php:140 pages/google-analytics-page.php:23
+#: pages/google-tag-manager-page.php:23 pages/social-page.php:145
+msgid "Save Changes"
+msgstr ""
+
+#: pages/extra-fields-page.php:144
+msgid "Rövidkódok használata"
+msgstr ""
+
+#: pages/google-analytics-page.php:17
+msgid "Google Analytics Settings"
+msgstr ""
+
+#: pages/google-tag-manager-page.php:17
+msgid "Google Tag Manager Settings"
+msgstr ""
+
+#: pages/social-page.php:18
+msgid "Bejegyzés szövege előtt"
+msgstr ""
+
+#: pages/social-page.php:22
+msgid "Bejegyzés szövege után"
+msgstr ""
+
+#: pages/social-page.php:26
+msgid "Bejegyzés szövege előtt és után"
+msgstr ""
+
+#: pages/start-page.php:10
+msgid "Prémium WordPress bővítmények bemutatása"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Surbma - Premium WordPress add-ons"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://surbma.com/wordpress-plugins/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Useful add-ons for your WordPress website."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Surbma"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://surbma.hu/"
+msgstr ""
