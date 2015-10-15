@@ -8,69 +8,61 @@ add_action( 'wp_enqueue_scripts', 'surbma_premium_wp_scripts' );
 
 /* Social Share Buttons for Posts */
 function surbma_premium_wp_social_add_share_buttons( $content ) {
-	global $post;
 	$options = get_option( 'surbma_premium_wp_social_fields' );
 
-	$url = get_permalink();
+	if ( is_singular( 'post' ) && is_main_query() && in_the_loop() ) {
+		if ( $options['fblikeposts'] == '1' || $options['plusoneposts'] == '1' || $options['tweetposts'] == '1' || $options['linkedinposts'] == '1' || $options['pinitposts'] == '1' || $options['emailposts'] == '1' || $options['printposts'] == '1' ) {
 
-	$beforesharebuttons = '<ul class="pwp-share-buttons">';
-	$aftersharebuttons = '</ul>';
+        	global $post;
 
-	$share_text = '<li class="pwp-share"><span class="genericon genericon-share"></span></li>';
+        	$url = get_permalink();
 
-	$fblike_button = '';
-	$plusone_button = '';
-	$tweet_button = '';
-	$linkedin_button = '';
-	$pinterest_button = '';
-	$email_button = '';
-	$print_button = '';
+        	$fblike_button = '';
+        	$plusone_button = '';
+        	$tweet_button = '';
+        	$linkedin_button = '';
+        	$pinterest_button = '';
+        	$email_button = '';
+        	$print_button = '';
 
-	if ( $options['fblikeposts'] == '1' )
-		$fblike_button = '<li class="pwp-fblike"><a href="https://www.facebook.com/sharer/sharer.php?u='.$url.'" target="_blank"><span class="genericon genericon-facebook-alt"></span></a></li>';
+	        if ( $options['fblikeposts'] == '1' )
+		        $fblike_button = '<li class="pwp-fblike"><a href="https://www.facebook.com/sharer/sharer.php?u='.$url.'" target="_blank"><span class="genericon genericon-facebook-alt"></span></a></li>';
 
-	if ( $options['plusoneposts'] == '1' )
-		$plusone_button = '<li class="pwp-googleplus"><a href="https://plus.google.com/share?url='.$url.'" target="_blank"><span class="genericon genericon-googleplus"></span></a></li>';
+	        if ( $options['plusoneposts'] == '1' )
+		        $plusone_button = '<li class="pwp-googleplus"><a href="https://plus.google.com/share?url='.$url.'" target="_blank"><span class="genericon genericon-googleplus"></span></a></li>';
 
-	if ( $options['tweetposts'] == '1' )
-		$tweet_button = '<li class="pwp-tweet"><a href="https://twitter.com/home?status='.$url.'" target="_blank"><span class="genericon genericon-twitter"></span></a></li>';
+	        if ( $options['tweetposts'] == '1' )
+		        $tweet_button = '<li class="pwp-tweet"><a href="https://twitter.com/home?status='.$url.'" target="_blank"><span class="genericon genericon-twitter"></span></a></li>';
 
-	if ( $options['linkedinposts'] == '1' )
-		$linkedin_button = '<li class="pwp-linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url='.$url.'" target="_blank"><span class="genericon genericon-linkedin"></span></a></li>';
+	        if ( $options['linkedinposts'] == '1' )
+		        $linkedin_button = '<li class="pwp-linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url='.$url.'" target="_blank"><span class="genericon genericon-linkedin"></span></a></li>';
 
-	if ( $options['pinitposts'] == '1' )
-		$pinterest_button = '<li class="pwp-linkedin"><a href="https://pinterest.com/pin/create/button/?url='.$url.'" target="_blank"><span class="genericon genericon-pinterest"></span></a></li>';
+	        if ( $options['pinitposts'] == '1' )
+		        $pinterest_button = '<li class="pwp-linkedin"><a href="https://pinterest.com/pin/create/button/?url='.$url.'" target="_blank"><span class="genericon genericon-pinterest"></span></a></li>';
 
-	if ( $options['emailposts'] == '1' )
-		$email_button = '<li class="pwp-email"><a href="mailto:?body='.$url.'"><span class="genericon genericon-mail"></span></a></li>';
+	        if ( $options['emailposts'] == '1' )
+		        $email_button = '<li class="pwp-email"><a href="mailto:?body='.$url.'"><span class="genericon genericon-mail"></span></a></li>';
 
-	if ( $options['printposts'] == '1' )
-		$print_button = '<li class="pwp-email"><a href="http://www.printfriendly.com/print?url='.$url.'" target="_blank"><span class="genericon genericon-print"></span></a></li>';
+	        if ( $options['printposts'] == '1' )
+		        $print_button = '<li class="pwp-email"><a href="http://www.printfriendly.com/print?url='.$url.'" target="_blank"><span class="genericon genericon-print"></span></a></li>';
 
-	$social_buttons = $beforesharebuttons . $share_text . $fblike_button . $plusone_button . $tweet_button . $linkedin_button . $pinterest_button . $email_button . $print_button . $aftersharebuttons;
+	        $social_buttons = '<ul class="pwp-share-buttons"><li class="pwp-share"><span class="genericon genericon-share"></span></li>' . $fblike_button . $plusone_button . $tweet_button . $linkedin_button . $pinterest_button . $email_button . $print_button . '</ul>';
 
-	if ( $options['sharebuttonsplace'] == 'before' ) {
-		$content = $social_buttons . $content;
+	        if ( $options['sharebuttonsplace'] == 'before' ) {
+		        $content = $social_buttons . $content;
+	        }
+	        elseif ( $options['sharebuttonsplace'] == 'after' ) {
+		        $content = $content . $social_buttons;
+	        }
+	        else {
+		        $content = $social_buttons . $content . $social_buttons;
+	        }
+
+		}
 	}
-	elseif ( $options['sharebuttonsplace'] == 'after' ) {
-		$content = $content . $social_buttons;
-	}
-	else {
-		$content = $social_buttons . $content . $social_buttons;
-	}
-
 	return $content;
 }
-
-function surbma_premium_wp_social_share_buttons_actions() {
-	$options = get_option( 'surbma_premium_wp_social_fields' );
-
-	if ( is_singular( 'post' ) ) {
-		if ( $options['fblikeposts'] == '1' || $options['plusoneposts'] == '1' || $options['tweetposts'] == '1' || $options['linkedinposts'] == '1' || $options['pinitposts'] == '1' || $options['emailposts'] == '1' || $options['printposts'] == '1' )
-			add_filter( 'the_content', 'surbma_premium_wp_social_add_share_buttons', 20 );
-	}
-}
-add_action( 'wp_head', 'surbma_premium_wp_social_share_buttons_actions' );
+add_filter( 'the_content', 'surbma_premium_wp_social_add_share_buttons', 20 );
 
 function surbma_premium_wp_google_tag_manager_display() {
 	$options = get_option( 'surbma_premium_wp_google_tag_manager_fields' );
