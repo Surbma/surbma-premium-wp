@@ -5,7 +5,7 @@ Plugin Name: Surbma - Premium WordPress
 Plugin URI: http://surbma.com/wordpress-plugins/
 Description: Useful extensions for your WordPress website.
 
-Version: 2.5.0
+Version: 2.5.1
 
 Author: Surbma
 Author URI: http://surbma.com/
@@ -24,9 +24,9 @@ define( 'SURBMA_PREMIUM_WP_PLUGIN_URL', plugins_url( '', __FILE__ ) );
 
 // Localization
 function surbma_premium_wp_init() {
-	load_plugin_textdomain( 'surbma-premium-wp', false, dirname( plugin_basename( __FILE__ ) . '/languages/' ) );
+	load_plugin_textdomain( 'surbma-premium-wp', false, plugin_basename( dirname( __FILE__ ) ) . '/languages' );
 }
-add_action( 'init', 'surbma_premium_wp_init' );
+add_action( 'plugins_loaded', 'surbma_premium_wp_init' );
 
 /* Include files */
 if ( is_admin() ) {
