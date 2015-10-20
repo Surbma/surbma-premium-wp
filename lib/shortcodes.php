@@ -76,11 +76,11 @@ function surbma_premium_wp_facebook_script() {
 ?>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/<?php echo get_locale(); ?>/sdk.js#xfbml=1&version=v2.5&appId=319762918111486";
-  fjs.parentNode.insertBefore(js, fjs);
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/<?php echo get_locale(); ?>/sdk.js#xfbml=1&version=v2.5&appId=256155317784646";
+	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <?php
 }
@@ -91,7 +91,7 @@ function surbma_premium_wp_fblike_button( $atts ) {
 	extract( shortcode_atts( array(
 		"url" => get_permalink()
 	), $atts ) );
-	return '<div style="float:left;margin:0 .5em .5em 0;"><div class="fb-like" data-href="'.$url.'" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div></div>';
+	return '<div style="float:left;margin:0 .5em .5em 0;"><div class="fb-like" data-href="'.$url.'" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></div>';
 }
 add_shortcode( 'facebook-like-gomb', 'surbma_premium_wp_fblike_button' );
 add_shortcode( 'facebook-tetszik-gomb', 'surbma_premium_wp_fblike_button' );
@@ -182,8 +182,8 @@ function surbma_premium_wp_google_calendar_shortcode( $atts ) {
      extract( shortcode_atts( array(
           'src' => '',
           'scrolling' => 'auto',
-          'width' => '400',
-          'height' => '300'
+          'width' => 400,
+          'height' => 300
      ), $atts ) );
      return '<iframe src="https://www.google.com/calendar/embed?'.$src.'" width="'.$width.'" height="'.$height.'" frameborder="0" scrolling="'.$scrolling.'"></iframe>';
 }
@@ -194,10 +194,30 @@ function surbma_premium_wp_google_presentation_shortcode( $atts ) {
           'src' => '',
           'start' => 'false',
           'loop' => 'false',
-          'delayms' => '3000',
-          'width' => '400',
-          'height' => '300'
+          'delayms' => 3000,
+          'width' => 400,
+          'height' => 300
      ), $atts ) );
      return '<iframe src="https://docs.google.com/presentation/d/'.$src.'/embed?start='.$start.'&loop='.$loop.'&delayms='.$delayms.'" frameborder="0" width="'.$width.'" height="'.$height.'" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>';
 }
 add_shortcode( 'google-presentation', 'surbma_premium_wp_google_presentation_shortcode' );
+
+function surbma_premium_wp_youtube_shortcode( $atts ) {
+     extract( shortcode_atts( array(
+          'id' => '',
+          'width' => '',
+          'height' => ''
+     ), $atts ) );
+     return '<iframe width="'.$width.'" height="'.$height.'" src="https://www.youtube.com/embed/'.$id.'" frameborder="0" allowfullscreen></iframe>';
+}
+add_shortcode( 'pwp-youtube', 'surbma_premium_wp_youtube_shortcode' );
+
+function surbma_premium_wp_vimeo_shortcode( $atts ) {
+     extract( shortcode_atts( array(
+          'id' => '',
+          'width' => '',
+          'height' => ''
+     ), $atts ) );
+     return '<iframe src="https://player.vimeo.com/video/'.$id.'" width="'.$width.'" height="'.$height.'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+}
+add_shortcode( 'pwp-vimeo', 'surbma_premium_wp_vimeo_shortcode' );

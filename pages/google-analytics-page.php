@@ -13,7 +13,7 @@ function surbma_premium_wp_google_analytics_page() {
 				<div class="updated notice is-dismissible"><p><strong><?php _e( 'Settings saved.' ); ?></strong></p></div>
 			<?php } ?>
 
-			<div class="uk-panel uk-panel-box uk-panel-header">
+			<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
 				<h3 class="uk-panel-title"><?php _e( 'Google Analytics Settings', 'surbma-premium-wp' ); ?></h3>
 				<p><strong>FIGYELEM!</strong> Csak az UA kódot kell megadni! Pl.: UA-12345678-90</p>
 				<form method="post" action="options.php">
@@ -24,7 +24,7 @@ function surbma_premium_wp_google_analytics_page() {
 				</form>
 			</div>
 
-			<div class="uk-panel uk-panel-box uk-panel-header">
+			<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
 				<h3 class="uk-panel-title">Google Analytics súgó</h3>
 				<p>Google Analytics beállítása a Prémium WordPress honlapokhoz. A bővítmény használata nagyon egyszerű. Itt csak a követő kódot kell megadni és már kész is. A követő kód csak a nem bejelentkezett felhasználókat méri, a weboldal forráskódjában is csak akkor jelenik meg a kód.</p>
 				<ol>

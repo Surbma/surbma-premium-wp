@@ -232,6 +232,86 @@ function surbma_premium_wp_shortcodes_page() {
 					<li><code>[facebook-oldal url="http://www.sajatdomain.hu"]</code> - Mindig a megadott domain url-jére nyomnak "tetszik"-et.</li>
 				</ul>
 			</div>
+			<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
+				<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [pwp-youtube]</h3>
+				<p>YouTube videó beillesztése a Szöveg Widgetekbe. A shortcode beilleszthető bármilyen bejegyzés vagy oldal tartalmába is, de ott a WordPress saját beillesztési megoldása ajánlott, azaz a YouTube videó url-jét kell egy külön sorba tenni.</p>
+				<div class="uk-overflow-container">
+					<table class="uk-table uk-table-hover uk-table-striped">
+						<thead>
+							<tr>
+								<th>Paraméter</th>
+								<th>Leírás</th>
+								<th>Lehetséges értékek</th>
+								<th>Alapértelmezett érték</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>id</code></td>
+								<td>A YouTube videó azonosítója, ami a normál url-ben megtalálható a v= paraméter után vagy a rövidített url-ben a legvégén.</td>
+								<th>a-z | A-Z | 0-9</th>
+								<td>NINCS</td>
+							</tr>
+							<tr>
+								<td><code>width</code></td>
+								<td>A YouTube videó szélessége pixelben.</td>
+								<th>Szám</th>
+								<td>NINCS</td>
+							</tr>
+							<tr>
+								<td><code>height</code></td>
+								<td>A YouTube videó magasságban pixelben.</td>
+								<th>Szám</th>
+								<td>NINCS</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<h4>Használata:</h4>
+				<ul>
+					<li><code>[pwp-youtube id="AAaa00ZzZz99" width="640" height="480"]</code> - A videó 640 x 480 px méretben jelenik meg.</li>
+				</ul>
+			</div>
+			<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
+				<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [pwp-vimeo]</h3>
+				<p>Vimeo videó beillesztése a Szöveg Widgetekbe. A shortcode beilleszthető bármilyen bejegyzés vagy oldal tartalmába is, de ott a WordPress saját beillesztési megoldása ajánlott, azaz a Vimeo videó url-jét kell egy külön sorba tenni.</p>
+				<div class="uk-overflow-container">
+					<table class="uk-table uk-table-hover uk-table-striped">
+						<thead>
+							<tr>
+								<th>Paraméter</th>
+								<th>Leírás</th>
+								<th>Lehetséges értékek</th>
+								<th>Alapértelmezett érték</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>id</code></td>
+								<td>A Vimeo videó azonosítója, ami az url végén megtalálható.</td>
+								<th>a-z | A-Z | 0-9</th>
+								<td>NINCS</td>
+							</tr>
+							<tr>
+								<td><code>width</code></td>
+								<td>A Vimeo videó szélessége pixelben.</td>
+								<th>Szám</th>
+								<td>NINCS</td>
+							</tr>
+							<tr>
+								<td><code>height</code></td>
+								<td>A Vimeo videó magasságban pixelben.</td>
+								<th>Szám</th>
+								<td>NINCS</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<h4>Használata:</h4>
+				<ul>
+					<li><code>[pwp-vimeo id="1234567890" width="640" height="480"]</code> - A videó 640 x 480 px méretben jelenik meg.</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 <?php

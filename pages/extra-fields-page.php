@@ -20,7 +20,7 @@ function surbma_premium_wp_extra_fields_page() {
 				<div class="updated notice is-dismissible"><p><strong><?php _e( 'Settings saved.' ); ?></strong></p></div>
 			<?php } ?>
 
-			<div class="uk-panel uk-panel-box uk-panel-header">
+			<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
 				<h3 class="uk-panel-title"><?php _e( 'Alapadatok', 'surbma-premium-wp' ); ?></h3>
 				<form method="post" action="options.php">
 					<?php settings_fields( 'surbma_premium_wp_options' ); ?>
@@ -140,7 +140,7 @@ function surbma_premium_wp_extra_fields_page() {
 					<p><input type="submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>" /></p>
 				</form>
 			</div>
-			<div class="uk-panel uk-panel-box uk-panel-header">
+			<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
 				<h3 class="uk-panel-title"><?php _e( 'Rövidkódok használata', 'surbma-premium-wp' ); ?></h3>
 				<p>A fent megadott adatok könnyen megjeleníthetők a weboldalon. Akár oldalba, akár bejegyzésbe, sőt a widgeteknél is beírhatók a mezők után megadott rövidkódok, amik megjelenítik a megadott adatokat. Így, amikor adatváltozás történik, pl. megváltozik a telefonszám, akkor elég csak itt megváltoztatni az adatot és mindenhol az aktuális információ jelenik meg.</p>
 				<p>Itt találhatók a rövidkódok leírásai: <a href="/wp-admin/admin.php?page=pwp-shortcodes">Extra rövidkódok »</a></p>

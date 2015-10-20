@@ -51,7 +51,7 @@ function surbma_premium_wp_social_page() {
 				<div class="uk-grid">
 					<div class="uk-width-1-1">
 						<?php if ( is_super_admin() ) { ?>
-						<div class="uk-panel uk-panel-box uk-panel-header">
+						<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
 							<table class="form-table">
 								<tr valign="top">
 									<th scope="row">
@@ -64,7 +64,7 @@ function surbma_premium_wp_social_page() {
 							</table>
 						</div>
 						<?php } ?>
-						<div class="uk-panel uk-panel-box uk-panel-header">
+						<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
 							<h3 class="uk-panel-title">Megosztás gombok</h3>
 
 							<table class="form-table">
