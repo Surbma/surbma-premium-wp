@@ -15,21 +15,45 @@ add_action( 'admin_init', 'surbma_premium_wp_social_fields_init' );
 $sharebuttonsplace_options = array(
 	'before' => array(
 		'value' => 'before',
-		'label' => __( 'Bejegyzés szövege előtt' )
+		'label' => __( 'Bejegyzés szövege előtt', 'surbma-premium-wp' )
 	),
 	'after' => array(
 		'value' => 'after',
-		'label' => __( 'Bejegyzés szövege után' )
+		'label' => __( 'Bejegyzés szövege után', 'surbma-premium-wp' )
 	),
 	'before-and-after' => array(
 		'value' => 'before-and-after',
-		'label' => __( 'Bejegyzés szövege előtt és után' )
+		'label' => __( 'Bejegyzés szövege előtt és után', 'surbma-premium-wp' )
+	)
+);
+
+$sharebuttonsstyle_options = array(
+	'simple-mono' => array(
+		'value' => 'simple-mono',
+		'label' => __( 'Simple Mono', 'surbma-premium-wp' )
+	),
+	'simple-colored' => array(
+		'value' => 'simple-colored',
+		'label' => __( 'Simple Colored', 'surbma-premium-wp' )
+	),
+	'button-square' => array(
+		'value' => 'button-square',
+		'label' => __( 'Button Square', 'surbma-premium-wp' )
+	),
+	'button-rounded' => array(
+		'value' => 'button-rounded',
+		'label' => __( 'Button Rounded', 'surbma-premium-wp' )
+	),
+	'button-circle' => array(
+		'value' => 'button-circle',
+		'label' => __( 'Button Circle', 'surbma-premium-wp' )
 	)
 );
 
 function surbma_premium_wp_social_page() {
 
 	global $sharebuttonsplace_options;
+	global $sharebuttonsstyle_options;
 
 	if ( ! isset( $_REQUEST['settings-updated'] ) )
 		$_REQUEST['settings-updated'] = false;
@@ -140,6 +164,29 @@ function surbma_premium_wp_social_page() {
 										</select>
 									</td>
 								</tr>
+								<tr valign="top">
+									<th scope="row">
+										<label class="description" for="surbma_premium_wp_social_fields[sharebuttonsstyle]"><?php _e( 'Style of share buttons', 'surbma-premium-wp' ); ?></label>
+									</th>
+									<td>
+										<select name="surbma_premium_wp_social_fields[sharebuttonsstyle]">
+											<?php
+												$selected = $options['sharebuttonsstyle'];
+												$p = '';
+												$r = '';
+
+												foreach ( $sharebuttonsstyle_options as $option ) {
+													$label = $option['label'];
+													if ( $selected == $option['value'] ) // Make default first in list
+														$p = "\n\t<option style=\"padding-right: 10px;\" selected='selected' value='" . esc_attr( $option['value'] ) . "'>$label</option>";
+													else
+														$r .= "\n\t<option style=\"padding-right: 10px;\" value='" . esc_attr( $option['value'] ) . "'>$label</option>";
+												}
+												echo $p . $r;
+											?>
+										</select>
+									</td>
+								</tr>
 							</table>
 
 							<p><input type="submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>" /></p>
@@ -158,6 +205,7 @@ function surbma_premium_wp_social_page() {
  */
 function surbma_premium_wp_social_fields_validate( $input ) {
 	global $sharebuttonsplace_options;
+	global $sharebuttonsstyle_options;
 
 	// Say our text option must be safe text with no HTML tags
 	$input['fbpageurl'] = wp_filter_nohtml_kses( $input['fbpageurl'] );
@@ -194,6 +242,8 @@ function surbma_premium_wp_social_fields_validate( $input ) {
 	// Our select option must actually be in our array of select options
 	if ( ! array_key_exists( $input['sharebuttonsplace'], $sharebuttonsplace_options ) )
 		$input['sharebuttonsplace'] = null;
+	if ( ! array_key_exists( $input['sharebuttonsstyle'], $sharebuttonsstyle_options ) )
+		$input['sharebuttonsstyle'] = null;
 
 	return $input;
 }

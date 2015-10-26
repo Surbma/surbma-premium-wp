@@ -4,7 +4,7 @@ Donate link: http://surbma.com/
 Tags: genesis, widget, google analytics, google tag manager, tag manager, analytics, shortcodes, share, facebook, google, google plus, google+, twitter, pinterest, email, print
 Requires at least: 4.0
 Tested up to: 4.3
-Stable tag: 2.5.1
+Stable tag: 2.6.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,7 +19,7 @@ WordPress is a great platform and a good basis. But it needs plugins to add func
 - Extra fields: It gives a central place, where you can add your basic informations, like name, address, phone or email. Use shortcodes to add these informations to your site. If you ever need to change any of this information, you can change it in one place and all your informations will automatically update. Wow!
 - Google Analytics: An easy way to use Google Analytics tracking on your website. You only need to add your UA code and everything is done automatically. You can add your Classic or your Universal Analyitics code and you can set display features option, if you want.
 - Google Tag Manager: The best way to manage all your 3rd party codes on your website.
-- Social share buttons for posts: Facebook, Google+, Twitter, LinkedIn, Pinterest, Email, Print
+- Social share buttons for posts with 5 different styles: Facebook, Google+, Twitter, LinkedIn, Pinterest, Email, Print
 - Shortcodes: A lot of useful shortcodes.
 
 **Do you want to contribute or help improving this plugin?**
@@ -53,6 +53,10 @@ I am managing hundreds of client websites. I use only the best and mostly premiu
 It is the reverse version of my last name. ;)
 
 == Changelog ==
+
+= 2.6.0 =
+
+- New share button styles: simple mono, simple colored, button square, button rounded, button circle.
 
 = 2.5.1 =
 
