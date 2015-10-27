@@ -22,7 +22,7 @@ function surbma_premium_wp_extra_fields_page() {
 
 			<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
 				<h3 class="uk-panel-title"><?php _e( 'Alapadatok', 'surbma-premium-wp' ); ?></h3>
-				<form method="post" action="options.php">
+				<form class="uk-form" method="post" action="options.php">
 					<?php settings_fields( 'surbma_premium_wp_options' ); ?>
 					<?php $options = get_option( 'surbma_premium_wp_extra_fields' ); ?>
 
