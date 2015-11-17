@@ -202,6 +202,16 @@ function surbma_premium_wp_google_presentation_shortcode( $atts ) {
 }
 add_shortcode( 'google-presentation', 'surbma_premium_wp_google_presentation_shortcode' );
 
+function surbma_premium_wp_google_form_shortcode( $atts ) {
+     extract( shortcode_atts( array(
+          'src' => '',
+          'width' => 760,
+          'height' => 500
+     ), $atts ) );
+     return '<iframe src="https://docs.google.com/forms/d/'.$src.'/viewform?embedded=true#start=embed" width="'.$width.'" height="'.$height.'" frameborder="0" marginheight="0" marginwidth="0"></iframe>';
+}
+add_shortcode( 'google-form', 'surbma_premium_wp_google_form_shortcode' );
+
 function surbma_premium_wp_youtube_shortcode( $atts ) {
      extract( shortcode_atts( array(
           'id' => '',

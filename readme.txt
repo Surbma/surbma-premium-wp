@@ -4,7 +4,7 @@ Donate link: http://surbma.com/
 Tags: genesis, widget, google analytics, google tag manager, tag manager, analytics, shortcodes, share, facebook, google, google plus, google+, twitter, pinterest, email, print
 Requires at least: 4.0
 Tested up to: 4.3
-Stable tag: 2.7.0
+Stable tag: 2.8.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,6 +53,12 @@ I am managing hundreds of client websites. I use only the best and mostly premiu
 It is the reverse version of my last name. ;)
 
 == Changelog ==
+
+= 2.8.0 =
+
+- New shortcode for Google forms: `[google-form]`
+- Added "Time spent on page" event tracking category to Google Analytics to reduce bounce rate and show more accurate reports for visitors, who actually / potentially does something on the website. There are two time values: 30 seconds, 180 seconds. For more informations about this method read the following post: [Tracking Adjusted Bounce Rate In Google Analytics](http://analytics.blogspot.hu/2012/07/tracking-adjusted-bounce-rate-in-google.html)
+- New hooks for Google Analytics code.
 
 = 2.7.0 =
 

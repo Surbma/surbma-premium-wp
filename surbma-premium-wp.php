@@ -5,7 +5,7 @@ Plugin Name: Surbma - Premium WordPress
 Plugin URI: http://surbma.com/wordpress-plugins/
 Description: Useful extensions for your WordPress website.
 
-Version: 2.7.0
+Version: 2.8.0
 
 Author: Surbma
 Author URI: http://surbma.com/
@@ -66,6 +66,7 @@ function surbma_premium_wp_activated() {
 register_activation_hook( __FILE__, 'surbma_premium_wp_activated' );
 
 function surbma_premium_wp_google_analytics_display() {
+	$locale = get_locale();
 	$options = get_option( 'surbma_premium_wp_google_analytics_fields' );
 	if ( isset( $options['universalid'] ) && $options['universalid'] != '' ) {
 ?>
@@ -78,16 +79,36 @@ function surbma_premium_wp_google_analytics_display() {
 	ga('create', '<?php echo $options['universalid']; ?>', 'auto');
 <?php if ( isset( $options['displayfeatures'] ) && $options['displayfeatures'] == '1' ) { ?>
 	ga('require', 'displayfeatures');
+<?php } ?>
+<?php do_action( 'surbma_premium_wp_ga_before_send_object' ); ?>
+	ga('send', 'pageview');
+<?php if ( $locale == 'hu_HU' ) { ?>
+	setTimeout( "ga('send', 'event', 'Látogatás időtartama', '30 mp')", 30000 );
+	setTimeout( "ga('send', 'event', 'Látogatás időtartama', '180 mp')", 180000 );
 <?php }
-	do_action( 'surbma_premium_wp_universal_analytics_objects' ); ?>
+	else { ?>
+	setTimeout( "ga('send', 'event', 'Time spent on page', '30 seconds')", 30000 );
+	setTimeout( "ga('send', 'event', 'Time spent on page', '180 seconds')", 180000 );
+<?php } ?>
+<?php do_action( 'surbma_premium_wp_ga_after_send_object' ); ?>
+<?php // Deprecated hook ?>
+<?php do_action( 'surbma_premium_wp_universal_analytics_objects' ); ?>
 </script>
-<?php }
-	if ( isset( $options['trackingid'] ) && $options['trackingid'] != '' ) {
-?><script type="text/javascript">
+<?php } ?>
+<?php if ( isset( $options['trackingid'] ) && $options['trackingid'] != '' ) { ?>
+<script type="text/javascript">
 	var _gaq = _gaq || [];
 	_gaq.push(['_setAccount', '<?php echo $options['trackingid']; ?>']);
 <?php do_action( 'surbma_premium_wp_google_analytics_before_trackpageview' ); ?>
 	_gaq.push(['_trackPageview']);
+<?php if ( $locale == 'hu_HU' ) { ?>
+	setTimeout( "_gaq.push(['_trackEvent', 'Látogatás időtartama', '30 mp'])", 30000 );
+	setTimeout( "_gaq.push(['_trackEvent', 'Látogatás időtartama', '180 mp'])", 180000 );
+<?php }
+	else { ?>
+	setTimeout( "_gaq.push(['_trackEvent', 'Time spent on page', '30 seconds'])", 30000 );
+	setTimeout( "_gaq.push(['_trackEvent', 'Time spent on page', '180 seconds'])", 180000 );
+<?php } ?>
 <?php do_action( 'surbma_premium_wp_google_analytics_after_trackpageview' ); ?>
 
 	(function() {
@@ -101,10 +122,3 @@ function surbma_premium_wp_google_analytics_display() {
 add_action( 'wp_head', 'surbma_premium_wp_google_analytics_display', 999 );
 add_action( 'admin_head', 'surbma_premium_wp_google_analytics_display', 999 );
 add_action( 'login_head', 'surbma_premium_wp_google_analytics_display', 999 );
-
-function surbma_premium_wp_add_universal_analytics_pageview() {
-?>
-	ga('send', 'pageview');
-<?php
-}
-add_action( 'surbma_premium_wp_universal_analytics_objects', 'surbma_premium_wp_add_universal_analytics_pageview', 20 );
