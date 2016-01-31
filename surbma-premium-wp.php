@@ -5,7 +5,7 @@ Plugin Name: Surbma - Premium WordPress
 Plugin URI: http://surbma.com/wordpress-plugins/
 Description: Useful extensions for your WordPress website.
 
-Version: 2.8.0
+Version: 2.9.0
 
 Author: Surbma
 Author URI: http://surbma.com/
@@ -91,8 +91,6 @@ function surbma_premium_wp_google_analytics_display() {
 	setTimeout( "ga('send', 'event', 'Time spent on page', '180 seconds')", 180000 );
 <?php } ?>
 <?php do_action( 'surbma_premium_wp_ga_after_send_object' ); ?>
-<?php // Deprecated hook ?>
-<?php do_action( 'surbma_premium_wp_universal_analytics_objects' ); ?>
 </script>
 <?php } ?>
 <?php if ( isset( $options['trackingid'] ) && $options['trackingid'] != '' ) { ?>

@@ -4,37 +4,36 @@ function surbma_premium_wp_google_analytics_page() {
 	if ( !isset( $_GET['settings-updated'] ) )
 		$_GET['settings-updated'] = false;
 ?>
-	<div class="wrap premium-wp uk-grid uk-margin-top">
-		<div class="uk-width-9-10">
-			<h1 class="dashicons-before dashicons-chart-bar"><?php _e( 'Premium WP', 'surbma-premium-wp' ); ?>: <?php _e( 'Google Analytics', 'surbma-premium-wp' ); ?></h1>
-			<p></p>
+<div class="premium-wp uk-grid uk-margin-top">
+	<div class="wrap uk-width-9-10">
+		<h1 class="dashicons-before dashicons-chart-bar"><?php _e( 'Premium WP', 'surbma-premium-wp' ); ?>: <?php _e( 'Google Analytics', 'surbma-premium-wp' ); ?></h1>
 
-			<?php if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == true ) { ?>
-				<div class="updated notice is-dismissible"><p><strong><?php _e( 'Settings saved.' ); ?></strong></p></div>
-			<?php } ?>
+		<?php if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == true ) { ?>
+			<div class="updated notice is-dismissible"><p><strong><?php _e( 'Settings saved.' ); ?></strong></p></div>
+		<?php } ?>
 
-			<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
-				<h3 class="uk-panel-title"><?php _e( 'Google Analytics Settings', 'surbma-premium-wp' ); ?></h3>
-				<p><strong>FIGYELEM!</strong> Csak az UA kódot kell megadni! Pl.: UA-12345678-90</p>
-				<form method="post" action="options.php">
-					<?php settings_fields( 'surbma_premium_wp_google_analytics_options' ); ?>
-					<?php do_settings_sections( 'surbma-premium-wp-google-analytics' ); ?>
+		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
+			<h3 class="uk-panel-title"><?php _e( 'Google Analytics Settings', 'surbma-premium-wp' ); ?></h3>
+			<p><strong>FIGYELEM!</strong> Csak az UA kódot kell megadni! Pl.: UA-12345678-90</p>
+			<form method="post" action="options.php">
+				<?php settings_fields( 'surbma_premium_wp_google_analytics_options' ); ?>
+				<?php do_settings_sections( 'surbma-premium-wp-google-analytics' ); ?>
 
-					<p><input name="Submit" type="submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>" /></p>
-				</form>
-			</div>
+				<p><input name="Submit" type="submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>" /></p>
+			</form>
+		</div>
 
-			<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
-				<h3 class="uk-panel-title">Google Analytics súgó</h3>
-				<p>Google Analytics beállítása a Prémium WordPress honlapokhoz. A bővítmény használata nagyon egyszerű. Itt csak a követő kódot kell megadni és már kész is. A követő kód csak a nem bejelentkezett felhasználókat méri, a weboldal forráskódjában is csak akkor jelenik meg a kód.</p>
-				<ol>
-					<li>Ha még nincs Google Analytics fiókod: <a href="http://www.google.hu/analytics" target="_blank">Google Analytics weboldal →</a></li>
-					<li>Ha további segítségre van szükséged: <a href="http://support.google.com/analytics/bin/answer.py?hl=hu&answer=1008015&topic=1727146&ctx=topic" target="_blank">Google Analytics súgó →</a></li>
-					<li>A Universal Analytics bemutatása: <a href='https://support.google.com/analytics/answer/2790010?hl=hu&ref_topic=2790009' target='_blank'>Universal Analytics →</a></li>
-				</ol>
-			</div>
+		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
+			<h3 class="uk-panel-title">Google Analytics súgó</h3>
+			<p>Google Analytics beállítása a Prémium WordPress honlapokhoz. A bővítmény használata nagyon egyszerű. Itt csak a követő kódot kell megadni és már kész is. A követő kód csak a nem bejelentkezett felhasználókat méri, a weboldal forráskódjában is csak akkor jelenik meg a kód.</p>
+			<ol>
+				<li>Ha még nincs Google Analytics fiókod: <a href="http://www.google.hu/analytics" target="_blank">Google Analytics weboldal →</a></li>
+				<li>Ha további segítségre van szükséged: <a href="http://support.google.com/analytics/bin/answer.py?hl=hu&answer=1008015&topic=1727146&ctx=topic" target="_blank">Google Analytics súgó →</a></li>
+				<li>A Universal Analytics bemutatása: <a href='https://support.google.com/analytics/answer/2790010?hl=hu&ref_topic=2790009' target='_blank'>Universal Analytics →</a></li>
+			</ol>
 		</div>
 	</div>
+</div>
 <?php
 }
 
