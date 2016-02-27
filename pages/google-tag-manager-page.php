@@ -15,7 +15,7 @@ function surbma_premium_wp_google_tag_manager_page() {
 		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
 			<h3 class="uk-panel-title"><?php _e( 'Google Tag Manager Settings', 'surbma-premium-wp' ); ?></h3>
 			<p><strong>FIGYELEM!</strong> Csak a tároló azonosítóját kell megadni! Pl.: GTM-A0BC0D</p>
-			<p><strong>FONTOS!</strong> Amennyiben a Google Címkekezelőben lesz a Google Analytics kód is kezelve, akkor a Google Analytics kódokat mindenképpen törölni kell innen: <a href="/wp-admin/admin.php?page=pwp-google-analytics">Prémium WP → Google Analytics</a></p>
+			<p><strong>FONTOS!</strong> A Google Analytics kódot mindenképpen a Címkekezelőtől függetlenül kell kezelni, amit itt lehet beállítani: <a href="/wp-admin/admin.php?page=pwp-google-analytics">Prémium WP → Google Analytics</a></p>
 			<form method="post" action="options.php">
 				<?php settings_fields( 'surbma_premium_wp_google_tag_manager_options' ); ?>
 				<?php do_settings_sections( 'surbma-premium-wp-google-tag-manager' ); ?>

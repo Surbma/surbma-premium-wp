@@ -4,7 +4,7 @@ Donate link: http://surbma.com/
 Tags: genesis, widget, google analytics, google tag manager, tag manager, analytics, shortcodes, share, facebook, google, google plus, google+, twitter, pinterest, email, print
 Requires at least: 4.0
 Tested up to: 4.4
-Stable tag: 2.9.0
+Stable tag: 2.9.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,6 +53,10 @@ I am managing hundreds of client websites. I use only the best and mostly premiu
 It is the reverse version of my last name. ;)
 
 == Changelog ==
+
+= 2.9.1 =
+
+- Fixed description about the use of Google Tag Manager and Google Analytics tracking codes.
 
 = 2.9.0 =
 
