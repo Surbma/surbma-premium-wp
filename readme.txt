@@ -3,8 +3,8 @@ Contributors: Surbma
 Donate link: http://surbma.com/
 Tags: genesis, widget, google analytics, google tag manager, tag manager, analytics, shortcodes, share, facebook, google, google plus, google+, twitter, pinterest, email, print
 Requires at least: 4.0
-Tested up to: 4.4
-Stable tag: 2.9.1
+Tested up to: 4.5
+Stable tag: 2.9.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,6 +53,12 @@ I am managing hundreds of client websites. I use only the best and mostly premiu
 It is the reverse version of my last name. ;)
 
 == Changelog ==
+
+= 2.9.2 =
+
+- Added help section for Google Tag Manager page.
+- Modified some texts and links.
+- Checked WordPress 4.5 compatibility.
 
 = 2.9.1 =
 

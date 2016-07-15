@@ -23,6 +23,15 @@ function surbma_premium_wp_google_tag_manager_page() {
 				<p><input name="Submit" type="submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>" /></p>
 			</form>
 		</div>
+
+		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
+			<h3 class="uk-panel-title">Google Címkekezelő súgó</h3>
+			<p>Google Címkekezelő beállítása a Prémium WordPress honlapokhoz. A bővítmény használata nagyon egyszerű. Itt csak a tároló azonosítóját kell megadni és már kész is a beállítás.</p>
+			<ol>
+				<li>Ha még nincs Google Címkekezelő fiókod: <a href="//www.google.com/analytics/tag-manager/" target="_blank">Google Címkekezelő weboldal →</a></li>
+				<li>Ha további segítségre van szükséged: <a href="//support.google.com/tagmanager" target="_blank">Google Címkekezelő súgó →</a></li>
+			</ol>
+		</div>
 	</div>
 </div>
 <?php

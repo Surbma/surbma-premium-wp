@@ -25,11 +25,11 @@ function surbma_premium_wp_google_analytics_page() {
 
 		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
 			<h3 class="uk-panel-title">Google Analytics súgó</h3>
-			<p>Google Analytics beállítása a Prémium WordPress honlapokhoz. A bővítmény használata nagyon egyszerű. Itt csak a követő kódot kell megadni és már kész is. A követő kód csak a nem bejelentkezett felhasználókat méri, a weboldal forráskódjában is csak akkor jelenik meg a kód.</p>
+			<p>Google Analytics beállítása a Prémium WordPress honlapokhoz. A bővítmény használata nagyon egyszerű. Itt csak a követő kódot kell megadni és már kész is a beállítás.</p>
 			<ol>
-				<li>Ha még nincs Google Analytics fiókod: <a href="http://www.google.hu/analytics" target="_blank">Google Analytics weboldal →</a></li>
-				<li>Ha további segítségre van szükséged: <a href="http://support.google.com/analytics/bin/answer.py?hl=hu&answer=1008015&topic=1727146&ctx=topic" target="_blank">Google Analytics súgó →</a></li>
-				<li>A Universal Analytics bemutatása: <a href='https://support.google.com/analytics/answer/2790010?hl=hu&ref_topic=2790009' target='_blank'>Universal Analytics →</a></li>
+				<li>Ha még nincs Google Analytics fiókod: <a href="//www.google.hu/analytics" target="_blank">Google Analytics weboldal →</a></li>
+				<li>Ha további segítségre van szükséged: <a href="//support.google.com/analytics/bin/answer.py?hl=hu&answer=1008015&topic=1727146&ctx=topic" target="_blank">Google Analytics súgó →</a></li>
+				<li>A Universal Analytics bemutatása: <a href='//support.google.com/analytics/answer/2790010?hl=hu&ref_topic=2790009' target='_blank'>Universal Analytics →</a></li>
 			</ol>
 		</div>
 	</div>
