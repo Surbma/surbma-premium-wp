@@ -2,8 +2,8 @@
 
 add_action( 'wp_enqueue_scripts', 'surbma_premium_wp_scripts' );
 function surbma_premium_wp_scripts() {
-    wp_enqueue_style( 'surbma-premium-wp', SURBMA_PREMIUM_WP_PLUGIN_URL . '/css/frontend.css' );
-    wp_enqueue_style( 'genericons', SURBMA_PREMIUM_WP_PLUGIN_URL . '/genericons/genericons.css' );
+    wp_enqueue_style( 'surbma-premium-wp', plugins_url( '', __FILE__ ) . '/css/frontend.css' );
+    wp_enqueue_style( 'genericons', plugins_url( '', __FILE__ ) . '/genericons/genericons.css' );
 }
 
 /* Social Share Buttons for Posts */
