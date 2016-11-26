@@ -71,7 +71,7 @@ add_action( 'admin_menu', 'surbma_premium_wp_add_menus' );
 
 // Custom styles and scripts for admin pages
 function surbma_premium_wp_admin_scripts( $hook ) {
-    wp_enqueue_style( 'surbma-premium-wp', plugins_url( '', __FILE__ ) . '/css/admin.css' );
+    wp_enqueue_style( 'surbma-premium-wp', plugins_url( '', dirname(__FILE__) ) . '/css/admin.css' );
 
     if ( $hook == 'toplevel_page_surbma-premium-wp-menu' ||
     $hook == 'premium-wp_page_surbma-premium-wp-google-analytics' ||
@@ -81,8 +81,8 @@ function surbma_premium_wp_admin_scripts( $hook ) {
     $hook == 'premium-wp_page_surbma-premium-wp-extra-fields' ||
     $hook == 'premium-wp_page_surbma-premium-wp-shortcodes' ||
     $hook == 'premium-wp_page_surbma-wp-control' ) {
-    	wp_enqueue_style( 'uikit-css', plugins_url( '', __FILE__ ) . '/uikit/css/uikit.gradient.min.css' );
-    	wp_enqueue_script( 'uikit-js', plugins_url( '', __FILE__ ) . '/uikit/js/uikit.min.js' );
+    	wp_enqueue_style( 'uikit-css', plugins_url( '', dirname(__FILE__) ) . '/uikit/css/uikit.gradient.min.css' );
+    	wp_enqueue_script( 'uikit-js', plugins_url( '', dirname(__FILE__) ) . '/uikit/js/uikit.min.js' );
     }
 }
 add_action( 'admin_enqueue_scripts', 'surbma_premium_wp_admin_scripts' );
