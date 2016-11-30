@@ -1,10 +1,10 @@
 === Surbma - Premium WP ===
 Contributors: Surbma
 Donate link: http://surbma.com/
-Tags: genesis, widget, google analytics, google tag manager, tag manager, analytics, shortcodes, share, facebook, google, google plus, google+, twitter, pinterest, email, print
+Tags: genesis, widget, google analytics, google tag manager, tag manager, analytics, shortcodes, share, facebook, google, google plus, google+, twitter, pinterest, email, print, google calendar, google presentation, google forms
 Requires at least: 4.0
 Tested up to: 4.7
-Stable tag: 2.9.6
+Stable tag: 2.9.7
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,10 @@ Please feel free to contribute, help or recommend any new features for my plugin
 
 Visit my webpage: [Surbma.com](http://surbma.com/)
 
+**Do you like and use my free plugins?**
+
+You can donate me for FREE here: [Surbma.com](http://surbma.com/donate/)
+
 == Installation ==
 
 1. Upload `surbma-premium-wp` folder to the `/wp-content/plugins/` directory
@@ -53,6 +57,11 @@ I am managing hundreds of client websites. I use only the best and mostly premiu
 It is the reverse version of my last name. ;)
 
 == Changelog ==
+
+= 2.9.7 =
+
+- Added description for Google Presentation and Google Forms shortcodes.
+- Minor fixes in html codes and descriptions.
 
 = 2.9.6 =
 

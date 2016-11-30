@@ -14,7 +14,9 @@ function surbma_premium_wp_shortcodes_page() {
 			<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [mailto]</h3>
 			<p>Ezzel a rövidkóddal úgy jeleníthető meg az oldalon az Email cím, hogy azt a robotok ne tudják elolvasni. A HTML kódban mindössze értelmetlen karaktereket jelenít meg. Az email cím automatikusan link is lesz, amire kattintva azonnal küldhető email üzenet.</p>
 			<h4>Használata:</h4>
-			<code>[mailto]email@email.hu[/mailto]</code>
+			<ul>
+				<li><code>[mailto]email@email.hu[/mailto]</code></li>
+			</ul>
 		</div>
 		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
 			<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [vendeg] és [tag]</h3>
@@ -61,26 +63,29 @@ function surbma_premium_wp_shortcodes_page() {
 						<tr>
 							<td><code>id</code></td>
 							<td>Egyedi azonosító megadása.</td>
-							<th>a-z | A-Z | 0-9</th>
+							<td>a-z | A-Z | 0-9</td>
 							<td>NINCS</td>
 						</tr>
 						<tr>
 							<td><code>class</code></td>
 							<td>Osztály megadása, így könnyen formázható lesz CSS fájlból.</td>
-							<th>a-z | A-Z | 0-9</th>
+							<td>a-z | A-Z | 0-9</td>
 							<td>NINCS</td>
 						</tr>
 						<tr>
 							<td><code>style</code></td>
 							<td>Stílus kódok megadása, ami felülír minden css formázást.</td>
-							<th>CSS</th>
+							<td>CSS</td>
 							<td>NINCS</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 			<h4>Használata:</h4>
-			<code>[div class="black" style="height:0px;"]</code> vagy <code>[div class="black"]Tartalom...[/div]</code>
+			<ul>
+				<li><code>[div class="black" style="height:0px;"]</code></li>
+				<li><code>[div class="black"]Tartalom...[/div]</code></li>
+			</ul>
 		</div>
 		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
 			<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [google-calendar]</h3>
@@ -99,32 +104,135 @@ function surbma_premium_wp_shortcodes_page() {
 						<tr>
 							<td><code>src</code></td>
 							<td>A Google Naptár iframe url-je. A lekért kódban ez az "src" paraméter. Minden url a <code>https://www.google.com/calendar/embed?</code> részlettel kezdődik, így ezt nem kell kimásolni, csak a kérdőjel utáni részt. Ezek határozzák meg a Google Naptár összes tulajdonságát.</td>
-							<th>URL</th>
+							<td>URL</td>
 							<td>NINCS</td>
 						</tr>
 						<tr>
 							<td><code>width</code></td>
 							<td>A Google Naptár szélességét lehet ezzel a paraméterrel meghatározni pixelben.</td>
-							<th>Szám</th>
+							<td>Szám</td>
 							<td>400</td>
 						</tr>
 						<tr>
 							<td><code>height</code></td>
 							<td>A Google Naptár magasságát lehet ezzel a paraméterrel meghatározni pixelben.</td>
-							<th>Szám</th>
+							<td>Szám</td>
 							<td>300</td>
 						</tr>
 						<tr>
 							<td><code>scrolling</code></td>
 							<td>A beágyazott iframe keret görgetési lehetőségét lehet ezzel a paraméterrel meghatározni.</td>
-							<th>auto | no | yes</th>
+							<td>auto | no | yes</td>
 							<td>auto</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 			<h4>Használata:</h4>
-			<code>[google-calendar src="ide jön a kérdőjel utáni url részlet"]</code> vagy <code>[google-calendar src="ide jön a kérdőjel utáni url részlet" width="640" height="480"]</code>
+			<ul>
+				<li><code>[google-calendar src="ide jön a kérdőjel utáni url részlet"]</code></li>
+				<li><code>[google-calendar src="ide jön a kérdőjel utáni url részlet" width="640" height="480"]</code></li>
+			</ul>
+		</div>
+		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
+			<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [google-presentation]</h3>
+			<p>Ezzel a rövidkóddal Google Diákat illeszthetünk be. Először a Google Diák iframe beágyazó kódját kell lekérni, amiből ki kell másolni a szükséges paramétereket.</p>
+			<div class="uk-overflow-container">
+				<table class="uk-table uk-table-hover uk-table-striped">
+					<thead>
+						<tr>
+							<th>Paraméter</th>
+							<th>Leírás</th>
+							<th>Lehetséges értékek</th>
+							<th>Alapértelmezett érték</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>id</code></td>
+							<td>A Google Diák azonosítója. A lekért kódban ez az "src" paraméterben található. Minden url a <code>https://docs.google.com/presentation/d/</code> részlettel kezdődik, így ezt nem kell kimásolni, csak a /d/ utáni és az /embed előtti részt.</td>
+							<td>ID</td>
+							<td>NINCS</td>
+						</tr>
+						<tr>
+							<td><code>start</code></td>
+							<td>Azt határozza meg ez a paraméter, hogy elinduljon-e automatikusan a dia vagy sem.</td>
+							<td>true | false</td>
+							<td>false</td>
+						</tr>
+						<tr>
+							<td><code>loop</code></td>
+							<td>Azt határozza meg ez a paraméter, hogy ismétlődjön-e a dia vagy sem.</td>
+							<td>true | false</td>
+							<td>false</td>
+						</tr>
+						<tr>
+							<td><code>delayms</code></td>
+							<td>Azt határozza meg ez a paraméter, hogy mennyi idő legyen két dia között ezredmásodpercben.</td>
+							<td>Szám</td>
+							<td>3000</td>
+						</tr>
+						<tr>
+							<td><code>width</code></td>
+							<td>A Google Diák szélességét lehet ezzel a paraméterrel meghatározni pixelben.</td>
+							<td>Szám</td>
+							<td>400</td>
+						</tr>
+						<tr>
+							<td><code>height</code></td>
+							<td>A Google Diák magasságát lehet ezzel a paraméterrel meghatározni pixelben.</td>
+							<td>Szám</td>
+							<td>300</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<h4>Használata:</h4>
+			<ul>
+				<li><code>[google-presentation id="ide jön a /d/ utáni és az /embed előtti részlet"]</code></li>
+				<li><code>[google-presentation id="ide jön a /d/ utáni és az /embed előtti részlet" start="true" width="640" height="480"]</code></li>
+			</ul>
+		</div>
+		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
+			<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [google-form]</h3>
+			<p>Ezzel a rövidkóddal egy Google Űrlapot illeszthetünk be. Először a Google Űrlap iframe beágyazó kódját kell lekérni, amiből ki kell másolni a szükséges paramétereket.</p>
+			<div class="uk-overflow-container">
+				<table class="uk-table uk-table-hover uk-table-striped">
+					<thead>
+						<tr>
+							<th>Paraméter</th>
+							<th>Leírás</th>
+							<th>Lehetséges értékek</th>
+							<th>Alapértelmezett érték</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>id</code></td>
+							<td>A Google Űrlap azonosítója. A lekért kódban ez az "src" paraméterben található. Minden url a <code>https://docs.google.com/forms/d/</code> részlettel kezdődik, így ezt nem kell kimásolni, csak a /d/ utáni és a /viewform előtti részt.</td>
+							<td>ID</td>
+							<td>NINCS</td>
+						</tr>
+						<tr>
+							<td><code>width</code></td>
+							<td>A Google Űrlap szélességét lehet ezzel a paraméterrel meghatározni pixelben.</td>
+							<td>Szám</td>
+							<td>760</td>
+						</tr>
+						<tr>
+							<td><code>height</code></td>
+							<td>A Google Űrlap magasságát lehet ezzel a paraméterrel meghatározni pixelben.</td>
+							<td>Szám</td>
+							<td>500</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<h4>Használata:</h4>
+			<ul>
+				<li><code>[google-form id="ide jön a /d/ utáni és a /viewform előtti részlet"]</code></li>
+				<li><code>[google-form id="ide jön a /d/ utáni és a /viewform előtti részlet" width="640" height="480"]</code></li>
+			</ul>
 		</div>
 		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
 			<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [facebook-tetszik-gomb]</h3>
@@ -143,7 +251,7 @@ function surbma_premium_wp_shortcodes_page() {
 						<tr>
 							<td><code>url</code></td>
 							<td>A gomb linkje, amire "tetszik"-et nyom a látogató.</td>
-							<th>URL</th>
+							<td>URL</td>
 							<td>Aktuális oldal url-je</td>
 						</tr>
 					</tbody>
@@ -249,19 +357,19 @@ function surbma_premium_wp_shortcodes_page() {
 						<tr>
 							<td><code>id</code></td>
 							<td>A YouTube videó azonosítója, ami a normál url-ben megtalálható a v= paraméter után vagy a rövidített url-ben a legvégén.</td>
-							<th>a-z | A-Z | 0-9</th>
+							<td>a-z | A-Z | 0-9</td>
 							<td>NINCS</td>
 						</tr>
 						<tr>
 							<td><code>width</code></td>
 							<td>A YouTube videó szélessége pixelben.</td>
-							<th>Szám</th>
+							<td>Szám</td>
 							<td>NINCS</td>
 						</tr>
 						<tr>
 							<td><code>height</code></td>
 							<td>A YouTube videó magasságban pixelben.</td>
-							<th>Szám</th>
+							<td>Szám</td>
 							<td>NINCS</td>
 						</tr>
 					</tbody>
@@ -289,19 +397,19 @@ function surbma_premium_wp_shortcodes_page() {
 						<tr>
 							<td><code>id</code></td>
 							<td>A Vimeo videó azonosítója, ami az url végén megtalálható.</td>
-							<th>a-z | A-Z | 0-9</th>
+							<td>a-z | A-Z | 0-9</td>
 							<td>NINCS</td>
 						</tr>
 						<tr>
 							<td><code>width</code></td>
 							<td>A Vimeo videó szélessége pixelben.</td>
-							<th>Szám</th>
+							<td>Szám</td>
 							<td>NINCS</td>
 						</tr>
 						<tr>
 							<td><code>height</code></td>
 							<td>A Vimeo videó magasságban pixelben.</td>
-							<th>Szám</th>
+							<td>Szám</td>
 							<td>NINCS</td>
 						</tr>
 					</tbody>

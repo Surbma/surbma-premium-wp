@@ -1,25 +1,26 @@
 <?php
 
+add_shortcode( 'br', 'surbma_premium_wp_br_function' );
 function surbma_premium_wp_br_function() {
 	return '<br />';
 }
-add_shortcode( 'br', 'surbma_premium_wp_br_function' );
 
+add_shortcode( 'hr', 'surbma_premium_wp_hr_function' );
 function surbma_premium_wp_hr_function() {
 	return '<hr class="clear clearfix" />';
 }
-add_shortcode( 'hr', 'surbma_premium_wp_hr_function' );
 
+add_shortcode( 'clear', 'surbma_premium_wp_clear_function' );
 function surbma_premium_wp_clear_function() {
 	return '<div class="clear clear-line clearfix"></div>';
 }
-add_shortcode( 'clear', 'surbma_premium_wp_clear_function' );
 
+add_shortcode( 'elrejt', 'surbma_premium_wp_hide_function' );
 function surbma_premium_wp_hide_function( $content = null ) {
 	return '<div style="display:none;">'.do_shortcode( $content ).'</div>';
 }
-add_shortcode( 'elrejt', 'surbma_premium_wp_hide_function' );
 
+add_shortcode( 'div', 'surbma_premium_wp_div_function' );
 function surbma_premium_wp_div_function( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 		'id' => '',
@@ -29,8 +30,8 @@ function surbma_premium_wp_div_function( $atts, $content = null ) {
 
 	return '<div id="'.$id.'" class="'.$class.'" style="'.$style.'">'.do_shortcode( $content ).'</div>';
 }
-add_shortcode( 'div', 'surbma_premium_wp_div_function' );
 
+add_shortcode( 'ga-link', 'surbma_premium_wp_ga_link_function' );
 function surbma_premium_wp_ga_link_function( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 		'href' => '',
@@ -49,28 +50,27 @@ function surbma_premium_wp_ga_link_function( $atts, $content = null ) {
 
 	return '<a href="'.$href.'" class="'.$class.'" id="'.$id.'" style="'.$style.'" title="'.$title.'" target="'.$target.'" onClick="'.$onClick.'">'.do_shortcode( $content ).'</a>';
 }
-add_shortcode( 'ga-link', 'surbma_premium_wp_ga_link_function' );
 
+add_shortcode( 'mailto', 'surbma_premium_wp_mailto_function' );
 function surbma_premium_wp_mailto_function( $atts, $content = null ) {
 	$encodedmail = '';
 	for ( $i = 0; $i <strlen( $content ); $i++ ) $encodedmail .= "&#" . ord( $content[$i] ) . ';';
 	return '<a href="mailto:'.$encodedmail.'">'.$encodedmail.'</a>';
 }
-add_shortcode( 'mailto', 'surbma_premium_wp_mailto_function' );
 
+add_shortcode( 'vendeg', 'surbma_premium_wp_show_content_for_vendeg' );
 function surbma_premium_wp_show_content_for_vendeg( $atts, $content = null ) {
 	if ( ( !is_user_logged_in() && !is_null( $content ) ) || is_feed() )
 		return do_shortcode( $content );
 	return '';
 }
-add_shortcode( 'vendeg', 'surbma_premium_wp_show_content_for_vendeg' );
 
+add_shortcode( 'tag', 'surbma_premium_wp_show_content_for_tag' );
 function surbma_premium_wp_show_content_for_tag( $atts, $content = null ) {
 	if ( is_user_logged_in() && !is_null( $content ) && !is_feed() )
 		return do_shortcode( $content );
 	return '';
 }
-add_shortcode( 'tag', 'surbma_premium_wp_show_content_for_tag' );
 
 function surbma_premium_wp_facebook_script() {
 ?>
@@ -85,6 +85,8 @@ function surbma_premium_wp_facebook_script() {
 <?php
 }
 
+add_shortcode( 'facebook-like-gomb', 'surbma_premium_wp_fblike_button' );
+add_shortcode( 'facebook-tetszik-gomb', 'surbma_premium_wp_fblike_button' );
 function surbma_premium_wp_fblike_button( $atts ) {
 	if ( function_exists( 'surbma_premium_wp_facebook_script' ) )
 		add_action( 'wp_footer', 'surbma_premium_wp_facebook_script' );
@@ -93,9 +95,8 @@ function surbma_premium_wp_fblike_button( $atts ) {
 	), $atts ) );
 	return '<div style="float:left;margin:0 .5em .5em 0;"><div class="fb-like" data-href="'.$url.'" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></div>';
 }
-add_shortcode( 'facebook-like-gomb', 'surbma_premium_wp_fblike_button' );
-add_shortcode( 'facebook-tetszik-gomb', 'surbma_premium_wp_fblike_button' );
 
+add_shortcode( 'facebook-oldal', 'surbma_premium_wp_facebook_page' );
 function surbma_premium_wp_facebook_page( $atts ) {
 	if ( function_exists( 'surbma_premium_wp_facebook_script' ) )
 		add_action( 'wp_footer', 'surbma_premium_wp_facebook_script' );
@@ -112,72 +113,82 @@ function surbma_premium_wp_facebook_page( $atts ) {
 	), $atts ) );
 	return '<div class="fb-page" data-href="'.$url.'" data-width="'.$width.'" data-height="'.$height.'" data-small-header="'.$small_header.'" data-adapt-container-width="'.$adapt_container_width.'" data-hide-cover="'.$hide_cover.'" data-show-facepile="'.$show_facepile.'" data-show-posts="'.$show_posts.'" data-hide-cta="'.$hide_cta.'"><div class="fb-xfbml-parse-ignore"></div></div>';
 }
-add_shortcode( 'facebook-oldal', 'surbma_premium_wp_facebook_page' );
 
+add_shortcode( 'nev', 'surbma_premium_wp_name_function' );
 function surbma_premium_wp_name_function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
 	return $options['name'];
 }
+
+add_shortcode( 'ceg', 'surbma_premium_wp_company_function' );
 function surbma_premium_wp_company_function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
 	return $options['company'];
 }
+
+add_shortcode( 'cim', 'surbma_premium_wp_address_function' );
 function surbma_premium_wp_address_function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
 	return $options['address'];
 }
+
+add_shortcode( 'adoszam', 'surbma_premium_wp_vat_function' );
 function surbma_premium_wp_vat_function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
 	return $options['vat'];
 }
+
+add_shortcode( 'cegjegyzekszam', 'surbma_premium_wp_companyid_function' );
 function surbma_premium_wp_companyid_function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
 	return $options['companyid'];
 }
+
+add_shortcode( 'bankszamlaszam', 'surbma_premium_wp_bankid_function' );
 function surbma_premium_wp_bankid_function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
 	return $options['bankid'];
 }
+
+add_shortcode( 'email', 'surbma_premium_wp_email_function' );
 function surbma_premium_wp_email_function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
 	$email = $options['email'];
 	$mailto = '[mailto]'.$email.'[/mailto]';
 	return do_shortcode( $mailto );
 }
+
+add_shortcode( 'mobiltelefon', 'surbma_premium_wp_mobilephone_function' );
 function surbma_premium_wp_mobilephone_function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
 	return $options['mobilephone'];
 }
+
+add_shortcode( 'telefon', 'surbma_premium_wp_phone_function' );
 function surbma_premium_wp_phone_function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
 	return $options['phone'];
 }
+
+add_shortcode( 'fax', 'surbma_premium_wp_fax_function' );
 function surbma_premium_wp_fax_function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
 	return $options['fax'];
 }
+
+add_shortcode( 'skype', 'surbma_premium_wp_skype_function' );
 function surbma_premium_wp_skype_function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
 	return '<a class="pwp-skype" href="skype:'.$options['skype'].'?call">'.$options['skype'].'</a>';
 }
+
+add_shortcode( 'ceginfo', 'surbma_premium_wp_companyinfo_function' );
 function surbma_premium_wp_companyinfo_function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
 	return $options['companyinfo'];
 }
 
-add_shortcode( 'nev', 'surbma_premium_wp_name_function' );
-add_shortcode( 'ceg', 'surbma_premium_wp_company_function' );
-add_shortcode( 'cim', 'surbma_premium_wp_address_function' );
-add_shortcode( 'adoszam', 'surbma_premium_wp_vat_function' );
-add_shortcode( 'cegjegyzekszam', 'surbma_premium_wp_companyid_function' );
-add_shortcode( 'bankszamlaszam', 'surbma_premium_wp_bankid_function' );
-add_shortcode( 'email', 'surbma_premium_wp_email_function' );
-add_shortcode( 'mobiltelefon', 'surbma_premium_wp_mobilephone_function' );
-add_shortcode( 'telefon', 'surbma_premium_wp_phone_function' );
-add_shortcode( 'fax', 'surbma_premium_wp_fax_function' );
-add_shortcode( 'skype', 'surbma_premium_wp_skype_function' );
-add_shortcode( 'ceginfo', 'surbma_premium_wp_companyinfo_function' );
-
+add_shortcode( 'google-calendar', 'surbma_premium_wp_google_calendar_shortcode' );
 function surbma_premium_wp_google_calendar_shortcode( $atts ) {
      extract( shortcode_atts( array(
           'src' => '',
@@ -187,31 +198,31 @@ function surbma_premium_wp_google_calendar_shortcode( $atts ) {
      ), $atts ) );
      return '<iframe src="https://www.google.com/calendar/embed?'.$src.'" width="'.$width.'" height="'.$height.'" frameborder="0" scrolling="'.$scrolling.'"></iframe>';
 }
-add_shortcode( 'google-calendar', 'surbma_premium_wp_google_calendar_shortcode' );
 
+add_shortcode( 'google-presentation', 'surbma_premium_wp_google_presentation_shortcode' );
 function surbma_premium_wp_google_presentation_shortcode( $atts ) {
      extract( shortcode_atts( array(
-          'src' => '',
+          'id' => '',
           'start' => 'false',
           'loop' => 'false',
           'delayms' => 3000,
           'width' => 400,
           'height' => 300
      ), $atts ) );
-     return '<iframe src="https://docs.google.com/presentation/d/'.$src.'/embed?start='.$start.'&loop='.$loop.'&delayms='.$delayms.'" frameborder="0" width="'.$width.'" height="'.$height.'" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>';
+     return '<iframe src="https://docs.google.com/presentation/d/'.$id.'/embed?start='.$start.'&loop='.$loop.'&delayms='.$delayms.'" frameborder="0" width="'.$width.'" height="'.$height.'" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>';
 }
-add_shortcode( 'google-presentation', 'surbma_premium_wp_google_presentation_shortcode' );
 
+add_shortcode( 'google-form', 'surbma_premium_wp_google_form_shortcode' );
 function surbma_premium_wp_google_form_shortcode( $atts ) {
      extract( shortcode_atts( array(
-          'src' => '',
+          'id' => '',
           'width' => 760,
           'height' => 500
      ), $atts ) );
-     return '<iframe src="https://docs.google.com/forms/d/'.$src.'/viewform?embedded=true#start=embed" width="'.$width.'" height="'.$height.'" frameborder="0" marginheight="0" marginwidth="0"></iframe>';
+     return '<iframe src="https://docs.google.com/forms/d/'.$id.'/viewform?embedded=true#start=embed" width="'.$width.'" height="'.$height.'" frameborder="0" marginheight="0" marginwidth="0"></iframe>';
 }
-add_shortcode( 'google-form', 'surbma_premium_wp_google_form_shortcode' );
 
+add_shortcode( 'pwp-youtube', 'surbma_premium_wp_youtube_shortcode' );
 function surbma_premium_wp_youtube_shortcode( $atts ) {
      extract( shortcode_atts( array(
           'id' => '',
@@ -220,8 +231,8 @@ function surbma_premium_wp_youtube_shortcode( $atts ) {
      ), $atts ) );
      return '<iframe width="'.$width.'" height="'.$height.'" src="https://www.youtube.com/embed/'.$id.'" frameborder="0" allowfullscreen></iframe>';
 }
-add_shortcode( 'pwp-youtube', 'surbma_premium_wp_youtube_shortcode' );
 
+add_shortcode( 'pwp-vimeo', 'surbma_premium_wp_vimeo_shortcode' );
 function surbma_premium_wp_vimeo_shortcode( $atts ) {
      extract( shortcode_atts( array(
           'id' => '',
@@ -230,4 +241,3 @@ function surbma_premium_wp_vimeo_shortcode( $atts ) {
      ), $atts ) );
      return '<iframe src="https://player.vimeo.com/video/'.$id.'" width="'.$width.'" height="'.$height.'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
 }
-add_shortcode( 'pwp-vimeo', 'surbma_premium_wp_vimeo_shortcode' );
