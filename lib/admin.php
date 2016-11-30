@@ -81,8 +81,7 @@ function surbma_premium_wp_admin_scripts( $hook ) {
     $hook == 'premium-wp_page_surbma-premium-wp-extra-fields' ||
     $hook == 'premium-wp_page_surbma-premium-wp-shortcodes' ||
     $hook == 'premium-wp_page_surbma-wp-control' ) {
-    	wp_enqueue_style( 'uikit-css', plugins_url( '', dirname(__FILE__) ) . '/uikit/css/uikit.gradient.min.css' );
-    	wp_enqueue_script( 'uikit-js', plugins_url( '', dirname(__FILE__) ) . '/uikit/js/uikit.min.js' );
+    	wp_enqueue_style( 'uikit-css', 'https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/uikit.gradient.min.css' );
     }
 }
 add_action( 'admin_enqueue_scripts', 'surbma_premium_wp_admin_scripts' );
