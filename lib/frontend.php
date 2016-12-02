@@ -6,12 +6,27 @@ function surbma_premium_wp_scripts() {
     wp_enqueue_style( 'genericons', plugins_url( '', dirname(__FILE__) ) . '/genericons/genericons.css' );
 }
 
-/* Social Share Buttons for Posts */
-add_filter( 'the_content', 'surbma_premium_wp_social_add_share_buttons', 20 );
+// Social Share Buttons
+add_action( 'wp_head', 'surbma_premium_wp_social_buttons_show' );
+function surbma_premium_wp_social_buttons_show() {
+	$options = get_option( 'surbma_premium_wp_social_fields' );
+
+	if( $options['socialposts'] == 1 && is_singular( 'post' ) ) {
+		add_filter( 'the_content', 'surbma_premium_wp_social_add_share_buttons', 20 );
+	}
+	if( $options['socialpages'] == 1 && is_page() ) {
+		add_filter( 'the_content', 'surbma_premium_wp_social_add_share_buttons', 20 );
+	}
+	$includeposttypes = $options['socialcpts'] ? explode( ',', $options['socialcpts'] ) : '';
+	if( $options['socialcpts'] != '' && is_singular( $includeposttypes ) ) {
+		add_filter( 'the_content', 'surbma_premium_wp_social_add_share_buttons', 20 );
+	}
+}
+
 function surbma_premium_wp_social_add_share_buttons( $content ) {
 	$options = get_option( 'surbma_premium_wp_social_fields' );
 
-	if ( is_singular( 'post' ) && is_main_query() && in_the_loop() ) {
+	if ( is_main_query() && in_the_loop() ) {
 		if ( $options['fblikeposts'] == '1' || $options['plusoneposts'] == '1' || $options['tweetposts'] == '1' || $options['linkedinposts'] == '1' || $options['pinitposts'] == '1' || $options['emailposts'] == '1' || $options['printposts'] == '1' ) {
 
         	global $post;

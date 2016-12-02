@@ -79,7 +79,7 @@ function surbma_premium_wp_facebook_script() {
 	var js, fjs = d.getElementsByTagName(s)[0];
 	if (d.getElementById(id)) return;
 	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/<?php echo get_locale(); ?>/sdk.js#xfbml=1&version=v2.5&appId=256155317784646";
+	js.src = "//connect.facebook.net/<?php echo get_locale(); ?>/sdk.js#xfbml=1&version=v2.8&appId=256155317784646";
 	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <?php
@@ -91,9 +91,15 @@ function surbma_premium_wp_fblike_button( $atts ) {
 	if ( function_exists( 'surbma_premium_wp_facebook_script' ) )
 		add_action( 'wp_footer', 'surbma_premium_wp_facebook_script' );
 	extract( shortcode_atts( array(
-		"url" => get_permalink()
+		"url" => get_permalink(),
+		"width" => '',
+		"layout" => 'button',
+		"action" => 'like',
+		"size" => 'large',
+		"show_faces" => false,
+		"share" => false
 	), $atts ) );
-	return '<div style="float:left;margin:0 .5em .5em 0;"><div class="fb-like" data-href="'.$url.'" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></div>';
+	return '<div class="fb-like" data-href="'.$url.'" data-width="'.$width.'" data-layout="'.$layout.'" data-action="'.$action.'" data-size="'.$size.'" data-show-faces="'.$show_faces.'" data-share="'.$share.'"></div>';
 }
 
 add_shortcode( 'facebook-oldal', 'surbma_premium_wp_facebook_page' );
@@ -101,17 +107,18 @@ function surbma_premium_wp_facebook_page( $atts ) {
 	if ( function_exists( 'surbma_premium_wp_facebook_script' ) )
 		add_action( 'wp_footer', 'surbma_premium_wp_facebook_script' );
 	extract( shortcode_atts( array(
-		"url" => get_permalink(),
-		"width" => 340,
-		"height" => 500,
+		"url" => '',
+		"width" => '',
+		"height" => '',
 		"small_header" => false,
 		"adapt_container_width" => true,
 		"hide_cover" => false,
 		"show_facepile" => true,
-		"show_posts" => true,
-		"hide_cta" => false
+		"tabs" => ''
 	), $atts ) );
-	return '<div class="fb-page" data-href="'.$url.'" data-width="'.$width.'" data-height="'.$height.'" data-small-header="'.$small_header.'" data-adapt-container-width="'.$adapt_container_width.'" data-hide-cover="'.$hide_cover.'" data-show-facepile="'.$show_facepile.'" data-show-posts="'.$show_posts.'" data-hide-cta="'.$hide_cta.'"><div class="fb-xfbml-parse-ignore"></div></div>';
+	if ( $url != '' ) {
+		return '<div class="fb-page" data-href="'.$url.'" data-width="'.$width.'" data-height="'.$height.'" data-tabs="timeline" data-small-header="'.$small_header.'" data-adapt-container-width="'.$adapt_container_width.'" data-hide-cover="'.$hide_cover.'" data-show-facepile="'.$show_facepile.'"><blockquote cite="'.$url.'" class="fb-xfbml-parse-ignore"><a href="'.$url.'">'.$url.'</a></blockquote></div>';
+	}
 }
 
 add_shortcode( 'nev', 'surbma_premium_wp_name_function' );
