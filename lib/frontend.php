@@ -11,16 +11,18 @@ add_action( 'wp_head', 'surbma_premium_wp_social_buttons_show' );
 function surbma_premium_wp_social_buttons_show() {
 	$options = get_option( 'surbma_premium_wp_social_fields' );
 
-	if( $options['socialposts'] == 1 && is_singular( 'post' ) ) {
+	if( isset( $options['socialposts'] ) && $options['socialposts'] == 1 && is_singular( 'post' ) ) {
 		add_filter( 'the_content', 'surbma_premium_wp_social_add_share_buttons', 20 );
 	}
-	if( $options['socialpages'] == 1 && is_page() ) {
+	if( isset( $options['socialpages'] ) && $options['socialpages'] == 1 && is_page() ) {
 		add_filter( 'the_content', 'surbma_premium_wp_social_add_share_buttons', 20 );
 	}
-	$includeposttypes = $options['socialcpts'] ? explode( ',', $options['socialcpts'] ) : '';
-	if( $options['socialcpts'] != '' && is_singular( $includeposttypes ) ) {
-		add_filter( 'the_content', 'surbma_premium_wp_social_add_share_buttons', 20 );
-	}
+	if( isset( $options['socialcpts'] ) ) {
+        $includeposttypes = $options['socialcpts'] ? explode( ',', $options['socialcpts'] ) : '';
+        if( $options['socialcpts'] != '' && is_singular( $includeposttypes ) ) {
+            add_filter( 'the_content', 'surbma_premium_wp_social_add_share_buttons', 20 );
+        }
+    }
 }
 
 function surbma_premium_wp_social_add_share_buttons( $content ) {
