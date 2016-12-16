@@ -330,9 +330,9 @@ function surbma_premium_wp_shortcodes_page() {
 			</div>
 			<h4>Használata:</h4>
 			<ul>
-				<li><code>[facebook-oldal url="http://www.sajatdomain.hu"]</code> - Normál megjelenítés az alapértelmezett paraméterekkel.</li>
-				<li><code>[facebook-oldal url="http://www.sajatdomain.hu" tabs="timeline"]</code> - Facebook oldal az idővonal füllel.</li>
-				<li><code>[facebook-oldal url="http://www.sajatdomain.hu" tabs="timeline, messages"]</code> - Facebook oldal az idővonal és az üzenetek füllel.</li>
+				<li><code>[facebook-oldal url="https://www.facebook.com/facebookoldal/"]</code> - Normál megjelenítés az alapértelmezett paraméterekkel.</li>
+				<li><code>[facebook-oldal url="https://www.facebook.com/facebookoldal/" tabs="timeline"]</code> - Facebook oldal az idővonal füllel.</li>
+				<li><code>[facebook-oldal url="https://www.facebook.com/facebookoldal/" tabs="timeline, messages"]</code> - Facebook oldal az idővonal és az üzenetek füllel.</li>
 			</ul>
 		</div>
 		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
