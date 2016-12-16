@@ -285,9 +285,9 @@ function surbma_premium_wp_shortcodes_page() {
 						</tr>
 						<tr>
 							<td><code>width</code></td>
-							<td>A Facebook oldal doboz szélessége pixelben.</td>
+							<td>A Facebook oldal doboz szélessége pixelben. Ha nincs megadva, akkor a beillesztés helyéhez igazodik a szélessége.</td>
 							<td>Min. 180 | Max. 500</td>
-							<td>340</td>
+							<td>NINCS</td>
 						</tr>
 						<tr>
 							<td><code>height</code></td>
@@ -320,24 +320,19 @@ function surbma_premium_wp_shortcodes_page() {
 							<td>true</td>
 						</tr>
 						<tr>
-							<td><code>show_posts</code></td>
-							<td>A Facebook oldal bejegyzéseinek megjelenítése.</td>
-							<td>true | false</td>
-							<td>true</td>
-						</tr>
-						<tr>
-							<td><code>hide_cta</code></td>
-							<td>Egyedi felhívás gomb elrejtése.</td>
-							<td>true | false</td>
-							<td>false</td>
+							<td><code>tabs</code></td>
+							<td>A Facebook oldal lapfüleinek megjelenítése: idővonal, üzenetek, események. Lehet egyet és többet is megadni.</td>
+							<td>timeline, messages, events</td>
+							<td>NINCS</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 			<h4>Használata:</h4>
 			<ul>
-				<li><code>[facebook-oldal url=""]</code> - Normál megjelenítés az alapértelmezett paraméterekkel</li>
-				<li><code>[facebook-oldal url="http://www.sajatdomain.hu"]</code> - Mindig a megadott domain url-jére nyomnak "tetszik"-et.</li>
+				<li><code>[facebook-oldal url="http://www.sajatdomain.hu"]</code> - Normál megjelenítés az alapértelmezett paraméterekkel.</li>
+				<li><code>[facebook-oldal url="http://www.sajatdomain.hu" tabs="timeline"]</code> - Facebook oldal az idővonal füllel.</li>
+				<li><code>[facebook-oldal url="http://www.sajatdomain.hu" tabs="timeline, messages"]</code> - Facebook oldal az idővonal és az üzenetek füllel.</li>
 			</ul>
 		</div>
 		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
