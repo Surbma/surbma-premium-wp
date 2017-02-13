@@ -88,6 +88,82 @@ function surbma_premium_wp_shortcodes_page() {
 			</ul>
 		</div>
 		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
+			<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [ga-link]</h3>
+			<p>Ezzel a rövidkóddal olyan linket lehet elhelyezni a weboldalon, amit a Google Analytics-ben külön lehet mérni. Főleg letöltésekhez ajánlott, így az esetleges statikus fájlok, dokumentumok, média fájlok kattintásánál is lehet követni a látogatókat.</p>
+			<div class="uk-overflow-container">
+				<table class="uk-table uk-table-hover uk-table-striped">
+					<thead>
+						<tr>
+							<th>Paraméter</th>
+							<th>Leírás</th>
+							<th>Lehetséges értékek</th>
+							<th>Alapértelmezett érték</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>href</code></td>
+							<td>Ez a hivatkozás célja, az URL, amit szeretnénk ezzel a lehetőséggel követni.</td>
+							<td>URL</td>
+							<td>NINCS</td>
+						</tr>
+						<tr>
+							<td><code>class</code></td>
+							<td>Egy vagy több class adható a linkhez egyedi formázáshoz.</td>
+							<td>a-z | A-Z | 0-9</td>
+							<td>NINCS</td>
+						</tr>
+						<tr>
+							<td><code>id</code></td>
+							<td>Egyedi azonosító adható meg a linkhez.</td>
+							<td>a-z | A-Z | 0-9</td>
+							<td>NINCS</td>
+						</tr>
+						<tr>
+							<td><code>style</code></td>
+							<td>Egyedi stílusok adhatók meg a linkhez.</td>
+							<td>CSS</td>
+							<td>NINCS</td>
+						</tr>
+						<tr>
+							<td><code>title</code></td>
+							<td>A title tulajdonság olyan szabad szavas szöveget ad a linkhez, ami akkor jelenik meg, ha az egeret a linkre visszük.</td>
+							<td></td>
+							<td>NINCS</td>
+						</tr>
+						<tr>
+							<td><code>target</code></td>
+							<td>A link cél tulajdonsága határozható meg ezzel a paraméterrel. Az alapértelmezett beállítással a linkre kattintva egy új fület nyit meg.</td>
+							<td>_blank | _self | _parent | _top</td>
+							<td>_blank</td>
+						</tr>
+						<tr>
+							<td><code>eventCategory</code></td>
+							<td>A kattintáshoz tartozó esemény kategóriája a Google Analytics-ben.</td>
+							<td>a-z | A-Z | 0-9</td>
+							<td>outbound</td>
+						</tr>
+						<tr>
+							<td><code>eventAction</code></td>
+							<td>A kattintáshoz tartozó esemény megnevezése a Google Analytics-ben.</td>
+							<td>a-z | A-Z | 0-9</td>
+							<td>link</td>
+						</tr>
+						<tr>
+							<td><code>eventLabel</code></td>
+							<td>A kattintáshoz tartozó esemény címkéje a Google Analytics-ben.</td>
+							<td>a-z | A-Z | 0-9</td>
+							<td>NINCS</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<h4>Használata:</h4>
+			<ul>
+				<li><code>[ga-link href="http://domain.hu/csali.pdf"]Töltsd le az ingyenes tanulmányunkat[/ga-link]</code></li>
+			</ul>
+		</div>
+		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
 			<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [google-calendar]</h3>
 			<p>Ezzel a rövidkóddal egy Google Naptárat illeszthetünk be. Először a Google Naptár iframe beágyazó kódját kell lekérni, amiből ki kell másolni a szükséges paramétereket.</p>
 			<div class="uk-overflow-container">
