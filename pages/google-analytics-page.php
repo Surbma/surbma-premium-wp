@@ -70,17 +70,24 @@ function surbma_premium_wp_google_analytics_init() {
 		'surbma-premium-wp-google-analytics',
 		'surbma_premium_wp_google_analytics'
 	);
+	add_settings_field(
+		'surbma_premium_wp_google_universal_analytics_anonymizeip',
+		'IP-névtelenítés (IP Anonymization)',
+		'surbma_premium_wp_google_universal_analytics_anonymizeip_string',
+		'surbma-premium-wp-google-analytics',
+		'surbma_premium_wp_google_analytics'
+	);
 }
 add_action( 'admin_init', 'surbma_premium_wp_google_analytics_init', 50 );
 
 function surbma_premium_wp_google_analytics_trackingid_string() {
 	$options = get_option('surbma_premium_wp_google_analytics_fields');
-	echo "<input id='surbma_premium_wp_google_analytics_fields[trackingid]' name='surbma_premium_wp_google_analytics_fields[trackingid]' type='text' value='{$options['trackingid']}' placeholder='UA-XXXXXXXX-YY' maxlength='14' size='14' />";
+	echo "<input id='surbma_premium_wp_google_analytics_fields[trackingid]' name='surbma_premium_wp_google_analytics_fields[trackingid]' type='text' value='{$options['trackingid']}' placeholder='UA-XXXXXXXX-YY' maxlength='14' size='18' />";
 }
 
 function surbma_premium_wp_google_universal_analytics_string() {
 	$options = get_option('surbma_premium_wp_google_analytics_fields');
-	echo "<input id='surbma_premium_wp_google_analytics_fields[universalid]' name='surbma_premium_wp_google_analytics_fields[universalid]' type='text' value='{$options['universalid']}' placeholder='UA-XXXXXXXX-YY' maxlength='14' size='14' />";
+	echo "<input id='surbma_premium_wp_google_analytics_fields[universalid]' name='surbma_premium_wp_google_analytics_fields[universalid]' type='text' value='{$options['universalid']}' placeholder='UA-XXXXXXXX-YY' maxlength='14' size='18' />";
 }
 
 function surbma_premium_wp_google_universal_analytics_displayfeatures_string() {
@@ -88,6 +95,14 @@ function surbma_premium_wp_google_universal_analytics_displayfeatures_string() {
 	$html = '<input type="checkbox" id="surbma_premium_wp_google_analytics_fields[displayfeatures]" name="surbma_premium_wp_google_analytics_fields[displayfeatures]" value="1"' . checked( 1, $options['displayfeatures'], false ) . '/>';
     $html .= '<label class="description" for="surbma_premium_wp_google_analytics_fields[displayfeatures]">Vizuális hirdetési szolgáltatások engedélyezése (CSAK Universal Analytics esetén)</label>';
     $html .= '<p><em>FONTOS: <a href="https://support.google.com/analytics/answer/2700409" target="_blank">A vizuális hirdetésekre vonatkozó irányelvi előírások →</a></em></p>';
+    echo $html;
+}
+
+function surbma_premium_wp_google_universal_analytics_anonymizeip_string() {
+	$options = get_option('surbma_premium_wp_google_analytics_fields');
+	$html = '<input type="checkbox" id="surbma_premium_wp_google_analytics_fields[anonymizeip]" name="surbma_premium_wp_google_analytics_fields[anonymizeip]" value="1"' . checked( 1, $options['anonymizeip'], false ) . '/>';
+    $html .= '<label class="description" for="surbma_premium_wp_google_analytics_fields[anonymizeip]">IP-névtelenítés engedélyezése (CSAK Universal Analytics esetén)</label>';
+    $html .= '<p><em>Bővebb információ az IP-névtelenítésről: <a href="https://support.google.com/analytics/answer/2763052?hl=hu" target="_blank">IP-névtelenítés az Analytics rendszerben →</a></em></p>';
     echo $html;
 }
 
