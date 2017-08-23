@@ -330,6 +330,42 @@ function surbma_premium_wp_shortcodes_page() {
 							<td>URL</td>
 							<td>Aktuális oldal url-je</td>
 						</tr>
+						<tr>
+							<td><code>width</code></td>
+							<td>A gomb szélessége pixelben.</td>
+							<td>Szám</td>
+							<td>NINCS</td>
+						</tr>
+						<tr>
+							<td><code>layout</code></td>
+							<td>A gomb kinézete.</td>
+							<td>standard | box_count | button_count | button</td>
+							<td>button</td>
+						</tr>
+						<tr>
+							<td><code>action</code></td>
+							<td>A gomb típusát határozhatjuk meg, hogy "Tetszik" vagy "Ajánlom" legyen a gombra írva.</td>
+							<td>like | recommend</td>
+							<td>like</td>
+						</tr>
+						<tr>
+							<td><code>size</code></td>
+							<td>A gomb méretét állíthatjuk be.</td>
+							<td>small | large</td>
+							<td>large</td>
+						</tr>
+						<tr>
+							<td><code>show_faces</code></td>
+							<td>Arcok mutatása a gomb mellett.</td>
+							<td>true | false</td>
+							<td>false</td>
+						</tr>
+						<tr>
+							<td><code>share</code></td>
+							<td>Megosztás gomb megjelenítése a Like gomb mellett.</td>
+							<td>true | false</td>
+							<td>fasle</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>

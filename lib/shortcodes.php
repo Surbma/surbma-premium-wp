@@ -40,15 +40,15 @@ function surbma_premium_wp_ga_link_function( $atts, $content = null ) {
 		'style' => '',
 		'title' => '',
 		'target' => '_blank',
-		'eventCategory' => 'outbound',
-		'eventAction' => 'link',
-		'eventLabel' => ''
+		'eventcategory' => 'outbound',
+		'eventaction' => 'link',
+		'eventlabel' => ''
 	), $atts ) );
 
 	if ( $eventLabel == '' ) $eventLabel = $href;
-	$onClick = "ga( 'send', 'event', '" . $eventCategory . "', '" . $eventAction . "', '" . $eventLabel . "' );";
+	$onclick = "ga( 'send', 'event', '$eventcategory', '$eventaction', '$eventlabel' );";
 
-	return '<a href="'.$href.'" class="'.$class.'" id="'.$id.'" style="'.$style.'" title="'.$title.'" target="'.$target.'" onClick="'.$onClick.'">'.do_shortcode( $content ).'</a>';
+	return '<a href="'.$href.'" class="'.$class.'" id="'.$id.'" style="'.$style.'" title="'.$title.'" target="'.$target.'" onClick="'.$onclick.'">'.do_shortcode( $content ).'</a>';
 }
 
 add_shortcode( 'mailto', 'surbma_premium_wp_mailto_function' );
