@@ -168,13 +168,13 @@ function surbma_premium_wp_email_function() {
 add_shortcode( 'mobiltelefon', 'surbma_premium_wp_mobilephone_function' );
 function surbma_premium_wp_mobilephone_function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
-	return $options['mobilephone'];
+	return '<a href="tel:+' . preg_replace('/\D/', '', $options['mobilephone']) . '">' . $options['mobilephone'] . '</a>';
 }
 
 add_shortcode( 'telefon', 'surbma_premium_wp_phone_function' );
 function surbma_premium_wp_phone_function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
-	return $options['phone'];
+	return '<a href="tel:+' . preg_replace('/\D/', '', $options['phone']) . '">' . $options['phone'] . '</a>';
 }
 
 add_shortcode( 'fax', 'surbma_premium_wp_fax_function' );
