@@ -5,7 +5,7 @@ Plugin Name: Surbma - Premium WordPress
 Plugin URI: http://surbma.com/wordpress-plugins/
 Description: Useful extensions for your WordPress website.
 
-Version: 2.12.0
+Version: 2.13.0
 
 Author: Surbma
 Author URI: http://surbma.com/
@@ -36,78 +36,30 @@ else {
 	include_once( SURBMA_PREMIUM_WP_PLUGIN_DIR . '/lib/frontend.php' );
 }
 
-function surbma_premium_wp_activated() {
-	$newextrafields = get_option( 'surbma_premium_wp_extra_fields' );
-	$oldextrafields = get_option( 'pwp_extra_fields' );
-	if ( $newextrafields == false && $oldextrafields != false ) {
-		update_option( 'surbma_premium_wp_extra_fields', $oldextrafields );
-	}
-
-	$newgoogleanalytics = get_option( 'surbma_premium_wp_google_analytics_fields' );
-	$oldgoogleanalytics = get_option( 'pwp_google_analytics_fields' );
-	if ( $newgoogleanalytics == false && $oldgoogleanalytics != false ) {
-		update_option( 'surbma_premium_wp_google_analytics_fields', $oldgoogleanalytics );
-	}
-
-	$newgoogletagmanager = get_option( 'surbma_premium_wp_google_tag_manager_fields' );
-	$oldgoogletagmanager = get_option( 'pwp_google_tag_manager_fields' );
-	if ( $newgoogletagmanager == false && $oldgoogletagmanager != false ) {
-		update_option( 'surbma_premium_wp_google_tag_manager_fields', $oldgoogletagmanager );
-	}
-
-	$newsocialfields = get_option( 'surbma_premium_wp_social_fields' );
-	$oldsocialfields = get_option( 'pwp_social_fields' );
-	if ( $newsocialfields == false && $oldsocialfields != false ) {
-		update_option( 'surbma_premium_wp_social_fields', $oldsocialfields );
-	}
-}
-register_activation_hook( __FILE__, 'surbma_premium_wp_activated' );
-
 function surbma_premium_wp_google_analytics_display() {
-	$locale = get_locale();
 	$options = get_option( 'surbma_premium_wp_google_analytics_fields' );
 	if ( isset( $options['universalid'] ) && $options['universalid'] != '' ) {
 ?>
-<script type="text/javascript">
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $options['universalid']; ?>"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
 
-	ga('create', '<?php echo $options['universalid']; ?>', 'auto');
-<?php if ( isset( $options['displayfeatures'] ) && $options['displayfeatures'] == '1' ) { ?>
-	ga('require', 'displayfeatures');
-<?php } ?>
+	gtag('config', '<?php echo $options['universalid']; ?>');
 <?php if ( isset( $options['anonymizeip'] ) && $options['anonymizeip'] == '1' ) { ?>
-	ga('set', 'anonymizeIp', true);
+	gtag('set', {'anonymize_ip': true});
 <?php } ?>
-<?php do_action( 'surbma_premium_wp_ga_before_send_object' ); ?>
-	ga('send', 'pageview');
-<?php if ( $locale == 'hu_HU' ) { ?>
-	setTimeout( "ga('send', 'event', 'Látogatás időtartama', '30 mp')", 30000 );
-	setTimeout( "ga('send', 'event', 'Látogatás időtartama', '180 mp')", 180000 );
-<?php }
-	else { ?>
-	setTimeout( "ga('send', 'event', 'Time spent on page', '30 seconds')", 30000 );
-	setTimeout( "ga('send', 'event', 'Time spent on page', '180 seconds')", 180000 );
-<?php } ?>
-<?php do_action( 'surbma_premium_wp_ga_after_send_object' ); ?>
+<?php do_action( 'surbma_premium_wp_gtag_settings' ); ?>
 </script>
 <?php } ?>
-<?php if ( isset( $options['trackingid'] ) && $options['trackingid'] != '' ) { ?>
+<?php if ( isset( $options['trackingid'] ) && $options['trackingid'] != '' && $options['universalid'] == '' ) { ?>
 <script type="text/javascript">
 	var _gaq = _gaq || [];
 	_gaq.push(['_setAccount', '<?php echo $options['trackingid']; ?>']);
 <?php do_action( 'surbma_premium_wp_google_analytics_before_trackpageview' ); ?>
 	_gaq.push(['_trackPageview']);
-<?php if ( $locale == 'hu_HU' ) { ?>
-	setTimeout( "_gaq.push(['_trackEvent', 'Látogatás időtartama', '30 mp'])", 30000 );
-	setTimeout( "_gaq.push(['_trackEvent', 'Látogatás időtartama', '180 mp'])", 180000 );
-<?php }
-	else { ?>
-	setTimeout( "_gaq.push(['_trackEvent', 'Time spent on page', '30 seconds'])", 30000 );
-	setTimeout( "_gaq.push(['_trackEvent', 'Time spent on page', '180 seconds'])", 180000 );
-<?php } ?>
 <?php do_action( 'surbma_premium_wp_google_analytics_after_trackpageview' ); ?>
 
 	(function() {
