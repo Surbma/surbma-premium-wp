@@ -46,7 +46,7 @@ function surbma_premium_wp_ga_link_function( $atts, $content = null ) {
 	), $atts ) );
 
 	if ( $eventLabel == '' ) $eventLabel = $href;
-	$onclick = "ga( 'send', 'event', '$eventcategory', '$eventaction', '$eventlabel' );";
+	$onclick = "gtag( 'event', '$eventaction', {'event_category': '$eventcategory',	'event_label': '$eventlabel' });";
 
 	return '<a href="'.$href.'" class="'.$class.'" id="'.$id.'" style="'.$style.'" title="'.$title.'" target="'.$target.'" onClick="'.$onclick.'">'.do_shortcode( $content ).'</a>';
 }

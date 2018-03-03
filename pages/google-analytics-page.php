@@ -8,13 +8,6 @@ function surbma_premium_wp_google_analytics_page() {
 	<div class="wrap uk-width-9-10">
 		<h1 class="dashicons-before dashicons-chart-bar"><?php _e( 'Premium WP', 'surbma-premium-wp' ); ?>: <?php _e( 'Google Analytics', 'surbma-premium-wp' ); ?></h1>
 
-		<?php
-			$options = get_option( 'surbma_premium_wp_google_analytics_fields' );
-			if ( $options['universalid'] == '' && $options['trackingid'] != '' ) {
-				echo '<div class="error notice"><p><strong>FIGYELEM! Régi Google Analytics követő kód van csak megadva.</strong></p><p>Mentés után a régi követő kód törölve lesz! Az Analytics további használatához mindenképpen meg kell adni az új követő kódot az "Analytics kód" mezőnél!<br>Jelenleg bekötött Google Analytics tulajdon: <strong>' . $options['trackingid'] . '</strong></p></div>';
-			}
-		?>
-
 		<?php if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == true ) { ?>
 			<div class="updated notice is-dismissible"><p><strong><?php _e( 'Settings saved.' ); ?></strong></p></div>
 		<?php } ?>
