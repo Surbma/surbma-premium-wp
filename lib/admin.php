@@ -89,7 +89,7 @@ add_action( 'admin_enqueue_scripts', 'surbma_premium_wp_admin_scripts' );
 function surbma_premium_wp_admin_notices() {
 	$options = get_option( 'surbma_premium_wp_google_analytics_fields' );
 	if ( $options['universalid'] == '' && $options['trackingid'] != '' ) {
-		echo '<div class="error notice"><p><strong>FIGYELEM! Régi Google Analytics követő kód van csak megadva.</strong></p><p>Hamarosan a régi követő kód támogatása megszűnik. Az Analytics további használatához mindenképpen meg kell adni az új követő kódot a <strong>Prémium WP -> Google Analytics</strong> menüpont alatt az "Analytics kód" mezőnél! Mentés után a régi követő kód törölve lesz!<br>Jelenleg bekötött Google Analytics tulajdon: <strong>' . $options['trackingid'] . '</strong></p></div>';
+		echo '<div class="error notice"><p><strong>FIGYELEM, FRISSÍTÉS SZÜKSÉGES! Régi Google Analytics követő kód van csak megadva. Hamarosan a régi követő kód támogatása megszűnik.</strong></p><p>A Google Analytics további használatához frissíteni kell a beállításokat a <a href="/wp-admin/admin.php?page=surbma-premium-wp-google-analytics"><strong>Prémium WP -> Google Analytics</strong></a> menüpont alatt. Mentés után a régi követő kód törölve lesz és az új követő kód lesz használatban! Más teendő nincs ezzel, a kód frissítéséhez csak menteni kell a beállításokat.</p><p>Jelenleg bekötött Google Analytics tulajdon: <strong>' . $options['trackingid'] . '</strong></p></div>';
 	}
 }
 add_action( 'admin_notices', 'surbma_premium_wp_admin_notices' );
