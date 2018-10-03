@@ -1,14 +1,14 @@
 <?php
 
 /*
-Plugin Name: Surbma - Premium WordPress
-Plugin URI: http://surbma.com/wordpress-plugins/
+Plugin Name: Surbma | Premium WordPress
+Plugin URI: https://surbma.com/wordpress-plugins/
 Description: Useful extensions for your WordPress website.
 
-Version: 2.15.0
+Version: 2.15.1
 
 Author: Surbma
-Author URI: http://surbma.com/
+Author URI: https://surbma.com/
 
 License: GPLv2
 

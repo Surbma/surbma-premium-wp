@@ -1,10 +1,10 @@
-=== Surbma - Premium WP ===
+=== Surbma | Premium WP ===
 Contributors: Surbma
-Donate link: http://surbma.com/
+Donate link: https://surbma.com/
 Tags: genesis, widget, google analytics, google tag manager, tag manager, analytics, shortcodes, share, facebook, google, google plus, google+, twitter, pinterest, email, print, google calendar, google presentation, google forms
 Requires at least: 4.0
 Tested up to: 4.9
-Stable tag: 2.15.0
+Stable tag: 2.15.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,11 +34,11 @@ Please feel free to contribute, help or recommend any new features for my plugin
 
 **Do you want to know more about me?**
 
-Visit my webpage: [Surbma.com](http://surbma.com/)
+Visit my webpage: [Surbma.com](https://surbma.com/)
 
 **Do you like and use my free plugins?**
 
-You can donate me for FREE here: [Surbma.com](http://surbma.com/donate/)
+You can donate me for FREE here: [Surbma.com](https://surbma.com/donate/)
 
 == Installation ==
 
@@ -57,6 +57,12 @@ I am managing hundreds of client websites. I use only the best and mostly premiu
 It is the reverse version of my last name. ;)
 
 == Changelog ==
+
+= 2.15.1 =
+
+- Facebook kód frissítése.
+- PHP Warning javítások.
+- WordPress 4.9 kompatibilitás ellenőrizve.
 
 = 2.15.0 =
 
