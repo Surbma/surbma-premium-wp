@@ -1,5 +1,6 @@
 .pwp-share-buttons{background:#fff;margin:1em 0 !important;padding:.5em 0 !important;border-top:1px solid #ddd;border-bottom:1px solid #ddd;clear:both;overflow:hidden;}
 .pwp-share-buttons li{display:inline-block;float:right;margin:0 !important;padding:0 .25em !important;text-align:center;border-left:1px solid #ddd;}
+.pwp-share-buttons li:before,.pwp-share-buttons li:after{display:none;}
 .pwp-share-buttons li:last-child{border-left:0;}
 .pwp-share-buttons li a{display:block;text-decoration:none;color:#aaa;width:40px;height:40px;line-height:40px;}
 .pwp-share-buttons li a:hover{background:#fff;text-decoration:none;color:#000;}

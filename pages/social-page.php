@@ -82,8 +82,6 @@ function surbma_premium_wp_social_page() {
 								<td>
 									<p><input id="surbma_premium_wp_social_fields[fblikeposts]" name="surbma_premium_wp_social_fields[fblikeposts]" type="checkbox" value="1" <?php checked( '1', $options['fblikeposts'] ); ?> />
 									<label class="description" for="surbma_premium_wp_social_fields[fblikeposts]">Facebook tetszik gomb</label></p>
-									<p><input id="surbma_premium_wp_social_fields[plusoneposts]" name="surbma_premium_wp_social_fields[plusoneposts]" type="checkbox" value="1" <?php checked( '1', $options['plusoneposts'] ); ?> />
-									<label class="description" for="surbma_premium_wp_social_fields[plusoneposts]">Google +1 gomb</label></p>
 									<p><input id="surbma_premium_wp_social_fields[tweetposts]" name="surbma_premium_wp_social_fields[tweetposts]" type="checkbox" value="1" <?php checked( '1', $options['tweetposts'] ); ?> />
 									<label class="description" for="surbma_premium_wp_social_fields[tweetposts]">Twitter megosztás gomb</label></p>
 									<p><input id="surbma_premium_wp_social_fields[linkedinposts]" name="surbma_premium_wp_social_fields[linkedinposts]" type="checkbox" value="1" <?php checked( '1', $options['linkedinposts'] ); ?> />
@@ -188,10 +186,6 @@ function surbma_premium_wp_social_fields_validate( $input ) {
 	if ( ! isset( $input['fblikeposts'] ) )
 		$input['fblikeposts'] = null;
 	$input['fblikeposts'] = ( $input['fblikeposts'] == 1 ? 1 : 0 );
-
-	if ( ! isset( $input['plusoneposts'] ) )
-		$input['plusoneposts'] = null;
-	$input['plusoneposts'] = ( $input['plusoneposts'] == 1 ? 1 : 0 );
 
 	if ( ! isset( $input['tweetposts'] ) )
 		$input['tweetposts'] = null;
