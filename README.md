@@ -1,4 +1,4 @@
-Surbma - Premium WP
+Surbma | Premium WP
 ===================
 
 Useful extensions for your WordPress website.
