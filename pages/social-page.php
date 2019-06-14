@@ -90,8 +90,6 @@ function surbma_premium_wp_social_page() {
 									<label class="description" for="surbma_premium_wp_social_fields[pinitposts]">Pinterest megosztás gomb</label></p>
 									<p><input id="surbma_premium_wp_social_fields[emailposts]" name="surbma_premium_wp_social_fields[emailposts]" type="checkbox" value="1" <?php checked( '1', $options['emailposts'] ); ?> />
 									<label class="description" for="surbma_premium_wp_social_fields[emailposts]">Email megosztás gomb</label></p>
-									<p><input id="surbma_premium_wp_social_fields[printposts]" name="surbma_premium_wp_social_fields[printposts]" type="checkbox" value="1" <?php checked( '1', $options['printposts'] ); ?> />
-									<label class="description" for="surbma_premium_wp_social_fields[printposts]">Nyomtatás (PrintFriendly) gomb</label></p>
 								</td>
 							</tr>
 							<tr valign="top">
@@ -202,10 +200,6 @@ function surbma_premium_wp_social_fields_validate( $input ) {
 	if ( ! isset( $input['emailposts'] ) )
 		$input['emailposts'] = null;
 	$input['emailposts'] = ( $input['emailposts'] == 1 ? 1 : 0 );
-
-	if ( ! isset( $input['printposts'] ) )
-		$input['printposts'] = null;
-	$input['printposts'] = ( $input['printposts'] == 1 ? 1 : 0 );
 
 	if ( ! isset( $input['socialposts'] ) )
 		$input['socialposts'] = null;

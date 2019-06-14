@@ -1,13 +1,14 @@
 <?php
 
-add_action( 'wp_enqueue_scripts', 'surbma_premium_wp_scripts' );
 function surbma_premium_wp_scripts() {
-	wp_enqueue_style( 'surbma-premium-wp', plugins_url( '', dirname(__FILE__) ) . '/css/frontend.css' );
-	wp_enqueue_style( 'genericons', plugins_url( '', dirname(__FILE__) ) . '/genericons/genericons.css' );
+	$options = get_option( 'surbma_premium_wp_social_fields' );
+	if( ( isset( $options['socialposts'] ) && $options['socialposts'] == 1 && is_singular( 'post' ) ) || ( isset( $options['socialpages'] ) && $options['socialpages'] == 1 && is_page() ) ) {
+		wp_enqueue_style( 'surbma-premium-wp', plugins_url( '', dirname(__FILE__) ) . '/css/frontend.css' );
+	}
 }
+add_action( 'wp_enqueue_scripts', 'surbma_premium_wp_scripts' );
 
 // Social Share Buttons
-add_action( 'wp_head', 'surbma_premium_wp_social_buttons_show' );
 function surbma_premium_wp_social_buttons_show() {
 	$options = get_option( 'surbma_premium_wp_social_fields' );
 
@@ -24,12 +25,13 @@ function surbma_premium_wp_social_buttons_show() {
 		}
 	}
 }
+add_action( 'wp_head', 'surbma_premium_wp_social_buttons_show' );
 
 function surbma_premium_wp_social_add_share_buttons( $content ) {
 	$options = get_option( 'surbma_premium_wp_social_fields' );
 
 	if ( is_main_query() && in_the_loop() ) {
-		if ( $options['fblikeposts'] == '1' || $options['tweetposts'] == '1' || $options['linkedinposts'] == '1' || $options['pinitposts'] == '1' || $options['emailposts'] == '1' || $options['printposts'] == '1' ) {
+		if ( $options['fblikeposts'] == '1' || $options['tweetposts'] == '1' || $options['linkedinposts'] == '1' || $options['pinitposts'] == '1' || $options['emailposts'] == '1' ) {
 
 			global $post;
 
@@ -40,29 +42,25 @@ function surbma_premium_wp_social_add_share_buttons( $content ) {
 			$linkedin_button = '';
 			$pinterest_button = '';
 			$email_button = '';
-			$print_button = '';
 
 			$button_style = $options['sharebuttonsstyle'];
 
 			if ( $options['fblikeposts'] == '1' )
-				$fblike_button = '<li class="pwp-fblike"><a href="https://www.facebook.com/sharer/sharer.php?u='.$url.'" target="_blank"><span class="genericon genericon-facebook-alt"></span></a></li>';
+				$fblike_button = '<li class="pwp-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u='.$url.'" target="_blank"><span></span></a></li>';
 
 			if ( $options['tweetposts'] == '1' )
-				$tweet_button = '<li class="pwp-twitter"><a href="https://twitter.com/home?status='.$url.'" target="_blank"><span class="genericon genericon-twitter"></span></a></li>';
+				$tweet_button = '<li class="pwp-twitter"><a href="https://twitter.com/home?status='.$url.'" target="_blank"><span></span</a></li>';
 
 			if ( $options['linkedinposts'] == '1' )
-				$linkedin_button = '<li class="pwp-linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url='.$url.'" target="_blank"><span class="genericon genericon-linkedin"></span></a></li>';
+				$linkedin_button = '<li class="pwp-linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url='.$url.'" target="_blank"><span></span</a></li>';
 
 			if ( $options['pinitposts'] == '1' )
-				$pinterest_button = '<li class="pwp-pinterest"><a href="https://pinterest.com/pin/create/button/?url='.$url.'" target="_blank"><span class="genericon genericon-pinterest"></span></a></li>';
+				$pinterest_button = '<li class="pwp-pinterest"><a href="https://pinterest.com/pin/create/button/?url='.$url.'" target="_blank"><span></span</a></li>';
 
 			if ( $options['emailposts'] == '1' )
-				$email_button = '<li class="pwp-email"><a href="mailto:?body='.$url.'"><span class="genericon genericon-mail"></span></a></li>';
+				$email_button = '<li class="pwp-email"><a href="mailto:?body='.$url.'"><span></span</a></li>';
 
-			if ( $options['printposts'] == '1' )
-				$print_button = '<li class="pwp-print"><a href="http://www.printfriendly.com/print?url='.$url.'" target="_blank"><span class="genericon genericon-print"></span></a></li>';
-
-			$social_buttons = '<ul class="pwp-share-buttons pwp-' . $button_style . '"><li class="pwp-share"><span class="genericon genericon-share"></span></li>' . $fblike_button . $tweet_button . $linkedin_button . $pinterest_button . $email_button . $print_button . '</ul>';
+			$social_buttons = '<ul class="pwp-share-buttons pwp-' . $button_style . '">' . $fblike_button . $tweet_button . $linkedin_button . $pinterest_button . $email_button . '</ul>';
 
 			if ( $options['sharebuttonsplace'] == 'before' ) {
 				$content = $social_buttons . $content;
