@@ -10,17 +10,26 @@ add_action( 'wp_enqueue_scripts', 'surbma_premium_wp_scripts' );
 
 // Social Share Buttons
 function surbma_premium_wp_social_buttons_show() {
+	$divi_page_builder_used = false;
+	if ( wp_basename( get_bloginfo( 'template_directory' ) ) == 'Divi' )
+		$divi_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
+
 	$options = get_option( 'surbma_premium_wp_social_fields' );
 
-	if( isset( $options['socialposts'] ) && $options['socialposts'] == 1 && is_singular( 'post' ) ) {
+	// Show Social Buttons on Posts
+	if( isset( $options['socialposts'] ) && $options['socialposts'] == 1 && is_singular( 'post' ) && !$divi_page_builder_used ) {
 		add_filter( 'the_content', 'surbma_premium_wp_social_add_share_buttons', 20 );
 	}
-	if( isset( $options['socialpages'] ) && $options['socialpages'] == 1 && is_page() ) {
+
+	// Show Social Buttons on Pages
+	if( isset( $options['socialpages'] ) && $options['socialpages'] == 1 && is_page() && !is_page_template() && !$divi_page_builder_used ) {
 		add_filter( 'the_content', 'surbma_premium_wp_social_add_share_buttons', 20 );
 	}
+
+	// Show Social Buttons on CPTs
 	if( isset( $options['socialcpts'] ) ) {
 		$includeposttypes = $options['socialcpts'] ? explode( ',', $options['socialcpts'] ) : '';
-		if( $options['socialcpts'] != '' && is_singular( $includeposttypes ) ) {
+		if( $options['socialcpts'] != '' && is_singular( $includeposttypes ) && !$divi_page_builder_used ) {
 			add_filter( 'the_content', 'surbma_premium_wp_social_add_share_buttons', 20 );
 		}
 	}
