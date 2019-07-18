@@ -2,35 +2,32 @@
 
 function surbma_premium_wp_scripts() {
 	wp_register_style( 'surbma-premium-wp', plugins_url( '', dirname(__FILE__) ) . '/css/frontend.css' );
-	$options = get_option( 'surbma_premium_wp_social_fields' );
-	if( ( isset( $options['socialposts'] ) && $options['socialposts'] == 1 && is_singular( 'post' ) ) || ( isset( $options['socialpages'] ) && $options['socialpages'] == 1 && is_page() ) ) {
-		wp_enqueue_style( 'surbma-premium-wp' );
-	}
 }
 add_action( 'wp_enqueue_scripts', 'surbma_premium_wp_scripts' );
 
 // Social Share Buttons
 function surbma_premium_wp_social_buttons_show() {
-	$divi_page_builder_used = false;
-	if ( wp_basename( get_bloginfo( 'template_directory' ) ) == 'Divi' )
-		$divi_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
+	$divi_page_builder_used = wp_basename( get_bloginfo( 'template_directory' ) ) == 'Divi' ? et_pb_is_pagebuilder_used( get_the_ID() ) : false;
 
 	$options = get_option( 'surbma_premium_wp_social_fields' );
 
 	// Show Social Buttons on Posts
 	if( isset( $options['socialposts'] ) && $options['socialposts'] == 1 && is_singular( 'post' ) && !$divi_page_builder_used ) {
+		wp_enqueue_style( 'surbma-premium-wp' );
 		add_filter( 'the_content', 'surbma_premium_wp_social_add_share_buttons', 20 );
 	}
 
 	// Show Social Buttons on Pages
 	if( isset( $options['socialpages'] ) && $options['socialpages'] == 1 && is_page() && !is_page_template() && !$divi_page_builder_used ) {
+		wp_enqueue_style( 'surbma-premium-wp' );
 		add_filter( 'the_content', 'surbma_premium_wp_social_add_share_buttons', 20 );
 	}
 
 	// Show Social Buttons on CPTs
-	if( isset( $options['socialcpts'] ) ) {
+	if( isset( $options['socialcpts'] ) && $options['socialcpts'] != '' ) {
 		$includeposttypes = $options['socialcpts'] ? explode( ',', $options['socialcpts'] ) : '';
-		if( $options['socialcpts'] != '' && is_singular( $includeposttypes ) && !$divi_page_builder_used ) {
+		if( is_singular( $includeposttypes ) && !$divi_page_builder_used ) {
+			wp_enqueue_style( 'surbma-premium-wp' );
 			add_filter( 'the_content', 'surbma_premium_wp_social_add_share_buttons', 20 );
 		}
 	}
