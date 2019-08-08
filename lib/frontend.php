@@ -56,16 +56,16 @@ function surbma_premium_wp_social_add_share_buttons( $content ) {
 				$fblike_button = '<li class="pwp-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u='.$url.'" target="_blank"><span></span></a></li>';
 
 			if ( $options['tweetposts'] == '1' )
-				$tweet_button = '<li class="pwp-twitter"><a href="https://twitter.com/home?status='.$url.'" target="_blank"><span></span</a></li>';
+				$tweet_button = '<li class="pwp-twitter"><a href="https://twitter.com/home?status='.$url.'" target="_blank"><span></span></a></li>';
 
 			if ( $options['linkedinposts'] == '1' )
-				$linkedin_button = '<li class="pwp-linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url='.$url.'" target="_blank"><span></span</a></li>';
+				$linkedin_button = '<li class="pwp-linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url='.$url.'" target="_blank"><span></span></a></li>';
 
 			if ( $options['pinitposts'] == '1' )
-				$pinterest_button = '<li class="pwp-pinterest"><a href="https://pinterest.com/pin/create/button/?url='.$url.'" target="_blank"><span></span</a></li>';
+				$pinterest_button = '<li class="pwp-pinterest"><a href="https://pinterest.com/pin/create/button/?url='.$url.'" target="_blank"><span></span></a></li>';
 
 			if ( $options['emailposts'] == '1' )
-				$email_button = '<li class="pwp-email"><a href="mailto:?body='.$url.'"><span></span</a></li>';
+				$email_button = '<li class="pwp-email"><a href="mailto:?body='.$url.'"><span></span></a></li>';
 
 			$social_buttons = '<ul class="pwp-share-buttons pwp-' . $button_style . '">' . $fblike_button . $tweet_button . $linkedin_button . $pinterest_button . $email_button . '</ul>';
 
