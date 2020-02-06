@@ -91,13 +91,13 @@ function surbma_premium_wp_fblike_button( $atts ) {
 	if ( function_exists( 'surbma_premium_wp_facebook_script' ) )
 		add_action( 'wp_footer', 'surbma_premium_wp_facebook_script' );
 	extract( shortcode_atts( array(
-		"url" => get_permalink(),
-		"width" => '',
-		"layout" => 'button',
-		"action" => 'like',
-		"size" => 'large',
-		"show_faces" => false,
-		"share" => false
+		'url' => get_permalink(),
+		'width' => '',
+		'layout' => 'button',
+		'action' => 'like',
+		'size' => 'large',
+		'show_faces' => false,
+		'share' => false
 	), $atts ) );
 	return '<div class="fb-like" data-href="'.$url.'" data-width="'.$width.'" data-layout="'.$layout.'" data-action="'.$action.'" data-size="'.$size.'" data-show-faces="'.$show_faces.'" data-share="'.$share.'"></div>';
 }
@@ -107,14 +107,14 @@ function surbma_premium_wp_facebook_page( $atts ) {
 	if ( function_exists( 'surbma_premium_wp_facebook_script' ) )
 		add_action( 'wp_footer', 'surbma_premium_wp_facebook_script' );
 	extract( shortcode_atts( array(
-		"url" => '',
-		"width" => '',
-		"height" => '',
-		"small_header" => false,
-		"adapt_container_width" => true,
-		"hide_cover" => false,
-		"show_facepile" => true,
-		"tabs" => ''
+		'url' => '',
+		'width' => '',
+		'height' => '',
+		'small_header' => false,
+		'adapt_container_width' => true,
+		'hide_cover' => false,
+		'show_facepile' => true,
+		'tabs' => ''
 	), $atts ) );
 	if ( $url != '' ) {
 		return '<div class="fb-page" data-href="'.$url.'" data-width="'.$width.'" data-height="'.$height.'" data-tabs="'.$tabs.'" data-small-header="'.$small_header.'" data-adapt-container-width="'.$adapt_container_width.'" data-hide-cover="'.$hide_cover.'" data-show-facepile="'.$show_facepile.'"><blockquote cite="'.$url.'" class="fb-xfbml-parse-ignore"><a href="'.$url.'">'.$url.'</a></blockquote></div>';
@@ -195,56 +195,78 @@ function surbma_premium_wp_companyinfo_function() {
 	return $options['companyinfo'];
 }
 
+add_shortcode( 'google-maps', 'surbma_premium_wp_google_maps_shortcode' );
+function surbma_premium_wp_google_maps_shortcode( $atts ) {
+	 extract( shortcode_atts( array(
+		'key' => 'AIzaSyD9HFwhNxMp0JR-XRWLRa6pAVNXJPxzHwg',
+		'mode' => 'place',
+		'place_id' => '',
+		'lat' => '',
+		'long' => '',
+		'zoom' => '15',
+		'maptype' => 'roadmap',
+		'width' => 1000,
+		'height' => 55
+	 ), $atts ) );
+	 if( $mode == 'place' && $place_id != '' ) {
+	 	return '<style>.google-maps {margin: 0 0 1em;max-width: '.$width.'px;}.google-maps-wrap {position: relative;padding-bottom: '.$height.'%;height: 0;overflow: hidden;}.google-maps iframe {position: absolute;top: 0;left: 0;width: 100% !important;height: 100% !important;}</style><div class="google-maps"><div class="google-maps-wrap"><iframe width="1000" height="550" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?zoom='.$zoom.'&q=place_id:'.$place_id.'&maptype='.$maptype.'&key='.$key.'" allowfullscreen></iframe></div></div>';
+	 } elseif( $mode == 'view' && $lat != '' && $long != '' ) {
+	 	return '<style>.google-maps {margin: 0 0 1em;max-width: '.$width.'px;}.google-maps-wrap {position: relative;padding-bottom: '.$height.'%;height: 0;overflow: hidden;}.google-maps iframe {position: absolute;top: 0;left: 0;width: 100% !important;height: 100% !important;}</style><div class="google-maps"><div class="google-maps-wrap"><iframe width="1000" height="550" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom='.$zoom.'&center='.$lat.'%2C'.$long.'&maptype='.$maptype.'&key='.$key.'" allowfullscreen></iframe></div></div>';
+	 } else {
+	 	return '';
+	 }
+}
+
 add_shortcode( 'google-calendar', 'surbma_premium_wp_google_calendar_shortcode' );
 function surbma_premium_wp_google_calendar_shortcode( $atts ) {
-     extract( shortcode_atts( array(
-          'src' => '',
-          'scrolling' => 'auto',
-          'width' => 400,
-          'height' => 300
-     ), $atts ) );
-     return '<iframe src="https://www.google.com/calendar/embed?'.$src.'" width="'.$width.'" height="'.$height.'" frameborder="0" scrolling="'.$scrolling.'"></iframe>';
+	 extract( shortcode_atts( array(
+		'src' => '',
+		'scrolling' => 'auto',
+		'width' => 400,
+		'height' => 300
+	 ), $atts ) );
+	 return '<iframe src="https://www.google.com/calendar/embed?'.$src.'" width="'.$width.'" height="'.$height.'" frameborder="0" scrolling="'.$scrolling.'"></iframe>';
 }
 
 add_shortcode( 'google-presentation', 'surbma_premium_wp_google_presentation_shortcode' );
 function surbma_premium_wp_google_presentation_shortcode( $atts ) {
-     extract( shortcode_atts( array(
-          'id' => '',
-          'start' => 'false',
-          'loop' => 'false',
-          'delayms' => 3000,
-          'width' => 400,
-          'height' => 300
-     ), $atts ) );
-     return '<iframe src="https://docs.google.com/presentation/d/'.$id.'/embed?start='.$start.'&loop='.$loop.'&delayms='.$delayms.'" frameborder="0" width="'.$width.'" height="'.$height.'" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>';
+	 extract( shortcode_atts( array(
+		'id' => '',
+		'start' => 'false',
+		'loop' => 'false',
+		'delayms' => 3000,
+		'width' => 400,
+		'height' => 300
+	 ), $atts ) );
+	 return '<iframe src="https://docs.google.com/presentation/d/'.$id.'/embed?start='.$start.'&loop='.$loop.'&delayms='.$delayms.'" frameborder="0" width="'.$width.'" height="'.$height.'" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>';
 }
 
 add_shortcode( 'google-form', 'surbma_premium_wp_google_form_shortcode' );
 function surbma_premium_wp_google_form_shortcode( $atts ) {
-     extract( shortcode_atts( array(
-          'id' => '',
-          'width' => 760,
-          'height' => 500
-     ), $atts ) );
-     return '<iframe src="https://docs.google.com/forms/d/'.$id.'/viewform?embedded=true#start=embed" width="'.$width.'" height="'.$height.'" frameborder="0" marginheight="0" marginwidth="0"></iframe>';
+	 extract( shortcode_atts( array(
+		  'id' => '',
+		  'width' => 760,
+		  'height' => 500
+	 ), $atts ) );
+	 return '<iframe src="https://docs.google.com/forms/d/'.$id.'/viewform?embedded=true#start=embed" width="'.$width.'" height="'.$height.'" frameborder="0" marginheight="0" marginwidth="0"></iframe>';
 }
 
 add_shortcode( 'pwp-youtube', 'surbma_premium_wp_youtube_shortcode' );
 function surbma_premium_wp_youtube_shortcode( $atts ) {
-     extract( shortcode_atts( array(
-          'id' => '',
-          'width' => '',
-          'height' => ''
-     ), $atts ) );
-     return '<iframe width="'.$width.'" height="'.$height.'" src="https://www.youtube.com/embed/'.$id.'" frameborder="0" allowfullscreen></iframe>';
+	 extract( shortcode_atts( array(
+		'id' => '',
+		'width' => '',
+		'height' => ''
+	 ), $atts ) );
+	 return '<iframe width="'.$width.'" height="'.$height.'" src="https://www.youtube.com/embed/'.$id.'" frameborder="0" allowfullscreen></iframe>';
 }
 
 add_shortcode( 'pwp-vimeo', 'surbma_premium_wp_vimeo_shortcode' );
 function surbma_premium_wp_vimeo_shortcode( $atts ) {
-     extract( shortcode_atts( array(
-          'id' => '',
-          'width' => '',
-          'height' => ''
-     ), $atts ) );
-     return '<iframe src="https://player.vimeo.com/video/'.$id.'" width="'.$width.'" height="'.$height.'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+	 extract( shortcode_atts( array(
+		'id' => '',
+		'width' => '',
+		'height' => ''
+	 ), $atts ) );
+	 return '<iframe src="https://player.vimeo.com/video/'.$id.'" width="'.$width.'" height="'.$height.'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
 }

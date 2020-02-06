@@ -164,6 +164,89 @@ function surbma_premium_wp_shortcodes_page() {
 			</ul>
 		</div>
 		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
+			<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [google-maps]</h3>
+			<p>Ezzel a rövidkóddal egy Google Térképet illeszthetünk be. Két féle térkép módot tudunk beállítani: az egyik móddal egy speciális helyet (pl.: étterem, hotel, kereskedelmi egység, nevezetes helyek, stb.) tudunk az azonosítója alapján megjeleníteni, a másik móddal pedig a szélességi és hosszúsági koordináták megadásával tudunk egy térképet megjeleníteni.</p>
+			<div class="uk-overflow-container">
+				<table class="uk-table uk-table-hover uk-table-striped">
+					<thead>
+						<tr>
+							<th>Paraméter</th>
+							<th>Leírás</th>
+							<th>Lehetséges értékek</th>
+							<th>Alapértelmezett érték</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>key</code></td>
+							<td>A Google Térképeket már csak érvényes API kulccsal lehet megjeleníttetni. Alapértelmezettként a Prémium WP ügyfeleknek rendelkezésre áll egy érvényes API kulcs, ezért ezt nem kell megadni. A kulcs domain limitált, így nem Prémium WP ügyfeleknek meg kell adni ezt a paramétert.</td>
+							<td>API KEY</td>
+							<td>Érvényes Prémium WP API kulcs</td>
+						</tr>
+						<tr>
+							<td><code>mode</code></td>
+							<td>A Google Térkép módját lehet kiválasztani. A place mód egy kifejezett helyet (pl.: étterem, hotel, kereskedelmi egység, nevezetes helyek, stb.) jelenít meg az azonosítója alapján. A view mód pedig a megadott szélességi és hosszúsági koordináták alapján jeleníti meg a térképet.</td>
+							<td>place | view</td>
+							<td>place</td>
+						</tr>
+						<tr>
+							<td><code>place_id</code></td>
+							<td><strong>FIGYELEM! Csak place módban kell megadni!</strong> A place_id paraméter egy azonosító, amit place módban kell megadni. Ez azonosítja a helyet. A következő linken lehet az azonosítóra rákeresni, amit itt meg kell adni:<br>
+								<a href="https://developers.google.com/places/place-id" target="_blank">Place ID keresése</a>
+							</td>
+							<td>ID</td>
+							<td>NINCS</td>
+						</tr>
+						<tr>
+							<td><code>lat</code></td>
+							<td><strong>FIGYELEM! Csak view módban kell megadni!</strong> Szélességi koordináta, ami az adott pozíciót meghatározza. A koordináta konvertálását a megadott címből a következő linken lehet megtenni:<br>
+								<a href="https://www.latlong.net/" target="_blank">Szélességi és hosszúsági koordináták konvertálása</a>
+							</td>
+							<td>Szám</td>
+							<td>NINCS</td>
+						</tr>
+						<tr>
+							<td><code>long</code></td>
+							<td><strong>FIGYELEM! Csak view módban kell megadni!</strong> Hosszúsági koordináta, ami az adott pozíciót meghatározza. A koordináta konvertálását a megadott címből a következő linken lehet megtenni:<br>
+								<a href="https://www.latlong.net/" target="_blank">Szélességi és hosszúsági koordináták konvertálása</a>
+							</td>
+							<td>Szám</td>
+							<td>NINCS</td>
+						</tr>
+						<tr>
+							<td><code>zoom</code></td>
+							<td>A térkép nagytási értéke. Minél nagyobb a szám, annál közelebb nagyít a térképen.</td>
+							<td>Szám 0-21 között</td>
+							<td>15</td>
+						</tr>
+						<tr>
+							<td><code>maptype</code></td>
+							<td>A térkép megjelenítése lehet "Térkép" és "Műhold", azaz roadmap és satellite.</td>
+							<td>roadmap | satellite</td>
+							<td>roadmap</td>
+						</tr>
+						<tr>
+							<td><code>width</code></td>
+							<td>A Google Térkép maximális szélességét lehet ezzel a paraméterrel meghatározni pixelben.</td>
+							<td>Szám</td>
+							<td>1000</td>
+						</tr>
+						<tr>
+							<td><code>height</code></td>
+							<td>A Google Térkép szélességéhez képest lehet megadni magasságát százalékban. Tehát hány százaléka legyen a magasság a szélességhez képest, azaz a képarányt.</td>
+							<td>Szám</td>
+							<td>55</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<h4>Használata:</h4>
+			<ul>
+				<li><code>[google-maps place_id="ChIJbf8C1yFxdDkR3n12P4DkKt0"]</code></li>
+				<li><code>[google-maps mode="view" lat="27.174516" long="78.042171" maptype="satellite" zoom="20"]</code></li>
+			</ul>
+		</div>
+		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
 			<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [google-calendar]</h3>
 			<p>Ezzel a rövidkóddal egy Google Naptárat illeszthetünk be. Először a Google Naptár iframe beágyazó kódját kell lekérni, amiből ki kell másolni a szükséges paramétereket.</p>
 			<div class="uk-overflow-container">

@@ -1,11 +1,11 @@
 === Surbma | Premium WP ===
-Contributors: Surbma
-Donate link: https://surbma.com/
-Tags: genesis, widget, google analytics, google tag manager, analytics, shortcodes, share, facebook, google, twitter, pinterest, email, google calendar, google presentation, google forms
+Contributors: Surbma, CherryPickStudios
+Donate link: https://surbma.com/donate/
+Tags: genesis, widget, google analytics, google tag manager, analytics, shortcodes, share, facebook, google, twitter, pinterest, email, google calendar, google presentation, google forms, google maps
 Requires at least: 5.2
-Tested up to: 5.2
-Stable tag: 3.2
-Requires PHP: 5.6
+Tested up to: 5.3
+Stable tag: 4.0
+Requires PHP: 7.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,6 +58,17 @@ I am managing hundreds of client websites. I use only the best and mostly premiu
 It is the reverse version of my last name. ;)
 
 == Changelog ==
+
+= 4.0 =
+
+Release date: 2020-01-06
+
+This release add a new Google Maps shortcode and updated to use a new way to deploy it to wp.org repo.
+
+NEW
+
+- Google Maps shortcode. This shortcode is using Google's embed to add places or views mode maps. Premium WP clients can use it without any API keys.
+- New banner images for WP repo.
 
 = 3.2 =
 
