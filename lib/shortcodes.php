@@ -197,8 +197,9 @@ function surbma_premium_wp_companyinfo_function() {
 
 add_shortcode( 'google-maps', 'surbma_premium_wp_google_maps_shortcode' );
 function surbma_premium_wp_google_maps_shortcode( $atts ) {
+	$apikey = defined( 'SURBMA_PREMIUM_WP_GOOGLE_MAPS_API' ) ? SURBMA_PREMIUM_WP_GOOGLE_MAPS_API : '';
 	 extract( shortcode_atts( array(
-		'key' => 'AIzaSyD9HFwhNxMp0JR-XRWLRa6pAVNXJPxzHwg',
+		'key' => $apikey,
 		'mode' => 'place',
 		'place_id' => '',
 		'lat' => '',
