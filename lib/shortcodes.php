@@ -102,6 +102,18 @@ function surbma_premium_wp_fblike_button( $atts ) {
 	return '<div class="fb-like" data-href="'.$url.'" data-width="'.$width.'" data-layout="'.$layout.'" data-action="'.$action.'" data-size="'.$size.'" data-show-faces="'.$show_faces.'" data-share="'.$share.'"></div>';
 }
 
+add_shortcode( 'facebook-megosztas-gomb', 'surbma_premium_wp_fbshare_button' );
+function surbma_premium_wp_fbshare_button( $atts ) {
+	if ( function_exists( 'surbma_premium_wp_facebook_script' ) )
+		add_action( 'wp_footer', 'surbma_premium_wp_facebook_script' );
+	extract( shortcode_atts( array(
+		"url" => get_permalink(),
+		"layout" => 'button',
+		"size" => 'large'
+	), $atts ) );
+	return '<div class="fb-share-button" data-href="'.$url.'" data-layout="'.$layout.'" data-size="'.$size.'"></div>';
+}
+
 add_shortcode( 'facebook-oldal', 'surbma_premium_wp_facebook_page' );
 function surbma_premium_wp_facebook_page( $atts ) {
 	if ( function_exists( 'surbma_premium_wp_facebook_script' ) )

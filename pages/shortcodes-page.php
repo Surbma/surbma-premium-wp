@@ -395,7 +395,7 @@ function surbma_premium_wp_shortcodes_page() {
 		</div>
 		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
 			<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [facebook-tetszik-gomb]</h3>
-			<p>Facebook "tetszik" gomb beillesztése az oldalra. A kód paraméterezhető és a "küldés" gomb is engedélyezhető.</p>
+			<p>Facebook "tetszik" gomb beillesztése az oldalra. A kód paraméterezhető és a "megosztás" gomb is engedélyezhető.</p>
 			<div class="uk-overflow-container">
 				<table class="uk-table uk-table-hover uk-table-striped">
 					<thead>
@@ -456,6 +456,47 @@ function surbma_premium_wp_shortcodes_page() {
 			<ul>
 				<li><code>[facebook-tetszik-gomb]</code> - Normál megjelenítés az alapértelmezett paraméterekkel</li>
 				<li><code>[facebook-tetszik-gomb url="http://www.sajatdomain.hu"]</code> - Mindig a megadott domain url-jére nyomnak "tetszik"-et.</li>
+			</ul>
+		</div>
+		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
+			<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [facebook-megosztas-gomb]</h3>
+			<p>Facebook megosztás gomb beillesztése az oldalra. A kód paraméterezhető.</p>
+			<div class="uk-overflow-container">
+				<table class="uk-table uk-table-hover uk-table-striped">
+					<thead>
+						<tr>
+							<th>Paraméter</th>
+							<th>Leírás</th>
+							<th>Lehetséges értékek</th>
+							<th>Alapértelmezett érték</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>url</code></td>
+							<td>A weboldal url-je, amit megoszt a Facebook-on a látogató.</td>
+							<td>URL</td>
+							<td>Aktuális oldal url-je</td>
+						</tr>
+						<tr>
+							<td><code>layout</code></td>
+							<td>A gomb kinézete.</td>
+							<td>box_count | button_count | button</td>
+							<td>button</td>
+						</tr>
+						<tr>
+							<td><code>size</code></td>
+							<td>A gomb méretét állíthatjuk be.</td>
+							<td>small | large</td>
+							<td>large</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<h4>Használata:</h4>
+			<ul>
+				<li><code>[facebook-megosztas-gomb]</code> - Normál megjelenítés az alapértelmezett paraméterekkel</li>
+				<li><code>[facebook-megosztas-gomb url="http://www.sajatdomain.hu"]</code> - A megadott domain url-jét osztják meg a gombbal.</li>
 			</ul>
 		</div>
 		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
