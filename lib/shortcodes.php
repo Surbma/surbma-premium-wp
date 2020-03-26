@@ -230,6 +230,17 @@ function surbma_premium_wp_google_maps_shortcode( $atts ) {
 	 }
 }
 
+add_shortcode( 'google-docs', 'surbma_premium_wp_google_docs_shortcode' );
+function surbma_premium_wp_google_docs_shortcode( $atts ) {
+	 extract( shortcode_atts( array(
+		'src' => '',
+		'scrolling' => 'auto',
+		'width' => '100%',
+		'height' => 500
+	 ), $atts ) );
+	 return '<iframe src="https://docs.google.com/document/d/e/'.$src.'" width="'.$width.'" height="'.$height.'" frameborder="0" scrolling="'.$scrolling.'"></iframe>';
+}
+
 add_shortcode( 'google-calendar', 'surbma_premium_wp_google_calendar_shortcode' );
 function surbma_premium_wp_google_calendar_shortcode( $atts ) {
 	 extract( shortcode_atts( array(

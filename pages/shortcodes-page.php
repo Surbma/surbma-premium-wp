@@ -247,6 +247,53 @@ function surbma_premium_wp_shortcodes_page() {
 			</ul>
 		</div>
 		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
+			<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [google-docs]</h3>
+			<p>Ezzel a rövidkóddal egy Google Dokumentumot illeszthetünk be. Először a Google Dokumentum iframe beágyazó kódját kell lekérni, amiből ki kell másolni a szükséges azonosítót.</p>
+			<div class="uk-overflow-container">
+				<table class="uk-table uk-table-hover uk-table-striped">
+					<thead>
+						<tr>
+							<th>Paraméter</th>
+							<th>Leírás</th>
+							<th>Lehetséges értékek</th>
+							<th>Alapértelmezett érték</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>src</code></td>
+							<td>A Google Dokumentum iframe url-je. A lekért kódban ez az "src" paraméter. Minden url a <code>https://docs.google.com/document/d/e/</code> részlettel kezdődik, így ezt nem kell kimásolni, csak az ezt követő részt.</td>
+							<td>URL</td>
+							<td>NINCS</td>
+						</tr>
+						<tr>
+							<td><code>width</code></td>
+							<td>A Google Dokumentum szélességét lehet ezzel a paraméterrel meghatározni pixelben vagy százalék.</td>
+							<td>Szám</td>
+							<td>100%</td>
+						</tr>
+						<tr>
+							<td><code>height</code></td>
+							<td>A Google Dokumentum magasságát lehet ezzel a paraméterrel meghatározni pixelben.</td>
+							<td>Szám</td>
+							<td>500</td>
+						</tr>
+						<tr>
+							<td><code>scrolling</code></td>
+							<td>A beágyazott iframe keret görgetési lehetőségét lehet ezzel a paraméterrel meghatározni.</td>
+							<td>auto | no | yes</td>
+							<td>auto</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<h4>Használata:</h4>
+			<ul>
+				<li><code>[google-docs src="ide jön a megfelelő url részlet"]</code></li>
+				<li><code>[google-docs src="ide jön a megfelelő url részlet" width="640" height="480"]</code></li>
+			</ul>
+		</div>
+		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
 			<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [google-calendar]</h3>
 			<p>Ezzel a rövidkóddal egy Google Naptárat illeszthetünk be. Először a Google Naptár iframe beágyazó kódját kell lekérni, amiből ki kell másolni a szükséges paramétereket.</p>
 			<div class="uk-overflow-container">
