@@ -34,10 +34,10 @@ function surbma_premium_wp_social_buttons_show() {
 }
 add_action( 'wp_head', 'surbma_premium_wp_social_buttons_show' );
 
-function surbma_premium_wp_social_add_share_buttons( $content ) {
+function surbma_premium_wp_social_add_share_buttons( $content, $intheloop = true ) {
 	$options = get_option( 'surbma_premium_wp_social_fields' );
 
-	if ( is_main_query() && in_the_loop() ) {
+	if ( $intheloop == false || ( is_main_query() && in_the_loop() ) ) {
 		if ( $options['fblikeposts'] == '1' || $options['tweetposts'] == '1' || $options['linkedinposts'] == '1' || $options['pinitposts'] == '1' || $options['emailposts'] == '1' ) {
 
 			global $post;
@@ -86,7 +86,7 @@ function surbma_premium_wp_social_add_share_buttons( $content ) {
 
 function surbma_premium_wp_pwp_social_buttons_function() {
 	wp_enqueue_style( 'surbma-premium-wp' );
-	return surbma_premium_wp_social_add_share_buttons( $content );
+	return surbma_premium_wp_social_add_share_buttons( $content, false );
 }
 add_shortcode( 'pwp-social-buttons', 'surbma_premium_wp_pwp_social_buttons_function' );
 

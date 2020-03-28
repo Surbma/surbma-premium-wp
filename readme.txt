@@ -4,7 +4,7 @@ Donate link: https://surbma.com/donate/
 Tags: genesis, widget, google analytics, google tag manager, analytics, shortcodes, share, facebook, google, twitter, pinterest, email, google calendar, google presentation, google forms, google maps
 Requires at least: 5.2
 Tested up to: 5.4
-Stable tag: 6.0
+Stable tag: 6.1
 Requires PHP: 7.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -58,6 +58,14 @@ I am managing hundreds of client websites. I use only the best and mostly premiu
 It is the reverse version of my last name. ;)
 
 == Changelog ==
+
+= 6.1 =
+
+Release date: 2020-03-28
+
+FIX
+
+- The [pwp-social-buttons] shortcode will be displayed even if it is not in the loop. Especially useful, when it is put in Divi Theme Builder.
 
 = 6.0 =
 
