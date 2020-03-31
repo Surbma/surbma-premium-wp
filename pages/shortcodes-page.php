@@ -102,6 +102,12 @@ function surbma_premium_wp_shortcodes_page() {
 					</thead>
 					<tbody>
 						<tr>
+							<td><code>universal</code></td>
+							<td>Ezzel a paraméterrel aktiválható a régi Universal Analytics struktúra. Alapértelmezetten az új gtag.js struktúrát használja a kód, a legtöbb esetben ez kell.</td>
+							<td>true | false</td>
+							<td>false</td>
+						</tr>
+						<tr>
 							<td><code>href</code></td>
 							<td>Ez a hivatkozás célja, az URL, amit szeretnénk ezzel a lehetőséggel követni.</td>
 							<td>URL</td>

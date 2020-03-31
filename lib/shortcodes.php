@@ -34,6 +34,7 @@ function surbma_premium_wp_div_function( $atts, $content = null ) {
 add_shortcode( 'ga-link', 'surbma_premium_wp_ga_link_function' );
 function surbma_premium_wp_ga_link_function( $atts, $content = null ) {
 	extract( shortcode_atts( array(
+		'universal' => false,
 		'href' => '',
 		'class' => '',
 		'id' => '',
@@ -45,8 +46,12 @@ function surbma_premium_wp_ga_link_function( $atts, $content = null ) {
 		'eventlabel' => ''
 	), $atts ) );
 
-	if ( $eventLabel == '' ) $eventLabel = $href;
-	$onclick = "gtag( 'event', '$eventaction', {'event_category': '$eventcategory',	'event_label': '$eventlabel' });";
+	if( $eventLabel == '' ) $eventLabel = $href;
+	if( $universal == false ) {
+		$onclick = "gtag( 'event', '$eventaction', {'event_category': '$eventcategory',	'event_label': '$eventlabel' });";
+	} else {
+		$onclick = "ga('send', 'event', '$eventcategory', '$eventaction', '$eventlabel');";
+	}
 
 	return '<a href="'.$href.'" class="'.$class.'" id="'.$id.'" style="'.$style.'" title="'.$title.'" target="'.$target.'" onClick="'.$onclick.'">'.do_shortcode( $content ).'</a>';
 }
