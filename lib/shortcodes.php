@@ -285,9 +285,10 @@ function surbma_premium_wp_youtube_shortcode( $atts ) {
 	 extract( shortcode_atts( array(
 		'id' => '',
 		'width' => '',
-		'height' => ''
+		'height' => '',
+		'style' => ''
 	 ), $atts ) );
-	 return '<iframe width="'.$width.'" height="'.$height.'" src="https://www.youtube.com/embed/'.$id.'" frameborder="0" allowfullscreen></iframe>';
+	 return '<iframe src="https://www.youtube.com/embed/'.$id.'" width="'.$width.'" height="'.$height.'" frameborder="0" style="'.$style.'" allowfullscreen></iframe>';
 }
 
 add_shortcode( 'pwp-vimeo', 'surbma_premium_wp_vimeo_shortcode' );
@@ -295,7 +296,8 @@ function surbma_premium_wp_vimeo_shortcode( $atts ) {
 	 extract( shortcode_atts( array(
 		'id' => '',
 		'width' => '',
-		'height' => ''
+		'height' => '',
+		'style' => ''
 	 ), $atts ) );
-	 return '<iframe src="https://player.vimeo.com/video/'.$id.'" width="'.$width.'" height="'.$height.'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+	 return '<iframe src="https://player.vimeo.com/video/'.$id.'" width="'.$width.'" height="'.$height.'" frameborder="0" style="'.$style.'" allowfullscreen></iframe>';
 }
