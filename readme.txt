@@ -3,8 +3,8 @@ Contributors: Surbma, CherryPickStudios
 Donate link: https://surbma.com/donate/
 Tags: genesis, widget, google analytics, google tag manager, analytics, shortcodes, share, facebook, google, twitter, pinterest, email, google calendar, google presentation, google forms, google maps
 Requires at least: 5.2
-Tested up to: 5.6
-Stable tag: 7.0
+Tested up to: 5.7
+Stable tag: 8.0
 Requires PHP: 7.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -58,6 +58,14 @@ I am managing hundreds of client websites. I use only the best and mostly premiu
 It is the reverse version of my last name. ;)
 
 == Changelog ==
+
+= 8.0 =
+
+Release date: 2021-03-08
+
+ENHANCEMENTS
+
+- Removed theme specific conditions from Google Tag Manager codes and implemented the new wp_body_open method.
 
 = 7.0 =
 

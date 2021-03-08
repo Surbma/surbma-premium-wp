@@ -106,15 +106,8 @@ function surbma_premium_wp_google_tag_manager_noscript_display() {
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo $options['containerid']; ?>" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <?php }
 }
-if ( wp_basename( get_bloginfo( 'template_directory' ) ) == 'genesis' ) {
-	add_action( 'genesis_before', 'surbma_premium_wp_google_tag_manager_noscript_display', 0 );
-}
-elseif ( wp_basename( get_bloginfo( 'stylesheet_directory' ) ) == 'Divi-Plus' ) {
-	add_action( 'divi_plus_body', 'surbma_premium_wp_google_tag_manager_noscript_display', 0 );
-}
-elseif ( wp_basename( get_bloginfo( 'stylesheet_directory' ) ) == 'Extra-Plus' ) {
-	add_action( 'extra_plus_body', 'surbma_premium_wp_google_tag_manager_noscript_display', 0 );
-}
-else {
+if ( function_exists( 'wp_body_open' ) ) {
+	add_action( 'wp_body_open', 'surbma_premium_wp_google_tag_manager_noscript_display', 0 );
+} else {
 	add_action( 'wp_footer', 'surbma_premium_wp_google_tag_manager_noscript_display', 0 );
 }
