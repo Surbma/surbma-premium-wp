@@ -3,7 +3,7 @@ Contributors: Surbma, CherryPickStudios
 Donate link: https://surbma.com/donate/
 Tags: genesis, widget, google analytics, google tag manager, analytics, shortcodes, share, facebook, google, twitter, pinterest, email, google calendar, google presentation, google forms, google maps
 Requires at least: 5.2
-Tested up to: 5.7
+Tested up to: 5.8
 Stable tag: 8.0
 Requires PHP: 7.0
 License: GPLv2
