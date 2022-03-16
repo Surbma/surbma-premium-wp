@@ -640,7 +640,7 @@ function surbma_premium_wp_shortcodes_page() {
 					<tbody>
 						<tr>
 							<td><code>id</code></td>
-							<td>A YouTube videó azonosítója, ami a normál url-ben megtalálható a v= paraméter után vagy a rövidített url-ben a legvégén.</td>
+							<td>A YouTube videó azonosítója, ami a normál url-ben megtalálható a v= paraméter után vagy a rövidített url-ben a legvégén. Ez az egyetlen kötelező paraméter.</td>
 							<td>a-z | A-Z | 0-9</td>
 							<td>NINCS</td>
 						</tr>
@@ -648,13 +648,25 @@ function surbma_premium_wp_shortcodes_page() {
 							<td><code>width</code></td>
 							<td>A YouTube videó szélessége pixelben.</td>
 							<td>Szám</td>
-							<td>NINCS</td>
+							<td>560</td>
 						</tr>
 						<tr>
 							<td><code>height</code></td>
 							<td>A YouTube videó magasságban pixelben.</td>
 							<td>Szám</td>
+							<td>315</td>
+						</tr>
+						<tr>
+							<td><code>style</code></td>
+							<td>Egyedi stílusok az iframe kódhoz.</td>
+							<td>CSS</td>
 							<td>NINCS</td>
+						</tr>
+						<tr>
+							<td><code>nocookie</code></td>
+							<td>A YouTube videó használata sütik nélkül. GDPR kompatibilitás biztosítása.</td>
+							<td>true | false</td>
+							<td>false</td>
 						</tr>
 					</tbody>
 				</table>
@@ -688,12 +700,18 @@ function surbma_premium_wp_shortcodes_page() {
 							<td><code>width</code></td>
 							<td>A Vimeo videó szélessége pixelben.</td>
 							<td>Szám</td>
-							<td>NINCS</td>
+							<td>640</td>
 						</tr>
 						<tr>
 							<td><code>height</code></td>
 							<td>A Vimeo videó magasságban pixelben.</td>
 							<td>Szám</td>
+							<td>360</td>
+						</tr>
+						<tr>
+							<td><code>style</code></td>
+							<td>Egyedi stílusok az iframe kódhoz.</td>
+							<td>CSS</td>
 							<td>NINCS</td>
 						</tr>
 					</tbody>
@@ -703,6 +721,48 @@ function surbma_premium_wp_shortcodes_page() {
 			<ul>
 				<li><code>[pwp-vimeo id="1234567890" width="640" height="480"]</code> - A videó 640 x 480 px méretben jelenik meg.</li>
 			</ul>
+		</div>
+		<div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-header">
+			<h3 class="uk-panel-title"><?php _e( 'Shortcode', 'surbma-premium-wp' ); ?>: [pwp-fb-video]</h3>
+			<p>Facebook videó beillesztése a Szöveg Widgetekbe. A shortcode beilleszthető bármilyen bejegyzés vagy oldal tartalmába is.</p>
+			<div class="uk-overflow-container">
+				<table class="uk-table uk-table-hover uk-table-striped">
+					<thead>
+						<tr>
+							<th>Paraméter</th>
+							<th>Leírás</th>
+							<th>Lehetséges értékek</th>
+							<th>Alapértelmezett érték</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>href</code></td>
+							<td>A Facebook videó href paramétere, ami az url-ben található meg. Csak a href= résztől a következő & jelig kell az értéket itt megadni.</td>
+							<td>a-z | A-Z | 0-9</td>
+							<td>NINCS</td>
+						</tr>
+						<tr>
+							<td><code>width</code></td>
+							<td>A Vimeo videó szélessége pixelben.</td>
+							<td>Szám</td>
+							<td>560</td>
+						</tr>
+						<tr>
+							<td><code>height</code></td>
+							<td>A Vimeo videó magasságban pixelben.</td>
+							<td>Szám</td>
+							<td>314</td>
+						</tr>
+						<tr>
+							<td><code>style</code></td>
+							<td>Egyedi stílusok az iframe kódhoz.</td>
+							<td>CSS</td>
+							<td>NINCS</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 </div>

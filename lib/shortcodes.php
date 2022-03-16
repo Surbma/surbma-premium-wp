@@ -226,7 +226,7 @@ add_shortcode( 'ga-link', function( $atts, $content = null ) {
 
 add_shortcode( 'google-maps', function( $atts ) {
 	$apikey = defined( 'SURBMA_PREMIUM_WP_GOOGLE_MAPS_API' ) ? SURBMA_PREMIUM_WP_GOOGLE_MAPS_API : '';
-	 extract( shortcode_atts( array(
+	extract( shortcode_atts( array(
 		'key' => $apikey,
 		'mode' => 'place',
 		'place_id' => '',
@@ -236,83 +236,89 @@ add_shortcode( 'google-maps', function( $atts ) {
 		'maptype' => 'roadmap',
 		'width' => 1000,
 		'height' => 55
-	 ), $atts ) );
-	 if( $mode == 'place' && $place_id != '' ) {
-	 	return '<style>.google-maps {margin: 0 0 1em;max-width: '.$width.'px;}.google-maps-wrap {position: relative;padding-bottom: '.$height.'%;height: 0;overflow: hidden;}.google-maps iframe {position: absolute;top: 0;left: 0;width: 100% !important;height: 100% !important;}</style><div class="google-maps"><div class="google-maps-wrap"><iframe width="1000" height="550" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?zoom='.$zoom.'&q=place_id:'.$place_id.'&maptype='.$maptype.'&key='.$key.'" allowfullscreen></iframe></div></div>';
-	 } elseif( $mode == 'view' && $lat != '' && $long != '' ) {
-	 	return '<style>.google-maps {margin: 0 0 1em;max-width: '.$width.'px;}.google-maps-wrap {position: relative;padding-bottom: '.$height.'%;height: 0;overflow: hidden;}.google-maps iframe {position: absolute;top: 0;left: 0;width: 100% !important;height: 100% !important;}</style><div class="google-maps"><div class="google-maps-wrap"><iframe width="1000" height="550" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom='.$zoom.'&center='.$lat.'%2C'.$long.'&maptype='.$maptype.'&key='.$key.'" allowfullscreen></iframe></div></div>';
-	 } else {
-	 	return '';
-	 }
+	), $atts ) );
+	if( $mode == 'place' && $place_id != '' ) {
+		return '<style>.google-maps {margin: 0 0 1em;max-width: '.$width.'px;}.google-maps-wrap {position: relative;padding-bottom: '.$height.'%;height: 0;overflow: hidden;}.google-maps iframe {position: absolute;top: 0;left: 0;width: 100% !important;height: 100% !important;}</style><div class="google-maps"><div class="google-maps-wrap"><iframe width="1000" height="550" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?zoom='.$zoom.'&q=place_id:'.$place_id.'&maptype='.$maptype.'&key='.$key.'" allowfullscreen></iframe></div></div>';
+	} elseif( $mode == 'view' && $lat != '' && $long != '' ) {
+		return '<style>.google-maps {margin: 0 0 1em;max-width: '.$width.'px;}.google-maps-wrap {position: relative;padding-bottom: '.$height.'%;height: 0;overflow: hidden;}.google-maps iframe {position: absolute;top: 0;left: 0;width: 100% !important;height: 100% !important;}</style><div class="google-maps"><div class="google-maps-wrap"><iframe width="1000" height="550" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom='.$zoom.'&center='.$lat.'%2C'.$long.'&maptype='.$maptype.'&key='.$key.'" allowfullscreen></iframe></div></div>';
+	} else {
+		return '';
+	}
 } );
 
 add_shortcode( 'google-docs', function( $atts ) {
-	 extract( shortcode_atts( array(
+	extract( shortcode_atts( array(
 		'src' => '',
 		'scrolling' => 'auto',
 		'width' => '100%',
 		'height' => 500
-	 ), $atts ) );
-	 return '<iframe src="https://docs.google.com/document/d/e/'.$src.'" width="'.$width.'" height="'.$height.'" frameborder="0" scrolling="'.$scrolling.'"></iframe>';
+	), $atts ) );
+	return '<iframe src="https://docs.google.com/document/d/e/'.$src.'" width="'.$width.'" height="'.$height.'" frameborder="0" scrolling="'.$scrolling.'"></iframe>';
 } );
 
 add_shortcode( 'google-calendar', function( $atts ) {
-	 extract( shortcode_atts( array(
+	extract( shortcode_atts( array(
 		'src' => '',
 		'scrolling' => 'auto',
 		'width' => 400,
 		'height' => 300
-	 ), $atts ) );
-	 return '<iframe src="https://www.google.com/calendar/embed?'.$src.'" width="'.$width.'" height="'.$height.'" frameborder="0" scrolling="'.$scrolling.'"></iframe>';
+	), $atts ) );
+	return '<iframe src="https://www.google.com/calendar/embed?'.$src.'" width="'.$width.'" height="'.$height.'" frameborder="0" scrolling="'.$scrolling.'"></iframe>';
 } );
 
 add_shortcode( 'google-presentation', function( $atts ) {
-	 extract( shortcode_atts( array(
+	extract( shortcode_atts( array(
 		'id' => '',
 		'start' => 'false',
 		'loop' => 'false',
 		'delayms' => 3000,
 		'width' => 400,
 		'height' => 300
-	 ), $atts ) );
-	 return '<iframe src="https://docs.google.com/presentation/d/'.$id.'/embed?start='.$start.'&loop='.$loop.'&delayms='.$delayms.'" frameborder="0" width="'.$width.'" height="'.$height.'" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>';
+	), $atts ) );
+	return '<iframe src="https://docs.google.com/presentation/d/'.$id.'/embed?start='.$start.'&loop='.$loop.'&delayms='.$delayms.'" frameborder="0" width="'.$width.'" height="'.$height.'" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>';
 } );
 
 add_shortcode( 'google-form', function( $atts ) {
-	 extract( shortcode_atts( array(
-		  'id' => '',
-		  'width' => 760,
-		  'height' => 500
-	 ), $atts ) );
-	 return '<iframe src="https://docs.google.com/forms/d/'.$id.'/viewform?embedded=true#start=embed" width="'.$width.'" height="'.$height.'" frameborder="0" marginheight="0" marginwidth="0"></iframe>';
+	extract( shortcode_atts( array(
+		'id' => '',
+		'width' => 760,
+		'height' => 500
+	), $atts ) );
+	return '<iframe src="https://docs.google.com/forms/d/'.$id.'/viewform?embedded=true#start=embed" width="'.$width.'" height="'.$height.'" frameborder="0" marginheight="0" marginwidth="0"></iframe>';
 } );
 
 add_shortcode( 'pwp-youtube', function( $atts ) {
-	 extract( shortcode_atts( array(
+	extract( shortcode_atts( array(
 		'id' => '',
-		'width' => '',
-		'height' => '',
-		'style' => ''
-	 ), $atts ) );
-	 return '<iframe src="https://www.youtube.com/embed/'.$id.'" width="'.$width.'" height="'.$height.'" frameborder="0" style="'.$style.'" allowfullscreen></iframe>';
+		'width' => 560,
+		'height' => 315,
+		'style' => '',
+		'nocookie' => false
+	), $atts ) );
+	if ( $nocookie ) {
+		return '<iframe src="https://www.youtube-nocookie.com/embed/'.$id.'" width="'.$width.'" height="'.$height.'" frameborder="0" style="'.$style.'" allowfullscreen></iframe>';
+	} else {
+		return '<iframe src="https://www.youtube.com/embed/'.$id.'" width="'.$width.'" height="'.$height.'" frameborder="0" style="'.$style.'" allowfullscreen></iframe>';
+	}
 } );
 
 add_shortcode( 'pwp-vimeo', function( $atts ) {
-	 extract( shortcode_atts( array(
+	extract( shortcode_atts( array(
 		'id' => '',
-		'width' => '',
-		'height' => '',
+		'width' => 640,
+		'height' => 360,
 		'style' => ''
-	 ), $atts ) );
-	 return '<iframe src="https://player.vimeo.com/video/'.$id.'" width="'.$width.'" height="'.$height.'" frameborder="0" style="'.$style.'" allowfullscreen></iframe>';
+	), $atts ) );
+	return '<iframe src="https://player.vimeo.com/video/'.$id.'" width="'.$width.'" height="'.$height.'" frameborder="0" style="'.$style.'" allowfullscreen></iframe>';
 } );
 
 add_shortcode( 'pwp-fb-video', function( $atts ) {
 	extract( shortcode_atts( array(
 		'href' => '',
 		'width' => 560,
-		'height' => 314
+		'height' => 314,
+		'style' => ''
 	), $atts ) );
-	$href = urlencode( $href );
-	return '<iframe src="https://www.facebook.com/plugins/video.php?height='.$height.'&href='.$href.'&show_text=false&width='.$width.'" width="'.$width.'" height="'.$height.'" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
+	$href = esc_attr( $href );
+	return '<iframe src="https://www.facebook.com/plugins/video.php?height='.$height.'&href='.$href.'&show_text=false&width='.$width.'" width="'.$width.'" height="'.$height.'" style="border:none;overflow:hidden;'.$style.'" scrolling="no" frameborder="0" allowTransparency="true" allow="clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>';
 } );
