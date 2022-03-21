@@ -9,11 +9,11 @@
 .pwp-share-buttons .fb_iframe_widget span{float:left;}
 .pwp-share-buttons iframe{margin:0;padding:0;}
 
-.pwp-share-buttons .pwp-facebook span{-webkit-mask-image: url(../images/social-logos/facebook.svg);mask-image: url(../social-logos/facebook.svg);}
-.pwp-share-buttons .pwp-twitter span{-webkit-mask-image: url(../images/social-logos/twitter.svg);mask-image: url(../social-logos/twitter.svg);}
-.pwp-share-buttons .pwp-linkedin span{-webkit-mask-image: url(../images/social-logos/linkedin.svg);mask-image: url(../social-logos/linkedin.svg);}
-.pwp-share-buttons .pwp-pinterest span{-webkit-mask-image: url(../images/social-logos/pinterest.svg);mask-image: url(../social-logos/pinterest.svg);}
-.pwp-share-buttons .pwp-email span{-webkit-mask-image: url(../images/social-logos/mail.svg);mask-image: url(../social-logos/mail.svg);}
+.pwp-share-buttons .pwp-facebook span{-webkit-mask-image: url(../images/social-logos/facebook.svg);mask-image: url(../images/social-logos/facebook.svg);}
+.pwp-share-buttons .pwp-twitter span{-webkit-mask-image: url(../images/social-logos/twitter.svg);mask-image: url(../images/social-logos/twitter.svg);}
+.pwp-share-buttons .pwp-linkedin span{-webkit-mask-image: url(../images/social-logos/linkedin.svg);mask-image: url(../images/social-logos/linkedin.svg);}
+.pwp-share-buttons .pwp-pinterest span{-webkit-mask-image: url(../images/social-logos/pinterest.svg);mask-image: url(../images/social-logos/pinterest.svg);}
+.pwp-share-buttons .pwp-email span{-webkit-mask-image: url(../images/social-logos/mail.svg);mask-image: url(../images/social-logos/mail.svg);}
 
 .pwp-simple-colored .pwp-facebook span{background-color: #3b5998;}
 .pwp-simple-colored .pwp-twitter span{background-color: #00aced;}
