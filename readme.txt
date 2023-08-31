@@ -3,8 +3,8 @@ Contributors: Surbma, CherryPickStudios
 Donate link: https://surbma.com/donate/
 Tags: genesis, widget, google analytics, google tag manager, analytics, shortcodes, share, facebook, google, twitter, pinterest, email, google calendar, google presentation, google forms, google maps
 Requires at least: 5.2
-Tested up to: 5.9
-Stable tag: 8.2
+Tested up to: 6.3
+Stable tag: 8.3
 Requires PHP: 7.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -58,6 +58,19 @@ I am managing hundreds of client websites. I use only the best and mostly premiu
 It is the reverse version of my last name. ;)
 
 == Changelog ==
+
+= 8.3 =
+
+Release date: 2023-08-31
+
+ENHANCEMENTS
+
+- Changed Facebook SDK root script to latest version.
+
+OTHER
+
+- Minor code optimization.
+- Tested up to WordPress 6.3 version.
 
 = 8.2 =
 

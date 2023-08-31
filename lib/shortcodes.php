@@ -55,14 +55,16 @@ add_shortcode( 'tel', function( $atts, $content = null ) {
 } );
 
 add_shortcode( 'vendeg', function( $atts, $content = null ) {
-	if ( ( !is_user_logged_in() && !is_null( $content ) ) || is_feed() )
+	if ( ( !is_user_logged_in() && !is_null( $content ) ) || is_feed() ) :
 		return do_shortcode( $content );
+	endif;
 	return '';
 } );
 
 add_shortcode( 'tag', function( $atts, $content = null ) {
-	if ( is_user_logged_in() && !is_null( $content ) && !is_feed() )
+	if ( is_user_logged_in() && !is_null( $content ) && !is_feed() ) :
 		return do_shortcode( $content );
+	endif;
 	return '';
 } );
 
@@ -129,21 +131,15 @@ add_shortcode( 'ceginfo', function() {
 } );
 
 function surbma_premium_wp_facebook_script() {
-?>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) return;
-	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/<?php echo get_locale(); ?>/sdk.js#xfbml=1&version=v3.1&appId=256155317784646";
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<?php
+	echo '<div id="fb-root"></div>';
+	echo '<script async defer crossorigin="anonymous" src="https://connect.facebook.net/' . get_locale() . '/sdk.js#xfbml=1&version=v17.0&appId=256155317784646&autoLogAppEvents=1" nonce="U27L1WCv"></script>';
 }
 
 add_shortcode( 'facebook-like-gomb', function( $atts ) {
-	if ( function_exists( 'surbma_premium_wp_facebook_script' ) )
+	if ( function_exists( 'surbma_premium_wp_facebook_script' ) ) :
 		add_action( 'wp_footer', 'surbma_premium_wp_facebook_script' );
+	endif;
+
 	extract( shortcode_atts( array(
 		'url' => get_permalink(),
 		'width' => '',
@@ -153,12 +149,15 @@ add_shortcode( 'facebook-like-gomb', function( $atts ) {
 		'show_faces' => false,
 		'share' => false
 	), $atts ) );
+
 	return '<div class="fb-like" data-href="'.$url.'" data-width="'.$width.'" data-layout="'.$layout.'" data-action="'.$action.'" data-size="'.$size.'" data-show-faces="'.$show_faces.'" data-share="'.$share.'"></div>';
 } );
 
 add_shortcode( 'facebook-tetszik-gomb', function( $atts ) {
-	if ( function_exists( 'surbma_premium_wp_facebook_script' ) )
+	if ( function_exists( 'surbma_premium_wp_facebook_script' ) ) :
 		add_action( 'wp_footer', 'surbma_premium_wp_facebook_script' );
+	endif;
+
 	extract( shortcode_atts( array(
 		'url' => get_permalink(),
 		'width' => '',
@@ -168,23 +167,29 @@ add_shortcode( 'facebook-tetszik-gomb', function( $atts ) {
 		'show_faces' => false,
 		'share' => false
 	), $atts ) );
+
 	return '<div class="fb-like" data-href="'.$url.'" data-width="'.$width.'" data-layout="'.$layout.'" data-action="'.$action.'" data-size="'.$size.'" data-show-faces="'.$show_faces.'" data-share="'.$share.'"></div>';
 } );
 
 add_shortcode( 'facebook-megosztas-gomb', function( $atts ) {
-	if ( function_exists( 'surbma_premium_wp_facebook_script' ) )
+	if ( function_exists( 'surbma_premium_wp_facebook_script' ) ) :
 		add_action( 'wp_footer', 'surbma_premium_wp_facebook_script' );
+	endif;
+
 	extract( shortcode_atts( array(
 		"url" => get_permalink(),
 		"layout" => 'button',
 		"size" => 'large'
 	), $atts ) );
+
 	return '<div class="fb-share-button" data-href="'.$url.'" data-layout="'.$layout.'" data-size="'.$size.'"></div>';
 } );
 
 add_shortcode( 'facebook-oldal', function( $atts ) {
-	if ( function_exists( 'surbma_premium_wp_facebook_script' ) )
+	if ( function_exists( 'surbma_premium_wp_facebook_script' ) ) :
 		add_action( 'wp_footer', 'surbma_premium_wp_facebook_script' );
+	endif;
+
 	extract( shortcode_atts( array(
 		'url' => '',
 		'width' => '',
@@ -195,6 +200,7 @@ add_shortcode( 'facebook-oldal', function( $atts ) {
 		'show_facepile' => true,
 		'tabs' => ''
 	), $atts ) );
+
 	if ( $url != '' ) {
 		return '<div class="fb-page" data-href="'.$url.'" data-width="'.$width.'" data-height="'.$height.'" data-tabs="'.$tabs.'" data-small-header="'.$small_header.'" data-adapt-container-width="'.$adapt_container_width.'" data-hide-cover="'.$hide_cover.'" data-show-facepile="'.$show_facepile.'"><blockquote cite="'.$url.'" class="fb-xfbml-parse-ignore"><a href="'.$url.'">'.$url.'</a></blockquote></div>';
 	}
@@ -214,7 +220,10 @@ add_shortcode( 'ga-link', function( $atts, $content = null ) {
 		'eventlabel' => ''
 	), $atts ) );
 
-	if( $eventLabel == '' ) $eventLabel = $href;
+	if( $eventLabel == '' ) :
+		$eventLabel = $href;
+	endif;
+
 	if( $universal == false ) {
 		$onclick = "gtag( 'event', '$eventaction', {'event_category': '$eventcategory',	'event_label': '$eventlabel' });";
 	} else {
@@ -226,6 +235,7 @@ add_shortcode( 'ga-link', function( $atts, $content = null ) {
 
 add_shortcode( 'google-maps', function( $atts ) {
 	$apikey = defined( 'SURBMA_PREMIUM_WP_GOOGLE_MAPS_API' ) ? SURBMA_PREMIUM_WP_GOOGLE_MAPS_API : '';
+
 	extract( shortcode_atts( array(
 		'key' => $apikey,
 		'mode' => 'place',
@@ -237,12 +247,13 @@ add_shortcode( 'google-maps', function( $atts ) {
 		'width' => 1000,
 		'height' => 55
 	), $atts ) );
+
 	if( $mode == 'place' && $place_id != '' ) {
 		return '<style>.google-maps {margin: 0 0 1em;max-width: '.$width.'px;}.google-maps-wrap {position: relative;padding-bottom: '.$height.'%;height: 0;overflow: hidden;}.google-maps iframe {position: absolute;top: 0;left: 0;width: 100% !important;height: 100% !important;}</style><div class="google-maps"><div class="google-maps-wrap"><iframe width="1000" height="550" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?zoom='.$zoom.'&q=place_id:'.$place_id.'&maptype='.$maptype.'&key='.$key.'" allowfullscreen></iframe></div></div>';
 	} elseif( $mode == 'view' && $lat != '' && $long != '' ) {
 		return '<style>.google-maps {margin: 0 0 1em;max-width: '.$width.'px;}.google-maps-wrap {position: relative;padding-bottom: '.$height.'%;height: 0;overflow: hidden;}.google-maps iframe {position: absolute;top: 0;left: 0;width: 100% !important;height: 100% !important;}</style><div class="google-maps"><div class="google-maps-wrap"><iframe width="1000" height="550" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom='.$zoom.'&center='.$lat.'%2C'.$long.'&maptype='.$maptype.'&key='.$key.'" allowfullscreen></iframe></div></div>';
 	} else {
-		return '';
+		return;
 	}
 } );
 
@@ -253,6 +264,7 @@ add_shortcode( 'google-docs', function( $atts ) {
 		'width' => '100%',
 		'height' => 500
 	), $atts ) );
+
 	return '<iframe src="https://docs.google.com/document/d/e/'.$src.'" width="'.$width.'" height="'.$height.'" frameborder="0" scrolling="'.$scrolling.'"></iframe>';
 } );
 
@@ -263,6 +275,7 @@ add_shortcode( 'google-calendar', function( $atts ) {
 		'width' => 400,
 		'height' => 300
 	), $atts ) );
+
 	return '<iframe src="https://www.google.com/calendar/embed?'.$src.'" width="'.$width.'" height="'.$height.'" frameborder="0" scrolling="'.$scrolling.'"></iframe>';
 } );
 
@@ -275,6 +288,7 @@ add_shortcode( 'google-presentation', function( $atts ) {
 		'width' => 400,
 		'height' => 300
 	), $atts ) );
+
 	return '<iframe src="https://docs.google.com/presentation/d/'.$id.'/embed?start='.$start.'&loop='.$loop.'&delayms='.$delayms.'" frameborder="0" width="'.$width.'" height="'.$height.'" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>';
 } );
 
@@ -284,6 +298,7 @@ add_shortcode( 'google-form', function( $atts ) {
 		'width' => 760,
 		'height' => 500
 	), $atts ) );
+
 	return '<iframe src="https://docs.google.com/forms/d/'.$id.'/viewform?embedded=true#start=embed" width="'.$width.'" height="'.$height.'" frameborder="0" marginheight="0" marginwidth="0"></iframe>';
 } );
 
@@ -295,6 +310,7 @@ add_shortcode( 'pwp-youtube', function( $atts ) {
 		'style' => '',
 		'nocookie' => false
 	), $atts ) );
+
 	if ( $nocookie ) {
 		return '<iframe src="https://www.youtube-nocookie.com/embed/'.$id.'" width="'.$width.'" height="'.$height.'" frameborder="0" style="'.$style.'" allowfullscreen></iframe>';
 	} else {
@@ -309,6 +325,7 @@ add_shortcode( 'pwp-vimeo', function( $atts ) {
 		'height' => 360,
 		'style' => ''
 	), $atts ) );
+
 	return '<iframe src="https://player.vimeo.com/video/'.$id.'" width="'.$width.'" height="'.$height.'" frameborder="0" style="'.$style.'" allowfullscreen></iframe>';
 } );
 
@@ -319,6 +336,6 @@ add_shortcode( 'pwp-fb-video', function( $atts ) {
 		'height' => 314,
 		'style' => ''
 	), $atts ) );
-	$href = esc_attr( $href );
-	return '<iframe src="https://www.facebook.com/plugins/video.php?height='.$height.'&href='.$href.'&show_text=false&width='.$width.'" width="'.$width.'" height="'.$height.'" style="border:none;overflow:hidden;'.$style.'" scrolling="no" frameborder="0" allowTransparency="true" allow="clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>';
+
+	return '<iframe src="https://www.facebook.com/plugins/video.php?height='.$height.'&href='.esc_attr( $href ).'&show_text=false&width='.$width.'" width="'.$width.'" height="'.$height.'" style="border:none;overflow:hidden;'.$style.'" scrolling="no" frameborder="0" allowTransparency="true" allow="clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>';
 } );
