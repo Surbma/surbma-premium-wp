@@ -130,6 +130,10 @@ add_shortcode( 'ceginfo', function() {
 	return $options['companyinfo'];
 } );
 
+add_shortcode( 'pwp-ev', function() {
+	return date( 'Y' );
+} );
+
 function surbma_premium_wp_facebook_script() {
 	echo '<div id="fb-root"></div>';
 	echo '<script async defer crossorigin="anonymous" src="https://connect.facebook.net/' . get_locale() . '/sdk.js#xfbml=1&version=v17.0&appId=256155317784646&autoLogAppEvents=1" nonce="U27L1WCv"></script>';
