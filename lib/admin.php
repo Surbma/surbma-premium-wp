@@ -8,7 +8,7 @@ include_once( SURBMA_PREMIUM_WP_PLUGIN_DIR . '/pages/extra-fields-page.php' );
 include_once( SURBMA_PREMIUM_WP_PLUGIN_DIR . '/pages/shortcodes-page.php' );
 
 /* Admin options menu */
-function surbma_premium_wp_add_menus() {
+add_action( 'admin_menu', function() {
 	add_menu_page(
 		__( 'Premium WordPress', 'surbma-premium-wp' ),
 		__( 'Premium WP', 'surbma-premium-wp' ),
@@ -66,32 +66,32 @@ function surbma_premium_wp_add_menus() {
 		'surbma-premium-wp-shortcodes',
 		'surbma_premium_wp_shortcodes_page'
 	);
-}
-add_action( 'admin_menu', 'surbma_premium_wp_add_menus' );
+} );
 
 // Custom styles and scripts for admin pages
-function surbma_premium_wp_admin_scripts( $hook ) {
-    wp_enqueue_style( 'surbma-premium-wp', plugins_url( '', dirname(__FILE__) ) . '/css/admin.css' );
+add_action( 'admin_enqueue_scripts', function( $hook ) {
+	$valid_hooks = array(
+		'toplevel_page_surbma-premium-wp-menu',
+		'premium-wp_page_surbma-premium-wp-google-analytics',
+		'premium-wp_page_surbma-premium-wp-google-tag-manager',
+		'premium-wp_page_surbma-premium-wp-multi-live-chat',
+		'premium-wp_page_surbma-premium-wp-social',
+		'premium-wp_page_surbma-premium-wp-extra-fields',
+		'premium-wp_page_surbma-premium-wp-shortcodes',
+		'premium-wp_page_surbma-wp-control'
+	);
 
-    if ( $hook == 'toplevel_page_surbma-premium-wp-menu' ||
-    $hook == 'premium-wp_page_surbma-premium-wp-google-analytics' ||
-    $hook == 'premium-wp_page_surbma-premium-wp-google-tag-manager' ||
-    $hook == 'premium-wp_page_surbma-premium-wp-multi-live-chat' ||
-    $hook == 'premium-wp_page_surbma-premium-wp-social' ||
-    $hook == 'premium-wp_page_surbma-premium-wp-extra-fields' ||
-    $hook == 'premium-wp_page_surbma-premium-wp-shortcodes' ||
-    $hook == 'premium-wp_page_surbma-wp-control' ) {
-    	wp_enqueue_style( 'uikit-css', 'https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.2/css/uikit.gradient.min.css' );
-    }
-}
-add_action( 'admin_enqueue_scripts', 'surbma_premium_wp_admin_scripts' );
+	if ( in_array( $hook, $valid_hooks ) ) {
+		wp_enqueue_style( 'surbma-premium-wp', plugins_url( '', dirname(__FILE__) ) . '/css/admin.css', array(), '20190705' );
+		wp_enqueue_style( 'uikit-css', plugins_url( '', dirname(__FILE__) ) . '/css/uikit.min.css', array(), '20241122' );
+	}
+} );
 
-function surbma_premium_wp_admin_notices() {
+add_action( 'admin_notices', function() {
 	$options = get_option( 'surbma_premium_wp_google_analytics_fields' );
 	$universalidValue = isset( $options['universalid'] ) ? $options['universalid'] : '';
 	$trackingidValue = isset( $options['trackingid'] ) ? $options['trackingid'] : '';
 	if ( $universalidValue == '' && $trackingidValue != '' ) {
-		echo '<div class="error notice"><p><strong>FIGYELEM, FRISSÍTÉS SZÜKSÉGES! Régi Google Analytics követő kód van csak megadva. Hamarosan a régi követő kód támogatása megszűnik.</strong></p><p>A Google Analytics további használatához frissíteni kell a beállításokat a <a href="/wp-admin/admin.php?page=surbma-premium-wp-google-analytics"><strong>Prémium WP -> Google Analytics</strong></a> menüpont alatt. Mentés után a régi követő kód törölve lesz és az új követő kód lesz használatban! Más teendő nincs ezzel, a kód frissítéséhez csak menteni kell a beállításokat.</p><p>Jelenleg bekötött Google Analytics tulajdon: <strong>' . $trackingidValue . '</strong></p></div>';
+		echo '<div class="error notice"><p><strong>FIGYELEM, FRISSÍTÉS SZÜKSÉGES! Régi Google Analytics követő kód van csak megadva. Hamarosan a régi követő kód támogatása megszűnik.</strong></p><p>A Google Analytics további használatához frissíteni kell a beállításokat a <a href="/wp-admin/admin.php?page=surbma-premium-wp-google-analytics"><strong>Prémium WP -> Google Analytics</strong></a> menüpont alatt. Mentés után a régi követő kód törölve lesz és az új követő kód lesz használatban! Más teendő nincs ezzel, a kód frissítéséhez csak menteni kell a beállításokat.</p><p>Jelenleg bekötött Google Analytics tulajdon: <strong>' . wp_kses_data( $trackingidValue ) . '</strong></p></div>';
 	}
-}
-add_action( 'admin_notices', 'surbma_premium_wp_admin_notices' );
+} );

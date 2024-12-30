@@ -1,11 +1,11 @@
 === Surbma | Premium WP ===
 Contributors: Surbma, CherryPickStudios
 Donate link: https://surbma.com/donate/
-Tags: genesis, widget, google analytics, google tag manager, analytics, shortcodes, share, facebook, google, twitter, pinterest, email, google calendar, google presentation, google forms, google maps
+Tags: google analytics, google tag manager, facebook, google, shortcodes
 Requires at least: 5.2
-Tested up to: 6.6
-Stable tag: 9.0
-Requires PHP: 7.0
+Tested up to: 6.7
+Stable tag: 10.0
+Requires PHP: 7.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,6 +58,25 @@ I am managing hundreds of client websites. I use only the best and mostly premiu
 It is the reverse version of my last name. ;)
 
 == Changelog ==
+
+= 10.0 =
+
+Release date: 2024-12-30
+
+FIXES
+
+- Security fixes: every output has escaping now. The Cross-Site Scripting vulnerability was reported by Patchstack.
+
+ENHANCEMENTS
+
+- The UIkit CSS is now loaded from local source, instead of CDNJS.
+- All admin pages have the new UIkit 3 styling.
+- Most of the functions are modified to anonymous functions.
+- Code optimizations.
+- Fixed syntax for every condition.
+- Added extra checks for variables, that could be empty before saving any settings.
+- Fixed texts for translations, that didn't have any text domains.
+- Google Tag Manager script is loaded at the beginning of the head hooks.
 
 = 9.0 =
 

@@ -5,7 +5,11 @@ add_shortcode( 'pwp-oldal', function( $atts ) {
 		'id' => ''
 	), $atts ) );
 
-	$thispage = get_page( $id );
+	if ( !is_int( $id ) ) {
+		return;
+	}
+
+	$thispage = get_post( $id );
 	return do_shortcode( $thispage->post_content );
 } );
 
@@ -13,6 +17,10 @@ add_shortcode( 'pwp-bejegyzes', function( $atts ) {
 	extract( shortcode_atts( array(
 		'id' => ''
 	), $atts ) );
+
+	if ( !is_int( $id ) ) {
+		return;
+	}
 
 	$thispost = get_post( $id );
 	return do_shortcode( $thispost->post_content );
@@ -31,7 +39,7 @@ add_shortcode( 'clear', function() {
 } );
 
 add_shortcode( 'elrejt', function( $content = null ) {
-	return '<div style="display:none;">'.do_shortcode( $content ).'</div>';
+	return '<div style="display:none;">' . do_shortcode( $content ) . '</div>';
 } );
 
 add_shortcode( 'div', function( $atts, $content = null ) {
@@ -41,102 +49,109 @@ add_shortcode( 'div', function( $atts, $content = null ) {
 		'style' => ''
 	), $atts ) );
 
-	return '<div id="'.$id.'" class="'.$class.'" style="'.$style.'">'.do_shortcode( $content ).'</div>';
+	return '<div id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . '" style="' . esc_attr( $style ) . '">' . do_shortcode( $content ) . '</div>';
 } );
 
 add_shortcode( 'mailto', function( $atts, $content = null ) {
 	$encodedmail = '';
-	for ( $i = 0; $i <strlen( $content ); $i++ ) $encodedmail .= "&#" . ord( $content[$i] ) . ';';
-	return '<a href="mailto:'.$encodedmail.'">'.$encodedmail.'</a>';
+	for ( $i = 0; $i < strlen( $content ); $i++ ) $encodedmail .= "&#" . ord( $content[$i] ) . ';';
+	return '<a href="mailto:' . esc_attr( $encodedmail ) . '">' . $encodedmail . '</a>';
 } );
 
 add_shortcode( 'tel', function( $atts, $content = null ) {
-	return '<a href="tel:+' . preg_replace('/\D/', '', $content) . '">' . $content . '</a>';
+	return '<a href="tel:+' . esc_attr( preg_replace( '/\D/', '', $content ) ) . '">' . $content . '</a>';
 } );
 
 add_shortcode( 'vendeg', function( $atts, $content = null ) {
-	if ( ( !is_user_logged_in() && !is_null( $content ) ) || is_feed() ) :
-		return do_shortcode( $content );
-	endif;
-	return '';
+	$guestcontent = ( !is_user_logged_in() && !is_null( $content ) ) || is_feed() ? do_shortcode( $content ) : '';
+	return $guestcontent;
 } );
 
 add_shortcode( 'tag', function( $atts, $content = null ) {
-	if ( is_user_logged_in() && !is_null( $content ) && !is_feed() ) :
-		return do_shortcode( $content );
-	endif;
-	return '';
+	$membercontent = is_user_logged_in() && !is_null( $content ) && !is_feed() ? do_shortcode( $content ) : '';
+	return $membercontent;
 } );
 
 add_shortcode( 'nev', function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
-	return $options['name'];
+	$name = is_array( $options ) && isset( $options['name'] ) && $options['name'] ? $options['name'] : '';
+	return esc_html( $name );
 } );
 
 add_shortcode( 'ceg', function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
-	return $options['company'];
+	$company = is_array( $options ) && isset( $options['company'] ) && $options['company'] ? $options['company'] : '';
+	return esc_html( $company );
 } );
 
 add_shortcode( 'cim', function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
-	return $options['address'];
+	$address = is_array( $options ) && isset( $options['address'] ) && $options['address'] ? $options['address'] : '';
+	return esc_html( $address );
 } );
 
 add_shortcode( 'adoszam', function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
-	return $options['vat'];
+	$vat = is_array( $options ) && isset( $options['vat'] ) && $options['vat'] ? $options['vat'] : '';
+	return esc_html( $vat );
 } );
 
 add_shortcode( 'cegjegyzekszam', function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
-	return $options['companyid'];
+	$companyid = is_array( $options ) && isset( $options['companyid'] ) && $options['companyid'] ? $options['companyid'] : '';
+	return esc_html( $companyid );
 } );
 
 add_shortcode( 'bankszamlaszam', function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
-	return $options['bankid'];
+	$bankid = is_array( $options ) && isset( $options['bankid'] ) && $options['bankid'] ? $options['bankid'] : '';
+	return esc_html( $bankid );
 } );
 
 add_shortcode( 'email', function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
-	$email = $options['email'];
-	$mailto = '[mailto]'.$email.'[/mailto]';
+	$email = is_array( $options ) && isset( $options['email'] ) && $options['email'] ? $options['email'] : '';
+	$mailto = '[mailto]' . $email . '[/mailto]';
 	return do_shortcode( $mailto );
 } );
 
 add_shortcode( 'mobiltelefon', function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
-	return '<a href="tel:+' . preg_replace('/\D/', '', $options['mobilephone']) . '">' . $options['mobilephone'] . '</a>';
+	$mobilephone = is_array( $options ) && isset( $options['mobilephone'] ) && $options['mobilephone'] ? $options['mobilephone'] : '';
+	return '<a href="tel:+' . esc_attr( preg_replace( '/\D/', '', $mobilephone ) ) . '">' . esc_html( $mobilephone ) . '</a>';
 } );
 
 add_shortcode( 'telefon', function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
-	return '<a href="tel:+' . preg_replace('/\D/', '', $options['phone']) . '">' . $options['phone'] . '</a>';
+	$phone = is_array( $options ) && isset( $options['phone'] ) && $options['phone'] ? $options['phone'] : '';
+	return '<a href="tel:+' . esc_attr( preg_replace( '/\D/', '', $phone ) ) . '">' . esc_html( $phone ) . '</a>';
 } );
 
 add_shortcode( 'fax', function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
-	return $options['fax'];
+	$fax = is_array( $options ) && isset( $options['fax'] ) && $options['fax'] ? $options['fax'] : '';
+	return esc_html( $fax );
 } );
 
 add_shortcode( 'skype', function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
-	return '<a class="pwp-skype" href="skype:'.$options['skype'].'?call">'.$options['skype'].'</a>';
+	$skype = is_array( $options ) && isset( $options['skype'] ) && $options['skype'] ? $options['skype'] : '';
+	return '<a class="pwp-skype" href="skype:' . esc_attr( $skype ) . '?call">' . esc_html( $skype ) . '</a>';
 } );
 
 add_shortcode( 'ceginfo', function() {
 	$options = get_option( 'surbma_premium_wp_extra_fields' );
-	return $options['companyinfo'];
+	$companyinfo = is_array( $options ) && isset( $options['companyinfo'] ) && $options['companyinfo'] ? $options['companyinfo'] : '';
+	return esc_html( $companyinfo );
 } );
 
 add_shortcode( 'pwp-ev', function() {
-	return date( 'Y' );
+	return gmdate( 'Y' );
 } );
 
 function surbma_premium_wp_facebook_script() {
 	echo '<div id="fb-root"></div>';
-	echo '<script async defer crossorigin="anonymous" src="https://connect.facebook.net/' . get_locale() . '/sdk.js#xfbml=1&version=v17.0&appId=256155317784646&autoLogAppEvents=1" nonce="U27L1WCv"></script>';
+	echo '<script async defer crossorigin="anonymous" src="https://connect.facebook.net/' . rawurlencode( get_locale() ) . '/sdk.js#xfbml=1&version=v17.0&appId=256155317784646&autoLogAppEvents=1" nonce="U27L1WCv"></script>';
 }
 
 add_shortcode( 'facebook-like-gomb', function( $atts ) {
@@ -154,7 +169,7 @@ add_shortcode( 'facebook-like-gomb', function( $atts ) {
 		'share' => false
 	), $atts ) );
 
-	return '<div class="fb-like" data-href="'.$url.'" data-width="'.$width.'" data-layout="'.$layout.'" data-action="'.$action.'" data-size="'.$size.'" data-show-faces="'.$show_faces.'" data-share="'.$share.'"></div>';
+	return '<div class="fb-like" data-href="' . esc_attr( $url ) . '" data-width="' . esc_attr( $width ) . '" data-layout="' . esc_attr( $layout ) . '" data-action="' . esc_attr( $action ) . '" data-size="' . esc_attr( $size ) . '" data-show-faces="' . esc_attr( $show_faces ) . '" data-share="' . esc_attr( $share ) . '"></div>';
 } );
 
 add_shortcode( 'facebook-tetszik-gomb', function( $atts ) {
@@ -172,7 +187,7 @@ add_shortcode( 'facebook-tetszik-gomb', function( $atts ) {
 		'share' => false
 	), $atts ) );
 
-	return '<div class="fb-like" data-href="'.$url.'" data-width="'.$width.'" data-layout="'.$layout.'" data-action="'.$action.'" data-size="'.$size.'" data-show-faces="'.$show_faces.'" data-share="'.$share.'"></div>';
+	return '<div class="fb-like" data-href="' . esc_attr( $url ) . '" data-width="' . esc_attr( $width ) . '" data-layout="' . esc_attr( $layout ) . '" data-action="' . esc_attr( $action ) . '" data-size="' . esc_attr( $size ) . '" data-show-faces="' . esc_attr( $show_faces ) . '" data-share="' . esc_attr( $share ) . '"></div>';
 } );
 
 add_shortcode( 'facebook-megosztas-gomb', function( $atts ) {
@@ -186,7 +201,7 @@ add_shortcode( 'facebook-megosztas-gomb', function( $atts ) {
 		"size" => 'large'
 	), $atts ) );
 
-	return '<div class="fb-share-button" data-href="'.$url.'" data-layout="'.$layout.'" data-size="'.$size.'"></div>';
+	return '<div class="fb-share-button" data-href="' . esc_attr( $url ) . '" data-layout="' . esc_attr( $layout ) . '" data-size="' . esc_attr( $size ) . '"></div>';
 } );
 
 add_shortcode( 'facebook-oldal', function( $atts ) {
@@ -206,7 +221,7 @@ add_shortcode( 'facebook-oldal', function( $atts ) {
 	), $atts ) );
 
 	if ( $url != '' ) {
-		return '<div class="fb-page" data-href="'.$url.'" data-width="'.$width.'" data-height="'.$height.'" data-tabs="'.$tabs.'" data-small-header="'.$small_header.'" data-adapt-container-width="'.$adapt_container_width.'" data-hide-cover="'.$hide_cover.'" data-show-facepile="'.$show_facepile.'"><blockquote cite="'.$url.'" class="fb-xfbml-parse-ignore"><a href="'.$url.'">'.$url.'</a></blockquote></div>';
+		return '<div class="fb-page" data-href="' . esc_attr( $url ) . '" data-width="' . esc_attr( $width ) . '" data-height="' . esc_attr( $height ) . '" data-tabs="' . esc_attr( $tabs ) . '" data-small-header="' . esc_attr( $small_header ) . '" data-adapt-container-width="' . esc_attr( $adapt_container_width ) . '" data-hide-cover="' . esc_attr( $hide_cover ) . '" data-show-facepile="' . esc_attr( $show_facepile ) . '"><blockquote cite="' . esc_attr( $url ) . '" class="fb-xfbml-parse-ignore"><a href="' . esc_attr( $url ) . '">' . esc_url( $url ) . '</a></blockquote></div>';
 	}
 } );
 
@@ -234,7 +249,7 @@ add_shortcode( 'ga-link', function( $atts, $content = null ) {
 		$onclick = "ga('send', 'event', '$eventcategory', '$eventaction', '$eventlabel');";
 	}
 
-	return '<a href="'.$href.'" class="'.$class.'" id="'.$id.'" style="'.$style.'" title="'.$title.'" target="'.$target.'" onClick="'.$onclick.'">'.do_shortcode( $content ).'</a>';
+	return '<a href="' . esc_attr( $href ) . '" class="' . esc_attr( $class ) . '" id="' . esc_attr( $id ) . '" style="' . esc_attr( $style ) . '" title="' . esc_attr( $title ) . '" target="' . esc_attr( $target ) . '" onClick="' . esc_attr( $onclick ) . '">' . do_shortcode( $content ) . '</a>';
 } );
 
 add_shortcode( 'google-maps', function( $atts ) {
@@ -253,9 +268,9 @@ add_shortcode( 'google-maps', function( $atts ) {
 	), $atts ) );
 
 	if( $mode == 'place' && $place_id != '' ) {
-		return '<style>.google-maps {margin: 0 0 1em;max-width: '.$width.'px;}.google-maps-wrap {position: relative;padding-bottom: '.$height.'%;height: 0;overflow: hidden;}.google-maps iframe {position: absolute;top: 0;left: 0;width: 100% !important;height: 100% !important;}</style><div class="google-maps"><div class="google-maps-wrap"><iframe width="1000" height="550" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?zoom='.$zoom.'&q=place_id:'.$place_id.'&maptype='.$maptype.'&key='.$key.'" allowfullscreen></iframe></div></div>';
+		return '<style>.google-maps {margin: 0 0 1em;max-width: ' . esc_attr( $width ) . 'px;}.google-maps-wrap {position: relative;padding-bottom: ' . esc_attr( $height ) . '%;height: 0;overflow: hidden;}.google-maps iframe {position: absolute;top: 0;left: 0;width: 100% !important;height: 100% !important;}</style><div class="google-maps"><div class="google-maps-wrap"><iframe width="1000" height="550" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?zoom=' . rawurlencode( $zoom ) . '&q=place_id:' . rawurlencode( $place_id ) . '&maptype=' . rawurlencode( $maptype ) . '&key=' . rawurlencode( $key ) . '" allowfullscreen></iframe></div></div>';
 	} elseif( $mode == 'view' && $lat != '' && $long != '' ) {
-		return '<style>.google-maps {margin: 0 0 1em;max-width: '.$width.'px;}.google-maps-wrap {position: relative;padding-bottom: '.$height.'%;height: 0;overflow: hidden;}.google-maps iframe {position: absolute;top: 0;left: 0;width: 100% !important;height: 100% !important;}</style><div class="google-maps"><div class="google-maps-wrap"><iframe width="1000" height="550" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom='.$zoom.'&center='.$lat.'%2C'.$long.'&maptype='.$maptype.'&key='.$key.'" allowfullscreen></iframe></div></div>';
+		return '<style>.google-maps {margin: 0 0 1em;max-width: ' . esc_attr( $width ) . 'px;}.google-maps-wrap {position: relative;padding-bottom: ' . esc_attr( $height ) . '%;height: 0;overflow: hidden;}.google-maps iframe {position: absolute;top: 0;left: 0;width: 100% !important;height: 100% !important;}</style><div class="google-maps"><div class="google-maps-wrap"><iframe width="1000" height="550" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom=' . rawurlencode( $zoom ) . '&center=' . rawurlencode( $lat ) . '%2C' . rawurlencode( $long ) . '&maptype=' . rawurlencode( $maptype ) . '&key=' . rawurlencode( $key ) . '" allowfullscreen></iframe></div></div>';
 	} else {
 		return;
 	}
@@ -269,7 +284,7 @@ add_shortcode( 'google-docs', function( $atts ) {
 		'height' => 500
 	), $atts ) );
 
-	return '<iframe src="https://docs.google.com/document/d/e/'.$src.'" width="'.$width.'" height="'.$height.'" frameborder="0" scrolling="'.$scrolling.'"></iframe>';
+	return '<iframe src="https://docs.google.com/document/d/e/' . rawurlencode( $src ) . '" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" frameborder="0" scrolling="' . esc_attr( $scrolling ) . '"></iframe>';
 } );
 
 add_shortcode( 'google-calendar', function( $atts ) {
@@ -280,7 +295,7 @@ add_shortcode( 'google-calendar', function( $atts ) {
 		'height' => 300
 	), $atts ) );
 
-	return '<iframe src="https://www.google.com/calendar/embed?'.$src.'" width="'.$width.'" height="'.$height.'" frameborder="0" scrolling="'.$scrolling.'"></iframe>';
+	return '<iframe src="https://www.google.com/calendar/embed?' . rawurlencode( $src ) . '" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" frameborder="0" scrolling="' . esc_attr( $scrolling ) . '"></iframe>';
 } );
 
 add_shortcode( 'google-presentation', function( $atts ) {
@@ -293,7 +308,7 @@ add_shortcode( 'google-presentation', function( $atts ) {
 		'height' => 300
 	), $atts ) );
 
-	return '<iframe src="https://docs.google.com/presentation/d/'.$id.'/embed?start='.$start.'&loop='.$loop.'&delayms='.$delayms.'" frameborder="0" width="'.$width.'" height="'.$height.'" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>';
+	return '<iframe src="https://docs.google.com/presentation/d/' . rawurlencode( $id ) . '/embed?start=' . rawurlencode( $start ) . '&loop=' . rawurlencode( $loop ) . '&delayms=' . rawurlencode( $delayms ) . '" frameborder="0" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>';
 } );
 
 add_shortcode( 'google-form', function( $atts ) {
@@ -303,7 +318,7 @@ add_shortcode( 'google-form', function( $atts ) {
 		'height' => 500
 	), $atts ) );
 
-	return '<iframe src="https://docs.google.com/forms/d/'.$id.'/viewform?embedded=true#start=embed" width="'.$width.'" height="'.$height.'" frameborder="0" marginheight="0" marginwidth="0"></iframe>';
+	return '<iframe src="https://docs.google.com/forms/d/' . rawurlencode( $id ) . '/viewform?embedded=true#start=embed" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" frameborder="0" marginheight="0" marginwidth="0"></iframe>';
 } );
 
 add_shortcode( 'pwp-youtube', function( $atts ) {
@@ -316,9 +331,9 @@ add_shortcode( 'pwp-youtube', function( $atts ) {
 	), $atts ) );
 
 	if ( $nocookie ) {
-		return '<iframe src="https://www.youtube-nocookie.com/embed/'.$id.'" width="'.$width.'" height="'.$height.'" frameborder="0" style="'.$style.'" allowfullscreen></iframe>';
+		return '<iframe src="https://www.youtube-nocookie.com/embed/' . rawurlencode( $id ) . '" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" frameborder="0" style="' . esc_attr( $style ) . '" allowfullscreen></iframe>';
 	} else {
-		return '<iframe src="https://www.youtube.com/embed/'.$id.'" width="'.$width.'" height="'.$height.'" frameborder="0" style="'.$style.'" allowfullscreen></iframe>';
+		return '<iframe src="https://www.youtube.com/embed/' . rawurlencode( $id ) . '" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" frameborder="0" style="' . esc_attr( $style ) . '" allowfullscreen></iframe>';
 	}
 } );
 
@@ -330,7 +345,7 @@ add_shortcode( 'pwp-vimeo', function( $atts ) {
 		'style' => ''
 	), $atts ) );
 
-	return '<iframe src="https://player.vimeo.com/video/'.$id.'" width="'.$width.'" height="'.$height.'" frameborder="0" style="'.$style.'" allowfullscreen></iframe>';
+	return '<iframe src="https://player.vimeo.com/video/' . rawurlencode( $id ) . '" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" frameborder="0" style="' . esc_attr( $style ) . '" allowfullscreen></iframe>';
 } );
 
 add_shortcode( 'pwp-fb-video', function( $atts ) {
@@ -341,5 +356,5 @@ add_shortcode( 'pwp-fb-video', function( $atts ) {
 		'style' => ''
 	), $atts ) );
 
-	return '<iframe src="https://www.facebook.com/plugins/video.php?height='.$height.'&href='.esc_attr( $href ).'&show_text=false&width='.$width.'" width="'.$width.'" height="'.$height.'" style="border:none;overflow:hidden;'.$style.'" scrolling="no" frameborder="0" allowTransparency="true" allow="clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>';
+	return '<iframe src="https://www.facebook.com/plugins/video.php?height=' . rawurlencode( $height ) . '&href=' . rawurlencode( $href ) . '&show_text=false&width=' . rawurlencode( $width ) . '" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" style="border:none;overflow:hidden;'.$style . '" scrolling="no" frameborder="0" allowTransparency="true" allow="clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>';
 } );
