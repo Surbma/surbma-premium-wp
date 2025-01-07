@@ -1,12 +1,13 @@
 <?php
 
 function surbma_premium_wp_shortcodes_page() {
-	if ( !isset( $_GET['settings-updated'] ) )
+	if ( !isset( $_GET['settings-updated'] ) ) {
 		$_GET['settings-updated'] = false;
+	}
 ?>
 <div class="wrap">
+	<h1 class="dashicons-before dashicons-editor-code"><?php esc_html_e( 'Premium WP', 'surbma-premium-wp' ); ?>: <?php esc_html_e( 'Extra Shortcodes', 'surbma-premium-wp' ); ?></h1>
 	<div class="premium-wp premium-wp-shortcodes uk-width-5-6@m">
-		<h1 class="dashicons-before dashicons-editor-code"><?php esc_html_e( 'Premium WP', 'surbma-premium-wp' ); ?>: <?php esc_html_e( 'Extra Shortcodes', 'surbma-premium-wp' ); ?></h1>
 		<p>A rövidkódok egyszerűen beilleszthetők egy oldal vagy bejegyzés szöveg mezőjébe. Ezek előre meghatározott funkciókat látnak el. Vannak rövidkódok, amik paraméterezhetők, ezek is mind megtalálhatók az adott rövidkód leírásában.</p>
 		<p>A paramétereket a következő formában kell a rövidkódhoz megadni: <code>[rovidkod parameter1="ertek1" parameter2="ertek2"]</code></p>
 

@@ -1,18 +1,13 @@
 <?php
 
-function surbma_premium_wp_extra_fields_init() {
-	register_setting( 'surbma_premium_wp_options', 'surbma_premium_wp_extra_fields', 'surbma_premium_wp_extra_fields_validate' );
-}
-add_action( 'admin_init', 'surbma_premium_wp_extra_fields_init', 50 );
-
 function surbma_premium_wp_extra_fields_page() {
 	if ( !isset( $_GET['settings-updated'] ) ) {
 		$_GET['settings-updated'] = false;
 	}
 ?>
 <div class="wrap">
+	<h1 class="dashicons-before dashicons-book-alt"><?php esc_html_e( 'Premium WP', 'surbma-premium-wp' ); ?>: <?php esc_html_e( 'Extra Content', 'surbma-premium-wp' ); ?></h1>
 	<div class="premium-wp uk-width-2-3@m">
-		<h1 class="dashicons-before dashicons-book-alt"><?php esc_html_e( 'Premium WP', 'surbma-premium-wp' ); ?>: <?php esc_html_e( 'Extra Content', 'surbma-premium-wp' ); ?></h1>
 		<p><?php esc_html_e( 'Extra content shortcodes can be used anywhere on your site and any modifications can be done here. This way you should be doing it only once and every content will update across your website instantly.', 'surbma-premium-wp' ); ?></p>
 
 		<?php if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == true ) { ?>
@@ -176,6 +171,10 @@ function surbma_premium_wp_extra_fields_page() {
 </div>
 <?php
 }
+
+add_action( 'admin_init', function() {
+	register_setting( 'surbma_premium_wp_options', 'surbma_premium_wp_extra_fields', 'surbma_premium_wp_extra_fields_validate' );
+}, 50 );
 
 /**
  * Sanitize and validate input. Accepts an array, return a sanitized array.

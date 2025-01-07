@@ -1,9 +1,5 @@
 <?php
 
-add_action( 'admin_init', function() {
-	register_setting( 'surbma_premium_wp_social_options', 'surbma_premium_wp_social_fields', 'surbma_premium_wp_social_fields_validate' );
-} );
-
 $sharebuttonsplace_options = array(
 	'before' => array(
 		'value' => 'before',
@@ -43,19 +39,16 @@ $sharebuttonsstyle_options = array(
 );
 
 function surbma_premium_wp_social_page() {
-
 	global $sharebuttonsplace_options;
 	global $sharebuttonsstyle_options;
 
 	if ( ! isset( $_REQUEST['settings-updated'] ) ) {
 		$_REQUEST['settings-updated'] = false;
 	}
-
 ?>
 <div class="wrap">
+	<h1 class="dashicons-before dashicons-share"><?php esc_html_e( 'Premium WP', 'surbma-premium-wp' ); ?>: Közösségi oldalak integrálása</h1>
 	<div class="premium-wp uk-width-2-3@m">
-		<h1 class="dashicons-before dashicons-share"><?php esc_html_e( 'Premium WP', 'surbma-premium-wp' ); ?>: Közösségi oldalak integrálása</h1>
-
 		<?php if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == true ) { ?>
 			<div class="updated notice is-dismissible"><p><strong><?php esc_html_e( 'Settings saved.', 'surbma-premium-wp' ); ?></strong></p></div>
 		<?php } ?>
@@ -175,6 +168,10 @@ function surbma_premium_wp_social_page() {
 </div>
 <?php
 }
+
+add_action( 'admin_init', function() {
+	register_setting( 'surbma_premium_wp_social_options', 'surbma_premium_wp_social_fields', 'surbma_premium_wp_social_fields_validate' );
+} );
 
 /**
  * Sanitize and validate input. Accepts an array, return a sanitized array.

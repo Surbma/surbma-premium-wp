@@ -1,13 +1,13 @@
 <?php
 
 function surbma_premium_wp_google_analytics_page() {
-	if ( !isset( $_GET['settings-updated'] ) )
+	if ( !isset( $_GET['settings-updated'] ) ) {
 		$_GET['settings-updated'] = false;
+	}
 ?>
 <div class="wrap">
+	<h1 class="dashicons-before dashicons-chart-bar"><?php esc_html_e( 'Premium WP', 'surbma-premium-wp' ); ?>: <?php esc_html_e( 'Google Analytics', 'surbma-premium-wp' ); ?></h1>
 	<div class="premium-wp uk-width-2-3@m">
-		<h1 class="dashicons-before dashicons-chart-bar"><?php esc_html_e( 'Premium WP', 'surbma-premium-wp' ); ?>: <?php esc_html_e( 'Google Analytics', 'surbma-premium-wp' ); ?></h1>
-
 		<?php if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == true ) { ?>
 			<div class="updated notice is-dismissible"><p><strong><?php esc_html_e( 'Settings saved.', 'surbma-premium-wp' ); ?></strong></p></div>
 		<?php } ?>
