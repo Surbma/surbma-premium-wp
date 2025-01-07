@@ -98,6 +98,7 @@ function surbma_premium_wp_social_add_share_buttons( $content ) {
 				$content = $social_buttons . $content . $social_buttons;
 			}
 		}
+		return $content;
 	} else {
 		return $social_buttons;
 	}

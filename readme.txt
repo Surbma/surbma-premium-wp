@@ -4,7 +4,7 @@ Donate link: https://surbma.com/donate/
 Tags: google analytics, google tag manager, facebook, google, shortcodes
 Requires at least: 5.2
 Tested up to: 6.7
-Stable tag: 10.1
+Stable tag: 10.2
 Requires PHP: 7.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -58,6 +58,18 @@ I am managing hundreds of client websites. I use only the best and mostly premiu
 It is the reverse version of my last name. ;)
 
 == Changelog ==
+
+= 10.2 =
+
+Release date: 2025-01-07
+
+FIXES
+
+- Social buttons fixed to return the content.
+
+ENHANCEMENTS
+
+- Code optimizations.
 
 = 10.1 =
 

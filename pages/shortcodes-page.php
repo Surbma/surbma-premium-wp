@@ -18,6 +18,7 @@ function surbma_premium_wp_shortcodes_page() {
 				<li><code>[mailto]email@email.hu[/mailto]</code></li>
 			</ul>
 		</div>
+
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
 			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [vendeg] és [tag]</h3>
 			<p>Ezekkel a rövidkódokkal meg tudjuk határozni egy adott oldalon/bejegyzésen belül, hogy milyen tartalmat láthatnak a normál látogatók és a regisztrált tagok. Ami tartalom a [vendeg] shortcode-on belül van, azt csak a nem bejelentkezett, ami a [tag] shortcode-on belül van, azt pedig csak a bejelentkezett látogatók látják.</p>
@@ -27,6 +28,7 @@ function surbma_premium_wp_shortcodes_page() {
 				<li><code>[tag]Tartalom...[/tag]</code> - ezt csak a bejelentkezett felhasználók látják</li>
 			</ul>
 		</div>
+
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
 			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [nev], [ceg], [cim], [adoszam], [cegjegyzekszam], [bankszamlaszam], [mobiltelefon], [telefon], [fax], [email], [skype], [ceginfo]</h3>
 			<p>Ezekkel a rövidkódokkal tudjuk megjeleníteni az alapadatoknál megadott értékeket.</p>
@@ -46,6 +48,7 @@ function surbma_premium_wp_shortcodes_page() {
 				<li><code>[ceginfo]</code> - megjeleníti a cég rövid leírását</li>
 			</ul>
 		</div>
+
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
 			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [div]</h3>
 			<p>Ezzel a rövidkóddal egy div elemet illeszthetünk be. Ez hasznos lehet, amikor sor törésre van szükségünk, de egyéb megoldásokra is jó egy programozó számára.</p>
@@ -169,6 +172,7 @@ function surbma_premium_wp_shortcodes_page() {
 				<li><code>[ga-link href="http://domain.hu/csali.pdf"]Töltsd le az ingyenes tanulmányunkat[/ga-link]</code></li>
 			</ul>
 		</div>
+
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
 			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [google-maps]</h3>
 			<p>Ezzel a rövidkóddal egy Google Térképet illeszthetünk be. Két féle térkép módot tudunk beállítani: az egyik móddal egy speciális helyet (pl.: étterem, hotel, kereskedelmi egység, nevezetes helyek, stb.) tudunk az azonosítója alapján megjeleníteni, a másik móddal pedig a szélességi és hosszúsági koordináták megadásával tudunk egy térképet megjeleníteni.</p>
@@ -252,6 +256,7 @@ function surbma_premium_wp_shortcodes_page() {
 				<li><code>[google-maps mode="view" lat="27.174516" long="78.042171" maptype="satellite" zoom="20"]</code></li>
 			</ul>
 		</div>
+
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
 			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [google-docs]</h3>
 			<p>Ezzel a rövidkóddal egy Google Dokumentumot illeszthetünk be. Először a Google Dokumentum iframe beágyazó kódját kell lekérni, amiből ki kell másolni a szükséges azonosítót.</p>
@@ -299,6 +304,7 @@ function surbma_premium_wp_shortcodes_page() {
 				<li><code>[google-docs src="ide jön a megfelelő url részlet" width="640" height="480"]</code></li>
 			</ul>
 		</div>
+
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
 			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [google-calendar]</h3>
 			<p>Ezzel a rövidkóddal egy Google Naptárat illeszthetünk be. Először a Google Naptár iframe beágyazó kódját kell lekérni, amiből ki kell másolni a szükséges paramétereket.</p>
@@ -346,6 +352,7 @@ function surbma_premium_wp_shortcodes_page() {
 				<li><code>[google-calendar src="ide jön a kérdőjel utáni url részlet" width="640" height="480"]</code></li>
 			</ul>
 		</div>
+
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
 			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [google-presentation]</h3>
 			<p>Ezzel a rövidkóddal Google Diákat illeszthetünk be. Először a Google Diák iframe beágyazó kódját kell lekérni, amiből ki kell másolni a szükséges paramétereket.</p>
@@ -405,6 +412,7 @@ function surbma_premium_wp_shortcodes_page() {
 				<li><code>[google-presentation id="ide jön a /d/ utáni és az /embed előtti részlet" start="true" width="640" height="480"]</code></li>
 			</ul>
 		</div>
+
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
 			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [google-form]</h3>
 			<p>Ezzel a rövidkóddal egy Google Űrlapot illeszthetünk be. Először a Google Űrlap iframe beágyazó kódját kell lekérni, amiből ki kell másolni a szükséges paramétereket.</p>
@@ -446,6 +454,7 @@ function surbma_premium_wp_shortcodes_page() {
 				<li><code>[google-form id="ide jön a /d/ utáni és a /viewform előtti részlet" width="640" height="480"]</code></li>
 			</ul>
 		</div>
+
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
 			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [facebook-tetszik-gomb]</h3>
 			<p>Facebook "tetszik" gomb beillesztése az oldalra. A kód paraméterezhető és a "megosztás" gomb is engedélyezhető.</p>
@@ -511,6 +520,7 @@ function surbma_premium_wp_shortcodes_page() {
 				<li><code>[facebook-tetszik-gomb url="http://www.sajatdomain.hu"]</code> - Mindig a megadott domain url-jére nyomnak "tetszik"-et.</li>
 			</ul>
 		</div>
+
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
 			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [facebook-megosztas-gomb]</h3>
 			<p>Facebook megosztás gomb beillesztése az oldalra. A kód paraméterezhető.</p>
@@ -552,6 +562,7 @@ function surbma_premium_wp_shortcodes_page() {
 				<li><code>[facebook-megosztas-gomb url="http://www.sajatdomain.hu"]</code> - A megadott domain url-jét osztják meg a gombbal.</li>
 			</ul>
 		</div>
+
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
 			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [facebook-oldal]</h3>
 			<p>Facebook oldal doboz beillesztése az oldalra. A kód paraméterezhető.</p>
@@ -624,6 +635,7 @@ function surbma_premium_wp_shortcodes_page() {
 				<li><code>[facebook-oldal url="https://www.facebook.com/facebookoldal/" tabs="timeline, messages"]</code> - Facebook oldal az idővonal és az üzenetek füllel.</li>
 			</ul>
 		</div>
+
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
 			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [pwp-youtube]</h3>
 			<p>YouTube videó beillesztése a Szöveg Widgetekbe. A shortcode beilleszthető bármilyen bejegyzés vagy oldal tartalmába is, de ott a WordPress saját beillesztési megoldása ajánlott, azaz a YouTube videó url-jét kell egy külön sorba tenni.</p>
@@ -676,6 +688,7 @@ function surbma_premium_wp_shortcodes_page() {
 				<li><code>[pwp-youtube id="AAaa00ZzZz99" width="640" height="480"]</code> - A videó 640 x 480 px méretben jelenik meg.</li>
 			</ul>
 		</div>
+
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
 			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [pwp-vimeo]</h3>
 			<p>Vimeo videó beillesztése a Szöveg Widgetekbe. A shortcode beilleszthető bármilyen bejegyzés vagy oldal tartalmába is, de ott a WordPress saját beillesztési megoldása ajánlott, azaz a Vimeo videó url-jét kell egy külön sorba tenni.</p>
@@ -722,6 +735,7 @@ function surbma_premium_wp_shortcodes_page() {
 				<li><code>[pwp-vimeo id="1234567890" width="640" height="480"]</code> - A videó 640 x 480 px méretben jelenik meg.</li>
 			</ul>
 		</div>
+
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
 			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [pwp-fb-video]</h3>
 			<p>Facebook videó beillesztése a Szöveg Widgetekbe. A shortcode beilleszthető bármilyen bejegyzés vagy oldal tartalmába is.</p>

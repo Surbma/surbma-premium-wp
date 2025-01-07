@@ -5,30 +5,42 @@ function surbma_premium_wp_google_analytics_page() {
 		$_GET['settings-updated'] = false;
 ?>
 <div class="wrap">
-	<div class="premium-wp uk-width-5-6@m">
+	<div class="premium-wp uk-width-2-3@m">
 		<h1 class="dashicons-before dashicons-chart-bar"><?php esc_html_e( 'Premium WP', 'surbma-premium-wp' ); ?>: <?php esc_html_e( 'Google Analytics', 'surbma-premium-wp' ); ?></h1>
 
 		<?php if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == true ) { ?>
 			<div class="updated notice is-dismissible"><p><strong><?php esc_html_e( 'Settings saved.', 'surbma-premium-wp' ); ?></strong></p></div>
 		<?php } ?>
 
-		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
-			<h3 class="uk-card-title"><?php esc_html_e( 'Google Analytics Settings', 'surbma-premium-wp' ); ?></h3>
-			<form method="post" action="options.php">
-				<?php settings_fields( 'surbma_premium_wp_google_analytics_options' ); ?>
-				<?php do_settings_sections( 'surbma-premium-wp-google-analytics' ); ?>
+		<div class="uk-card uk-card-default uk-card-hover uk-margin-top">
+			<div class="uk-card-header">
+				<h3 class="uk-card-title"><?php esc_html_e( 'Google Analytics Settings', 'surbma-premium-wp' ); ?></h3>
+			</div>
 
-				<p><input name="Submit" type="submit" class="button-primary" value="<?php esc_html_e( 'Save Changes', 'surbma-premium-wp' ); ?>" /></p>
-			</form>
+			<div class="uk-card-body">
+				<form method="post" action="options.php">
+					<?php settings_fields( 'surbma_premium_wp_google_analytics_options' ); ?>
+					<?php do_settings_sections( 'surbma-premium-wp-google-analytics' ); ?>
+				</form>
+			</div>
+
+			<div class="uk-card-footer uk-text-right">
+				<input type="submit" class="uk-button uk-button-primary uk-button-large" value="<?php esc_attr_e( 'Save Changes', 'surbma-premium-wp' ); ?>" />
+			</div>
 		</div>
 
-		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
-			<h3 class="uk-card-title">Google Analytics súgó</h3>
-			<p>Google Analytics beállítása a Prémium WordPress honlapokhoz. A bővítmény használata nagyon egyszerű. Itt csak a követő kódot kell megadni és már kész is a beállítás.</p>
-			<ol>
-				<li>Ha még nincs Google Analytics fiókod: <a href="//www.google.hu/analytics" target="_blank">Google Analytics weboldal →</a></li>
-				<li>Ha további segítségre van szükséged: <a href="//support.google.com/analytics/bin/answer.py?hl=hu&answer=1008015&topic=1727146&ctx=topic" target="_blank">Google Analytics súgó →</a></li>
-			</ol>
+		<div class="uk-card uk-card-default uk-card-hover uk-margin-top">
+			<div class="uk-card-header">
+				<h3 class="uk-card-title">Google Analytics súgó</h3>
+			</div>
+
+			<div class="uk-card-body">
+				<p>Google Analytics beállítása a Prémium WordPress honlapokhoz. A bővítmény használata nagyon egyszerű. Itt csak a követő kódot kell megadni és már kész is a beállítás.</p>
+				<ol>
+					<li>Ha még nincs Google Analytics fiókod: <a href="//www.google.hu/analytics" target="_blank">Google Analytics weboldal →</a></li>
+					<li>Ha további segítségre van szükséged: <a href="//support.google.com/analytics/bin/answer.py?hl=hu&answer=1008015&topic=1727146&ctx=topic" target="_blank">Google Analytics súgó →</a></li>
+				</ol>
+			</div>
 		</div>
 	</div>
 </div>
@@ -54,7 +66,7 @@ function surbma_premium_wp_google_analytics_options_string() {
 	$google_analytics_anonymizeip = is_array( $options ) && isset( $options['anonymizeip'] ) && $options['anonymizeip'] ? $options['anonymizeip'] : 0;
 	echo '<input type="checkbox" id="surbma_premium_wp_google_analytics_fields[anonymizeip]" name="surbma_premium_wp_google_analytics_fields[anonymizeip]" value="1"' . checked( 1, $google_analytics_anonymizeip, false ) . '/>';
     echo '<label class="description" for="surbma_premium_wp_google_analytics_fields[anonymizeip]">IP-névtelenítés (IP Anonymization) engedélyezése</label>';
-    echo '<p><em>Bővebb információ az IP-névtelenítésről: <a href="https://support.google.com/analytics/answer/2763052?hl=hu" target="_blank">IP-névtelenítés az Analytics rendszerben →</a></em></p>';
+    echo '<p><em><a href="https://support.google.com/analytics/answer/2763052?hl=hu" target="_blank">IP-névtelenítés az Analytics rendszerben →</a></em></p>';
 }
 
 function surbma_premium_wp_google_analytics_validate( $input ) {
