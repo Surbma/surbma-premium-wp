@@ -252,7 +252,7 @@ add_shortcode( 'ga-link', function( $atts, $content = null ) {
 	return '<a href="' . esc_attr( $href ) . '" class="' . esc_attr( $class ) . '" id="' . esc_attr( $id ) . '" style="' . esc_attr( $style ) . '" title="' . esc_attr( $title ) . '" target="' . esc_attr( $target ) . '" onClick="' . esc_attr( $onclick ) . '">' . do_shortcode( $content ) . '</a>';
 } );
 
-add_shortcode( 'google-maps', function( $atts ) {
+add_shortcode( 'pwp-google-maps', function( $atts ) {
 	$apikey = defined( 'SURBMA_PREMIUM_WP_GOOGLE_MAPS_API' ) ? SURBMA_PREMIUM_WP_GOOGLE_MAPS_API : '';
 
 	extract( shortcode_atts( array(
@@ -276,7 +276,7 @@ add_shortcode( 'google-maps', function( $atts ) {
 	}
 } );
 
-add_shortcode( 'google-docs', function( $atts ) {
+add_shortcode( 'pwp-google-docs', function( $atts ) {
 	extract( shortcode_atts( array(
 		'src' => '',
 		'scrolling' => 'auto',
@@ -284,21 +284,22 @@ add_shortcode( 'google-docs', function( $atts ) {
 		'height' => 500
 	), $atts ) );
 
-	return '<iframe src="https://docs.google.com/document/d/e/' . rawurlencode( $src ) . '" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" frameborder="0" scrolling="' . esc_attr( $scrolling ) . '"></iframe>';
+	return '<iframe src="https://docs.google.com/document/d/e/' . esc_attr( $src ) . '" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" frameborder="0" scrolling="' . esc_attr( $scrolling ) . '"></iframe>';
 } );
 
-add_shortcode( 'google-calendar', function( $atts ) {
+add_shortcode( 'pwp-google-calendar', function( $atts ) {
 	extract( shortcode_atts( array(
 		'src' => '',
-		'scrolling' => 'auto',
-		'width' => 400,
-		'height' => 300
+		'style' => 'border: 0',
+		'width' => 800,
+		'height' => 600,
+		'scrolling' => 'auto'
 	), $atts ) );
 
-	return '<iframe src="https://www.google.com/calendar/embed?' . rawurlencode( $src ) . '" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" frameborder="0" scrolling="' . esc_attr( $scrolling ) . '"></iframe>';
+	return '<iframe src="https://calendar.google.com/calendar/embed?' . esc_attr( $src ) . '" style="' . esc_attr( $style ) . '" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" frameborder="0" scrolling="' . esc_attr( $scrolling ) . '"></iframe>';
 } );
 
-add_shortcode( 'google-presentation', function( $atts ) {
+add_shortcode( 'pwp-google-presentation', function( $atts ) {
 	extract( shortcode_atts( array(
 		'id' => '',
 		'start' => 'false',
@@ -311,7 +312,7 @@ add_shortcode( 'google-presentation', function( $atts ) {
 	return '<iframe src="https://docs.google.com/presentation/d/' . rawurlencode( $id ) . '/embed?start=' . rawurlencode( $start ) . '&loop=' . rawurlencode( $loop ) . '&delayms=' . rawurlencode( $delayms ) . '" frameborder="0" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>';
 } );
 
-add_shortcode( 'google-form', function( $atts ) {
+add_shortcode( 'pwp-google-form', function( $atts ) {
 	extract( shortcode_atts( array(
 		'id' => '',
 		'width' => 760,

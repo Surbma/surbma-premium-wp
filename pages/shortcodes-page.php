@@ -175,7 +175,7 @@ function surbma_premium_wp_shortcodes_page() {
 		</div>
 
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
-			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [google-maps]</h3>
+			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [pwp-google-maps]</h3>
 			<p>Ezzel a rövidkóddal egy Google Térképet illeszthetünk be. Két féle térkép módot tudunk beállítani: az egyik móddal egy speciális helyet (pl.: étterem, hotel, kereskedelmi egység, nevezetes helyek, stb.) tudunk az azonosítója alapján megjeleníteni, a másik móddal pedig a szélességi és hosszúsági koordináták megadásával tudunk egy térképet megjeleníteni.</p>
 			<div class="uk-overflow-container">
 				<table class="uk-table uk-table-hover uk-table-striped">
@@ -253,13 +253,13 @@ function surbma_premium_wp_shortcodes_page() {
 			</div>
 			<h4>Használata:</h4>
 			<ul>
-				<li><code>[google-maps place_id="ChIJbf8C1yFxdDkR3n12P4DkKt0"]</code></li>
-				<li><code>[google-maps mode="view" lat="27.174516" long="78.042171" maptype="satellite" zoom="20"]</code></li>
+				<li><code>[pwp-google-maps place_id="ChIJbf8C1yFxdDkR3n12P4DkKt0"]</code></li>
+				<li><code>[pwp-google-maps mode="view" lat="27.174516" long="78.042171" maptype="satellite" zoom="20"]</code></li>
 			</ul>
 		</div>
 
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
-			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [google-docs]</h3>
+			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [pwp-google-docs]</h3>
 			<p>Ezzel a rövidkóddal egy Google Dokumentumot illeszthetünk be. Először a Google Dokumentum iframe beágyazó kódját kell lekérni, amiből ki kell másolni a szükséges azonosítót.</p>
 			<div class="uk-overflow-container">
 				<table class="uk-table uk-table-hover uk-table-striped">
@@ -301,13 +301,13 @@ function surbma_premium_wp_shortcodes_page() {
 			</div>
 			<h4>Használata:</h4>
 			<ul>
-				<li><code>[google-docs src="ide jön a megfelelő url részlet"]</code></li>
-				<li><code>[google-docs src="ide jön a megfelelő url részlet" width="640" height="480"]</code></li>
+				<li><code>[pwp-google-docs src="ide jön a megfelelő url részlet"]</code></li>
+				<li><code>[pwp-google-docs src="ide jön a megfelelő url részlet" width="640" height="480"]</code></li>
 			</ul>
 		</div>
 
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
-			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [google-calendar]</h3>
+			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [pwp-google-calendar]</h3>
 			<p>Ezzel a rövidkóddal egy Google Naptárat illeszthetünk be. Először a Google Naptár iframe beágyazó kódját kell lekérni, amiből ki kell másolni a szükséges paramétereket.</p>
 			<div class="uk-overflow-container">
 				<table class="uk-table uk-table-hover uk-table-striped">
@@ -327,16 +327,22 @@ function surbma_premium_wp_shortcodes_page() {
 							<td>NINCS</td>
 						</tr>
 						<tr>
+							<td><code>style</code></td>
+							<td>Egyedi stílusok az iframe kódhoz.</td>
+							<td>CSS</td>
+							<td>NINCS</td>
+						</tr>
+						<tr>
 							<td><code>width</code></td>
 							<td>A Google Naptár szélességét lehet ezzel a paraméterrel meghatározni pixelben.</td>
 							<td>Szám</td>
-							<td>400</td>
+							<td>800</td>
 						</tr>
 						<tr>
 							<td><code>height</code></td>
 							<td>A Google Naptár magasságát lehet ezzel a paraméterrel meghatározni pixelben.</td>
 							<td>Szám</td>
-							<td>300</td>
+							<td>600</td>
 						</tr>
 						<tr>
 							<td><code>scrolling</code></td>
@@ -349,13 +355,13 @@ function surbma_premium_wp_shortcodes_page() {
 			</div>
 			<h4>Használata:</h4>
 			<ul>
-				<li><code>[google-calendar src="ide jön a kérdőjel utáni url részlet"]</code></li>
-				<li><code>[google-calendar src="ide jön a kérdőjel utáni url részlet" width="640" height="480"]</code></li>
+				<li><code>[pwp-google-calendar src="ide jön a kérdőjel utáni url részlet"]</code></li>
+				<li><code>[pwp-google-calendar src="ide jön a kérdőjel utáni url részlet" width="640" height="480"]</code></li>
 			</ul>
 		</div>
 
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
-			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [google-presentation]</h3>
+			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [pwp-google-presentation]</h3>
 			<p>Ezzel a rövidkóddal Google Diákat illeszthetünk be. Először a Google Diák iframe beágyazó kódját kell lekérni, amiből ki kell másolni a szükséges paramétereket.</p>
 			<div class="uk-overflow-container">
 				<table class="uk-table uk-table-hover uk-table-striped">
@@ -409,13 +415,13 @@ function surbma_premium_wp_shortcodes_page() {
 			</div>
 			<h4>Használata:</h4>
 			<ul>
-				<li><code>[google-presentation id="ide jön a /d/ utáni és az /embed előtti részlet"]</code></li>
-				<li><code>[google-presentation id="ide jön a /d/ utáni és az /embed előtti részlet" start="true" width="640" height="480"]</code></li>
+				<li><code>[pwp-google-presentation id="ide jön a /d/ utáni és az /embed előtti részlet"]</code></li>
+				<li><code>[pwp-google-presentation id="ide jön a /d/ utáni és az /embed előtti részlet" start="true" width="640" height="480"]</code></li>
 			</ul>
 		</div>
 
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
-			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [google-form]</h3>
+			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [pwp-google-form]</h3>
 			<p>Ezzel a rövidkóddal egy Google Űrlapot illeszthetünk be. Először a Google Űrlap iframe beágyazó kódját kell lekérni, amiből ki kell másolni a szükséges paramétereket.</p>
 			<div class="uk-overflow-container">
 				<table class="uk-table uk-table-hover uk-table-striped">
@@ -451,8 +457,8 @@ function surbma_premium_wp_shortcodes_page() {
 			</div>
 			<h4>Használata:</h4>
 			<ul>
-				<li><code>[google-form id="ide jön a /d/ utáni és a /viewform előtti részlet"]</code></li>
-				<li><code>[google-form id="ide jön a /d/ utáni és a /viewform előtti részlet" width="640" height="480"]</code></li>
+				<li><code>[pwp-google-form id="ide jön a /d/ utáni és a /viewform előtti részlet"]</code></li>
+				<li><code>[pwp-google-form id="ide jön a /d/ utáni és a /viewform előtti részlet" width="640" height="480"]</code></li>
 			</ul>
 		</div>
 
