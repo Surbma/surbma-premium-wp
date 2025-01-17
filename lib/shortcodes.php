@@ -332,9 +332,9 @@ add_shortcode( 'pwp-youtube', function( $atts ) {
 	), $atts ) );
 
 	if ( $nocookie ) {
-		return '<iframe src="https://www.youtube-nocookie.com/embed/' . rawurlencode( $id ) . '" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" frameborder="0" style="' . esc_attr( $style ) . '" allowfullscreen></iframe>';
+		return '<iframe src="https://www.youtube-nocookie.com/embed/' . esc_attr( $id ) . '" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" frameborder="0" style="' . esc_attr( $style ) . '" allowfullscreen></iframe>';
 	} else {
-		return '<iframe src="https://www.youtube.com/embed/' . rawurlencode( $id ) . '" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" frameborder="0" style="' . esc_attr( $style ) . '" allowfullscreen></iframe>';
+		return '<iframe src="https://www.youtube.com/embed/' . esc_attr( $id ) . '" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" frameborder="0" style="' . esc_attr( $style ) . '" allowfullscreen></iframe>';
 	}
 } );
 
