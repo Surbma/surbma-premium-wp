@@ -17,16 +17,16 @@ function surbma_premium_wp_google_analytics_page() {
 				<h3 class="uk-card-title"><?php esc_html_e( 'Google Analytics Settings', 'surbma-premium-wp' ); ?></h3>
 			</div>
 
-			<div class="uk-card-body">
-				<form method="post" action="options.php">
+			<form method="post" action="options.php">
+				<div class="uk-card-body">
 					<?php settings_fields( 'surbma_premium_wp_google_analytics_options' ); ?>
 					<?php do_settings_sections( 'surbma-premium-wp-google-analytics' ); ?>
-				</form>
-			</div>
+				</div>
 
-			<div class="uk-card-footer uk-text-right">
-				<input type="submit" class="uk-button uk-button-primary uk-button-large" value="<?php esc_attr_e( 'Save Changes', 'surbma-premium-wp' ); ?>" />
-			</div>
+				<div class="uk-card-footer uk-text-right">
+					<input type="submit" class="uk-button uk-button-primary uk-button-large" value="<?php esc_attr_e( 'Save Changes', 'surbma-premium-wp' ); ?>" />
+				</div>
+			</form>
 		</div>
 
 		<div class="uk-card uk-card-default uk-card-hover uk-margin-top">
