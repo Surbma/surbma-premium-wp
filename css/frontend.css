@@ -2,23 +2,23 @@
 .pwp-share-buttons li{display:inline-block;float:right;margin:0 !important;padding:0 5px !important;text-align:center;border-left:1px solid #ddd;}
 .pwp-share-buttons li:before,.pwp-share-buttons li:after{display:none;}
 .pwp-share-buttons li:last-child{border-left:0;}
-.pwp-share-buttons li a{display:block;text-decoration:none;width:35px;height:35px;padding:5px;}
+.pwp-share-buttons li a{display:block;text-decoration:none;width:35px;height:35px;padding:5px;box-sizing:border-box;}
 .pwp-share-buttons li a:hover{text-decoration:none;}
-.pwp-share-buttons li a span{background-color: #aaa;background-size: 25px;display: inline-block;width: 25px;height: 25px;}
+.pwp-share-buttons li a span{background-color:#aaa;background-size:25px;display:inline-block;width:25px;height:25px;}
 .pwp-share-buttons li a:hover span{background-color:#000;}
 .pwp-share-buttons .fb_iframe_widget span{float:left;}
 .pwp-share-buttons iframe{margin:0;padding:0;}
 
-.pwp-share-buttons .pwp-facebook span{-webkit-mask-image: url(../images/social-logos/facebook.svg);mask-image: url(../images/social-logos/facebook.svg);}
-.pwp-share-buttons .pwp-twitter span{-webkit-mask-image: url(../images/social-logos/twitter.svg);mask-image: url(../images/social-logos/twitter.svg);}
-.pwp-share-buttons .pwp-linkedin span{-webkit-mask-image: url(../images/social-logos/linkedin.svg);mask-image: url(../images/social-logos/linkedin.svg);}
-.pwp-share-buttons .pwp-pinterest span{-webkit-mask-image: url(../images/social-logos/pinterest.svg);mask-image: url(../images/social-logos/pinterest.svg);}
-.pwp-share-buttons .pwp-email span{-webkit-mask-image: url(../images/social-logos/mail.svg);mask-image: url(../images/social-logos/mail.svg);}
+.pwp-share-buttons .pwp-facebook span{-webkit-mask-image:url(../images/social-logos/facebook.svg);mask-image:url(../images/social-logos/facebook.svg);}
+.pwp-share-buttons .pwp-twitter span{-webkit-mask-image:url(../images/social-logos/twitter.svg);mask-image:url(../images/social-logos/twitter.svg);}
+.pwp-share-buttons .pwp-linkedin span{-webkit-mask-image:url(../images/social-logos/linkedin.svg);mask-image:url(../images/social-logos/linkedin.svg);}
+.pwp-share-buttons .pwp-pinterest span{-webkit-mask-image:url(../images/social-logos/pinterest.svg);mask-image:url(../images/social-logos/pinterest.svg);}
+.pwp-share-buttons .pwp-email span{-webkit-mask-image:url(../images/social-logos/mail.svg);mask-image:url(../images/social-logos/mail.svg);}
 
-.pwp-simple-colored .pwp-facebook span{background-color: #3b5998;}
-.pwp-simple-colored .pwp-twitter span{background-color: #00aced;}
-.pwp-simple-colored .pwp-linkedin span{background-color: #007bb5;}
-.pwp-simple-colored .pwp-pinterest span{background-color: #cb2027;}
+.pwp-simple-colored .pwp-facebook span{background-color:#3b5998;}
+.pwp-simple-colored .pwp-twitter span{background-color:#00aced;}
+.pwp-simple-colored .pwp-linkedin span{background-color:#007bb5;}
+.pwp-simple-colored .pwp-pinterest span{background-color:#cb2027;}
 
 .pwp-share-buttons.pwp-button-square li,
 .pwp-share-buttons.pwp-button-rounded li,
@@ -30,7 +30,7 @@
 .pwp-share-buttons.pwp-button-square li a span,
 .pwp-share-buttons.pwp-button-rounded li a span,
 .pwp-share-buttons.pwp-button-circle li a span{background-color:#fff;}
-.pwp-share-buttons.pwp-button-circle li a span{background-size: 19px;width: 19px;height: 19px;}
+.pwp-share-buttons.pwp-button-circle li a span{background-size:19px;width:19px;height:19px;}
 .pwp-share-buttons.pwp-button-square li a:hover,
 .pwp-share-buttons.pwp-button-rounded li a:hover,
 .pwp-share-buttons.pwp-button-circle li a:hover{background-color:#000;}
