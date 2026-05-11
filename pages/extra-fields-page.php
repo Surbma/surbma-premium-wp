@@ -44,7 +44,7 @@ function surbma_premium_wp_extra_fields_page() {
 								<label class="description" for="surbma_premium_wp_extra_fields[name]">Név</label>
 							</th>
 							<td>
-								<input id="surbma_premium_wp_extra_fields[name]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[name]" value="<?php esc_attr( $name ); ?>" /><br>
+								<input id="surbma_premium_wp_extra_fields[name]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[name]" value="<?php echo esc_attr( $name ); ?>" /><br>
 								<span class="description"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[nev]</code>
 							</td>
 						</tr>
@@ -53,7 +53,7 @@ function surbma_premium_wp_extra_fields_page() {
 								<label class="description" for="surbma_premium_wp_extra_fields[company]">Cégnév</label>
 							</th>
 							<td>
-								<input id="surbma_premium_wp_extra_fields[company]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[company]" value="<?php esc_attr( $company ); ?>" /><br>
+								<input id="surbma_premium_wp_extra_fields[company]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[company]" value="<?php echo esc_attr( $company ); ?>" /><br>
 								<span class="description"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[ceg]</code>
 							</td>
 						</tr>
@@ -62,7 +62,7 @@ function surbma_premium_wp_extra_fields_page() {
 								<label class="description" for="surbma_premium_wp_extra_fields[address]">Cím</label>
 							</th>
 							<td>
-								<input id="surbma_premium_wp_extra_fields[address]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[address]" value="<?php esc_attr( $address ); ?>" /><br>
+								<input id="surbma_premium_wp_extra_fields[address]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[address]" value="<?php echo esc_attr( $address ); ?>" /><br>
 								<span class="description"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[cim]</code>
 							</td>
 						</tr>
@@ -71,7 +71,7 @@ function surbma_premium_wp_extra_fields_page() {
 								<label class="description" for="surbma_premium_wp_extra_fields[vat]">Adószám</label>
 							</th>
 							<td>
-								<input id="surbma_premium_wp_extra_fields[vat]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[vat]" value="<?php esc_attr( $vat ); ?>" /><br>
+								<input id="surbma_premium_wp_extra_fields[vat]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[vat]" value="<?php echo esc_attr( $vat ); ?>" /><br>
 								<span class="description"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[adoszam]</code>
 							</td>
 						</tr>
@@ -80,7 +80,7 @@ function surbma_premium_wp_extra_fields_page() {
 								<label class="description" for="surbma_premium_wp_extra_fields[companyid]">Cégjegyzékszám</label>
 							</th>
 							<td>
-								<input id="surbma_premium_wp_extra_fields[companyid]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[companyid]" value="<?php esc_attr( $companyid ); ?>" /><br>
+								<input id="surbma_premium_wp_extra_fields[companyid]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[companyid]" value="<?php echo esc_attr( $companyid ); ?>" /><br>
 								<span class="description"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[cegjegyzekszam]</code>
 							</td>
 						</tr>
@@ -89,7 +89,7 @@ function surbma_premium_wp_extra_fields_page() {
 								<label class="description" for="surbma_premium_wp_extra_fields[bankid]">Bankszámlaszám</label>
 							</th>
 							<td>
-								<input id="surbma_premium_wp_extra_fields[bankid]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[bankid]" value="<?php esc_attr( $bankid ); ?>" /><br>
+								<input id="surbma_premium_wp_extra_fields[bankid]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[bankid]" value="<?php echo esc_attr( $bankid ); ?>" /><br>
 								<span class="description"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[bankszamlaszam]</code>
 							</td>
 						</tr>
@@ -98,7 +98,7 @@ function surbma_premium_wp_extra_fields_page() {
 								<label class="description" for="surbma_premium_wp_extra_fields[mobilephone]">Mobiltelefon</label>
 							</th>
 							<td>
-								<input id="surbma_premium_wp_extra_fields[mobilephone]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[mobilephone]" value="<?php esc_attr( $mobilephone ); ?>" /><br>
+								<input id="surbma_premium_wp_extra_fields[mobilephone]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[mobilephone]" value="<?php echo esc_attr( $mobilephone ); ?>" /><br>
 								<span class="description"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[mobiltelefon]</code>
 							</td>
 						</tr>
@@ -107,7 +107,7 @@ function surbma_premium_wp_extra_fields_page() {
 								<label class="description" for="surbma_premium_wp_extra_fields[phone]">Telefonszám</label>
 							</th>
 							<td>
-								<input id="surbma_premium_wp_extra_fields[phone]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[phone]" value="<?php esc_attr( $phone ); ?>" /><br>
+								<input id="surbma_premium_wp_extra_fields[phone]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[phone]" value="<?php echo esc_attr( $phone ); ?>" /><br>
 								<span class="description"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[telefon]</code>
 							</td>
 						</tr>
@@ -116,7 +116,7 @@ function surbma_premium_wp_extra_fields_page() {
 								<label class="description" for="surbma_premium_wp_extra_fields[fax]">Fax</label>
 							</th>
 							<td>
-								<input id="surbma_premium_wp_extra_fields[fax]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[fax]" value="<?php esc_attr( $fax ); ?>" /><br>
+								<input id="surbma_premium_wp_extra_fields[fax]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[fax]" value="<?php echo esc_attr( $fax ); ?>" /><br>
 								<span class="description"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[fax]</code>
 							</td>
 						</tr>
@@ -125,7 +125,7 @@ function surbma_premium_wp_extra_fields_page() {
 								<label class="description" for="surbma_premium_wp_extra_fields[email]">Email cím</label>
 							</th>
 							<td>
-								<input id="surbma_premium_wp_extra_fields[email]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[email]" value="<?php esc_attr( $email ); ?>" /><br>
+								<input id="surbma_premium_wp_extra_fields[email]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[email]" value="<?php echo esc_attr( $email ); ?>" /><br>
 								<span class="description"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[email]</code>
 							</td>
 						</tr>
@@ -134,7 +134,7 @@ function surbma_premium_wp_extra_fields_page() {
 								<label class="description" for="surbma_premium_wp_extra_fields[skype]">Skype cím</label>
 							</th>
 							<td>
-								<input id="surbma_premium_wp_extra_fields[skype]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[skype]" value="<?php esc_attr( $skype ); ?>" /><br>
+								<input id="surbma_premium_wp_extra_fields[skype]" class="regular-text" type="text" name="surbma_premium_wp_extra_fields[skype]" value="<?php echo esc_attr( $skype ); ?>" /><br>
 								<span class="description"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>:</span> <code>[skype]</code>
 							</td>
 						</tr>

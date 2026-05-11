@@ -239,7 +239,7 @@ add_shortcode( 'ga-link', function( $atts, $content = null ) {
 		'eventlabel' => ''
 	), $atts ) );
 
-	if( $eventLabel == '' ) :
+	if( !isset( $eventLabel ) || $eventLabel == '' ) :
 		$eventLabel = $href;
 	endif;
 

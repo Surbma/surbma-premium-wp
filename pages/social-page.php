@@ -1,44 +1,48 @@
 <?php
 
-$sharebuttonsplace_options = array(
-	'before' => array(
-		'value' => 'before',
-		'label' => __( 'Tartalom előtt', 'surbma-premium-wp' )
-	),
-	'after' => array(
-		'value' => 'after',
-		'label' => __( 'Tartalom után', 'surbma-premium-wp' )
-	),
-	'before-and-after' => array(
-		'value' => 'before-and-after',
-		'label' => __( 'Tartalom előtt és után', 'surbma-premium-wp' )
-	)
-);
+add_action( 'init', function() {
+	global $sharebuttonsplace_options, $sharebuttonsstyle_options;
 
-$sharebuttonsstyle_options = array(
-	'simple-mono' => array(
-		'value' => 'simple-mono',
-		'label' => __( 'Simple Mono', 'surbma-premium-wp' )
-	),
-	'simple-colored' => array(
-		'value' => 'simple-colored',
-		'label' => __( 'Simple Colored', 'surbma-premium-wp' )
-	),
-	'button-square' => array(
-		'value' => 'button-square',
-		'label' => __( 'Button Square', 'surbma-premium-wp' )
-	),
-	'button-rounded' => array(
-		'value' => 'button-rounded',
-		'label' => __( 'Button Rounded', 'surbma-premium-wp' )
-	),
-	'button-circle' => array(
-		'value' => 'button-circle',
-		'label' => __( 'Button Circle', 'surbma-premium-wp' )
-	)
-);
+	$sharebuttonsplace_options = array(
+		'before' => array(
+			'value' => 'before',
+			'label' => __( 'Tartalom előtt', 'surbma-premium-wp' ),
+		),
+		'after' => array(
+			'value' => 'after',
+			'label' => __( 'Tartalom után', 'surbma-premium-wp' ),
+		),
+		'before-and-after' => array(
+			'value' => 'before-and-after',
+			'label' => __( 'Tartalom előtt és után', 'surbma-premium-wp' ),
+		),
+	);
 
-function surbma_premium_wp_social_page() {
+	$sharebuttonsstyle_options = array(
+		'simple-mono' => array(
+			'value' => 'simple-mono',
+			'label' => __( 'Simple Mono', 'surbma-premium-wp' ),
+		),
+		'simple-colored' => array(
+			'value' => 'simple-colored',
+			'label' => __( 'Simple Colored', 'surbma-premium-wp' ),
+		),
+		'button-square' => array(
+			'value' => 'button-square',
+			'label' => __( 'Button Square', 'surbma-premium-wp' ),
+		),
+		'button-rounded' => array(
+			'value' => 'button-rounded',
+			'label' => __( 'Button Rounded', 'surbma-premium-wp' ),
+		),
+		'button-circle' => array(
+			'value' => 'button-circle',
+			'label' => __( 'Button Circle', 'surbma-premium-wp' ),
+		),
+	);
+}, 10 );
+
+$GLOBALS['surbma_premium_wp_social_page_callback'] = function() {
 	global $sharebuttonsplace_options;
 	global $sharebuttonsstyle_options;
 
@@ -167,35 +171,38 @@ function surbma_premium_wp_social_page() {
 	</div>
 </div>
 <?php
-}
+};
 
 add_action( 'admin_init', function() {
-	register_setting( 'surbma_premium_wp_social_options', 'surbma_premium_wp_social_fields', 'surbma_premium_wp_social_fields_validate' );
+	register_setting(
+		'surbma_premium_wp_social_options',
+		'surbma_premium_wp_social_fields',
+		array(
+			'sanitize_callback' => function( $input ) {
+				global $sharebuttonsplace_options, $sharebuttonsstyle_options;
+
+				$place_opts = ( isset( $sharebuttonsplace_options ) && is_array( $sharebuttonsplace_options ) ) ? $sharebuttonsplace_options : array();
+				$style_opts = ( isset( $sharebuttonsstyle_options ) && is_array( $sharebuttonsstyle_options ) ) ? $sharebuttonsstyle_options : array();
+
+				// Say our text option must be safe text with no HTML tags
+				$input['fbpageurl'] = wp_filter_nohtml_kses( $input['fbpageurl'] );
+				$input['fbpageurl'] = esc_url_raw( $input['fbpageurl'] );
+				$input['socialcpts'] = wp_filter_nohtml_kses( str_replace( ' ', '', $input['socialcpts'] ) );
+
+				$input['fblikeposts'] = isset( $input['fblikeposts'] ) && $input['fblikeposts'] == 1 ? 1 : 0;
+				$input['tweetposts'] = isset( $input['tweetposts'] ) && $input['tweetposts'] == 1 ? 1 : 0;
+				$input['linkedinposts'] = isset( $input['linkedinposts'] ) && $input['linkedinposts'] == 1 ? 1 : 0;
+				$input['pinitposts'] = isset( $input['pinitposts'] ) && $input['pinitposts'] == 1 ? 1 : 0;
+				$input['emailposts'] = isset( $input['emailposts'] ) && $input['emailposts'] == 1 ? 1 : 0;
+				$input['socialposts'] = isset( $input['socialposts'] ) && $input['socialposts'] == 1 ? 1 : 0;
+				$input['socialpages'] = isset( $input['socialpages'] ) && $input['socialpages'] == 1 ? 1 : 0;
+
+				// Our select option must actually be in our array of select options
+				$input['sharebuttonsplace'] = isset( $input['sharebuttonsplace'] ) && array_key_exists( $input['sharebuttonsplace'], $place_opts ) ? $input['sharebuttonsplace'] : 'before';
+				$input['sharebuttonsstyle'] = isset( $input['sharebuttonsstyle'] ) && array_key_exists( $input['sharebuttonsstyle'], $style_opts ) ? $input['sharebuttonsstyle'] : 'simple-mono';
+
+				return $input;
+			},
+		)
+	);
 } );
-
-/**
- * Sanitize and validate input. Accepts an array, return a sanitized array.
- */
-function surbma_premium_wp_social_fields_validate( $input ) {
-	global $sharebuttonsplace_options;
-	global $sharebuttonsstyle_options;
-
-	// Say our text option must be safe text with no HTML tags
-	$input['fbpageurl'] = wp_filter_nohtml_kses( $input['fbpageurl'] );
-	$input['fbpageurl'] = esc_url_raw( $input['fbpageurl'] );
-	$input['socialcpts'] = wp_filter_nohtml_kses( str_replace( ' ', '', $input['socialcpts'] ) );
-
-	$input['fblikeposts'] = isset( $input['fblikeposts'] ) && $input['fblikeposts'] == 1 ? 1 : 0;
-	$input['tweetposts'] = isset( $input['tweetposts'] ) && $input['tweetposts'] == 1 ? 1 : 0;
-	$input['linkedinposts'] = isset( $input['linkedinposts'] ) && $input['linkedinposts'] == 1 ? 1 : 0;
-	$input['pinitposts'] = isset( $input['pinitposts'] ) && $input['pinitposts'] == 1 ? 1 : 0;
-	$input['emailposts'] = isset( $input['emailposts'] ) && $input['emailposts'] == 1 ? 1 : 0;
-	$input['socialposts'] = isset( $input['socialposts'] ) && $input['socialposts'] == 1 ? 1 : 0;
-	$input['socialpages'] = isset( $input['socialpages'] ) && $input['socialpages'] == 1 ? 1 : 0;
-
-	// Our select option must actually be in our array of select options
-	$input['sharebuttonsplace'] = array_key_exists( $input['sharebuttonsplace'], $sharebuttonsplace_options ) ? $input['sharebuttonsplace'] : 'before';
-	$input['sharebuttonsstyle'] = array_key_exists( $input['sharebuttonsstyle'], $sharebuttonsstyle_options ) ? $input['sharebuttonsstyle'] : 'simple-mono';
-
-	return $input;
-}

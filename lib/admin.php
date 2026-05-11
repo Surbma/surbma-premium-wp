@@ -48,7 +48,7 @@ add_action( 'admin_menu', function() {
 		__( 'Social Integration', 'surbma-premium-wp' ),
 		'manage_options',
 		'surbma-premium-wp-social',
-		'surbma_premium_wp_social_page'
+		$GLOBALS['surbma_premium_wp_social_page_callback']
 	);
 	add_submenu_page(
 		'surbma-premium-wp-menu',
