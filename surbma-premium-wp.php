@@ -5,7 +5,7 @@ Plugin Name: Surbma | Premium WP
 Plugin URI: https://surbma.com/wordpress-plugins/
 Description: Useful extensions for your WordPress website.
 
-Version: 11.4
+Version: 11.5
 
 Author: Surbma
 Author URI: https://surbma.com/

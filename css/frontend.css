@@ -4,48 +4,86 @@
 .pwp-share-buttons li:last-child{border-left:0;}
 .pwp-share-buttons li a{display:block;text-decoration:none;width:35px;height:35px;padding:5px;box-sizing:border-box;}
 .pwp-share-buttons li a:hover{text-decoration:none;}
-.pwp-share-buttons li a span{background-color:#aaa;background-size:25px;display:inline-block;width:25px;height:25px;}
-.pwp-share-buttons li a:hover span{background-color:#000;}
+.pwp-share-buttons li a span,
+.pwp-share-buttons .pwp-copy-link button span{background-color:#aaa;background-size:25px;display:inline-block;width:25px;height:25px;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;}
+.pwp-share-buttons li a:hover span,
+.pwp-share-buttons .pwp-copy-link button:hover .pwp-copy-icon{background-color:#000;}
 .pwp-share-buttons .fb_iframe_widget span{float:left;}
 .pwp-share-buttons iframe{margin:0;padding:0;}
 
 .pwp-share-buttons .pwp-facebook span{-webkit-mask-image:url(../images/social-logos/facebook.svg);mask-image:url(../images/social-logos/facebook.svg);}
-.pwp-share-buttons .pwp-twitter span{-webkit-mask-image:url(../images/social-logos/twitter.svg);mask-image:url(../images/social-logos/twitter.svg);}
+.pwp-share-buttons .pwp-x span{-webkit-mask-image:url(../images/social-logos/x.svg);mask-image:url(../images/social-logos/x.svg);background-color:#888;}
+.pwp-share-buttons .pwp-x a:hover span{background-color:#000;}
 .pwp-share-buttons .pwp-linkedin span{-webkit-mask-image:url(../images/social-logos/linkedin.svg);mask-image:url(../images/social-logos/linkedin.svg);}
 .pwp-share-buttons .pwp-pinterest span{-webkit-mask-image:url(../images/social-logos/pinterest.svg);mask-image:url(../images/social-logos/pinterest.svg);}
 .pwp-share-buttons .pwp-email span{-webkit-mask-image:url(../images/social-logos/mail.svg);mask-image:url(../images/social-logos/mail.svg);}
+.pwp-share-buttons .pwp-copy-link .pwp-copy-icon{-webkit-mask-image:url(../images/social-logos/copy.svg);mask-image:url(../images/social-logos/copy.svg);}
+.pwp-share-buttons .pwp-copy-link .pwp-check-icon{-webkit-mask-image:url(../images/social-logos/check.svg);mask-image:url(../images/social-logos/check.svg);background-color:#fff;}
+
+.pwp-share-buttons .pwp-copy-link button{position:relative;display:block;width:35px;height:35px;padding:5px;box-sizing:border-box;border:0;background:transparent;cursor:pointer;line-height:0;transition:background-color 1s ease;}
+.pwp-share-buttons .pwp-copy-link .pwp-copy-icon,
+.pwp-share-buttons .pwp-copy-link .pwp-check-icon{transition:opacity 1s ease;}
+.pwp-share-buttons .pwp-copy-link .pwp-check-icon{position:absolute;top:5px;left:5px;opacity:0;pointer-events:none;}
+.pwp-share-buttons .pwp-copy-link button.is-copied{background-color:#000;}
+.pwp-share-buttons .pwp-copy-link button.is-copied .pwp-copy-icon{opacity:0;}
+.pwp-share-buttons .pwp-copy-link button.is-copied .pwp-check-icon{opacity:1;}
+.pwp-share-buttons .pwp-copy-link button.is-copied:hover .pwp-check-icon{background-color:#fff;}
 
 .pwp-simple-colored .pwp-facebook span{background-color:#3b5998;}
-.pwp-simple-colored .pwp-twitter span{background-color:#00aced;}
 .pwp-simple-colored .pwp-linkedin span{background-color:#007bb5;}
 .pwp-simple-colored .pwp-pinterest span{background-color:#cb2027;}
+.pwp-simple-colored .pwp-x a:hover span{background-color:#000;}
 
+.pwp-share-buttons.pwp-button-square .pwp-x a,
+.pwp-share-buttons.pwp-button-rounded .pwp-x a,
+.pwp-share-buttons.pwp-button-circle .pwp-x a{background-color:#888;}
 .pwp-share-buttons.pwp-button-square li,
 .pwp-share-buttons.pwp-button-rounded li,
 .pwp-share-buttons.pwp-button-circle li{border-left:0;}
 .pwp-share-buttons.pwp-button-square li a,
 .pwp-share-buttons.pwp-button-rounded li a,
 .pwp-share-buttons.pwp-button-circle li a{background-color:#aaa;}
+.pwp-share-buttons.pwp-button-square .pwp-copy-link button,
+.pwp-share-buttons.pwp-button-rounded .pwp-copy-link button,
+.pwp-share-buttons.pwp-button-circle .pwp-copy-link button{background-color:#aaa;}
 .pwp-share-buttons.pwp-button-circle li a{padding:8px;}
+.pwp-share-buttons.pwp-button-circle .pwp-copy-link button{padding:8px;}
 .pwp-share-buttons.pwp-button-square li a span,
 .pwp-share-buttons.pwp-button-rounded li a span,
-.pwp-share-buttons.pwp-button-circle li a span{background-color:#fff;}
-.pwp-share-buttons.pwp-button-circle li a span{background-size:19px;width:19px;height:19px;}
+.pwp-share-buttons.pwp-button-circle li a span,
+.pwp-share-buttons.pwp-button-square .pwp-copy-link button span,
+.pwp-share-buttons.pwp-button-rounded .pwp-copy-link button span,
+.pwp-share-buttons.pwp-button-circle .pwp-copy-link button span{background-color:#fff;}
+.pwp-share-buttons.pwp-button-circle li a span,
+.pwp-share-buttons.pwp-button-circle .pwp-copy-link button span{background-size:19px;width:19px;height:19px;}
 .pwp-share-buttons.pwp-button-square li a:hover,
 .pwp-share-buttons.pwp-button-rounded li a:hover,
 .pwp-share-buttons.pwp-button-circle li a:hover{background-color:#000;}
+.pwp-share-buttons.pwp-button-square .pwp-copy-link button:hover,
+.pwp-share-buttons.pwp-button-rounded .pwp-copy-link button:hover,
+.pwp-share-buttons.pwp-button-circle .pwp-copy-link button:hover{background-color:#000;}
 .pwp-share-buttons.pwp-button-square .pwp-facebook a,
 .pwp-share-buttons.pwp-button-rounded .pwp-facebook a,
 .pwp-share-buttons.pwp-button-circle .pwp-facebook a{background-color:#3b5998;}
-.pwp-share-buttons.pwp-button-square .pwp-twitter a,
-.pwp-share-buttons.pwp-button-rounded .pwp-twitter a,
-.pwp-share-buttons.pwp-button-circle .pwp-twitter a{background-color:#00aced;}
 .pwp-share-buttons.pwp-button-square .pwp-linkedin a,
 .pwp-share-buttons.pwp-button-rounded .pwp-linkedin a,
 .pwp-share-buttons.pwp-button-circle .pwp-linkedin a{background-color:#007bb5;}
 .pwp-share-buttons.pwp-button-square .pwp-pinterest a,
 .pwp-share-buttons.pwp-button-rounded .pwp-pinterest a,
 .pwp-share-buttons.pwp-button-circle .pwp-pinterest a{background-color:#cb2027;}
+.pwp-share-buttons.pwp-button-square .pwp-x a:hover span,
+.pwp-share-buttons.pwp-button-rounded .pwp-x a:hover span,
+.pwp-share-buttons.pwp-button-circle .pwp-x a:hover span,
+.pwp-share-buttons.pwp-button-square .pwp-copy-link button:hover .pwp-copy-icon,
+.pwp-share-buttons.pwp-button-rounded .pwp-copy-link button:hover .pwp-copy-icon,
+.pwp-share-buttons.pwp-button-circle .pwp-copy-link button:hover .pwp-copy-icon{background-color:#fff;}
 
-.pwp-share-buttons.pwp-button-rounded a{border-radius:5px;}
-.pwp-share-buttons.pwp-button-circle a{border-radius:50%;}
+.pwp-share-buttons.pwp-button-rounded a,
+.pwp-share-buttons.pwp-button-rounded .pwp-copy-link button{border-radius:5px;}
+.pwp-share-buttons.pwp-button-circle a,
+.pwp-share-buttons.pwp-button-circle .pwp-copy-link button{border-radius:50%;}
+
+.pwp-share-buttons.pwp-button-square .pwp-copy-link button.is-copied,
+.pwp-share-buttons.pwp-button-rounded .pwp-copy-link button.is-copied,
+.pwp-share-buttons.pwp-button-circle .pwp-copy-link button.is-copied{background-color:#000;}
+.pwp-share-buttons.pwp-button-circle .pwp-copy-link .pwp-check-icon{top:8px;left:8px;}

@@ -4,7 +4,7 @@ Donate link: https://surbma.com/donate/
 Tags: google analytics, google tag manager, facebook, google, shortcodes
 Requires at least: 5.2
 Tested up to: 6.7
-Stable tag: 11.4
+Stable tag: 11.5
 Requires PHP: 7.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -20,7 +20,7 @@ WordPress is a great platform and a good basis. But it needs plugins to add func
 - Extra fields: It gives a central place, where you can add your basic informations, like name, address, phone or email. Use shortcodes to add these informations to your site. If you ever need to change any of this information, you can change it in one place and all your informations will automatically update. Wow!
 - Google Analytics: An easy way to use Google Analytics tracking on your website. You only need to add your UA code and everything is done automatically. You can add your Classic or your Universal Analytics code and you can set display features option, if you want.
 - Google Tag Manager: The best way to manage all your 3rd party codes on your website.
-- Social share buttons for posts with 5 different styles: Facebook, Twitter, LinkedIn, Pinterest, Email
+- Social share buttons for posts with 5 different styles: Facebook, X (Twitter), LinkedIn, Pinterest, Email, Copy link
 - Shortcodes: A lot of useful shortcodes.
 
 **Do you want to contribute or help improving this plugin?**
@@ -58,6 +58,15 @@ I am managing hundreds of client websites. I use only the best and mostly premiu
 It is the reverse version of my last name. ;)
 
 == Changelog ==
+
+= 11.5 =
+
+Release date: 2026-06-22
+
+ENHANCEMENTS
+
+- Social share: Twitter button updated to X (Twitter) with new icon, darker gray default styling, and x.com intent URL.
+- Social share: optional copy link button with clipboard support and animated white checkmark success feedback.
 
 = 11.4 =
 

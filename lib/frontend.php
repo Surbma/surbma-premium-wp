@@ -1,8 +1,16 @@
 <?php
 
 add_action( 'wp_enqueue_scripts', function() {
-	wp_register_style( 'surbma-premium-wp', plugins_url( '', dirname(__FILE__) ) . '/css/frontend.css', array(), '20230831' );
+	wp_register_style( 'surbma-premium-wp', plugins_url( '', dirname(__FILE__) ) . '/css/frontend.css', array(), '20250622f' );
+	wp_register_script( 'surbma-premium-wp-social-share', plugins_url( '', dirname(__FILE__) ) . '/js/social-share.js', array(), '20250622e', true );
 } );
+
+function surbma_premium_wp_maybe_enqueue_social_share_script() {
+	$options = get_option( 'surbma_premium_wp_social_fields' );
+	if ( is_array( $options ) && isset( $options['copylinkposts'] ) && $options['copylinkposts'] == 1 ) {
+		wp_enqueue_script( 'surbma-premium-wp-social-share' );
+	}
+}
 
 // Social Share Buttons
 add_action( 'wp_head', function() {
@@ -17,12 +25,14 @@ add_action( 'wp_head', function() {
 	// Show Social Buttons on Posts
 	if( isset( $options['socialposts'] ) && $options['socialposts'] == 1 && is_singular( 'post' ) ) {
 		wp_enqueue_style( 'surbma-premium-wp' );
+		surbma_premium_wp_maybe_enqueue_social_share_script();
 		add_filter( 'the_content', 'surbma_premium_wp_social_add_share_buttons', 20 );
 	}
 
 	// Show Social Buttons on Pages
 	if( isset( $options['socialpages'] ) && $options['socialpages'] == 1 && is_page() && !is_page_template() ) {
 		wp_enqueue_style( 'surbma-premium-wp' );
+		surbma_premium_wp_maybe_enqueue_social_share_script();
 		add_filter( 'the_content', 'surbma_premium_wp_social_add_share_buttons', 20 );
 	}
 
@@ -31,77 +41,115 @@ add_action( 'wp_head', function() {
 		$includeposttypes = $options['socialcpts'] ? explode( ',', $options['socialcpts'] ) : '';
 		if( is_singular( $includeposttypes ) ) {
 			wp_enqueue_style( 'surbma-premium-wp' );
+			surbma_premium_wp_maybe_enqueue_social_share_script();
 			add_filter( 'the_content', 'surbma_premium_wp_social_add_share_buttons', 20 );
 		}
 	}
 } );
 
-add_shortcode( 'pwp-social-buttons', function() {
+add_shortcode( 'pwp-social-buttons', function( $atts ) {
+	$atts = shortcode_atts( array( 'id' => 0 ), $atts, 'pwp-social-buttons' );
 	wp_enqueue_style( 'surbma-premium-wp' );
-	return surbma_premium_wp_social_add_share_buttons( false );
+	surbma_premium_wp_maybe_enqueue_social_share_script();
+	return surbma_premium_wp_get_share_buttons_html( (int) $atts['id'] );
 } );
+
+function surbma_premium_wp_get_share_buttons_html( $post_id = 0 ) {
+	$options = get_option( 'surbma_premium_wp_social_fields' );
+	if ( ! is_array( $options ) ) {
+		return '';
+	}
+
+	$fblikeposts   = isset( $options['fblikeposts'] ) && $options['fblikeposts'] == '1';
+	$tweetposts    = isset( $options['tweetposts'] ) && $options['tweetposts'] == '1';
+	$linkedinposts = isset( $options['linkedinposts'] ) && $options['linkedinposts'] == '1';
+	$pinitposts    = isset( $options['pinitposts'] ) && $options['pinitposts'] == '1';
+	$emailposts    = isset( $options['emailposts'] ) && $options['emailposts'] == '1';
+	$copylinkposts = isset( $options['copylinkposts'] ) && $options['copylinkposts'] == '1';
+
+	if ( ! $fblikeposts && ! $tweetposts && ! $linkedinposts && ! $pinitposts && ! $emailposts && ! $copylinkposts ) {
+		return '';
+	}
+
+	$post_id = $post_id ? absint( $post_id ) : get_queried_object_id();
+	if ( ! $post_id && in_the_loop() ) {
+		$post_id = get_the_ID();
+	}
+	if ( ! $post_id ) {
+		return '';
+	}
+
+	$url   = get_permalink( $post_id );
+	$title = get_the_title( $post_id );
+	if ( ! $url ) {
+		return '';
+	}
+
+	$encoded_url   = rawurlencode( $url );
+	$encoded_title = rawurlencode( $title );
+
+	$fblike_button    = '';
+	$tweet_button     = '';
+	$linkedin_button  = '';
+	$pinterest_button = '';
+	$email_button     = '';
+	$copylink_button  = '';
+
+	$button_style = isset( $options['sharebuttonsstyle'] ) ? $options['sharebuttonsstyle'] : 'simple-mono';
+
+	if ( $fblikeposts ) {
+		$fblike_button = '<li class="pwp-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=' . $encoded_url . '" target="_blank" rel="noopener noreferrer"><span></span></a></li>';
+	}
+
+	if ( $tweetposts ) {
+		$tweet_button = '<li class="pwp-x"><a href="https://x.com/intent/tweet?text=' . $encoded_title . '&url=' . $encoded_url . '" target="_blank" rel="noopener noreferrer"><span></span></a></li>';
+	}
+
+	if ( $linkedinposts ) {
+		$linkedin_button = '<li class="pwp-linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url=' . $encoded_url . '&title=' . $encoded_title . '" target="_blank" rel="noopener noreferrer"><span></span></a></li>';
+	}
+
+	if ( $pinitposts ) {
+		$pinterest_button = '<li class="pwp-pinterest"><a href="https://pinterest.com/pin/create/button/?url=' . $encoded_url . '&description=' . $encoded_title . '" target="_blank" rel="noopener noreferrer"><span></span></a></li>';
+	}
+
+	if ( $emailposts ) {
+		$email_button = '<li class="pwp-email"><a href="mailto:?subject=' . $encoded_title . '&body=' . $encoded_url . '"><span></span></a></li>';
+	}
+
+	if ( $copylinkposts ) {
+		$copylink_button = '<li class="pwp-copy-link"><button type="button" data-url="' . esc_attr( $url ) . '" aria-label="' . esc_attr__( 'Link másolása', 'surbma-premium-wp' ) . '"><span class="pwp-copy-icon"></span><span class="pwp-check-icon"></span></button></li>';
+	}
+
+	return '<ul class="pwp-share-buttons pwp-' . esc_attr( $button_style ) . '">' . $fblike_button . $tweet_button . $linkedin_button . $pinterest_button . $email_button . $copylink_button . '</ul>';
+}
 
 function surbma_premium_wp_social_add_share_buttons( $content ) {
 	$options = get_option( 'surbma_premium_wp_social_fields' );
+	if ( ! is_array( $options ) ) {
+		return $content;
+	}
 
-	// Check if any social button is enabled
-	if ( $options['fblikeposts'] == '1' || $options['tweetposts'] == '1' || $options['linkedinposts'] == '1' || $options['pinitposts'] == '1' || $options['emailposts'] == '1' ) {
-
-		global $post;
-
-		$url = get_permalink();
-
-		$fblike_button = '';
-		$tweet_button = '';
-		$linkedin_button = '';
-		$pinterest_button = '';
-		$email_button = '';
-
-		$button_style = $options['sharebuttonsstyle'] ?? '';
-
-		if ( $options['fblikeposts'] == '1' ) {
-			$fblike_button = '<li class="pwp-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=' . $url . '" target="_blank"><span></span></a></li>';
-		}
-
-		if ( $options['tweetposts'] == '1' ) {
-			$tweet_button = '<li class="pwp-twitter"><a href="https://twitter.com/home?status=' . $url . '" target="_blank"><span></span></a></li>';
-		}
-
-		if ( $options['linkedinposts'] == '1' ) {
-			$linkedin_button = '<li class="pwp-linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url=' . $url . '" target="_blank"><span></span></a></li>';
-		}
-
-		if ( $options['pinitposts'] == '1' ) {
-			$pinterest_button = '<li class="pwp-pinterest"><a href="https://pinterest.com/pin/create/button/?url=' . $url . '" target="_blank"><span></span></a></li>';
-		}
-
-		if ( $options['emailposts'] == '1' ) {
-			$email_button = '<li class="pwp-email"><a href="mailto:?body=' . $url . '"><span></span></a></li>';
-		}
-
-		$social_buttons = '<ul class="pwp-share-buttons pwp-' . $button_style . '">' . $fblike_button . $tweet_button . $linkedin_button . $pinterest_button . $email_button . '</ul>';
-
-	} else {
-		// If no social buttons are enabled, then return the content
+	$social_buttons = surbma_premium_wp_get_share_buttons_html();
+	if ( $social_buttons === '' ) {
 		return $content;
 	}
 
 	if ( $content ) {
 		if ( is_main_query() && in_the_loop() ) {
-			if ( $options['sharebuttonsplace'] == 'before' ) {
+			$sharebuttonsplace = isset( $options['sharebuttonsplace'] ) ? $options['sharebuttonsplace'] : 'before';
+			if ( $sharebuttonsplace == 'before' ) {
 				$content = $social_buttons . $content;
-			}
-			elseif ( $options['sharebuttonsplace'] == 'after' ) {
+			} elseif ( $sharebuttonsplace == 'after' ) {
 				$content = $content . $social_buttons;
-			}
-			else {
+			} else {
 				$content = $social_buttons . $content . $social_buttons;
 			}
 		}
 		return $content;
-	} else {
-		return $social_buttons;
 	}
+
+	return $social_buttons;
 }
 
 // Insert Google Analytics script

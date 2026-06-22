@@ -66,6 +66,7 @@ $GLOBALS['surbma_premium_wp_social_page_callback'] = function() {
 				$linkedinposts = is_array( $options ) && isset( $options['linkedinposts'] ) && $options['linkedinposts'] === 1 ? 1 : 0;
 				$pinitposts = is_array( $options ) && isset( $options['pinitposts'] ) && $options['pinitposts'] === 1 ? 1 : 0;
 				$emailposts = is_array( $options ) && isset( $options['emailposts'] ) && $options['emailposts'] === 1 ? 1 : 0;
+				$copylinkposts = is_array( $options ) && isset( $options['copylinkposts'] ) && $options['copylinkposts'] === 1 ? 1 : 0;
 				$socialposts = is_array( $options ) && isset( $options['socialposts'] ) && $options['socialposts'] === 1 ? 1 : 0;
 				$socialpages = is_array( $options ) && isset( $options['socialpages'] ) && $options['socialpages'] === 1 ? 1 : 0;
 				$socialcpts = is_array( $options ) && isset( $options['socialcpts'] ) && $options['socialcpts'] ? $options['socialcpts'] : '';
@@ -88,13 +89,15 @@ $GLOBALS['surbma_premium_wp_social_page_callback'] = function() {
 										<p><input id="surbma_premium_wp_social_fields[fblikeposts]" name="surbma_premium_wp_social_fields[fblikeposts]" type="checkbox" value="1" <?php checked( '1', $fblikeposts ); ?> />
 										<label class="description" for="surbma_premium_wp_social_fields[fblikeposts]">Facebook tetszik gomb</label></p>
 										<p><input id="surbma_premium_wp_social_fields[tweetposts]" name="surbma_premium_wp_social_fields[tweetposts]" type="checkbox" value="1" <?php checked( '1', $tweetposts ); ?> />
-										<label class="description" for="surbma_premium_wp_social_fields[tweetposts]">Twitter megosztás gomb</label></p>
+										<label class="description" for="surbma_premium_wp_social_fields[tweetposts]">X (Twitter) megosztás gomb</label></p>
 										<p><input id="surbma_premium_wp_social_fields[linkedinposts]" name="surbma_premium_wp_social_fields[linkedinposts]" type="checkbox" value="1" <?php checked( '1', $linkedinposts ); ?> />
 										<label class="description" for="surbma_premium_wp_social_fields[linkedinposts]">LinkedIn megosztás gomb</label></p>
 										<p><input id="surbma_premium_wp_social_fields[pinitposts]" name="surbma_premium_wp_social_fields[pinitposts]" type="checkbox" value="1" <?php checked( '1', $pinitposts ); ?> />
 										<label class="description" for="surbma_premium_wp_social_fields[pinitposts]">Pinterest megosztás gomb</label></p>
 										<p><input id="surbma_premium_wp_social_fields[emailposts]" name="surbma_premium_wp_social_fields[emailposts]" type="checkbox" value="1" <?php checked( '1', $emailposts ); ?> />
 										<label class="description" for="surbma_premium_wp_social_fields[emailposts]">Email megosztás gomb</label></p>
+										<p><input id="surbma_premium_wp_social_fields[copylinkposts]" name="surbma_premium_wp_social_fields[copylinkposts]" type="checkbox" value="1" <?php checked( '1', $copylinkposts ); ?> />
+										<label class="description" for="surbma_premium_wp_social_fields[copylinkposts]">Link másolása gomb</label></p>
 									</td>
 								</tr>
 								<tr valign="top">
@@ -104,6 +107,11 @@ $GLOBALS['surbma_premium_wp_social_page_callback'] = function() {
 										<label class="description" for="surbma_premium_wp_social_fields[socialposts]"><?php esc_html_e( 'Minden bejegyzésnél', 'surbma-premium-wp' ); ?></label></p>
 										<p><input id="surbma_premium_wp_social_fields[socialpages]" name="surbma_premium_wp_social_fields[socialpages]" type="checkbox" value="1" <?php checked( '1', $socialpages ); ?> />
 										<label class="description" for="surbma_premium_wp_social_fields[socialpages]"><?php esc_html_e( 'Minden oldalnál', 'surbma-premium-wp' ); ?></label></p>
+										<div class="notice notice-info inline" style="margin: 1em 0 0;">
+											<p><?php esc_html_e( 'Page builder vagy theme builder template-ekben (pl. Divi Theme Builder), ahol a gombok automatikusan nem jelennek meg, használd a következő shortcode-ot:', 'surbma-premium-wp' ); ?> <code>[pwp-social-buttons]</code></p>
+											<p><?php esc_html_e( 'Opcionálisan megadhatsz konkrét bejegyzés ID-t:', 'surbma-premium-wp' ); ?> <code>[pwp-social-buttons id="123"]</code></p>
+											<p class="description"><?php esc_html_e( 'A gombok típusa és stílusa a fenti beállításokból jön. A shortcode elhelyezése független a „Hol jelenjenek meg” beállításoktól.', 'surbma-premium-wp' ); ?></p>
+										</div>
 									</td>
 								</tr>
 								<tr valign="top">
@@ -194,6 +202,7 @@ add_action( 'admin_init', function() {
 				$input['linkedinposts'] = isset( $input['linkedinposts'] ) && $input['linkedinposts'] == 1 ? 1 : 0;
 				$input['pinitposts'] = isset( $input['pinitposts'] ) && $input['pinitposts'] == 1 ? 1 : 0;
 				$input['emailposts'] = isset( $input['emailposts'] ) && $input['emailposts'] == 1 ? 1 : 0;
+				$input['copylinkposts'] = isset( $input['copylinkposts'] ) && $input['copylinkposts'] == 1 ? 1 : 0;
 				$input['socialposts'] = isset( $input['socialposts'] ) && $input['socialposts'] == 1 ? 1 : 0;
 				$input['socialpages'] = isset( $input['socialpages'] ) && $input['socialpages'] == 1 ? 1 : 0;
 

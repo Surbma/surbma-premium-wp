@@ -463,6 +463,36 @@ function surbma_premium_wp_shortcodes_page() {
 		</div>
 
 		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
+			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [pwp-social-buttons]</h3>
+			<p>A Social Integration beállításokban engedélyezett megosztási gombok megjelenítése bárhol, különösen page builder és theme builder template-ekben (pl. Divi Theme Builder), ahol a gombok automatikusan nem kerülnek be a tartalomba. A shortcode a megjelenített bejegyzés címét és linkjét használja a megosztáshoz.</p>
+			<div class="uk-overflow-container">
+				<table class="uk-table uk-table-hover uk-table-striped">
+					<thead>
+						<tr>
+							<th>Paraméter</th>
+							<th>Leírás</th>
+							<th>Lehetséges értékek</th>
+							<th>Alapértelmezett érték</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>id</code></td>
+							<td>Bejegyzés vagy oldal azonosítója. Ha nincs megadva, a megjelenített bejegyzés adatait használja.</td>
+							<td>Szám</td>
+							<td>Aktuális bejegyzés</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<h4>Használata:</h4>
+			<ul>
+				<li><code>[pwp-social-buttons]</code> - Megosztási gombok a fenti Social beállítások alapján</li>
+				<li><code>[pwp-social-buttons id="123"]</code> - Megosztási gombok egy adott bejegyzés címével és linkjével</li>
+			</ul>
+		</div>
+
+		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-top">
 			<h3 class="uk-card-title"><?php esc_html_e( 'Shortcode', 'surbma-premium-wp' ); ?>: [facebook-tetszik-gomb]</h3>
 			<p>Facebook "tetszik" gomb beillesztése az oldalra. A kód paraméterezhető és a "megosztás" gomb is engedélyezhető.</p>
 			<div class="uk-overflow-container">
